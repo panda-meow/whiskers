@@ -8,15 +8,18 @@
         </mat-progress-spinner>
         <mat-list>
             <mat-list-item *ngFor="let hero of heroes">
+
                 <img *ngIf="hero.default" class="cp"
                      (click)="seeHeroDetails(hero);" mat-list-avatar
-                     src="assets/images/heroes/{{hero.id}}-thumbnail.jpg">
+                     src="{{thumbnailURL(hero)}}">
                 <img *ngIf="!hero.default"
-                     (click)="seeHeroDetails(hero);" mat-list-avatar src="assets/images/heroes/default.png">
-                <h3 mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.name}} </h3>
-                <p mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);">
-                    <span>{{hero.alterEgo}}</span>
-                </p>
+                     (click)="seeHeroDetails(hero);" mat-list-avatar src="{{thumbnailURL(hero)}}">
+                <h3 mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.title}} </h3>
+                <p mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"></p>
+                <div *ngFor="let category of hero.categories">
+                    <span style="background: red;">{{category}}</span>
+                </div>
+               
                 <div class="hero-actions">
                     {{hero.likes}}
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"

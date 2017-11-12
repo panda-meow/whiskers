@@ -10,7 +10,7 @@ export const AppConfig: IAppConfig = {
     error404: '404'
   },
   endpoints: {
-    heroes: 'https://nodejs-example-app.herokuapp.com/heroes'
+    heroes: 'http://localhost:8080/heroes'
   },
   votesLimit: 3,
   topHeroesLimit: 4,

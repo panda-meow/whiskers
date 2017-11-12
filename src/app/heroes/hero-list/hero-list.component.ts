@@ -57,6 +57,15 @@ export class HeroListComponent {
     });
   }
 
+
+  headerURL(hero: Hero): string {
+    return Hero.headerURL(hero);
+  }
+
+  thumbnailURL(hero: Hero): string {
+    return Hero.thumbnailURL(hero);
+  }
+
   seeHeroDetails(hero): void {
     if (hero.default) {
       this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);

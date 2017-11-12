@@ -10,6 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 
 export class HeroDetailComponent {
+
   hero: Hero;
   canVote: boolean;
 
@@ -33,5 +34,13 @@ export class HeroDetailComponent {
         reject(error);
       });
     });
+  }
+
+  headerURL(hero: Hero): string {
+    return Hero.headerURL(hero);
+  }
+
+  thumbnailURL(hero: Hero): string {
+    return Hero.thumbnailURL(hero);
   }
 }
