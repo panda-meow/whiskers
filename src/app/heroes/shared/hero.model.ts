@@ -7,6 +7,7 @@ export class Hero {
               public title: string,
               public thumbnail: boolean,
               public header: boolean,
+              public body: string,
               public likes: number) {
   }
 
