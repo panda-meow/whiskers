@@ -1,12 +1,12 @@
 <mat-input-container>
-    <input matInput placeholder="{{ 'findHero' | translate }}!"
-           [matAutocomplete]="heroesAutocomplete" [formControl]="heroFormControl">
+    <input matInput placeholder="{{ 'findProject' | translate }}!"
+           [matAutocomplete]="projectsAutocomplete" [formControl]="projectFormControl">
 </mat-input-container>
 
-<mat-autocomplete #heroesAutocomplete="matAutocomplete">
-    <mat-option *ngFor="let hero of filteredHeroes"
-                (onSelectionChange)="searchHero(hero)"
-                [value]="hero.name">
-        {{hero.name}}
+<mat-autocomplete #projectsAutocomplete="matAutocomplete">
+    <mat-option *ngFor="let project of filteredProjects"
+                (onSelectionChange)="searchProject(project)"
+                [value]="project.name">
+        {{project.name}}
     </mat-option>
 </mat-autocomplete>

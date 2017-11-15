@@ -35,11 +35,11 @@ export class AppComponent {
               content: 'Angular Example app with Angular CLI, Angular Material and more'
             });
             break;
-          case '/' + AppConfig.routes.heroes:
-            this.title.setTitle('Heroes list');
+          case '/' + AppConfig.routes.projects:
+            this.title.setTitle('Projects list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of super-heroes'
+              content: 'List of super-projects'
             });
             break;
         }

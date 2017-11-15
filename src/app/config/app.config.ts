@@ -6,14 +6,14 @@ export let APP_CONFIG = new InjectionToken('app.config');
 
 export const AppConfig: IAppConfig = {
   routes: {
-    heroes: 'heroes',
+    projects: 'projects',
     error404: '404'
   },
   endpoints: {
-    heroes: 'http://localhost:8080/heroes'
+    projects: 'http://localhost:8080/projects'
   },
   votesLimit: 3,
-  topHeroesLimit: 4,
+  topProjectsLimit: 4,
   snackBarDuration: 3000,
   repositoryURL: 'https://github.com/Ismaestro/angular5-example-app'
 };

@@ -4,10 +4,10 @@ import {APP_BASE_HREF} from '@angular/common';
 import {TestsModule} from './shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {AppRoutingModule} from './app-routing.module';
-import {HeroTopComponent} from './heroes/hero-top/hero-top.component';
+import {ProjectTopComponent} from './projects/project-top/project-top.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {APP_CONFIG, AppConfig} from './config/app.config';
-import {HeroService} from './heroes/shared/hero.service';
+import {ProjectService} from './projects/shared/project.service';
 import {Error404Component} from './core/error404/error-404.component';
 
 describe('AppComponent', () => {
@@ -23,13 +23,13 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        HeroTopComponent,
+        ProjectTopComponent,
         Error404Component
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        ProjectService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {LoggerService} from '../logger.service';
-import {Hero} from '../../heroes/shared/hero.model';
+import {Project} from '../../projects/shared/project.model';
 import {FormControl} from '@angular/forms';
-import {HeroService} from '../../heroes/shared/hero.service';
+import {ProjectService} from '../../projects/shared/project.service';
 import {Router} from '@angular/router';
 import {AppConfig} from '../../config/app.config';
 
@@ -16,34 +16,34 @@ import {AppConfig} from '../../config/app.config';
 })
 
 export class SearchBarComponent {
-  defaultHeroes: Array<Hero> = [];
-  heroFormControl: FormControl;
-  filteredHeroes: any;
-  heroesAutocomplete: any;
+  defaultProjects: Array<Project> = [];
+  projectFormControl: FormControl;
+  filteredProjects: any;
+  projectsAutocomplete: any;
 
-  constructor(private heroService: HeroService,
+  constructor(private projectService: ProjectService,
               private router: Router) {
-    this.heroFormControl = new FormControl();
+    this.projectFormControl = new FormControl();
 
-    this.heroService.getAllHeroes().subscribe((heroes: Array<Hero>) => {
-      this.defaultHeroes = heroes.filter(hero => hero['default']);
+    this.projectService.getAllProjects().subscribe((projects: Array<Project>) => {
+      this.defaultProjects = projects.filter(project => project['default']);
 
-      this.heroFormControl.valueChanges
+      this.projectFormControl.valueChanges
         .startWith(null)
-        .map(value => this.filterHeroes(value))
-        .subscribe(heroesFiltered => {
-          this.filteredHeroes = heroesFiltered;
+        .map(value => this.filterProjects(value))
+        .subscribe(projectsFiltered => {
+          this.filteredProjects = projectsFiltered;
         });
     });
   }
 
-  filterHeroes(val: string): Hero[] {
-    return val ? this.defaultHeroes.filter(hero => hero.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && hero['default'])
-      : this.defaultHeroes;
+  filterProjects(val: string): Project[] {
+    return val ? this.defaultProjects.filter(project => project.name.toLowerCase().indexOf(val.toLowerCase()) === 0 && project['default'])
+      : this.defaultProjects;
   }
 
-  searchHero(hero: Hero): Promise<boolean> {
-    LoggerService.log('Moved to hero with id: ' + hero.id);
-    return this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
+  searchProject(project: Project): Promise<boolean> {
+    LoggerService.log('Moved to project with id: ' + project.id);
+    return this.router.navigate([AppConfig.routes.projects + '/' + project.id]);
   }
 }

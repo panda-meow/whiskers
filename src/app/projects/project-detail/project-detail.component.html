@@ -1,0 +1,20 @@
+<h1 class="section-title">{{'projectDetail' | translate}}</h1>
+<mat-progress-spinner *ngIf="!project"
+                      class="progress-spinner"
+                      [color]="'primary'"
+                      [mode]="'indeterminate'">
+</mat-progress-spinner>
+<div id="project-detail" *ngIf="project">
+    <ng-container>
+        <mat-card class="project-card">
+            <mat-card-header>
+                <div mat-card-avatar class="project-header-image"
+                     [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
+                <mat-card-title>{{project.title}}</mat-card-title>
+                <mat-card-subtitle>{{project.categories}}</mat-card-subtitle>
+                <div class="flex-spacer"></div>
+            </mat-card-header>
+            <img mat-card-image src="{{headerURL(project)}}">
+        </mat-card>
+    </ng-container>
+</div>

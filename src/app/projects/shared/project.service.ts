@@ -3,15 +3,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {AppConfig} from '../../config/app.config';
 
-import {Hero} from './hero.model';
+import {Project} from './project.model';
 import {Observable} from 'rxjs/Observable';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
 
 @Injectable()
-export class HeroService {
+export class ProjectService {
   private headers: HttpHeaders;
-  private heroesUrl: string;
+  private projectsUrl: string;
   private translations: any;
 
   private handleError(error: any) {
@@ -24,59 +24,59 @@ export class HeroService {
   constructor(private http: HttpClient,
               private translateService: TranslateService,
               private snackBar: MatSnackBar) {
-    this.heroesUrl = AppConfig.endpoints.heroes;
+    this.projectsUrl = AppConfig.endpoints.projects;
     this.headers = new HttpHeaders({'Content-Type': 'application/json'});
 
-    this.translateService.get(['heroCreated', 'saved', 'heroLikeMaximum', 'heroRemoved'], {
+    this.translateService.get(['projectCreated', 'saved', 'projectLikeMaximum', 'projectRemoved'], {
       'value': AppConfig.votesLimit
     }).subscribe((texts) => {
       this.translations = texts;
     });
   }
 
-  getAllHeroes(): Observable<Hero[]> {
-    return this.http.get(this.heroesUrl)
+  getAllProjects(): Observable<Project[]> {
+    return this.http.get(this.projectsUrl)
       .map(response => {
         return response;
       })
       .catch(error => this.handleError(error));
   }
 
-  getHeroById(heroId: string): Observable<Hero> {
-    return this.http.get(this.heroesUrl + '/' + heroId)
+  getProjectById(projectId: string): Observable<Project> {
+    return this.http.get(this.projectsUrl + '/' + projectId)
       .map(response => {
         return response;
       })
       .catch(error => this.handleError(error));
   }
 
-  createHero(hero: any): Observable<Hero> {
+  createProject(project: any): Observable<Project> {
     return this.http
-      .post(this.heroesUrl, JSON.stringify({
-        name: hero.name,
-        alterEgo: hero.alterEgo
+      .post(this.projectsUrl, JSON.stringify({
+        name: project.name,
+        alterEgo: project.alterEgo
       }), {headers: this.headers})
       .map(response => {
-        this.showSnackBar('heroCreated');
+        this.showSnackBar('projectCreated');
         return response;
       })
       .catch(error => this.handleError(error));
   }
 
-  like(hero: Hero) {
+  like(project: Project) {
     if (this.checkIfUserCanVote()) {
-      const url = `${this.heroesUrl}/${hero.id}/like`;
+      const url = `${this.projectsUrl}/${project.id}/like`;
       return this.http
         .post(url, {}, {headers: this.headers})
         .map((response) => {
           localStorage.setItem('votes', '' + (Number(localStorage.getItem('votes')) + 1));
-          hero.likes += 1;
+          project.likes += 1;
           this.showSnackBar('saved');
           return response;
         })
         .catch(error => this.handleError(error));
     } else {
-      this.showSnackBar('heroLikeMaximum');
+      this.showSnackBar('projectLikeMaximum');
       return Observable.throw('maximum votes');
     }
   }
@@ -85,11 +85,11 @@ export class HeroService {
     return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;
   }
 
-  deleteHeroById(id: any): Observable<Array<Hero>> {
-    const url = `${this.heroesUrl}/${id}`;
+  deleteProjectById(id: any): Observable<Array<Project>> {
+    const url = `${this.projectsUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .map((response) => {
-        this.showSnackBar('heroRemoved');
+        this.showSnackBar('projectRemoved');
         return response;
       })
       .catch(error => this.handleError(error));

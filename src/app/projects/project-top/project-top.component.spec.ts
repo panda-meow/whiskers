@@ -1,16 +1,16 @@
 import {async, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
-import {HeroTopComponent} from './hero-top.component';
-import {HeroService} from '../shared/hero.service';
+import {ProjectTopComponent} from './project-top.component';
+import {ProjectService} from '../shared/project.service';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('HeroTopComponent', () => {
+describe('ProjectTopComponent', () => {
   let fixture;
   let component;
-  let heroService;
+  let projectService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,47 +19,47 @@ describe('HeroTopComponent', () => {
         TranslateModule.forRoot(),
       ],
       declarations: [
-        HeroTopComponent
+        ProjectTopComponent
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        ProjectService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroTopComponent);
+    fixture = TestBed.createComponent(ProjectTopComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
-    heroService = TestBed.get(HeroService);
+    projectService = TestBed.get(ProjectService);
   }));
 
-  it('should create hero top component', (() => {
+  it('should create project top component', (() => {
     expect(component).toBeTruthy();
   }));
 
   it('should initialice component', fakeAsync(() => {
     fixture.detectChanges();
-    spyOn(heroService, 'getAllHeroes').and.returnValue(Promise.resolve(true));
+    spyOn(projectService, 'getAllProjects').and.returnValue(Promise.resolve(true));
     tick();
     fixture.detectChanges();
-    expect(component.heroes.length).toBe(AppConfig.topHeroesLimit);
+    expect(component.projects.length).toBe(AppConfig.topProjectsLimit);
   }));
 
-  it('should like a hero', async(() => {
+  it('should like a project', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
     component.like({id: 1}).then((result) => {
       expect(result).toBe(true);
     });
   }));
 
-  it('should not like a hero', async(() => {
+  it('should not like a project', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit));
     component.like({id: 1}).then(() => {
     }, (error) => {
       expect(error).toBe('maximum votes');
     });
-    expect(heroService.checkIfUserCanVote()).toBe(false);
+    expect(projectService.checkIfUserCanVote()).toBe(false);
   }));
 });

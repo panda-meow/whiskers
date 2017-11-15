@@ -1,34 +1,34 @@
 <div id="left">
-    <h2 class="section-title">{{ 'heroesList' | translate }}</h2>
+    <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
     <div>
-        <mat-progress-spinner *ngIf="!heroes"
+        <mat-progress-spinner *ngIf="!projects"
                               class="progress-spinner"
                               [color]="'primary'"
                               [mode]="'indeterminate'">
         </mat-progress-spinner>
         <mat-list>
-            <mat-list-item *ngFor="let hero of heroes">
+            <mat-list-item *ngFor="let project of projects">
 
-                <img *ngIf="hero.default" class="cp"
-                     (click)="seeHeroDetails(hero);" mat-list-avatar
-                     src="{{thumbnailURL(hero)}}">
-                <img *ngIf="!hero.default"
-                     (click)="seeHeroDetails(hero);" mat-list-avatar src="{{thumbnailURL(hero)}}">
-                <h3 mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"> {{hero.title}} </h3>
-                <p mat-line [ngClass]="{'cp': hero.default}" (click)="seeHeroDetails(hero);"></p>
-                <div *ngFor="let category of hero.categories">
+                <img *ngIf="project.default" class="cp"
+                     (click)="seeProjectDetails(project);" mat-list-avatar
+                     src="{{thumbnailURL(project)}}">
+                <img *ngIf="!project.default"
+                     (click)="seeProjectDetails(project);" mat-list-avatar src="{{thumbnailURL(project)}}">
+                <h3 mat-line [ngClass]="{'cp': project.default}" (click)="seeProjectDetails(project);"> {{project.title}} </h3>
+                <p mat-line [ngClass]="{'cp': project.default}" (click)="seeProjectDetails(project);"></p>
+                <div *ngFor="let category of project.categories">
                     <span style="background: red;">{{category}}</span>
                 </div>
                
-                <div class="hero-actions">
-                    {{hero.likes}}
+                <div class="project-actions">
+                    {{project.likes}}
                     <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
                               [matTooltipPosition]="'above'"
-                              class="like-icon" (click)="like(hero)">
+                              class="like-icon" (click)="like(project)">
                         favorite
                     </mat-icon>
-                    <mat-icon class="remove-icon" *ngIf="!hero.default"
-                              (click)="remove(hero);">
+                    <mat-icon class="remove-icon" *ngIf="!project.default"
+                              (click)="remove(project);">
                         delete
                     </mat-icon>
                 </div>
@@ -37,9 +37,9 @@
     </div>
 </div>
 <div id="right">
-    <h2 class="section-title">{{ 'createHero' | translate }}</h2>
+    <h2 class="section-title">{{ 'createProject' | translate }}</h2>
     <div>
-        <form [formGroup]="newHeroForm" #form="ngForm" (ngSubmit)="createNewHero(newHeroForm.value)">
+        <form [formGroup]="newProjectForm" #form="ngForm" (ngSubmit)="createNewProject(newProjectForm.value)">
             <mat-input-container class="input-container">
                 <input matInput type="text"
                        placeholder="{{'name' | translate}}"
@@ -52,7 +52,7 @@
                        formControlName="alterEgo">
             </mat-input-container>
 
-            <button mat-raised-button type="submit" [disabled]="!newHeroForm.valid">
+            <button mat-raised-button type="submit" [disabled]="!newProjectForm.valid">
                 {{'create' | translate}}
             </button>
 

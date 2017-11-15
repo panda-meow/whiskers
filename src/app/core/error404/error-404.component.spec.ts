@@ -2,7 +2,7 @@ import {async, TestBed} from '@angular/core/testing';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
-import {HeroService} from '../../heroes/shared/hero.service';
+import {ProjectService} from '../../projects/shared/project.service';
 import {MaterialModule} from '../../shared/modules/material.module';
 import {ProgressBarService} from '../progress-bar.service';
 import {TestsModule} from '../../shared/modules/tests.module';
@@ -25,7 +25,7 @@ describe('Error404Component', () => {
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
-        HeroService,
+        ProjectService,
         ProgressBarService
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]

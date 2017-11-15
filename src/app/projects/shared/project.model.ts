@@ -1,4 +1,4 @@
-export class Hero {
+export class Project {
 
   constructor(public id: number,
               public name: string,
@@ -11,17 +11,17 @@ export class Hero {
               public likes: number) {
   }
 
-  public static thumbnailURL(hero: Hero): string {
-    if(hero.thumbnail) {
-      return "http://localhost:8080/heroes/" + hero.id + "/thumbnail";
+  public static thumbnailURL(project: Project): string {
+    if(project.thumbnail) {
+      return "http://localhost:8080/projects/" + project.id + "/thumbnail";
     } else {
-      return "assets/images/heroes/default.png";
+      return "assets/images/projects/default.png";
     }
   }
 
-  public static headerURL(hero: Hero): string {
-    if(hero.header) {
-      return "http://localhost:8080/heroes/" + hero.id + "/header";
+  public static headerURL(project: Project): string {
+    if(project.header) {
+      return "http://localhost:8080/projects/" + project.id + "/header";
     } else {
       return null;
     }

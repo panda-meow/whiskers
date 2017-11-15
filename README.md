@@ -62,8 +62,8 @@ Live DEMO [here](http://angularexampleapp.com/)!
 * Internationalization
 * Lazy loading modules
 * Interceptors and Events (Progress bar active, if a request is pending)
-* CRUD: create, update and remove heroes
-* Search bar, to look for heroes
+* CRUD: create, update and remove projects
+* Search bar, to look for projects
 * Modal and toasts (snakbar)!
 * Unit tests with Jasmine and Karma including code coverage
 * End-to-end tests with Protractor
@@ -97,7 +97,7 @@ We use Travis CI to run this tasks in order:
 
 ## Server
 
-This repo is using an API which is [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Heroku and using PostGreSQL, to create, modify and delete heroes.
+This repo is using an API which is [a minimal app](https://github.com/Ismaestro/nodejs-example-app) in NodeJS deployed on Projectku and using PostGreSQL, to create, modify and delete projects.
 
 ## Contributors
 

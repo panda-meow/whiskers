@@ -1,42 +1,42 @@
 import {async, TestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroesModule} from '../heroes.module';
+import {ProjectDetailComponent} from './project-detail.component';
+import {ProjectsModule} from '../projects.module';
 import {TestsModule} from '../../shared/modules/tests.module';
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {TranslateModule} from '@ngx-translate/core';
-import {HeroService} from '../shared/hero.service';
+import {ProjectService} from '../shared/project.service';
 
-describe('HeroDetailComponent', () => {
+describe('ProjectDetailComponent', () => {
   let fixture;
   let component;
-  let heroService;
+  let projectService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         TestsModule,
         TranslateModule.forRoot(),
-        HeroesModule
+        ProjectsModule
       ],
       providers: [
         {provide: APP_CONFIG, useValue: AppConfig},
         {provide: APP_BASE_HREF, useValue: '/'},
-        HeroService
+        ProjectService
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroDetailComponent);
+    fixture = TestBed.createComponent(ProjectDetailComponent);
     fixture.detectChanges();
     component = fixture.debugElement.componentInstance;
-    heroService = TestBed.get(HeroService);
+    projectService = TestBed.get(ProjectService);
   }));
 
-  it('should create hero detail component', (() => {
+  it('should create project detail component', (() => {
     expect(component).toBeTruthy();
   }));
 
-  it('should like a hero', async(() => {
+  it('should like a project', async(() => {
     localStorage.setItem('votes', String(AppConfig.votesLimit - 1));
     component.like({id: 1}).then((result) => {
       expect(result).toBe(true);
