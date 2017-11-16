@@ -1,63 +1,63 @@
 <div id="left">
-    <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
-    <div>
-        <mat-progress-spinner *ngIf="!projects"
-                              class="progress-spinner"
-                              [color]="'primary'"
-                              [mode]="'indeterminate'">
-        </mat-progress-spinner>
-        <mat-list>
-            <mat-list-item *ngFor="let project of projects">
+  <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
+  <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
+  <div>
+    <mat-progress-spinner *ngIf="!projects" class="progress-spinner"
+      [color]="'primary'" [mode]="'indeterminate'">
+    </mat-progress-spinner>
+    <mat-list>
+      <mat-list-item *ngFor="let project of projects">
 
-                <img *ngIf="project.default" class="cp"
-                     (click)="seeProjectDetails(project);" mat-list-avatar
-                     src="{{thumbnailURL(project)}}">
-                <img *ngIf="!project.default"
-                     (click)="seeProjectDetails(project);" mat-list-avatar src="{{thumbnailURL(project)}}">
-                <h3 mat-line [ngClass]="{'cp': project.default}" (click)="seeProjectDetails(project);"> {{project.title}} </h3>
-                <p mat-line [ngClass]="{'cp': project.default}" (click)="seeProjectDetails(project);"></p>
-                <div *ngFor="let category of project.categories">
-                    <span style="background: red;">{{category}}</span>
-                </div>
-               
-                <div class="project-actions">
-                    {{project.likes}}
-                    <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
-                              [matTooltipPosition]="'above'"
-                              class="like-icon" (click)="like(project)">
-                        favorite
-                    </mat-icon>
-                    <mat-icon class="remove-icon" *ngIf="!project.default"
-                              (click)="remove(project);">
-                        delete
-                    </mat-icon>
-                </div>
-            </mat-list-item>
-        </mat-list>
-    </div>
+        <img *ngIf="project.default" class="cp" (click)="seeProjectDetails(project);"
+          mat-list-avatar src="{{thumbnailURL(project)}}">
+        <img *ngIf="!project.default" (click)="seeProjectDetails(project);"
+          mat-list-avatar src="{{thumbnailURL(project)}}">
+        <h3 mat-line [ngClass]="{'cp': project.default}"
+          (click)="seeProjectDetails(project);">
+        {{project.title}} </h3>
+        <p mat-line [ngClass]="{'cp': project.default}"
+          (click)="seeProjectDetails(project);"></p>
+        <div *ngFor="let category of project.categories">
+          <span style="background: red;">{{category}}</span>
+        </div>
+
+        <div class="project-actions">
+          {{project.likes}}
+          <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
+            [matTooltipPosition]="'above'"
+            class="like-icon" (click)="like(project)">
+            favorite
+          </mat-icon>
+          <mat-icon class="remove-icon" *ngIf="!project.default"
+            (click)="remove(project);">
+            delete
+          </mat-icon>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>
 <div id="right">
-    <h2 class="section-title">{{ 'createProject' | translate }}</h2>
-    <div>
-        <form [formGroup]="newProjectForm" #form="ngForm" (ngSubmit)="createNewProject(newProjectForm.value)">
-            <mat-input-container class="input-container">
-                <input matInput type="text"
-                       placeholder="{{'name' | translate}}"
-                       formControlName="name">
-            </mat-input-container>
+  <h2 class="section-title">{{ 'createProject' | translate }}</h2>
+  <div>
+    <form [formGroup]="newProjectForm" #form="ngForm"
+      (ngSubmit)="createNewProject(newProjectForm.value)">
+      <mat-input-container class="input-container">
+        <input matInput type="text" placeholder="{{'name' | translate}}"
+          formControlName="name">
+      </mat-input-container>
 
-            <mat-input-container class="input-container">
-                <input matInput type="text"
-                       placeholder="{{'realName' | translate}}"
-                       formControlName="alterEgo">
-            </mat-input-container>
+      <mat-input-container class="input-container">
+        <input matInput type="text" placeholder="{{'realName' | translate}}"
+          formControlName="alterEgo">
+      </mat-input-container>
 
-            <button mat-raised-button type="submit" [disabled]="!newProjectForm.valid">
+      <button mat-raised-button type="submit" [disabled]="!newProjectForm.valid">
                 {{'create' | translate}}
             </button>
 
-            <div *ngIf="error">{{error | translate}}</div>
-        </form>
-    </div>
+      <div *ngIf="error">{{error | translate}}</div>
+    </form>
+  </div>
 </div>
 <div class="clear"></div>
