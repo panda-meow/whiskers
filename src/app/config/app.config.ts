@@ -10,7 +10,7 @@ export const AppConfig: IAppConfig = {
     error404: '404'
   },
   endpoints: {
-    projects: 'http://localhost:8080/projects'
+    projects: 'http://' + window.location.hostname + ':8080/projects'
   },
   votesLimit: 3,
   topProjectsLimit: 4,
