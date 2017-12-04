@@ -1,5 +1,4 @@
-<div id="left">
-  <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
+<div>
   <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
   <div>
     <mat-progress-spinner *ngIf="!projects" class="progress-spinner"
@@ -14,12 +13,12 @@
           mat-list-avatar src="{{thumbnailURL(project)}}">
         <h3 mat-line [ngClass]="{'cp': project.default}"
           (click)="seeProjectDetails(project);">
-        {{project.title}} </h3>
+          {{project.title}} </h3>
         <p mat-line [ngClass]="{'cp': project.default}"
           (click)="seeProjectDetails(project);"></p>
-        <div *ngFor="let category of project.categories">
-          <span style="background: red;">{{category}}</span>
-        </div>
+        <!-- <mat-chip-list *ngFor="let category of project.categories">
+          <mat-chip style="background: red;">{{category}}</mat-chip>
+        </mat-chip-list> -->
 
         <div class="project-actions">
           {{project.likes}}
@@ -35,29 +34,6 @@
         </div>
       </mat-list-item>
     </mat-list>
-  </div>
-</div>
-<div id="right">
-  <h2 class="section-title">{{ 'createProject' | translate }}</h2>
-  <div>
-    <form [formGroup]="newProjectForm" #form="ngForm"
-      (ngSubmit)="createNewProject(newProjectForm.value)">
-      <mat-input-container class="input-container">
-        <input matInput type="text" placeholder="{{'name' | translate}}"
-          formControlName="name">
-      </mat-input-container>
-
-      <mat-input-container class="input-container">
-        <input matInput type="text" placeholder="{{'realName' | translate}}"
-          formControlName="alterEgo">
-      </mat-input-container>
-
-      <button mat-raised-button type="submit" [disabled]="!newProjectForm.valid">
-                {{'create' | translate}}
-            </button>
-
-      <div *ngIf="error">{{error | translate}}</div>
-    </form>
   </div>
 </div>
 <div class="clear"></div>

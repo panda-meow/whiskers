@@ -1,20 +1,111 @@
-<h1 class="section-title">{{'projectDetail' | translate}}</h1>
-<mat-progress-spinner *ngIf="!project"
-                      class="progress-spinner"
-                      [color]="'primary'"
-                      [mode]="'indeterminate'">
-</mat-progress-spinner>
-<div id="project-detail" *ngIf="project">
-    <ng-container>
-        <mat-card class="project-card">
-            <mat-card-header>
-                <div mat-card-avatar class="project-header-image"
-                     [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
-                <mat-card-title>{{project.title}}</mat-card-title>
-                <mat-card-subtitle>{{project.categories}}</mat-card-subtitle>
-                <div class="flex-spacer"></div>
-            </mat-card-header>
-            <img mat-card-image src="{{headerURL(project)}}">
-        </mat-card>
-    </ng-container>
+<div *ngIf="project">
+
+    <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="space-around center" style="background:red;">
+        blah
+    </div>
+
+    <div class="content" fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
+        <div fxFlex="20" class="sec1" fxFlex.lt-md="100" fxLayoutAlign.lt-md="center center" style="background: yellow; min-width:265px;" [ngStyle.xs]="{'text-align': 'center'}" [ngStyle.sm]="{ 'text-align': 'center'}">
+            <ul>
+                <li>
+                    <p class="meta-title">default</p>
+                    <p class="meta-data">{{ project.default }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">name</p>
+                    <p class="meta-data">{{ project.name }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">id</p>
+                    <p class="meta-data">{{ project.id }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">categories</p>
+                    <p class="meta-data">{{ project.categories }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">likes</p>
+                    <p class="meta-data">{{ project.likes }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">alter ego</p>
+                    <p class="meta-data">{{ project.alterEgo }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">thumbnail</p>
+                    <p class="meta-data">{{ project.thumbnail }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">title</p>
+                    <p class="meta-data">{{ project.title }}</p>
+                </li>
+                <li>
+                    <p class="meta-title">header</p>
+                    <p class="meta-data">{{ project.header }}</p>
+                </li>
+            </ul>
+        </div>
+        <div fxFlex="80" fxFlex.lt-md="100" class="sec3" style="background: purple;">
+            <h2 class="mat-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus, velit nec vulputate vestibulum, justo magna ullamcorper turpis, eget commodo nunc mi scelerisque orci. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis
+                lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,
+                ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
+            <h2 class="mat-subheading-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus, velit nec vulputate vestibulum, justo magna ullamcorper turpis, eget commodo nunc mi scelerisque orci. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis
+                lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,
+                ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
+            <h2 class="mat-subheading-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus, velit nec vulputate vestibulum, justo magna ullamcorper turpis, eget commodo nunc mi scelerisque orci. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis
+                lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,
+                ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
+        </div>
+    </div>
+
+
+    <h1 class="section-title">{{'projectDetail' | translate}}</h1>
+    <mat-progress-spinner *ngIf="!project" class="progress-spinner" [color]="'primary'" [mode]="'indeterminate'">
+    </mat-progress-spinner>
+    <div class="project-detail" *ngIf="project">
+        <h1>{{ project | json }}</h1>
+        <ng-container>
+            <mat-card class="project-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="project-header-image" [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
+                    <mat-card-title>{{project.title}}</mat-card-title>
+                    <mat-card-subtitle>{{project.categories}}</mat-card-subtitle>
+                    <div class="flex-spacer"></div>
+                </mat-card-header>
+                <img mat-card-image src="{{headerURL(project)}}">
+            </mat-card>
+        </ng-container>
+        <div style="background: grey;" height="400px">
+            <h1>this is another ng-container</h1>
+        </div>
+    </div>
+    <div style="background: silver;" height="400px">
+        <h1>this is another image full-width</h1>
+    </div>
+    <div class="project-detail">
+        <ng-container>
+            <h1>This is another ng-container</h1>
+        </ng-container>
+    </div>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxFlexFill>
+        <div fxFlex="15" style="background: #ccc;"></div>
+        <div fxFlex="45" style="background: orange; height: 150px;"></div>
+        <div fxFlex="45" style="background: yellow; height: 200px;"></div>
+        <div fxFlex="15" style="background: #ccc;"></div>
+    </div>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxFlexFill>
+        <div fxFlex="33" style="background: #222; height: 200px;"></div>
+        <div fxFlex="66" style="background: #ccc; height: 200px;"></div>
+    </div>
+    <div fxLayout="row" fxLayout.lt-sm="column">
+        <div fxFlex="15" style="background: #ccc;"></div>
+        <div fxFlex="90" style="background: red; height: 350px;">
+            <div style="font-style: italic" [ngStyle.xs]="{'font-size.px': 10, color: 'blue'}" [ngStyle.sm]="{'font-size.px': 20, color: 'lightblue'}" [ngStyle.md]="{'font-size.px': 30, color: 'orange'}" [ngStyle.lg]="styleLgExp">
+                This is some text that changes style with screen size!
+            </div>
+        </div>
+        <div fxFlex="15" style="background: #ccc;"></div>
+    </div>
 </div>
