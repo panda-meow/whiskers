@@ -1,0 +1,65 @@
+ $transition: all .3s ease;
+ @mixin transition($transition) {
+     //  -webkit-transition: $transition;
+     //  -o-transition: $transition;
+     //  transition: $transition;
+     -webkit-transition: $transition;
+     -moz-transition: $transition;
+     -ms-transition: $transition;
+     -o-transition: $transition;
+     transition: $transition;
+ }
+ 
+ .transition {
+     @include transition($transition);
+ }
+ 
+ @mixin transition($transition) {
+     -webkit-transition: $transition;
+     -moz-transition: $transition;
+     -ms-transition: $transition;
+     -o-transition: $transition;
+     transition: $transition;
+ }
+ 
+ @mixin textShadow($text-shadow) {
+     -webkit-text-shadow: $text-shadow;
+     -moz-text-shadow: $text-shadow;
+     -ms-text-shadow: $text-shadow;
+     -o-text-shadow: $text-shadow;
+     text-shadow: $text-shadow;
+ }
+ 
+ @mixin boxShadow($box-shadow) {
+     -webkit-box-shadow: $box-shadow;
+     -moz-box-shadow: $box-shadow;
+     -ms-box-shadow: $box-shadow;
+     -o-box-shadow: $box-shadow;
+     box-shadow: $box-shadow;
+ }
+ 
+ @mixin NoUserSelect {
+     -webkit-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     -o-user-select: none;
+     user-select: none;
+ }
+ 
+ //  #glow {
+ //      @include transition(.5s ease-in-out);
+ //      @include textShadow((0 0 0 transparent, 0 0 0 transparent));
+ //      color: rgba(0, 0, 0, .1);
+ //      overflow: visible;
+ //      &:hover {
+ //          color: white;
+ //          @include textShadow((0 0 10px #ff401a, 0 0 50px #ff9b1a));
+ //      }
+ //  }
+ // @mixin transition($args...) {
+ //     -webkit-transition: $args;
+ //     -moz-transition: $args;
+ //     -ms-transition: $args;
+ //     -o-transition: $args;
+ //     transition: $args;
+ // }

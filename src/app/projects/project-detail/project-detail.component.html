@@ -1,14 +1,20 @@
 <div *ngIf="project">
 
+    <!-- <div class="test-styles">
+        <h1>TESTING STYLES</h1>
+    </div> -->
     <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
     </div>
-    <div fxLayout="row wrap" fxLayoutAlign="space-around center" style="background:red;">
+    <!-- <div fxLayout="row wrap" fxLayoutAlign="space-around center" style="background:red;">
         blah
-    </div>
+    </div> -->
 
-    <div class="content" fxLayout="row" fxLayout.lt-md="column" fxFlexFill>
-        <div fxFlex="20" class="sec1" fxFlex.lt-md="100" fxLayoutAlign.lt-md="center center" style="background: yellow; min-width:265px;" [ngStyle.xs]="{'text-align': 'center'}" [ngStyle.sm]="{ 'text-align': 'center'}">
-            <ul>
+    <!-- <div class="content" fxLayout="row" fxLayout.lt-md="column" fxFlexFill> -->
+    <div class="content" fxLayout="row" fxLayout.lt-md="column">
+        <!-- <div fxFlex="20" class="sec1" fxFlex.lt-md="100" fxLayoutAlign.lt-md="center center" style="background: yellow; min-width:265px; padding: 10px;" [ngStyle.xs]="{'text-align': 'center'}" [ngStyle.sm]="{ 'text-align': 'center'}"> -->
+        <div fxFlex="25" class="sec1" fxFlex.lt-md="100" fxLayoutAlign="center center" fxLayoutAlign.lt-md="center center" style="padding: 10px;" [ngStyle.xs]="{'text-align': 'center'}" [ngStyle.sm]="{ 'text-align': 'center'}">
+            <!-- <div fxFlex="25" class="sec1" fxFlex.lt-md="100" fxLayoutAlign.lt-md="center center" style="background: yellow; padding: 10px;" [ngStyle.xs]="{'text-align': 'center'}" [ngStyle.sm]="{ 'text-align': 'center'}"> -->
+            <ul style="padding-top: 4em;">
                 <li>
                     <p class="meta-title">default</p>
                     <p class="meta-data">{{ project.default }}</p>
@@ -47,10 +53,9 @@
                 </li>
             </ul>
         </div>
-        <div fxFlex="80" fxFlex.lt-md="100" class="sec3" style="background: purple;">
-            <h2 class="mat-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus, velit nec vulputate vestibulum, justo magna ullamcorper turpis, eget commodo nunc mi scelerisque orci. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis
-                lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,
-                ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
+        <div fxFlex="75" fxFlex.lt-md="100" class="sec3">
+            <!-- <div fxFlex="75" fxFlex.lt-md="100" class="sec3" style="background: purple;"> -->
+            <h1 class="section-title">Overview</h1>
             <h2 class="mat-subheading-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rhoncus, velit nec vulputate vestibulum, justo magna ullamcorper turpis, eget commodo nunc mi scelerisque orci. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis
                 lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,
                 ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
@@ -65,7 +70,7 @@
     <mat-progress-spinner *ngIf="!project" class="progress-spinner" [color]="'primary'" [mode]="'indeterminate'">
     </mat-progress-spinner>
     <div class="project-detail" *ngIf="project">
-        <h1>{{ project | json }}</h1>
+        <p class="mat-subheading-1">{{ project | json }}</p>
         <ng-container>
             <mat-card class="project-card">
                 <mat-card-header>
@@ -78,15 +83,21 @@
             </mat-card>
         </ng-container>
         <div style="background: grey;" height="400px">
+            <h1 class="title">This is a title</h1>
+            <h1 class="title">THIS IS A TITLE</h1>
             <h1>this is another ng-container</h1>
         </div>
     </div>
     <div style="background: silver;" height="400px">
-        <h1>this is another image full-width</h1>
+        <h1 class="mat-subheading-1">this is another h1 image full-width</h1>
+        <p class="mat-subheading-1">this is another p image full-width</p>
     </div>
     <div class="project-detail">
         <ng-container>
-            <h1>This is another ng-container</h1>
+            <h1 class="mat-subheading-1 section-title">This is another ng-container</h1>
+            <p class="mat-subheading-1 text-block">
+                Morbi quis lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem.
+            </p>
         </ng-container>
     </div>
     <div fxLayout="row" fxLayout.lt-sm="column" fxFlexFill>
@@ -97,7 +108,19 @@
     </div>
     <div fxLayout="row" fxLayout.lt-sm="column" fxFlexFill>
         <div fxFlex="33" style="background: #222; height: 200px;"></div>
-        <div fxFlex="66" style="background: #ccc; height: 200px;"></div>
+        <div fxFlex="66" style="background: #ccc; height: auto;">
+            <h1 class="section-title">Another Section Title</h1>
+            <p class="mat-subheading-1 text-block">this is another p image full-width awefawef. awefawefawe fawef awefawef fawefaeff ffawefwaef awefewfawef. fwaefawef. Etiam sed scelerisque nisi, quis efficitur purus. Morbi quis lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat
+                elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem. Phasellus ut mauris viverra, egestas risus sed, mattis est. Morbi sit amet sagittis mauris,</p>
+        </div>
+    </div>
+    <div class="project-detail">
+        <ng-container>
+            <h1 class="mat-subheading-1 section-title">Another Section Here</h1>
+            <p class="mat-subheading-1 text-block">
+                Morbi quis lorem felis. Donec lorem tellus, ultrices aliquam enim in, consequat elementum nunc. Praesent et leo tincidunt, euismod neque nec, facilisis sem.
+            </p>
+        </ng-container>
     </div>
     <div fxLayout="row" fxLayout.lt-sm="column">
         <div fxFlex="15" style="background: #ccc;"></div>

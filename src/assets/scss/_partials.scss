@@ -1,0 +1,13 @@
+//** START IMPORT OF PARTIALS STYLES **//
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// Import your custom input theme file so you can call the custom-input-theme function
+@import './themes/cp-theme.scss';
+// Using the $theme variable from the pre-built theme you can call the theming function
+// @include cp-dark-theme($theme);
+@import 'partials/reset';
+@import 'partials/image';
+@import 'partials/animations';
+@import 'partials/typography';
+@import 'partials/helpers';
+@import 'partials/print';
+//** END IMPORT OF PARTIALS STYLES **//

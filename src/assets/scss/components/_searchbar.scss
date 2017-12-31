@@ -1,0 +1,66 @@
+// /**START SEARCH BAR STYLING **/
+// .searchbar {
+//   input {
+//     font-size: 12px;
+//     height: 56px;
+//     padding: 4px 8px !important;
+//     width: 100%;
+//     background: transparent;
+//     &:focus {
+//       outline: none;
+//     }
+//   }
+//   button {
+//     text-align: center;
+//     &:focus {
+//       outline: none;
+//     }
+//     &.btn-search,
+//     &.btn-reset {
+//       border: none;
+//       height: 56px;
+//       font-size: 12px;
+//       padding: 4px;
+//       width: 56px;
+//     }
+//   }
+//   &.seven,
+//   &.eight {
+//     input {
+//       border-right: none;
+//       transition: all .3s ease-in;
+//       right: 0;
+//       width: 100%;
+//       &:focus {
+//         width: 100%;
+//         ~button {
+//           &.btn-search {
+//             border-radius: 0 50% 50% 0;
+//           }
+//           &.btn-reset {
+//             animation: bounceRight .6s;
+//             animation-delay: .2s;
+//             animation-timing-function: cubic-bezier(.3, .2, 1, .8);
+//             border-radius: 50%;
+//             right: -22px;
+//           }
+//         }
+//       }
+//     }
+//     button {
+//       &.btn-search {
+//         right: -28px;
+//         transition: all .3s ease-in;
+//       }
+//       &.btn-reset {
+//         height: 20px;
+//         left: 120px;
+//         top: 5px;
+//         transition: all .3s ease-in;
+//         width: 20px;
+//         z-index: -1;
+//       }
+//     }
+//   }
+// }
+// /** END SEARCH BAR STYLING **/

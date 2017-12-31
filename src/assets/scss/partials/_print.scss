@@ -1,0 +1,123 @@
+// /*----------------------------------------------------------------*/
+// /*  Print
+// /*----------------------------------------------------------------*/
+// $black: #000;
+// @media all {
+//   /* Never show page break in normal view */
+//   .page-break {
+//     display: none;
+//   }
+// }
+// @media print {
+//   /* Page Styles */
+//   @page {
+//     margin: 0.5cm;
+//   }
+//   /* Fonts */
+//   body {
+//     // color: $black !important;
+//   }
+//   /* Page break */
+//   .page-break {
+//     display: block;
+//     break-after: always;
+//     page-break-after: always;
+//   }
+//   /* General styles */
+//   #main {
+//     #vertical-navigation {
+//       display: none;
+//     }
+//     #toolbar {
+//       display: none;
+//     }
+//     #quick-panel {
+//       display: none;
+//     }
+//     #content {
+//       position: relative !important;
+//       top: 0 !important;
+//       right: 0 !important;
+//       bottom: 0 !important;
+//       left: 0 !important;
+//       background: none !important;
+//     }
+//   }
+//   .ps-scrollbar-x-rail,
+//   .ps-scrollbar-y-rail {
+//     display: none !important;
+//   }
+//   /* Printable page specific styles */
+//   .printable {
+//     overflow: visible !important;
+//     .template-layout {
+//       display: inline !important;
+//     }
+//   }
+//   *.back {
+//     display: none !important;
+//   }
+//   md-content {
+//     position: relative !important;
+//     top: 0 !important;
+//     right: 0 !important;
+//     bottom: 0 !important;
+//     left: 0 !important;
+//     background: none !important;
+//   }
+//   .nv-legend-text {
+//     color: $black;
+//   }
+//   /* Sidenav */
+//   md-sidenav {
+//     // display: none !important;
+//   }
+//   /* ITEROS CHART [widgets] */
+//   .nvd3 .nv-discretebar .nv-groups text,
+//   .nvd3 .nv-multibarHorizontal .nv-groups text {
+//     font-weight: 700;
+//     fill: rgba(0, 0, 0, 1) !important;
+//     stroke: transparent;
+//   }
+//   iteros-chart,
+//   ui-component-chart,
+//   .chart-component {
+//     >div {
+//       >md-toolbar {
+//         // background-color: lighten($body-background, 3%) !important;
+//         color: $black;
+//       }
+//     }
+//     svg text {
+//       fill: $black;
+//     }
+//     svg {
+//       text {
+//         fill: $black;
+//       }
+//     }
+//     .nvd3.nv-pie .nv-slice text {
+//       fill: $black;
+//     }
+//     .grid-item {
+//       border: none !important;
+//       &:active,
+//       &.moving {
+//         z-index: 2;
+//         transition: none;
+//       }
+//     }
+//     .grid-placeholder {
+//       background-color: rgba(0, 0, 0, 0.3);
+//     }
+//   }
+// }
+// /* /end ITEROS CHART [widgets] */
+// /* NVD3 charts */
+// .nv-legend-text {
+//   // color: $text-color;
+// }
+// .nvd3.nv-sparkline path {
+//   stroke-width: 2;
+// }
+// /* end NVD3 charts */

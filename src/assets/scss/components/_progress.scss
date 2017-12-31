@@ -1,0 +1,88 @@
+// /** START PROGRESS BAR STYLES **/
+// .form-progress {
+//   position: relative;
+//   display: block;
+//   margin: 3rem auto;
+//   width: 84%;
+// }
+// progress {
+//   display: block;
+//   position: relative;
+//   top: 5px;
+//   left: 5px;
+//   appearance: none;
+//   // background: #458be3;
+//   width: 100%;
+//   height: 5px;
+//   background: none;
+//   transition: 1s;
+//   will-change: contents;
+//   &::-webkit-progress-bar {
+//     // background-color: #ccc;
+//   }
+//   &::-webkit-progress-value {
+//     // background-color: #458be3;
+//     transition: all 0.5s ease-in-out;
+//   }
+// }
+// .form-progress-indicator {
+//   position: absolute;
+//   top: -8px;
+//   left: 0;
+//   display: inline-block;
+//   width: 30px;
+//   height: 30px;
+//   // background: #ccc;
+//   // border: 3px solid #ccc;
+//   border-radius: 50%;
+//   transition: all .2s ease-in-out;
+//   transition-delay: .3s;
+//   will-change: transform;
+//   span.text {
+//     position: absolute;
+//     // color: #fff;
+//     left: 7px;
+//     top: 2px;
+//     font-size: 18px;
+//   }
+//   span.label {
+//     position: absolute;
+//     top: -30px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     // color: lightgray;
+//     white-space: nowrap;
+//   }
+//   &.active {
+//     animation: bounce .5s forwards;
+//     animation-delay: .5s;
+//     // border-color: #458be3;
+//     // background: #458be3;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//   }
+// }
+// @keyframes bounce {
+//   50% {
+//     transform: scale(1.5);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+// .progress-bar-full {
+//   margin-top: 10px;
+//   div div.progress-nodes {
+//     margin-top: -10px;
+//   }
+// }
+// // wizard progress **//
+// .form-progress {
+//   position: relative;
+//   display: block;
+//   margin: 3rem auto 0 auto;
+//   width: 80%;
+//   z-index: 99999999;
+// }
+// /** END PROGRESS BAR STYLES **/

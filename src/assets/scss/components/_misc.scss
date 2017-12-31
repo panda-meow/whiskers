@@ -1,0 +1,87 @@
+// /** MISC STYLES **/
+// // $transition: all .3s ease;
+// @viewport {
+//   width: device-width;
+// }
+// @-ms-viewport {
+//   width: device-width;
+// }
+// my-dashboard mat-card,
+// equipment-definitions-list mat-card,
+// equipment-list mat-card {
+//   padding: 0;
+// }
+// /// HIDE SCROLLBAR
+// *::-webkit-scrollbar {
+//   width: 0 !important;
+// }
+// /// Box-sizing border-box
+// * {
+//   box-sizing: border-box;
+// }
+// ///  Set up a default font and some padding to provide breathing room
+// .indent {
+//   margin-left: 20px;
+// }
+// .calc-variable {
+//   display: inline-block;
+//   background: $mat-primary-color;
+//   padding: 7px;
+//   border-radius: 40px;
+//   // color: $white;
+//   position: relative;
+//   cursor: inherit;
+//   margin: 2px 5px;
+//   min-width: 60px;
+//   text-align: center;
+//   &.active {
+//     // border: 2px solid $text-color;
+//   }
+// }
+// ///  Point Picker Styling
+// span.pp-tag {
+//   .info-tag {
+//     margin: 1px;
+//   }
+// }
+// /// /Point Picker Styling
+// // Misc fixes - move these after demo into more appropriate places. This is just easier. Sorry.
+// .point-section .mat-input-wrapper .mat-disabled {
+//   display: none;
+// }
+// .pointer,
+// .pointer input {
+//   cursor: pointer;
+// }
+// .data-container {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   width: 600px;
+//   height: 100px;
+//   align-items: center;
+//   border-radius: 8px;
+//   box-shadow: 0 10px 30px rgba(70, 0, 0, .3);
+//   .block {
+//     text-align: center;
+//     height: 100%;
+//     width: 100px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     &:hover {
+//       color: red;
+//     }
+//     .number {
+//       font-size: 32px;
+//       font-weight: bold;
+//     }
+//     .string {
+//       font-size: 12px;
+//       line-height: 18px;
+//       opacity: .4;
+//     }
+//   }
+// }
+// /** END MISC STYLES **/

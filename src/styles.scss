@@ -1,0 +1,6 @@
+// /* You can add global styles to this file, and also import other style files */
+@import './node_modules/@angular/material/theming.scss';
+// @import './app-theme';
+@include mat-core();
+@import './assets/custom-themes/cp-theme.scss';
+// // @import './assets/custom-themes/romeo-theme.scss';

@@ -1,0 +1,82 @@
+// /**  START FOOTER STYLES **/
+// // :host {
+// //     display: flex;
+// //     flex: 1;
+// // }
+// // html,
+// // body {
+// //     display: flex;
+// //     flex-direction: column;
+// //     font-family: Roboto, Arial, sans-serif;
+// //     margin: 0;
+// //     height: 100%;
+// // }
+// .footer-wrapper {
+//   height: 100px;
+// }
+// mat-toolbar {
+//   button.mat-icon-button {
+//     // color: white !important;
+//   }
+//   &.footer {
+//     bottom: 0;
+//     position: inherit;
+//     display: block;
+//     padding-top: 10px;
+//     // when height > 700px, fix footer
+//     @media (min-height: 700px) {}
+//     div {
+//       &.container {
+//         margin: 20px auto 0;
+//         padding: 0 25px 20px 20px;
+//         width: 80%;
+//       }
+//       button,
+//       div {
+//         cursor: pointer;
+//         &.ng-disabled {
+//           cursor: default;
+//           // color: transparentize($text-color, 0.55);
+//         }
+//         mat-icon {
+//           padding-top: 10px;
+//           // color: $text-color;
+//         }
+//         span {
+//           span {
+//             // &:not(button) &:first-child {
+//             // &:first-child {
+//             &.label {
+//               // color: transparentize($text-color, 0.5);
+//               font-size: 16px;
+//               line-height: 19px;
+//             }
+//             &.name {
+//               // &:last-child{
+//               // color: transparentize($text-color, 0);
+//               font-size: 20px;
+//               line-height: 24px;
+//               letter-spacing: 0.005em;
+//             }
+//             button {
+//               // color: white;
+//             }
+//           }
+//         }
+//         &:first-child {
+//           text-align: left;
+//           span {
+//             padding-left: 10px;
+//           }
+//         }
+//         &:last-child {
+//           text-align: right;
+//           span {
+//             padding-right: 10px;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// /** END FOOTER STYLES **/

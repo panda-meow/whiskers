@@ -1,0 +1,13 @@
+// @import '../../../node_modules/@angular/material/theming.scss';
+
+/** START MAIN IMPORTS FOR STYLES **/
+
+@import 'partials/reset';
+@import 'mixins';
+@import 'partials';
+@import 'components';
+@import 'layout';
+@import 'pages';
+@import 'partials/print';
+
+/** END MAIN IMPORTS FOR STYLES **/
