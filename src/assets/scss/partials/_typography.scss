@@ -54,7 +54,7 @@
     font-family: "GT-Haptik-Regular";
     font-style: normal;
     // font-weight: 700;
-    src: url('font/GT_Haptik/GT-HAPTIK-Regular.woff') format("woff");
+    src: url('font/GT_Haptik/GT-Haptik-Regular.woff') format("woff");
 }
 
 @font-face {
@@ -165,6 +165,35 @@ body {
 
 .titles {
     font-family: $font-family-titles;
+}
+
+.section-title {
+    font-family: GT-Haptik-Regular;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 1em 0 1em;
+}
+
+.meta {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1em 0 0;
+    &-title {
+        font-family: basis-grotesque;
+        font-variant: small-caps;
+        letter-spacing: 1px;
+    }
+    &-data {
+        font-weight: 200;
+        &:last-of-type {
+            // color: red;
+            color: blue;
+            padding: 0 0 1em;
+        }
+    }
 }
 
 // p {
