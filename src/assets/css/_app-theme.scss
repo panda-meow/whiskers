@@ -1,0 +1,42 @@
+@import './node_modules/@angular/material/theming';
+@import '../scss/themes/cp-theme';
+@import '../scss/main';
+@import '../scss/themes/components-theme';
+@import '../scss/themes/loading-theme';
+@import '../scss/themes/overview-theme';
+@import '../scss/themes/input-theme';
+@import '../scss/themes/tables-theme';
+@import '../scss/themes/slider-theme';
+@import '../scss/themes/searchbar-theme';
+@import '../scss/themes/card-theme';
+@import '../scss/themes/toolbar-theme';
+@import '../scss/themes/progress-theme';
+// Styles for the docs app that are based on the current theme.
+@mixin cp-app-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $success: map-get($theme, success);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    ////***** TEST ****/////
+    // $md-warn-color: mat-color($mat-red, A200);
+    // $md-success-color: mat-color($mat-teal, A200);
+    // $md-warn-color: blue;
+    // $text-color: map-get($primary, default-contrast);
+    //// **** END TEST ****////
+    cp-app {
+        background: mat-color($background, background);
+    }
+    @include tag-theme($theme);
+    @include components-theme($theme);
+    @include loading-theme($theme);
+    @include overview-theme($theme);
+    @include input-theme($theme);
+    @include tables-theme($theme);
+    @include slider-theme($theme);
+    @include searchbar-theme($theme);
+    @include card-theme($theme);
+    @include toolbar-theme($theme);
+    @include progress-theme($theme);
+}

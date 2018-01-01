@@ -1,0 +1,35 @@
+/** START Maintaiin aspect ratio MIXIN **/
+
+@mixin maintain-aspect-ratio($widthRatio, $heightRatio, $padding, $contentClass) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($heightRatio / $widthRatio) * 100%;
+  }
+  >.#{$contentClass} {
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    right: $padding;
+    bottom: $padding;
+  }
+}
+
+/// use like this:
+// &.ar-2-1 {
+//     .widget {
+//         padding: 0;
+//         @include maintain-aspect-ratio(2, 1, 8px, widget);
+//     }
+// }
+// &.ar-1-1 {
+//     .widget {
+//         padding: 0;
+//         @include maintain-aspect-ratio(1, 1, 8px, widget);
+//     }
+// }
+///
+
+/** END Maintaiin aspect ratio MIXIN **/

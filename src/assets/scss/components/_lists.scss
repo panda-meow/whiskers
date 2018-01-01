@@ -1,0 +1,76 @@
+// /** START LISTS STYLES **/
+// .show {
+//   display: block !important;
+// }
+// .hide {
+//   display: none !important;
+// }
+// .demo {
+//   display: flex;
+//   flex-flow: row wrap;
+//   mat-list,
+//   mat-nav-list {
+//     /// border: 1px solid rgba(0, 0, 0, 0.12);
+//     // width: 350px;
+//     margin: 20px 20px 0 0;
+//   }
+//   h2 {
+//     margin-top: 20px;
+//   }
+//   [mat-list-icon] {
+//     // color: white;
+//     background: rgba(0, 0, 0, 0.3);
+//   }
+// }
+// .detail-list {
+//   max-width: 600px !important;
+// }
+// mat-list-item {
+//   &:hover .show-on-hover {
+//     visibility: visible;
+//     cursor: pointer;
+//     // color: $text-color;
+//   }
+//   .show-on-hover {
+//     visibility: hidden;
+//     cursor: pointer;
+//   }
+//   &:hover .show-on-hover {
+//     visibility: visible;
+//     cursor: pointer;
+//     // color: $text-color;
+//   }
+//   .show-on-hover {
+//     visibility: hidden;
+//     cursor: pointer;
+//   }
+//   &.edit-mode {
+//     .view-mode {
+//       display: none;
+//     }
+//   }
+//   &.mat-2-line,
+//   &.mat-3-line {
+//     .view-mode {
+//       display: inline-block;
+//     }
+//     .edit-mode {
+//       display: none;
+//     }
+//     &.edit-mode {
+//       // background-color: darken($card-color, 2%);
+//       // color: white !important;
+//       .view-mode {
+//         display: none;
+//       }
+//       .edit-mode {
+//         display: inline-block;
+//       }
+//     }
+//   }
+// }
+// .empty-list-message {
+//   padding: 10px;
+//   text-align: center;
+// }
+// /** END LISTS STYLES **/

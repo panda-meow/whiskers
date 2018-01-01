@@ -1,0 +1,81 @@
+// Import all the tools needed to customize the theme and extract parts of it
+// @import '~@angular/material/theming';
+// @import '../../node_modules/@angular/material/theming';
+$primary: green;
+// $mat-warn-color: pink;
+$mat-warn-color: mat-color($mat-red, A200);
+$mat-success-color: mat-color($mat-teal, A200);
+// $mat-success-color: blue;
+$mat-primary-color: magenta;
+$mat-accent-color: cyan;
+$white: #fff;
+$black: #000;
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin cp-dark-theme($theme) {
+    // Extract whichever individual palettes you need from the theme.
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $success: map-get($theme, success);
+    $mat-warn-color: mat-color($warn, 500, 1);
+    $background: map-get($theme, background);
+    // Use mat-color to extract individual colors from a palette as necessary.
+    .cp-dark {
+        // background-color: mat-color($primary);
+        $theme: mat-dark-theme($primary, $accent, $warn);
+        @include angular-material-theme($theme);
+        border-color: mat-color($accent, A400);
+        $mat-warn-color: mat-color($warn, 500, 1);
+        $background: map-get($theme, background);
+    }
+}
+
+@mixin cp-light-theme($theme) {
+    // Extract whichever individual palettes you need from the theme.
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $success: map-get($theme, success);
+    $mat-warn-color: mat-color($warn, 500, 1);
+    $background: map-get($theme, background);
+    // Use mat-color to extract individual colors from a palette as necessary.
+    .cp-light {
+        $light-theme: mat-light-theme($primary, $accent, $warn);
+        @include angular-material-theme($light-theme);
+        // background-color: mat-color($primary);
+        border-color: mat-color($accent, A400);
+        $mat-warn-color: mat-color($warn, 500, 1);
+        $background: map-get($theme, background);
+    }
+}
+
+@mixin candy-app-theme($theme) {
+    // Extract whichever individual palettes you need from the theme.
+    $primary: mat-palette($mat-orange);
+    $accent: mat-palette($mat-pink, A200, A100, A400);
+    $success: map-get($theme, success);
+    // The warn palette is optional (defaults to red).
+    $warn: mat-palette($mat-red);
+    // Create the theme object (a Sass map containing all of the palettes).
+    $candy-app-theme: mat-light-theme($primary, $accent, $warn);
+    // Include theme styles for core and each component used in your app.
+    // Alternatively, you can import and @include the theme mixins for each component
+    // that you are using.
+    // @include angular-material-theme($candy-app-theme);
+    // $primary: map-get($theme, primary);
+    // $accent: map-get($theme, accent);
+    // $warn: map-get($theme, warn);
+    // Use mat-color to extract individual colors from a palette as necessary.
+    .candy-theme {
+        @include angular-material-theme($candy-app-theme);
+        // background-color: mat-color($primary);
+        border-color: mat-color($accent, A400);
+        $mat-warn-color: mat-color($warn, 500);
+    }
+}
+
+.test-styles {
+    color: orchid !important;
+    font-weight: 900 !important;
+    background: greenyellow;
+}

@@ -1,0 +1,117 @@
+// /** START APP LOADING STYLES **/
+// .wrapper {
+//   width: 125px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   text-align: center;
+//   height: 100%;
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   margin-top: -100px;
+//   margin-left: -72px;
+//   height: 200px;
+//   p {
+//     position: relative;
+//     margin-top: -3%;
+//     z-index: 5;
+//     width: 120px;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }
+// .loading-circle {
+//   border-radius: 100px;
+//   width: 125px;
+//   height: 125px;
+//   animation: rotating1 6s linear infinite;
+// }
+// #c2 {
+//   margin-left: auto;
+//   margin-right: auto;
+//   margin-top: -114px;
+//   background-color: transparent;
+//   width: 102px;
+//   height: 102px;
+//   z-index: 5;
+//   animation: rotating4 2.5s linear infinite;
+// }
+// #c3 {
+//   @extend #c2;
+//   margin-top: -91px;
+//   width: 79px;
+//   height: 79px;
+//   animation: rotating5 3s linear infinite;
+// }
+// #c4 {
+//   @extend #c2;
+//   margin-top: -68px;
+//   width: 56px;
+//   height: 56px;
+//   animation: rotating2 4s linear infinite;
+// }
+// #c5 {
+//   @extend #c2;
+//   margin-top: -45px;
+//   width: 33px;
+//   height: 33px;
+//   animation: rotating3 1s linear infinite;
+// }
+// @keyframes rotating1 {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+// @keyframes rotating2 {
+//   from {
+//     transform: rotate(445deg);
+//   }
+//   to {
+//     transform: rotate(75deg);
+//   }
+// }
+// @keyframes rotating3 {
+//   from {
+//     transform: rotate(150deg);
+//   }
+//   to {
+//     transform: rotate(510deg);
+//   }
+// }
+// @keyframes rotating4 {
+//   from {
+//     transform: rotate(585deg);
+//   }
+//   to {
+//     transform: rotate(225deg);
+//   }
+// }
+// @keyframes rotating5 {
+//   from {
+//     transform: rotate(270deg);
+//   }
+//   to {
+//     transform: rotate(630deg);
+//   }
+// }
+// .svg-container {
+//   display: inline-block;
+//   position: relative;
+//   width: 80%;
+//   margin: 0 auto;
+//   padding-bottom: 50%;
+//   /// aspect ratio
+//   vertical-align: top;
+//   overflow: hidden;
+//   .svg-content-responsive {
+//     display: inline-block;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     max-height: 350px;
+//   }
+// }
+// /** END APP LOADING STYLES **/

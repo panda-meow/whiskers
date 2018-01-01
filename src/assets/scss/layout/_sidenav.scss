@@ -1,0 +1,95 @@
+// /** START SIDENAV STYLES **/
+// mat-sidenav.main-nav mat-nav-list.mat-nav-list mat-list-item.mat-list-item .mat-list-item-content {
+//   padding: 0 16px 0 10px;
+//   // background: red !important;
+// }
+// mat-sidenav-container {
+//   &.app-sidenav-container {
+//     // background-color: $body-background;
+//     mat-sidenav {
+//       width: 45px;
+//       min-width: 45px !important;
+//     }
+//   }
+//   &.mat-sidenav-container {
+//     // background-color: $body-background;
+//   }
+//   mat-sidenav {
+//     // background-color: $body-background;
+//   }
+// }
+// // html {
+// //     background-color: lightskyblue !important;
+// // }
+// // body {
+// //     // background-color: $body-background !important;
+// //     // background-color: $body-background !important;
+// //     background-color: lightcoral !important;
+// // }
+// // :host {
+// //     display: flex;
+// //     flex: 1;
+// // }
+// /// SIDENAV LAYOUT ////
+// // .app-sidenav-container {
+// //     padding-top: 60px !important;
+// //     margin-top: 0 !important;
+// //     .mat-nav-list .mat-list-item .mat-list-item-content {
+// //         padding: 0 10px !important;
+// //     }
+// //     article mat-sidenav {
+// //         .mat-subheader {
+// //             color: $secondary-text-color;
+// //         }
+// //         mat-list-item:hover {
+// //             background: #2b394a;
+// //             cursor: pointer;
+// //         }
+// //     }
+// // }
+// // mat-sidenav-container {
+// //     min-height: calc(100vh-60px);
+// //     height: calc(100vh-60px) !important;
+// //     height: 100%;
+// // }
+// // mat-sidenav.mat-sidenav-side.main-nav {
+// //     width: 45px;
+// //     min-width: 45px !important;
+// //     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.14), 0 1px 14px 0 rgba(0, 0, 0, 0.12) !important;
+// // }
+// // mat-sidenav.mat-whiteframe-2dp.mat-sidenav-left {
+// //     padding-top: 100px;
+// //     border-right: 1px solid #ccc !important;
+// //     background-color: cadetblue !important;
+// // }
+// // mat-sidenav-container.app-sidenav-container+mat-content {
+// //     height: 100vh !important;
+// // }
+// mat-sidenav-container {
+//   mat-sidenav {
+//     &.mat-sidenav-opened {
+//       +mat-content {
+//         // padding-right: 45px;
+//         background-color: red !important;
+//       }
+//     }
+//     +mat-content {
+//       margin: 0;
+//       width: 100%;
+//       min-height: 100%;
+//       height: 100%;
+//       background-color: orange !important;
+//     }
+//   }
+// }
+// .menu-apps {
+//   color: #333;
+// }
+// .pointer {
+//   cursor: pointer;
+// }
+// .nav i.material-icons {
+//   margin-right: 10px;
+//   color: transparentize($white, 0.64);
+// }
+// /** END SIDENAV STYLES **/

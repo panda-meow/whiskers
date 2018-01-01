@@ -1,3 +1,5 @@
+import {NgModule} from '@angular/core';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -12,9 +14,12 @@ import {
   MatProgressSpinnerModule,
   MatSliderModule,
   MatSnackBarModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSlideToggleModule
 } from '@angular/material';
-import {NgModule} from '@angular/core';
+
 
 @NgModule({
   imports: [
@@ -23,6 +28,7 @@ import {NgModule} from '@angular/core';
     MatIconModule,
     MatCardModule,
     MatSliderModule,
+    MatSlideToggleModule,
     MatProgressBarModule,
     MatAutocompleteModule,
     MatInputModule,
@@ -30,6 +36,8 @@ import {NgModule} from '@angular/core';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatListModule,
     MatDialogModule
   ],
@@ -39,6 +47,7 @@ import {NgModule} from '@angular/core';
     MatIconModule,
     MatCardModule,
     MatSliderModule,
+    MatSlideToggleModule,
     MatProgressBarModule,
     MatAutocompleteModule,
     MatInputModule,
@@ -46,8 +55,10 @@ import {NgModule} from '@angular/core';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatListModule,
-    MatDialogModule
+    MatDialogModule,
   ],
 })
 

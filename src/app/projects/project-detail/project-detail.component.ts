@@ -20,6 +20,8 @@ export class ProjectDetailComponent {
       if (params['id']) {
         this.projectService.getProjectById(params['id']).subscribe((project: Project) => {
           this.project = project;
+          console.log('this is the project:' + project);
+
         });
       }
     });

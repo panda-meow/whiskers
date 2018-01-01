@@ -1,0 +1,49 @@
+// /** START INPUT STYLES **/
+// .demo-icons {
+//   font-size: 100% !important;
+//   height: inherit !important;
+//   vertical-align: top !important;
+//   width: inherit !important;
+// }
+// *:not(mat-form-field)>input[type="text"],
+// *:not(mat-form-field)>input[type="tel"],
+// *:not(mat-form-field)>input[type="email"],
+// *:not(mat-form-field)>input[type="search"],
+// *:not(mat-form-field)>input[type="password"],
+// *:not(mat-form-field)>input[type="button"],
+// *:not(mat-form-field)>button,
+// *:not(mat-form-field)>input[type="submit"],
+// *:not(mat-form-field)>input[type="image"],
+// *:not(mat-form-field)>textarea {
+//   white-space: nowrap !important;
+//   text-overflow: ellipsis !important;
+// }
+// // input:-webkit-autofill,
+// // textarea:-webkit-autofill,
+// // select:-webkit-autofill {
+// //   background-color: red !important;
+// //   background: rgb(0, 255, 0) !important;
+// //   background-image: none;
+// // color: $text-color !important;
+// // color: yellow !important;
+// // }
+// /* Change Autocomplete styles in Chrome*/
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus input:-webkit-autofill,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//   // border: 1px solid green;
+//   background-color: none !important;
+//   background-image: none;
+//   // -webkit-text-fill-color: $text-color;
+//   // -webkit-box-shadow: 0 0 0px 1000px $card-color inset;
+//   transition: background-color 5000s ease-in-out 0s;
+// }
+// .mat-form-field {
+//   width: 100% !important;
+// }
+// /** END INPUT STYLES **/

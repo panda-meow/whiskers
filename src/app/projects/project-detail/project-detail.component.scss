@@ -1,5 +1,17 @@
-#project-detail {
-  width: 65%;
-  margin: 0 auto;
-  margin-top: 2em;
+.project-detail {
+    // width: 65%;
+    // margin: 0 auto;
+    // margin-top: 2em;
+    margin: 0 auto;
+    max-width: calc(57.5vw + 96px);
+    padding: 0 calc(-1.25vw + 24px);
 }
+
+.sec3,
+.text-block {
+    padding: 0 50px 0 50px;
+}
+
+// p {
+//     padding: 50px;
+//
