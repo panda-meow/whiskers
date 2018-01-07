@@ -1,0 +1,574 @@
+// TYPOGRAPHY STYLES
+
+/* * * * * * * * * * * * * * * * * * * * *\
+ aurora-themes v1.0.0
+ Themes for Aurora Kit
+ (c) 2015 Lionel T <elrumordelaluz@hotmail.com> (http://elrumordelaluz.com)
+ https://github.com/aurora-kit/aurora-themes.git
+ Licensed under  MIT
+\* * * * * * * * * * * * * * * * * * * * */
+
+@font-face {
+    font-family: "basis-grotesque";
+    font-style: normal;
+    // font-weight: 400;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-regular-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "basis-grotesque-medium";
+    font-style: normal;
+    // font-weight: 400;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-medium-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "basis-grotesque-light";
+    font-style: normal;
+    // font-weight: 400;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-light-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "basis-grotesque-mono";
+    font-style: normal;
+    // font-weight: 500;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-mono-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "basis-grotesque-monobold";
+    font-style: normal;
+    // font-weight: 700;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-monobold-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "basis-grotesque-bold";
+    // font-style: normal;
+    // font-weight: 400;
+    src: url('/assets/font/basis-grotesque/basis-grotesque-bold-pro.woff2') format("woff2");
+}
+
+@font-face {
+    font-family: "GT-Haptik-Regular";
+    font-style: normal;
+    // font-weight: 700;
+    src: url('/assets/font/GT_Haptik/GT-Haptik-Regular.woff') format("woff");
+}
+
+@font-face {
+    font-family: "gear-proportion";
+    font-style: normal;
+    // font-weight: 700;
+    src: url('/assets/font/gear-proportion/gear_proportion-webfont.woff') format("woff");
+}
+
+// @import '../mixins/font-face';
+// @include fontFace('GT-Haptik-Regular', 'font/GT_Haptik/GT-Haptik-Regular');
+// @include fontFace('GT-Haptik-Light', 'font/GT_Haptik/gt-haptik-light-webfont');
+// @include fontFace('GT-Haptik-Black', 'font/GT_Haptik/GT-Haptik-Black');
+// @include fontFace('GT-Haptik-Black-Rotalic', 'font/GT_Haptik/GT-Haptik-Black-Rotalic');
+// @include fontFace('basis-grotesque-regular',
+// 'font/basis-grotesque/basis-grotesque-regular-pro');
+
+/*----------------------------------------------------------------*/
+
+
+/*  Variables
+/*----------------------------------------------------------------*/
+
+// Typography
+// body {
+//     font-family: Roboto, "Helvetica Neue", sans-serif;
+//     font-size: 16px;
+//    // -webkit-font-smoothing: antialiased;
+//     -moz-osx-font-smoothing: grayscale;
+//     color: transparentize($text-color, 0.13);
+// }  color: transparentize($text-color, 0.13);
+// }
+// $font-family-body: GT-Haptik-Regular,
+$font-family-body: basis-grotesque-bold,
+"Helvetica Neue",
+sans-serif;
+// $font-family-titles: GT-Haptik-Regular,
+$font-family-titles: basis-grotesque-mono,
+"Helvetica Neue",
+sans-serif;
+// $font-family-body: Roboto,
+// "Helvetica Neue",
+// sans-serif;
+// $font-family-code: 'Monaco', 'Menlo', 'Consolas', 'Ubuntu Mono', monospace;
+//$font-family-body: auto;
+$font-family-code: 'Monaco',
+'Menlo',
+'Consolas',
+'Ubuntu Mono',
+monospace;
+// $font-size-root: 62.5%;
+$font-size-root: 100%;
+// $font-size-base: 1.3rem;
+$font-size-base: 1rem;
+//$font-size-base: 16px;
+// $h1: 2.4rem;
+// $h2: 2.0rem;
+// $h3: 1.6rem;
+// $h4: 1.4rem;
+// $h5: 1.3rem;
+// $h6: 1.2rem;
+// $h1: 1em;
+// $h1: 56px;
+// $h2: 1em;
+// $h3: 1em;
+// $h4: 1em;
+// $h5: 1em;
+// $h6: 1em;
+// Toolbar
+$toolbarHeight: 64px;
+// Navigation Sidenav
+$navigationWidth: 240px;
+$navigationFoldedWidth: 64px;
+$table-header-font-weight: 600;
+
+/*----------------------------------------------------------------*/
+
+
+/*  Typography
+/*----------------------------------------------------------------*/
+
+html {
+    font-size: $font-size-root;
+    font-family: $font-family-body;
+    // line-height: 1.4;
+    // line-height: 1.5;
+    // line-height: 20px;
+    // letter-spacing: -0.1px;
+}
+
+body {
+    font-family: $font-family-body;
+    font-size: $font-size-base;
+}
+
+html,
+body {
+    // color: transparentize($text-color, 0.13);
+    overflow-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    // min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.titles {
+    font-family: $font-family-titles;
+}
+
+.section-title {
+    font-family: GT-Haptik-Regular;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 1em 0 1em;
+}
+
+.meta {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    padding: 1em 0 0;
+    &-title {
+        font-family: basis-grotesque;
+        font-variant: small-caps;
+        letter-spacing: 1px;
+    }
+    &-data {
+        font-weight: 200;
+        &:last-of-type {
+            // color: red;
+            color: blue;
+            padding: 0 0 1em;
+        }
+    }
+}
+
+// p {
+//     margin: 0 0 16px;
+//     font-size: 14px;
+// }
+// form {
+//   // font-size: 1.6rem;
+// }
+//Headings
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// .h1,
+// .h2,
+// .h3,
+// .h4,
+// .h5,
+// .h6,
+// .p {
+//     // font-weight: normal;
+//     font-weight: inherit;
+//     padding: 0;
+// }
+// h1,
+// .h1 {
+//     font-size: $h1;
+//     font-weight: 400;
+// }
+// h2,
+// .h2 {
+//     font-size: $h2;
+// }
+// h3,
+// .h3 {
+//     font-size: $h3;
+// }
+// h4,
+// .h4 {
+//     font-size: $h4;
+// }
+// h5,
+// .h5 {
+//     font-size: $h5;
+// }
+// h6,
+// .h6 {
+//     font-size: $h6;
+// }
+// // Links
+// a {
+//     text-decoration: none;
+//     &:hover,
+//     &:active {
+//         text-decoration: underline;
+//     }
+// }
+// Abbr
+abbr {
+    cursor: help;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.54);
+}
+
+// Blockquote
+blockquote {
+    border-left: 3px solid rgba(0, 0, 0, 0.12);
+    font-style: italic;
+    margin: 1em 0;
+    padding-left: 16px;
+    footer {
+        font-style: normal;
+        &:before {
+            content: '\2014 \00A0';
+        }
+    }
+    &.reverse {
+        border-left: none;
+        border-right: 3px solid rgba(0, 0, 0, 0.12);
+        text-align: right;
+        padding-left: 0;
+        padding-right: 16px;
+        footer {
+            &:before {
+                content: '';
+            }
+            &:after {
+                content: '\2014 \00A0';
+            }
+        }
+    }
+}
+
+// Code
+code {
+    font-family: $font-family-code;
+    &:not(.highlight) {
+        background: rgba(0, 0, 0, 0.065);
+        color: #106CC8;
+        margin: 0 1px;
+        padding: 2px 3px;
+        border-radius: 2px;
+    }
+}
+
+// Definition lists
+dl {
+    dt {
+        font-weight: bold;
+    }
+    dd {
+        margin-bottom: 1em;
+    }
+}
+
+// Mark
+mark {
+    background: #F7F49A;
+}
+
+// Pre
+pre {
+    line-height: 1.6;
+    margin: 8px 16px;
+    white-space: pre-wrap;
+}
+
+// Small
+small {
+    font-size: 80%;
+}
+
+// Table
+table {
+    thead {
+        tr {
+            th {
+                text-align: left;
+            }
+        }
+    }
+}
+
+// Text format helpers
+.text-italic {
+    font-style: italic;
+}
+
+.text-semibold {
+    font-weight: 600;
+}
+
+.text-bold,
+strong {
+    font-weight: 700;
+}
+
+.text-strike {
+    text-decoration: line-through;
+}
+
+.text-super {
+    vertical-align: super;
+}
+
+.text-sub {
+    vertical-align: sub;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+// Text align helpers
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+// Font weight helpers
+@for $weight from 1 through 9 {
+    .font-weight-#{$weight * 100} {
+        font-weight: #{$weight * 100};
+    }
+}
+
+// Font size helpers
+@for $size from 1 through 60 {
+    .font-size-#{$size * 2} {
+        font-size: #{$size * 2}px;
+    }
+}
+
+// Line height helpers
+@for $lineHeight from 1 through 60 {
+    .line-height-#{$lineHeight * 2} {
+        line-height: #{$lineHeight * 2}px;
+    }
+}
+
+// Boxed text
+.text-boxed {
+    border-radius: 2px;
+    padding: 4px 8px;
+    margin: 0 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    background-color: rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+}
+
+// Boxed text light
+.text-boxed-light {
+    @extend .text-boxed;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+// Truncate
+.text-truncate {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Nowrap
+.text-nowrap {
+    white-space: nowrap;
+}
+
+// currency cents
+.decimals {
+    font-size: 21px;
+    font-weight: 200;
+    margin-top: 0px;
+    margin-left: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+    // vertical-align: baseline;
+    // top: -0.4em;
+    position: relative;
+}
+
+.secondary-text {
+    // color: $secondary-text-color !important;
+}
+
+// *** TEMPORARY MATERIAL FONT CLASS STYLES UNTIL THEY OFFICIALLY ARE RELEASED **** //
+.mat-display-4 {
+    // font-size: 112px;
+    font-size: 6.989em;
+    font-weight: 300;
+    letter-spacing: -0.010em;
+    line-height: 112px;
+    @at-root #{&}--thin {
+        // font-size: 112px !important;
+        font-size: 6.989em !important;
+        font-weight: 200;
+    }
+}
+
+.mat-display-3 {
+    font-size: 56px;
+    // font-size: 3.494em !important;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 56px;
+    @at-root #{&}--thin {
+        font-size: 56px !important;
+        // font-size: 3.494em !important;
+        font-weight: 200;
+    }
+}
+
+.mat-display-2 {
+    font-size: 45px;
+    // font-size: 2.808em !important;
+    font-weight: 400;
+    line-height: 64px;
+    @at-root #{&}--thin {
+        font-size: 45px;
+        // font-size: 2.808em !important;
+        font-weight: 200;
+    }
+}
+
+.mat-display-1 {
+    font-size: 34px !important;
+    // font-size: 2.122em !important;
+    font-weight: 400 !important;
+    line-height: 40px !important;
+    @at-root #{&}--thin {
+        font-size: 34px !important;
+        // font-size: 2.122em !important;
+        font-weight: 200;
+    }
+}
+
+.mat-headline,
+.mat-dialog mat-dialog-title {
+    font-size: 24px;
+    // font-size: 1.498em;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.mat-title {
+    font-size: 20px;
+    // font-size: 1.248em;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+}
+
+.mat-subhead {
+    font-size: 16px;
+    // font-size: 0.936em;
+    font-weight: 400;
+    letter-spacing: 0.010em;
+    line-height: 24px;
+}
+
+.mat-body-1 {
+    font-size: 14px;
+    // font-size: 0.811em;
+    font-weight: 400;
+    letter-spacing: 0.010em;
+    line-height: 20px;
+}
+
+.mat-body-2 {
+    font-size: 14px;
+    // font-size: 0.811em;
+    font-weight: 500;
+    letter-spacing: 0.010em;
+    line-height: 24px;
+}
+
+.mat-caption {
+    font-size: 12px;
+    // font-size: 0.749em;
+    letter-spacing: 0.020em;
+}
+
+// *** /END TEMPORARY MATERIAL FONT CLASS STYLES UNTIL THEY OFFICIALLY ARE RELEASED **** // END TYPOGRAPHY STYLES //
+// SCSS COMPILE TEST //
+.beeps {
+    color: yellow;
+    font-size: 64px;
+    @at-root #{&}__element {
+        color: blue;
+        +--modifier {
+            color: green;
+        }
+    }
+    @at-root #{&}--modifier {
+        color: red;
+    }
+}
+
+// END SCSS COMPILE TEST /
