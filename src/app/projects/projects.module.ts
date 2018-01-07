@@ -9,6 +9,9 @@ import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list
 import {ProjectService} from './shared/project.service';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
+import {ExperimentComponent} from './experiment/experiment.component'
+
+import {ProjectSectionComponent} from './experiment/components/project-section/project-section.component';
 
 @NgModule({
   imports: [
@@ -16,13 +19,18 @@ import {ProjectsComponent} from './projects.component';
     FormsModule,
     SharedModule,
     ProjectRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     ProjectsComponent,
     ProjectListComponent,
+    ExperimentComponent,
     RemoveProjectDialogComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ProjectSectionComponent
+  ],
+  exports: [
+    ProjectSectionComponent
   ],
   entryComponents: [
     RemoveProjectDialogComponent
