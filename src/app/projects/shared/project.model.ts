@@ -13,7 +13,7 @@ export class Project {
 
   public static thumbnailURL(project: Project): string {
     if(project.thumbnail) {
-      return "http://localhost:8080/projects/" + project.id + "/thumbnail";
+      return "http://" + window.location.hostname + ":8080/projects/" + project.id + "/thumbnail";
     } else {
       return "assets/images/projects/default.png";
     }
@@ -21,7 +21,7 @@ export class Project {
 
   public static headerURL(project: Project): string {
     if(project.header) {
-      return "http://localhost:8080/projects/" + project.id + "/header";
+      return "http://" + window.location.hostname + ":8080/projects/" + project.id + "/header";
     } else {
       return null;
     }

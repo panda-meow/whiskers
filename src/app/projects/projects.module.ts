@@ -9,6 +9,13 @@ import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list
 import {ProjectService} from './shared/project.service';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
+import {ExperimentComponent} from './experiment/experiment.component'
+
+import {ProjectSectionComponentA} from './experiment/components/project-section/project-section-a.component';
+import {ProjectSectionComponentB} from './experiment/components/project-section/project-section-b.component';
+import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
+import { ProjectSectionCenteredQuoteComponent } from './experiment/components/project-section/project-section-centered-quote.component';
+import { ProjectSectionCenteredImageComponent } from './experiment/components/project-section/project-section-centered-image.component';
 
 @NgModule({
   imports: [
@@ -16,13 +23,26 @@ import {ProjectsComponent} from './projects.component';
     FormsModule,
     SharedModule,
     ProjectRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     ProjectsComponent,
     ProjectListComponent,
+    ExperimentComponent,
     RemoveProjectDialogComponent,
-    ProjectDetailComponent
+    ProjectDetailComponent,
+    ProjectSectionComponentA,
+    ProjectSectionComponentB,
+    ProjectSectionCenteredTextComponent,
+    ProjectSectionCenteredQuoteComponent,
+    ProjectSectionCenteredImageComponent
+  ],
+  exports: [
+    ProjectSectionComponentA,
+    ProjectSectionComponentB,
+    ProjectSectionCenteredTextComponent,
+    ProjectSectionCenteredQuoteComponent,
+    ProjectSectionCenteredImageComponent
   ],
   entryComponents: [
     RemoveProjectDialogComponent
