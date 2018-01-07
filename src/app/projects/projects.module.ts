@@ -11,7 +11,11 @@ import {ProjectDetailComponent} from './project-detail/project-detail.component'
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component'
 
-import {ProjectSectionComponent} from './experiment/components/project-section/project-section.component';
+import {ProjectSectionComponentA} from './experiment/components/project-section/project-section-a.component';
+import {ProjectSectionComponentB} from './experiment/components/project-section/project-section-b.component';
+import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
+import { ProjectSectionCenteredQuoteComponent } from './experiment/components/project-section/project-section-centered-quote.component';
+import { ProjectSectionCenteredImageComponent } from './experiment/components/project-section/project-section-centered-image.component';
 
 @NgModule({
   imports: [
@@ -27,10 +31,18 @@ import {ProjectSectionComponent} from './experiment/components/project-section/p
     ExperimentComponent,
     RemoveProjectDialogComponent,
     ProjectDetailComponent,
-    ProjectSectionComponent
+    ProjectSectionComponentA,
+    ProjectSectionComponentB,
+    ProjectSectionCenteredTextComponent,
+    ProjectSectionCenteredQuoteComponent,
+    ProjectSectionCenteredImageComponent
   ],
   exports: [
-    ProjectSectionComponent
+    ProjectSectionComponentA,
+    ProjectSectionComponentB,
+    ProjectSectionCenteredTextComponent,
+    ProjectSectionCenteredQuoteComponent,
+    ProjectSectionCenteredImageComponent
   ],
   entryComponents: [
     RemoveProjectDialogComponent

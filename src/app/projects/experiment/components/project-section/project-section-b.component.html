@@ -1,1 +1,23 @@
-<h3>{{value}}{{value}}</h3>
+<dl class="project-notes">
+    <mat-list-item *ngFor="let item of items">
+    <dt class="h6">{{item[0]}}</dt>
+    <dd>{{item[1]}}</dd>
+    </mat-list-item>
+</dl>
+
+<section class="container bg-white">
+    <div class="centered_copy_block wysiwyg">
+        <p><span class="drop-cap">W</span>hen it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston Churchill
+            dialed one of the first transatlantic phone calls within its walls.</p>
+        <p>The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and
+            bronze fixtures signified a new era of progress and prosperity.</p>
+    </div>
+</section>
+
+<!-- HERO -->
+
+<section class="container bg-white">
+    <figure class="full-width-image fifty">
+        <img src="{{image}}" alt="image description" />
+    </figure>
+</section>

@@ -1,5 +1,62 @@
+<div *ngIf="project">
+    <div role="main" class="">
+        <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
+            <!-- <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}"></div> -->
+        </section>
+        <project-section-b
+        [image]="'assets/images/projects/4-thumbnail.jpg'"
+        [items]="[
+            ['Title', 'Test Title'], 
+            ['Followers', '3'],
+            ['Followers', '3'],
+            ['Followers', '3'],
+            ['Followers', '3']
+        ]"></project-section-b>
 
-<mat-list-item *ngFor="let section of sections">
-    <project-section 
-    [value]="section"></project-section>
-</mat-list-item>
+        <project-section-a 
+        [image]="thumbnailURL(project)"
+        [value]="project.title"></project-section-a>
+
+        <project-section-centered-text></project-section-centered-text>
+        <project-section-centered-image
+        [image]="'assets/images/projects/6.jpg'"></project-section-centered-image>
+        <project-section-centered-quote></project-section-centered-quote>
+
+        <section class="projects-callout ">
+            <div class="head ">
+                <h2 class="h5 ">More Projects</h2>
+                <p><span class="arrow-link white "><a href="/portfolio ">View All</a></span></p>
+            </div>
+
+            <ul class="projects ">
+                <li>
+                    <a href="#">
+
+                        <h4 class="h5 ">
+                            Title — Details, XX </h4>
+                        <img src="assets/images/projects/4-thumbnail.jpg" alt="Pilara Foundation San Francisco Exterior along the Embarcadero under Bridge " />
+                        <h3>This is a caption</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.holmesstructures.com/portfolio-articles/pier-9-autodesk/ ">
+
+                        <h4 class="h5 ">
+                            Title — Details, XX </h4>
+                        <img src="assets/images/projects/5-thumbnail.jpg" alt="Autodesk Pier 9 San Francisco Interior Under Mezzanine " />
+                        <h3>Building for the Future</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+
+                        <h4 class="h5 ">
+                            Title — Details, XX </h4>
+                        <img src="assets/images/projects/6-thumbnail.jpg" alt="Coral Casino Beach and Cabana Club Santa Barbara dusk " />
+                        <h3>Gem of the Pacific Returns to Glory</h3>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
