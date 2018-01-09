@@ -11,7 +11,10 @@ export class ProjectSectionComponentA {
     @Input()
     image: String 
     @Input()
-    value: String 
+    content: String 
     constructor() {}
-    //constructor(value: String) {}
+
+    get paragraphs(): string[] {
+        return this.content.trim().replace('\r\n','\n').split('\n\n');
+    }
 }

@@ -22,12 +22,6 @@ export class ProjectSectionComponentB {
     }
 
     get paragraphs(): string[] {
-        return this.content.trim().replace('\r\n','\n').split('\n\n').map(function(paragraph) {
-            /*if (paragraph.startsWith('~')) {
-                return '<span class="drop-cap">' + paragraph.charAt(1) + '</span>' + paragraph.substring(2);
-            } else {*/
-                return paragraph;
-            //}
-        });
+        return this.content.trim().replace('\r\n','\n').split('\n\n');
     }
 }

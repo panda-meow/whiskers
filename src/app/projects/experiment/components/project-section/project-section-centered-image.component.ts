@@ -11,5 +11,4 @@ export class ProjectSectionCenteredImageComponent {
     @Input()
     image: String 
     constructor() {}
-    //constructor(value: String) {}
 }

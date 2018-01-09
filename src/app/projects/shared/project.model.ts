@@ -2,11 +2,12 @@ export class Project {
 
   constructor(public id: number,
               public name: string,
-              public categories: [string],
+              public categories: string[],
               public alterEgo: string,
               public title: string,
               public thumbnail: boolean,
               public header: boolean,
+              public sections: any[],
               public body: string,
               public likes: number) {
   }

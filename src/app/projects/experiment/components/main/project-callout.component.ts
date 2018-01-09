@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Project } from '../../../shared/project.model';
 
 
 @Component({
@@ -8,5 +9,15 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ProjectCalloutComponent {
+    @Input()
+    projects: Project[]
     constructor() {}
+
+    headerURL(project: Project): string {
+        return Project.headerURL(project);
+    }
+
+    thumbnailURL(project: Project): string {
+        return Project.thumbnailURL(project);
+    }
 }

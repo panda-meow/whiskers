@@ -2,34 +2,32 @@
     <div role="main" class="">
         <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
         </section>
-        <project-section-b
-        [image]="'assets/images/projects/4-thumbnail.jpg'"
-        [content]="'
-~When it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the 
-forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston 
-Churchill dialed one of the first transatlantic phone calls within its walls.
 
-The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and
-bronze fixtures signified a new era of progress and prosperity.
-        '"
-        [items]="[
-            ['Title', 'Test Title'], 
-            ['Followers', '3'],
-            ['Followers', '3'],
-            ['Followers', '3'],
-            ['Followers', '3']
-        ]"></project-section-b>
+        <div *ngFor="let section of project.sections"> 
+                <div [ngSwitch]="section.type">
+                        <project-section-a *ngSwitchCase="'a'"
+                            [image]="asset(section.image)"
+                            [content]="section.content"></project-section-a>
 
-        <project-section-a 
-        [image]="thumbnailURL(project)"
-        [value]="project.title"></project-section-a>
+                        <project-section-b *ngSwitchCase="'b'"
+                            [image]="asset(section.image)"
+                            [content]="section.content"
+                            [items]="[
+                                ['Title', 'Test Title'], 
+                                ['Followers', '3'],
+                                ['Followers', '3'],
+                                ['Followers', '3'],
+                                ['Followers', '3']
+                            ]"></project-section-b>
 
-        <project-section-centered-text></project-section-centered-text>
-        <project-section-centered-image
-        [image]="'assets/images/projects/6.jpg'"></project-section-centered-image>
-        <project-section-centered-quote></project-section-centered-quote>
-
-
-        <project-callout></project-callout>
+                        <project-section-centered-text *ngSwitchCase="'centered-text'"
+                            [content]="section.content"></project-section-centered-text>
+                        <project-section-centered-quote *ngSwitchCase="'centered-quote'"
+                            [content]="section.content"></project-section-centered-quote>
+                        <project-section-centered-image *ngSwitchCase="'centered-image'"
+                            [image]="asset(section.image)"></project-section-centered-image>
+                </div>
+        </div>
+        <project-callout [projects]="related"></project-callout>
     </div>
 </div>

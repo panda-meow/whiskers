@@ -2,11 +2,15 @@
 
 <section class="container bg-white ">
     <div class="centered_copy_block wysiwyg ">
-        <p style="text-align: left; ">Over the years, 140 New Montgomery remained largely unchanged while the city advanced and grew around it. When real estate developer Wilson Meany purchased the property in 2007, it wanted to return the building to its rightful stature
-            as a monument of architectural and technological excellence.</p>
-        <p style="text-align: left; ">The new owners envisioned a premiere office building with advanced systems and flexible floor plans. This was to be accomplished without disturbing the elements that gave the building its character. The interior floor plates had to be
-            open to take advantage of the views and provide tenants with finishing options, but the historic fabric of the exterior and lobby had to remain unchanged.</p>
-        <p>Holmes Structures was hired to conduct a comprehensive seismic upgrade that would improve the building’s safety and long-term structural resiliency.</p>
+        <p style="text-align: left" *ngFor="let paragraph of this.paragraphs">
+            <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
+            <ng-template #capParagraph >
+                <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
+            </ng-template>
+            <ng-template #defaultParagraph>
+                {{paragraph}}
+            </ng-template>
+        </p>
         <p>&nbsp;</p>
     </div>
 </section>
