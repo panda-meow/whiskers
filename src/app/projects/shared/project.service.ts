@@ -63,7 +63,7 @@ export class ProjectService {
       .catch(error => this.handleError(error));
   }
 
-  like(project: Project) {
+  /*like(project: Project) {
     if (this.checkIfUserCanVote()) {
       const url = `${this.projectsUrl}/${project.id}/like`;
       return this.http
@@ -79,7 +79,7 @@ export class ProjectService {
       this.showSnackBar('projectLikeMaximum');
       return Observable.throw('maximum votes');
     }
-  }
+  }*/
 
   checkIfUserCanVote(): boolean {
     return Number(localStorage.getItem('votes')) < AppConfig.votesLimit;

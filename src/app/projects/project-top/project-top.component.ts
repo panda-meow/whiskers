@@ -18,14 +18,14 @@ export class ProjectTopComponent {
   constructor(private projectService: ProjectService) {
     this.canVote = this.projectService.checkIfUserCanVote();
 
-    this.projectService.getAllProjects().subscribe((projects) => {
+    /*this.projectService.getAllProjects().subscribe((projects) => {
       this.projects = projects.sort((a, b) => {
         return b.likes - a.likes;
       }).slice(0, AppConfig.topProjectsLimit);
-    });
+    });*/
   }
 
-  like(project: Project): Promise<any> {
+  /*like(project: Project): Promise<any> {
     return new Promise((resolve, reject) => {
       this.projectService.like(project).subscribe(() => {
         this.canVote = this.projectService.checkIfUserCanVote();
@@ -34,5 +34,5 @@ export class ProjectTopComponent {
         reject(error);
       });
     });
-  }
+  }*/
 }

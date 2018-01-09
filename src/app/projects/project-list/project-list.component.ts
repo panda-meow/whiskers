@@ -33,18 +33,18 @@ export class ProjectListComponent {
 
     this.projectService.getAllProjects().subscribe((projects: Array<Project>) => {
       this.projects = projects.sort((a, b) => {
-        return b.likes - a.likes;
+        return a.name.localeCompare(b.name);
       });
     });
   }
 
-  like(project: Project) {
+  /*like(project: Project) {
     this.projectService.like(project).subscribe(() => {
       this.canVote = this.projectService.checkIfUserCanVote();
     }, (error: Response) => {
       LoggerService.error('maximum votes limit reached', error);
     });
-  }
+  }*/
 
   createNewProject(newProject: Project) {
     this.projectService.createProject(newProject).subscribe((newProjectWithId) => {
@@ -67,9 +67,7 @@ export class ProjectListComponent {
   }
 
   seeProjectDetails(project): void {
-    if (project.default) {
       this.router.navigate([AppConfig.routes.projects + '/' + project.id]);
-    }
   }
 
   remove(projectToRemove: Project): void {

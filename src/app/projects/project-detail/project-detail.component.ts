@@ -27,7 +27,7 @@ export class ProjectDetailComponent {
     });
   }
 
-  like(project: Project) {
+  /*like(project: Project) {
     return new Promise((resolve, reject) => {
       this.projectService.like(project).subscribe(() => {
         this.canVote = this.projectService.checkIfUserCanVote();
@@ -36,7 +36,7 @@ export class ProjectDetailComponent {
         reject(error);
       });
     });
-  }
+  }*/
 
   headerURL(project: Project): string {
     return Project.headerURL(project);
