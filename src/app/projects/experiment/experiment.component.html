@@ -1,10 +1,17 @@
 <div *ngIf="project">
     <div role="main" class="">
         <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
-            <!-- <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}"></div> -->
         </section>
         <project-section-b
         [image]="'assets/images/projects/4-thumbnail.jpg'"
+        [content]="'
+~When it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the 
+forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston 
+Churchill dialed one of the first transatlantic phone calls within its walls.
+
+The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and
+bronze fixtures signified a new era of progress and prosperity.
+        '"
         [items]="[
             ['Title', 'Test Title'], 
             ['Followers', '3'],

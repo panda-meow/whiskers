@@ -9,9 +9,25 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectSectionComponentB {
     @Input()
-    image: String 
+    image: string 
+    @Input()
+    content: string 
     @Input()
     items: [[string, string]]
 
-    constructor() {}
+    //paragraphs: [string];
+
+    constructor() {
+        //this.paragraphs = ["a", "b"]; //[this.content, this.image];
+    }
+
+    get paragraphs(): string[] {
+        return this.content.trim().replace('\r\n','\n').split('\n\n').map(function(paragraph) {
+            /*if (paragraph.startsWith('~')) {
+                return '<span class="drop-cap">' + paragraph.charAt(1) + '</span>' + paragraph.substring(2);
+            } else {*/
+                return paragraph;
+            //}
+        });
+    }
 }
