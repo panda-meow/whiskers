@@ -9,12 +9,15 @@
         </mat-progress-spinner>
         <div id="projects-list" *ngIf="projects">
             <ng-container *ngFor="let project of projects">
-                <mat-card class="project-card">
+                <mat-card class="project-card"
+                    (click)="seeProjectDetails(project);">
                     <mat-card-header>
                         <div mat-card-avatar class="project-header-image"
-                             [ngStyle]="{'background-image': 'url(assets/images/projects/' + project.id + '-thumbnail.jpg)'}"></div>
-                        <mat-card-title>{{project.name}}</mat-card-title>
-                        <mat-card-subtitle>{{project.title}}</mat-card-subtitle>
+                             [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
+                        <mat-card-title
+                              >{{project.name}}</mat-card-title>
+                        <mat-card-subtitle
+                            >{{project.title}}</mat-card-subtitle>
                         <div class="flex-spacer"></div>
                         <!--<div class="project-actions">
                             {{project.likes}}
@@ -24,7 +27,7 @@
                             </mat-icon>
                         </div>-->
                     </mat-card-header>
-                    <img mat-card-image src="assets/images/projects/{{project.id}}.jpg">
+                    <img mat-card-image src="{{headerURL(project)}}">
                 </mat-card>
             </ng-container>
         </div>

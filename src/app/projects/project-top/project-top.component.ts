@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 import {Project} from '../shared/project.model';
 
@@ -15,14 +16,27 @@ export class ProjectTopComponent {
   projects: Project[] = null;
   canVote = false;
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService,
+    private router: Router) {
     this.canVote = this.projectService.checkIfUserCanVote();
 
-    /*this.projectService.getAllProjects().subscribe((projects) => {
+    this.projectService.getAllProjects().subscribe((projects) => {
       this.projects = projects.sort((a, b) => {
-        return b.likes - a.likes;
+        return a.name.localeCompare(b.name);
       }).slice(0, AppConfig.topProjectsLimit);
-    });*/
+    });
+  }
+
+  seeProjectDetails(project): void {
+      this.router.navigate([AppConfig.routes.projects + '/' + project.id]);
+  }
+
+  headerURL(project: Project): string {
+    return Project.headerURL(project);
+  }
+
+  thumbnailURL(project: Project): string {
+    return Project.thumbnailURL(project);
   }
 
   /*like(project: Project): Promise<any> {
