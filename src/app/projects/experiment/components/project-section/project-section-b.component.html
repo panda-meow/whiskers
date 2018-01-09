@@ -1,8 +1,8 @@
 <dl class="project-notes">
-    <div *ngFor="let item of items; let last = last"> 
-        <dt class="h6">{{item[0]}}</dt>
-        <dd *ngIf="!last">{{item[1]}}</dd>
-        <dd *ngIf="last" style="margin-bottom: 0em">{{item[1]}}</dd>
+    <div *ngFor="let point of points; let last = last"> 
+        <dt class="h6">{{point[0]}}</dt>
+        <dd *ngIf="!last">{{point[1]}}</dd>
+        <dd *ngIf="last" style="margin-bottom: 0em">{{point[1]}}</dd>
     </div>
 </dl>
 
@@ -19,8 +19,6 @@
         </p>
     </div>
 </section>
-
-<!-- HERO -->
 
 <section class="container bg-white">
     <figure class="full-width-image fifty">

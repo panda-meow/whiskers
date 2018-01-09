@@ -12,13 +12,7 @@
                         <project-section-b *ngSwitchCase="'b'"
                             [image]="asset(section.image)"
                             [content]="section.content"
-                            [items]="[
-                                ['Title', 'Test Title'], 
-                                ['Followers', '3'],
-                                ['Followers', '3'],
-                                ['Followers', '3'],
-                                ['Followers', '3']
-                            ]"></project-section-b>
+                            [overview]="section.overview"></project-section-b>
 
                         <project-section-centered-text *ngSwitchCase="'centered-text'"
                             [content]="section.content"></project-section-centered-text>
