@@ -1,7 +1,8 @@
 <dl class="project-notes">
-    <div *ngFor="let item of items"> 
+    <div *ngFor="let item of items; let last = last"> 
         <dt class="h6">{{item[0]}}</dt>
-        <dd>{{item[1]}}</dd>
+        <dd *ngIf="!last">{{item[1]}}</dd>
+        <dd *ngIf="last" style="margin-bottom: 0em">{{item[1]}}</dd>
     </div>
 </dl>
 

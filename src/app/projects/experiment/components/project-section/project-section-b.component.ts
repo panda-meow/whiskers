@@ -15,11 +15,7 @@ export class ProjectSectionComponentB {
     @Input()
     items: [[string, string]]
 
-    //paragraphs: [string];
-
-    constructor() {
-        //this.paragraphs = ["a", "b"]; //[this.content, this.image];
-    }
+    constructor() {}
 
     get paragraphs(): string[] {
         return this.content.trim().replace('\r\n','\n').split('\n\n');
