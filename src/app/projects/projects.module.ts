@@ -11,6 +11,8 @@ import {ProjectDetailComponent} from './project-detail/project-detail.component'
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component'
 
+import {ProjectCalloutComponent} from './experiment/components/main/project-callout.component';
+
 import {ProjectSectionComponentA} from './experiment/components/project-section/project-section-a.component';
 import {ProjectSectionComponentB} from './experiment/components/project-section/project-section-b.component';
 import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
@@ -31,6 +33,7 @@ import { ProjectSectionCenteredImageComponent } from './experiment/components/pr
     ExperimentComponent,
     RemoveProjectDialogComponent,
     ProjectDetailComponent,
+    ProjectCalloutComponent,
     ProjectSectionComponentA,
     ProjectSectionComponentB,
     ProjectSectionCenteredTextComponent,
