@@ -28,7 +28,7 @@ export class ExperimentComponent {
         });
 
         this.projectService.getAllProjects().subscribe((projects: Project[]) => {
-          this.related = projects.filter(function(project) { return project.id != params['id']; });
+          this.related = projects.filter(function(project) { return project.id != params['id']; }).slice(0, 3);
         });
       }
     });
