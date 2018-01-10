@@ -3,7 +3,7 @@
         <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
         </section>
 
-        <div *ngFor="let section of project.sections"> 
+        <div *ngFor="let section of project.sections; let last = last;"> 
                 <div [ngSwitch]="section.type">
                         <project-section-a *ngSwitchCase="'a'"
                             [image]="asset(section.image)"
@@ -20,7 +20,12 @@
                             [content]="section.content"></project-section-centered-quote>
                         <project-section-centered-image *ngSwitchCase="'centered-image'"
                             [image]="asset(section.image)"></project-section-centered-image>
+                        <project-section-two-images *ngSwitchCase="'two-images'"
+                            [left]="asset(section.left)"
+                            [right]="asset(section.right)"
+                            ></project-section-two-images>
                 </div>
+                <br ng-if="last">
         </div>
         <project-callout [projects]="related"></project-callout>
     </div>
