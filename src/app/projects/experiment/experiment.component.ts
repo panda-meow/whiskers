@@ -14,6 +14,7 @@ import {ProjectSectionComponentA} from './components/project-section/project-sec
 
 export class ExperimentComponent {
     project: Project;
+    related: Project[];
     sections: any[] = [
     ];
 
@@ -24,10 +25,17 @@ export class ExperimentComponent {
         this.projectService.getProjectById(params['id']).subscribe((project: Project) => {
           this.project = project;
           console.log('this is the project:' + project);
+        });
 
+        this.projectService.getAllProjects().subscribe((projects: Project[]) => {
+          this.related = projects.filter(function(project) { return project.id != params['id']; }).slice(0, 3);
         });
       }
     });
+  }
+
+  asset(name: string): string {
+    return "http://" + window.location.hostname + ":8080/projects/" + this.project.id + "/assets/" + name;
   }
 
   headerURL(project: Project): string {

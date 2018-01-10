@@ -12,8 +12,8 @@ const projectsRoutes: Routes = [
     component: ProjectsComponent,
     children: [
       {path: '', component: ProjectListComponent},
-      {path: 'foo/:id', component: ExperimentComponent},
-      {path: ':id', component: ProjectDetailComponent}
+      {path: 'foo/:id', component: ProjectDetailComponent},
+      {path: ':id', component: ExperimentComponent}
     ]
   }
 ];

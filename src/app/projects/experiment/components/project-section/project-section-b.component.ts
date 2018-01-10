@@ -9,9 +9,24 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectSectionComponentB {
     @Input()
-    image: String 
+    image: string 
     @Input()
-    items: [[string, string]]
+    content: string 
+    @Input()
+    overview: string
 
     constructor() {}
+
+    get paragraphs(): string[] {
+        return this.content.trim().replace('\r\n','\n').split('\n\n');
+    }
+
+    get points(): [string, string][] {
+        var blocks = this.overview.trim().replace('\r\n','\n').split('\n\n');
+
+        return blocks.map(function(block) {
+            let index = block.indexOf("\n");
+            return [block.substring(0, index), block.substring(index + 1)] as [string, string];
+        });
+    }
 }

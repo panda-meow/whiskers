@@ -1,0 +1,16 @@
+<section class="projects-callout ">
+    <div class="head ">
+        <h2 class="h5 ">More Projects</h2>
+        <p><span class="arrow-link white "><a href="/projects ">View All</a></span></p>
+    </div>
+
+    <ul class="projects">
+        <li *ngFor="let project of projects">
+            <a href="/projects/{{project.id}}">
+                <h4 class="h5">{{project.title}}</h4>
+                <img src="{{thumbnailURL(project)}}" alt="{{project.title}}" style="height: 200px" />
+                <h3>This is a caption</h3>
+            </a>
+        </li>
+    </ul>
+</section>

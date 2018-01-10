@@ -7,20 +7,18 @@
     <mat-list>
       <mat-list-item *ngFor="let project of projects">
 
-        <img *ngIf="project.default" class="cp" (click)="seeProjectDetails(project);"
+        <img class="cp" (click)="seeProjectDetails(project);"
           mat-list-avatar src="{{thumbnailURL(project)}}">
-        <img *ngIf="!project.default" (click)="seeProjectDetails(project);"
-          mat-list-avatar src="{{thumbnailURL(project)}}">
-        <h3 mat-line [ngClass]="{'cp': project.default}"
+        <h3 mat-line [ngClass]="{'cp': true}"
           (click)="seeProjectDetails(project);">
           {{project.title}} </h3>
-        <p mat-line [ngClass]="{'cp': project.default}"
+        <p mat-line [ngClass]="{'cp': true}"
           (click)="seeProjectDetails(project);"></p>
         <!-- <mat-chip-list *ngFor="let category of project.categories">
           <mat-chip style="background: red;">{{category}}</mat-chip>
         </mat-chip-list> -->
 
-        <div class="project-actions">
+        <!--<div class="project-actions">
           {{project.likes}}
           <mat-icon matTooltip="{{(canVote ? 'canVote' : 'cannotVote') | translate}}"
             [matTooltipPosition]="'above'"
@@ -31,7 +29,7 @@
             (click)="remove(project);">
             delete
           </mat-icon>
-        </div>
+        </div>-->
       </mat-list-item>
     </mat-list>
   </div>

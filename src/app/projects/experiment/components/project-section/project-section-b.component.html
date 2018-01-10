@@ -1,20 +1,24 @@
 <dl class="project-notes">
-    <mat-list-item *ngFor="let item of items">
-    <dt class="h6">{{item[0]}}</dt>
-    <dd>{{item[1]}}</dd>
-    </mat-list-item>
+    <div *ngFor="let point of points; let last = last"> 
+        <dt class="h6">{{point[0]}}</dt>
+        <dd *ngIf="!last">{{point[1]}}</dd>
+        <dd *ngIf="last" style="margin-bottom: 0em">{{point[1]}}</dd>
+    </div>
 </dl>
 
 <section class="container bg-white">
     <div class="centered_copy_block wysiwyg">
-        <p><span class="drop-cap">W</span>hen it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston Churchill
-            dialed one of the first transatlantic phone calls within its walls.</p>
-        <p>The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and
-            bronze fixtures signified a new era of progress and prosperity.</p>
+        <p *ngFor="let paragraph of this.paragraphs">
+            <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
+            <ng-template #capParagraph >
+                <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
+            </ng-template>
+            <ng-template #defaultParagraph>
+                {{paragraph}}
+            </ng-template>
+        </p>
     </div>
 </section>
-
-<!-- HERO -->
 
 <section class="container bg-white">
     <figure class="full-width-image fifty">
