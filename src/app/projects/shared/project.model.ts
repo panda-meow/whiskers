@@ -4,7 +4,8 @@ export class Project {
               public name: string,
               public categories: string[],
               public title: string,
-              public sections: any[]) {
+              public sections: any[],
+              public attributes: any) {
   }
 
   public static thumbnailURL(project: Project): string {

@@ -9,7 +9,7 @@
             <a href="/projects/{{project.id}}">
                 <h4 class="h5">{{project.title}}</h4>
                 <img src="{{thumbnailURL(project)}}" alt="{{project.title}}" style="height: 200px" />
-                <h3>This is a caption</h3>
+                <h3>{{project.attributes?.caption || "No Caption"}}</h3>
             </a>
         </li>
     </ul>
