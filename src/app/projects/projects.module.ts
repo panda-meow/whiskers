@@ -1,24 +1,27 @@
+// NgModules
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
+// Modules
 import {ProjectRoutingModule} from './projects-routing.module';
 import {SharedModule} from '../shared/modules/shared.module';
 
+// Components
 import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list/project-list.component';
-import {ProjectService} from './shared/project.service';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
-import {ExperimentComponent} from './experiment/experiment.component'
-
+import {ExperimentComponent} from './experiment/experiment.component';
 import {ProjectCalloutComponent} from './experiment/components/main/project-callout.component';
+// import {ProjectSectionImageTextComponent} from './experiment/components/project-section/project-section-image-text.component';
+// import {ProjectSectionNotesComponent} from './experiment/components/project-section/project-section-notes.component';
+// import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
+// import { ProjectSectionCenteredQuoteComponent } from './experiment/components/project-section/project-section-centered-quote.component';
+// import { ProjectSectionCenteredImageComponent } from './experiment/components/project-section/project-section-centered-image.component';
+// import { ProjectSectionTwoImagesComponent } from './experiment/components/project-section/project-section-two-images.component';
 
-import {ProjectSectionComponentA} from './experiment/components/project-section/project-section-a.component';
-import {ProjectSectionComponentB} from './experiment/components/project-section/project-section-b.component';
-import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
-import { ProjectSectionCenteredQuoteComponent } from './experiment/components/project-section/project-section-centered-quote.component';
-import { ProjectSectionCenteredImageComponent } from './experiment/components/project-section/project-section-centered-image.component';
-import { ProjectSectionTwoImagesComponent } from './experiment/components/project-section/project-section-two-images.component';
+// Services
+import {ProjectService} from './shared/project.service';
 
 @NgModule({
   imports: [
@@ -26,7 +29,7 @@ import { ProjectSectionTwoImagesComponent } from './experiment/components/projec
     FormsModule,
     SharedModule,
     ProjectRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ProjectsComponent,
@@ -34,21 +37,15 @@ import { ProjectSectionTwoImagesComponent } from './experiment/components/projec
     ExperimentComponent,
     RemoveProjectDialogComponent,
     ProjectDetailComponent,
-    ProjectCalloutComponent,
-    ProjectSectionComponentA,
-    ProjectSectionComponentB,
-    ProjectSectionCenteredTextComponent,
-    ProjectSectionCenteredQuoteComponent,
-    ProjectSectionCenteredImageComponent,
-    ProjectSectionTwoImagesComponent
+    ProjectCalloutComponent
+    // ProjectSectionNotesComponent,
+    // ProjectSectionCenteredTextComponent,
+    // ProjectSectionCenteredQuoteComponent,
+    // ProjectSectionCenteredImageComponent,
+    // ProjectSectionTwoImagesComponent
   ],
   exports: [
-    ProjectSectionComponentA,
-    ProjectSectionComponentB,
-    ProjectSectionCenteredTextComponent,
-    ProjectSectionCenteredQuoteComponent,
-    ProjectSectionCenteredImageComponent,
-    ProjectSectionTwoImagesComponent
+
   ],
   entryComponents: [
     RemoveProjectDialogComponent

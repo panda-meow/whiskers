@@ -1,32 +1,33 @@
 <div *ngIf="project">
-    <div role="main" class="">
-        <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
-        </section>
+  <div role="main"
+    class="">
+    <section class="hero"
+      [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
+    </section>
 
-        <div *ngFor="let section of project.sections; let last = last;"> 
-                <div [ngSwitch]="section.type">
-                        <project-section-a *ngSwitchCase="'a'"
-                            [image]="asset(section.image)"
-                            [content]="section.content"></project-section-a>
+    <div *ngFor="let section of project.sections; let last = last;">
+      <div [ngSwitch]="section.type">
+        <project-section-image-text *ngSwitchCase="'image-text'"
+          [image]="asset(section.image)"
+          [content]="section.content"></project-section-image-text>
 
-                        <project-section-b *ngSwitchCase="'b'"
-                            [image]="asset(section.image)"
-                            [content]="section.content"
-                            [overview]="section.overview"></project-section-b>
+        <project-section-notes *ngSwitchCase="'notes'"
+          [image]="asset(section.image)"
+          [content]="section.content"
+          [overview]="section.overview"></project-section-notes>
 
-                        <project-section-centered-text *ngSwitchCase="'centered-text'"
-                            [content]="section.content"></project-section-centered-text>
-                        <project-section-centered-quote *ngSwitchCase="'centered-quote'"
-                            [content]="section.content"></project-section-centered-quote>
-                        <project-section-centered-image *ngSwitchCase="'centered-image'"
-                            [image]="asset(section.image)"></project-section-centered-image>
-                        <project-section-two-images *ngSwitchCase="'two-images'"
-                            [left]="asset(section.left)"
-                            [right]="asset(section.right)"
-                            ></project-section-two-images>
-                </div>
-                <br ng-if="last">
-        </div>
-        <project-callout [projects]="related"></project-callout>
+        <project-section-centered-text *ngSwitchCase="'centered-text'"
+          [content]="section.content"></project-section-centered-text>
+        <project-section-centered-quote *ngSwitchCase="'centered-quote'"
+          [content]="section.content"></project-section-centered-quote>
+        <project-section-centered-image *ngSwitchCase="'centered-image'"
+          [image]="asset(section.image)"></project-section-centered-image>
+        <project-section-two-images *ngSwitchCase="'two-images'"
+          [left]="asset(section.left)"
+          [right]="asset(section.right)"></project-section-two-images>
+      </div>
+      <br *ngIf="last">
     </div>
+    <project-callout [projects]="related"></project-callout>
+  </div>
 </div>
