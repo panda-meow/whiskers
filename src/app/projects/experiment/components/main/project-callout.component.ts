@@ -4,13 +4,13 @@ import { Project } from '../../../shared/project.model';
 
 @Component({
     selector: 'project-callout',
-    styleUrls: ['../../../project-detail/project-detail.component.scss'],
+    styleUrls: ['../../../project-detail/project-detail.component.scss', './project-callout.component.scss'],
     templateUrl: './project-callout.component.html',
 })
 
 export class ProjectCalloutComponent {
     @Input()
-    projects: Project[]
+    projects: Project[];
     constructor() {}
 
     headerURL(project: Project): string {

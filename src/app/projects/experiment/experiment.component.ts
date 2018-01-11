@@ -3,7 +3,6 @@ import {Project} from '../shared/project.model';
 import {ProjectSection} from '../shared/project-section.model';
 import {ProjectService} from '../shared/project.service';
 import {ActivatedRoute} from '@angular/router';
-import {ProjectSectionComponentA} from './components/project-section/project-section-a.component';
 
 
 @Component({
@@ -35,7 +34,7 @@ export class ExperimentComponent {
   }
 
   asset(name: string): string {
-    return "http://" + window.location.hostname + ":8080/projects/" + this.project.id + "/assets/" + name;
+    return 'http://' + window.location.hostname + ':8080/projects/' + this.project.id + '/assets/' + name;
   }
 
   headerURL(project: Project): string {
