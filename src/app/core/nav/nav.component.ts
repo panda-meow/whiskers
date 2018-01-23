@@ -1,5 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import {APP_CONFIG, AppConfig} from '../../config/app.config';
 import {IAppConfig} from '../../config/iapp.config';
@@ -18,13 +19,14 @@ export class NavComponent {
 
   private translateService: TranslateService;
 
-  constructor(@Inject(APP_CONFIG) appConfig: IAppConfig,
-              private progressBarService: ProgressBarService,
-              translateService: TranslateService) {
+  constructor(
+    private _router: Router,
+    @Inject(APP_CONFIG) appConfig: IAppConfig,
+      private progressBarService: ProgressBarService,
+      translateService: TranslateService) {
     this.appConfig = appConfig;
     this.translateService = translateService;
     this.loadMenus();
-
     this.progressBarService.updateProgressBar$.subscribe((mode: string) => {
       this.progressBarMode = mode;
     });
@@ -34,6 +36,10 @@ export class NavComponent {
     this.translateService.use(language).subscribe(() => {
       this.loadMenus();
     });
+  }
+
+  routeHome(): void {
+      this._router.navigate(['']);
   }
 
   private loadMenus(): void {

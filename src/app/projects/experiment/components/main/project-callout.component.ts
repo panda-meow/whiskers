@@ -1,6 +1,9 @@
+// ngModules
 import { Component, Input } from '@angular/core';
-import { Project } from '../../../shared/project.model';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
+// Modules
+import { Project } from '../../../shared/project.model';
 
 @Component({
     selector: 'project-callout',

@@ -1,120 +1,196 @@
-// /** START ITEROS APP STYLES **/
-// html {
-//   // background-color: lightskyblue !important;
-//   // background-color: $body-background !important;
+body {
+  padding-top: 3px !important;
+}
+
+a,
+.cp {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  margin: 0 5%;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 46.8em) {
+  .container {
+    margin: 0 auto;
+    max-width: 1182px;
+  }
+}
+
+@media screen and (min-width: 783px) {
+  div[role=main] {
+    min-height: -webkit-calc(100vh - 218px);
+    min-height: calc(100vh - 218px);
+  }
+}
+
+@media screen and (min-width: 50em) {
+  .container {
+    padding: 0 5%;
+    margin-left: 0 auto;
+    max-width: 1182px;
+    width: 100%;
+  }
+  div[role=main] {
+    // margin-top: 70px;
+    min-height: -webkit-calc(100vh - 224px);
+    min-height: calc(100vh - 224px);
+  }
+  .bg-white.last {
+    margin-bottom: 12em;
+  }
+}
+
+@media screen and (min-width: 1240px) {
+  .container {
+    padding: 0;
+  }
+}
+
+// .section-title {
+//     font-family: GT-Haptik-Regular;
+//     font-variant: small-caps;
+//     text-align: center;
+//     font-size: 1.5em;
+//     font-weight: 300;
+//     margin: 1em 0 1em;
 // }
-// body {
-//   // background-color: $body-background !important;
-//   // background-color: lightcoral !important;
+// .meta {
+//     text-align: center;
+//     font-size: 1em;
+//     font-weight: 300;
+//     padding: 1em 0 0;
+//     &-title {
+//         font-family: basis-grotesque;
+//         font-variant: small-caps;
+//         letter-spacing: 1px;
+//     }
+//     &-data {
+//         font-weight: 200;
+//         &:last-of-type {
+//             color: red;
+//             padding: 0 0 1em;
+//         }
+//     }
 // }
-// router-outlet {
-//   margin: 0;
+// .container {
+//     padding-right: 15px;
+//     padding-left: 15px;
+//     margin-right: auto;
+//     margin-left: auto;
+//     @media (min-width: 992px) {
+//         width: 970px;
+//     }
+//     @media (min-width: 768px) {
+//         width: 750px;
+//     }
 // }
-// iteros-app {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   // display: -webkit-box;
-//   // display: -ms-flexbox;
-//   display: flex;
-//   // -webkit-box-orient: vertical;
-//   // // -webkit-box-direction: normal;
-//   // -ms-flex-direction: column;
-//   flex-direction: column;
+// .navbar-brand {
+//     display: block;
+//     float: left;
+//     /*padding: 16px 20px 16px; /* Increase vertical padding to match navbar links */
+//     font-size: 5em;
+//     font-family: 'gear-proportion';
+//     font-weight: 700;
+//     letter-spacing: 5px;
+//     margin: 0;
+//     margin-bottom: 0px;
+//     line-height: 25px;
+//     color: #fff;
+//     /* font-size: 16px;
+//   font-weight: bold;*/
+//     text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+//     height: 50px;
+//     padding: 15px 20px 10px;
 // }
-// report,
-// report-add,
-// alarm-list,
-// dashboard-list,
-// dashboard-add,
-// dashboard,
-// historian-component,
-// event-list {
-//   height: 100%;
-//   & .mat-sidenav-container {
-//     height: 100%;
-//   }
+// nav {
+//     background-color: #222;
+//     border-color: #080808;
+//     border-top: 3px solid white;
+//     box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
+//     position: relative;
+//     z-index: 1000;
+//     min-height: 30px;
+//     margin-bottom: 0px;
+//     border: 1px solid transparent;
 // }
-// // stretch to screen size in fullscreen mode
-// .demo-content,
-// .content {
-//   width: 100%;
-//   height: 100%;
-//   box-sizing: border-box;
-// }
-// :host {
-//   display: flex;
-//   flex: 1;
-// }
-// .content {
-//   // padding: 12px;
-//   // padding: 0 12px 12px 12px;
-//   // background-color: $body-background !important;
-//   // color: green !important;
-//   // color: $primary-text-color !important;
-// }
-// /deep/ mat-icon.avatar {
-//   overflow: hidden;
-//   width: 64px;
-//   height: 64px;
-//   border-radius: 50%;
-//   margin: 12px;
-// }
-// .fab-bottom-right {
-//   position: fixed;
-//   right: 16px;
-//   bottom: 16px;
-// }
-// /deep/ .mat-list-item-content {
-//   height: auto !important;
-// }
-// mat-sidenav {
-//   width: 45px;
-//   min-width: 45px !important;
-//   // background-color: purple !important;
-// }
-// .mat-sidenav-content {
-//   // background-color: #303030;
-//   // background-color: $body-background;
-// }
-// .mat-tab-body-wrapper {
-//   padding: 8px;
-// }
-// my-dashboard {
-//   height: 100%;
-//   .default-dashboard-wrapper {
-//     height: 100%;
-//   }
-// }
-// mat-form-field {
-//   width: 100%;
-// }
-// .mat-toolbar-layout {
-//   width: 100%;
-// }
-// realtime-total-generation mat-card,
-// load-distribution mat-card,
-// realtime-system-load mat-card,
-// battery mat-card,
-// building-info mat-card,
-// carbon-offset mat-card,
-// emission-equivalent mat-card,
-// energy-use-cost-summary mat-card,
-// eui-chart mat-card,
-// generator-component mat-card,
-// grid-connection mat-card,
-// savings-summary mat-card,
-// sun-gauge mat-card,
-// weather-chart mat-card {
-//   height: 100%;
-// }
-// breadcrumb-item {
-//   button {
-//     font-size: 11px !important;
-//     letter-spacing: 0 !important;
-//     font-weight: 500 !important;
-//   }
-// }
-// /** END ITEROS APP STYLES **/
+.flex-spacer {
+  flex-grow: 1;
+}
+
+.progress-spinner {
+  height: 60px !important;
+  margin: 2em auto;
+}
+
+snack-bar-container {
+  background: #3f51b5 !important;
+}
+
+.mat-menu-content {
+  background: #3f51b5;
+}
+
+.mat-menu-item,
+.mat-menu-item .mat-icon {
+  color: white;
+  font-weight: 100;
+}
+
+.project-actions {
+  align-items: center;
+  display: flex;
+  padding-bottom: 1em;
+}
+
+.like-icon {
+  color: #DC143C;
+  cursor: pointer;
+}
+
+.mat-raised-button[disabled] {
+  background: #bbb !important;
+}
+
+.mat-dialog-container {
+  background: #3f51b5;
+  color: white;
+}
+
+.mat-dialog-content {
+  text-align: center;
+  padding: 1em 24px !important;
+}
+
+.mat-dialog-title {
+  text-align: center;
+}
+
+.project-header-image {
+  background-size: cover;
+}
+
+.mat-card-image {
+  margin-bottom: -28px !important;
+  border-top: 1px solid #eee;
+}
+
+.mat-list-avatar {
+  height: 55px !important;
+  width: 55px !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// hero stuff
+section.hero {
+  background-color: #f00f0f;
+  overflow-x: hidden;
+  width: 100%;
+  height: 400px;
+}

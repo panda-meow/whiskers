@@ -1,9 +1,7 @@
 <!-- TWO IMAGE COLUMNS -->
 
 <section class="container bg-white wysiwyg ">
-  <figure class="image-with-text left ">
-    <img src="{{image}}"
-      alt=" " />
+  <figure class="image-with-text right">
     <figcaption>
       <p *ngFor="let paragraph of this.paragraphs">
         <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
@@ -18,5 +16,7 @@
           target="_blank "
           rel="noopener ">Some Text Here</a></h5>
     </figcaption>
+    <img src="{{image}}"
+      alt=" " />
   </figure>
 </section>

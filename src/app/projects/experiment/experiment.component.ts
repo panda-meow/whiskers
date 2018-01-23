@@ -4,7 +4,6 @@ import {ProjectSection} from '../shared/project-section.model';
 import {ProjectService} from '../shared/project.service';
 import {ActivatedRoute} from '@angular/router';
 
-
 @Component({
     selector: 'experiment',
     styleUrls: ['../project-detail/project-detail.component.scss'],

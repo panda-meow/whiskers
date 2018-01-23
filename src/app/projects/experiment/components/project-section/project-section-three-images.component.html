@@ -1,0 +1,39 @@
+<!-- <section class="container two-image-columns bg-white ">
+    <figure class="half ">
+        <img src="{{left}}" alt="140 New Montgomery Buckling-Restrained Braces " />
+
+    </figure>
+    <figure class="half ">
+        <img src="{{right}}" alt="140 New Montgomery Buckling-Restrained Braces " />
+    </figure>
+</section> -->
+
+<section fxFlex
+  fxLayout="row"
+  fxLayout.lt-md="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="20px"
+  class="container three-image-columns bg-white ">
+  <figure fxFlex="33"
+    fxFlex.md="50"
+    fxFlex.lt-md="100"
+    class="third">
+    <img src="{{left}}"
+      alt="140 New Montgomery Buckling-Restrained Braces " />
+    <p *ngIf="leftCaption">{{leftCaption}}</p>
+  </figure>
+  <figure fxFlex="33"
+    fxFlex.md="50"
+    fxFlex.lt-md="100">
+    <img src="{{center}}"
+      alt="140 New Montgomery Buckling-Restrained Braces " />
+    <p *ngIf="centerCaption">{{centerCaption}}</p>
+  </figure>
+  <figure fxFlex="33"
+    fxFlex.md="50"
+    fxFlex.lt-md="100">
+    <img src="{{right}}"
+      alt="140 New Montgomery Buckling-Restrained Braces " />
+    <p *ngIf="rightCaption">{{rightCaption}}</p>
+  </figure>
+</section>

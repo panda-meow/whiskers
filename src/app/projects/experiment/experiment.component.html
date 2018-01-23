@@ -7,9 +7,14 @@
 
     <div *ngFor="let section of project.sections; let last = last;">
       <div [ngSwitch]="section.type">
+
         <project-section-image-text *ngSwitchCase="'image-text'"
           [image]="asset(section.image)"
           [content]="section.content"></project-section-image-text>
+
+        <project-section-image-text-right *ngSwitchCase="'image-text-right'"
+          [content]="section.content"
+          [image]="asset(section.image)"></project-section-image-text-right>
 
         <project-section-notes *ngSwitchCase="'notes'"
           [image]="asset(section.image)"
@@ -18,13 +23,28 @@
 
         <project-section-centered-text *ngSwitchCase="'centered-text'"
           [content]="section.content"></project-section-centered-text>
+
         <project-section-centered-quote *ngSwitchCase="'centered-quote'"
           [content]="section.content"></project-section-centered-quote>
+
         <project-section-centered-image *ngSwitchCase="'centered-image'"
           [image]="asset(section.image)"></project-section-centered-image>
+
         <project-section-two-images *ngSwitchCase="'two-images'"
           [left]="asset(section.left)"
           [right]="asset(section.right)"></project-section-two-images>
+
+        <project-section-three-images *ngSwitchCase="'three-images'"
+          [left]="asset(section.left)"
+          [leftCaption]="section.leftCaption"
+          [center]="asset(section.center)"
+          [centerCaption]="section.centerCaption"
+          [right]="asset(section.right)"
+          [rightCaption]="section.rightCaption"></project-section-three-images>
+
+        <project-section-image-full *ngSwitchCase="'image-full'"
+          [image]="asset(section.image)"></project-section-image-full>
+
       </div>
       <br *ngIf="last">
     </div>

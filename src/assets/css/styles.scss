@@ -9,59 +9,52 @@
 // @import '../assets/scss/main.scss';
 // * {
 //     font-family: 'Roboto', sans-serif;
+// // }
+// body {
+//   padding-top: 3px !important;
 // }
-body {
-  padding-top: 3px !important;
-}
-
-a,
-.cp {
-  cursor: pointer;
-}
-
-.container {
-  width: 90%;
-  margin: 0 5%;
-  overflow: hidden;
-}
-
-@media screen and (min-width: 46.8em) {
-  .container {
-    margin: 0 auto;
-    max-width: 1182px;
-  }
-}
-
-@media screen and (min-width: 783px) {
-  div[role=main] {
-    min-height: -webkit-calc(100vh - 218px);
-    min-height: calc(100vh - 218px);
-  }
-}
-
-@media screen and (min-width: 50em) {
-  .container {
-    padding: 0 5%;
-    margin-left: 0 auto;
-    max-width: 1182px;
-    width: 100%;
-  }
-  div[role=main] {
-    // margin-top: 70px;
-    min-height: -webkit-calc(100vh - 224px);
-    min-height: calc(100vh - 224px);
-  }
-  .bg-white.last {
-    margin-bottom: 12em;
-  }
-}
-
-@media screen and (min-width: 1240px) {
-  .container {
-    padding: 0;
-  }
-}
-
+// a,
+// .cp {
+//   cursor: pointer;
+// }
+// .container {
+//   width: 90%;
+//   margin: 0 5%;
+//   overflow: hidden;
+// }
+// @media screen and (min-width: 46.8em) {
+//   .container {
+//     margin: 0 auto;
+//     max-width: 1182px;
+//   }
+// }
+// @media screen and (min-width: 783px) {
+//   div[role=main] {
+//     min-height: -webkit-calc(100vh - 218px);
+//     min-height: calc(100vh - 218px);
+//   }
+// }
+// @media screen and (min-width: 50em) {
+//   .container {
+//     padding: 0 5%;
+//     margin-left: 0 auto;
+//     max-width: 1182px;
+//     width: 100%;
+//   }
+//   div[role=main] {
+//     // margin-top: 70px;
+//     min-height: -webkit-calc(100vh - 224px);
+//     min-height: calc(100vh - 224px);
+//   }
+//   .bg-white.last {
+//     margin-bottom: 12em;
+//   }
+// }
+// @media screen and (min-width: 1240px) {
+//   .container {
+//     padding: 0;
+//   }
+// }
 // .section-title {
 //     font-family: GT-Haptik-Regular;
 //     font-variant: small-caps;
@@ -128,82 +121,66 @@ a,
 //     min-height: 30px;
 //     margin-bottom: 0px;
 //     border: 1px solid transparent;
+// // }
+// .flex-spacer {
+//   flex-grow: 1;
 // }
-.flex-spacer {
-  flex-grow: 1;
-}
-
-.progress-spinner {
-  height: 60px !important;
-  margin: 2em auto;
-}
-
-snack-bar-container {
-  background: #3f51b5 !important;
-}
-
-.mat-menu-content {
-  background: #3f51b5;
-}
-
-.mat-menu-item,
-.mat-menu-item .mat-icon {
-  color: white;
-  font-weight: 100;
-}
-
-.project-actions {
-  align-items: center;
-  display: flex;
-  padding-bottom: 1em;
-}
-
-.like-icon {
-  color: #DC143C;
-  cursor: pointer;
-}
-
-.mat-raised-button[disabled] {
-  background: #bbb !important;
-}
-
-.mat-dialog-container {
-  background: #3f51b5;
-  color: white;
-}
-
-.mat-dialog-content {
-  text-align: center;
-  padding: 1em 24px !important;
-}
-
-.mat-dialog-title {
-  text-align: center;
-}
-
-.project-header-image {
-  background-size: cover;
-}
-
-.mat-card-image {
-  margin-bottom: -28px !important;
-  border-top: 1px solid #eee;
-}
-
-.mat-list-avatar {
-  height: 55px !important;
-  width: 55px !important;
-}
-
-.text-right {
-  text-align: right;
-}
-
+// .progress-spinner {
+//   height: 60px !important;
+//   margin: 2em auto;
+// }
+// snack-bar-container {
+//   background: #3f51b5 !important;
+// }
+// .mat-menu-content {
+//   background: #3f51b5;
+// }
+// .mat-menu-item,
+// .mat-menu-item .mat-icon {
+//   color: white;
+//   font-weight: 100;
+// }
+// .project-actions {
+//   align-items: center;
+//   display: flex;
+//   padding-bottom: 1em;
+// }
+// .like-icon {
+//   color: #DC143C;
+//   cursor: pointer;
+// }
+// .mat-raised-button[disabled] {
+//   background: #bbb !important;
+// }
+// .mat-dialog-container {
+//   background: #3f51b5;
+//   color: white;
+// }
+// .mat-dialog-content {
+//   text-align: center;
+//   padding: 1em 24px !important;
+// }
+// .mat-dialog-title {
+//   text-align: center;
+// }
+// .project-header-image {
+//   background-size: cover;
+// }
+// .mat-card-image {
+//   margin-bottom: -28px !important;
+//   border-top: 1px solid #eee;
+// }
+// .mat-list-avatar {
+//   height: 55px !important;
+//   width: 55px !important;
+// }
+// .text-right {
+//   text-align: right;
+// }
 // hero stuff
-section.hero {
-  background-color: #f00f0f;
-  overflow-x: hidden;
-  width: 100%;
-  height: 400px;
-  // height: 100%;
-}
+// section.hero {
+//   background-color: #f00f0f;
+//   overflow-x: hidden;
+//   width: 100%;
+//   height: 400px;
+// }
