@@ -12,7 +12,8 @@ import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component';
-import {ProjectCalloutComponent} from './experiment/components/main/project-callout.component';
+// import {ProjectHeaderComponent} from './experiment/components/main/project-header/project-header.component';
+// import {ProjectCalloutComponent} from './experiment/components/main/project-callout/project-callout.component';
 // import {ProjectSectionImageTextComponent} from './experiment/components/project-section/project-section-image-text.component';
 // import {ProjectSectionNotesComponent} from './experiment/components/project-section/project-section-notes.component';
 // import { ProjectSectionCenteredTextComponent } from './experiment/components/project-section/project-section-centered-text.component';
@@ -37,7 +38,8 @@ import {ProjectService} from './shared/project.service';
     ExperimentComponent,
     RemoveProjectDialogComponent,
     ProjectDetailComponent,
-    ProjectCalloutComponent
+    // ProjectHeaderComponent,
+    // ProjectCalloutComponent
     // ProjectSectionNotesComponent,
     // ProjectSectionCenteredTextComponent,
     // ProjectSectionCenteredQuoteComponent,

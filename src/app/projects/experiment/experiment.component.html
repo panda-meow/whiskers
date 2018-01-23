@@ -1,9 +1,13 @@
 <div *ngIf="project">
   <div role="main"
     class="">
-    <section class="hero"
+    <!-- <section class="hero"
       [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
-    </section>
+    </section> -->
+
+    <!-- <section class="test"
+      [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}"></section> -->
+    <project-header [project]="project"></project-header>
 
     <div *ngFor="let section of project.sections; let last = last;">
       <div [ngSwitch]="section.type">

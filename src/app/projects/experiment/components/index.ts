@@ -1,4 +1,5 @@
 
+import {ProjectHeaderComponent} from './main/project-header/project-header.component';
 import {ProjectCalloutComponent} from './main/project-callout.component';
 import {ProjectSectionImageTextComponent} from './project-section/project-section-image-text.component';
 import {ProjectSectionImageTextRightComponent} from './project-section/project-section-image-text-right.component';
@@ -11,6 +12,8 @@ import { ProjectSectionThreeImagesComponent } from './project-section/project-se
 import { ProjectSectionImageFullComponent  } from './project-section/project-section-image-full.component';
 
 export const SHARED_COMPONENTS: any[] = [
+  ProjectHeaderComponent,
+  ProjectCalloutComponent,
   ProjectSectionImageTextComponent,
   ProjectSectionImageTextRightComponent,
   ProjectSectionNotesComponent,
@@ -22,6 +25,7 @@ export const SHARED_COMPONENTS: any[] = [
   ProjectSectionImageFullComponent
 ];
 
+export * from './main/project-header/project-header.component';
 export * from './main/project-callout.component';
 export * from './project-section/project-section-image-text.component';
 export * from './project-section/project-section-image-text-right.component';

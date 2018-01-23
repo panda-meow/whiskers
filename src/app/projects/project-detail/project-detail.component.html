@@ -1,210 +1,226 @@
 <div *ngIf="project">
-    <p>---- TYPOGRAPHY TEST -------</p>
-    <hr>
-    <h3 style="font-family: basis-grotesque-monobold">basis-grotesque monobold</h3>
-    <h3 style="font-family: basis-grotesque">basis-grotesque normal</h3>
-    <h3 style="font-family: basis-grotesque-medium">basis-grotesque medium</h3>
-    <h3 style="font-family: basis-grotesque-light">basis-grotesque light</h3>
-    <h3 style="font-family: basis-grotesque-mono">basis-grotesque mono</h3>
-    <!-- BEGIN TEST HOLMES DETAILS -->
-    <div role="main" class="">
-        <section class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
-            <!-- <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}"></div> -->
-        </section>
+  <p>---- TYPOGRAPHY TEST -------</p>
+  <hr>
+  <h3 style="font-family: basis-grotesque-monobold">basis-grotesque monobold</h3>
+  <h3 style="font-family: basis-grotesque">basis-grotesque normal</h3>
+  <h3 style="font-family: basis-grotesque-medium">basis-grotesque medium</h3>
+  <h3 style="font-family: basis-grotesque-light">basis-grotesque light</h3>
+  <h3 style="font-family: basis-grotesque-mono">basis-grotesque mono</h3>
+  <!-- BEGIN TEST HOLMES DETAILS -->
+  <div role="main"
+    class="">
+    <section class="hero"
+      [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}">
+      <!-- <div class="hero" [ngStyle]="{'background-image': 'url(' + headerURL(project) +')'}"></div> -->
+    </section>
 
-        <dl class="project-notes">
-            <dt class="h6">Name</dt>
-            <dd>{{ project.name }}</dd>
-            <dt class="h6">Id</dt>
-            <dd>{{ project.id }}</dd>
-            <dt class="h6">Categories</dt>
-            <dd>{{ project.categories }}</dd>
-            <dt class="h6">Awards</dt>
-            <dd>Governor’s Historic Preservation Award <br /> NCSEA Award of Excellence, Historic Preservation<br /> SEAONC Award of Excellence Historic Preservation<br /> California Preservation Foundation Award Outstanding Achievement in Historic Preservation<br
-                /> ENR Award of Merit for Renovation/Restoration</dd>
-            <dt class="h6">Title</dt>
-            <dd>{{ project.title }}</dd>
-        </dl>
+    <dl class="project-notes">
+      <dt class="h6">Name</dt>
+      <dd>{{ project.name }}</dd>
+      <dt class="h6">Id</dt>
+      <dd>{{ project.id }}</dd>
+      <dt class="h6">Categories</dt>
+      <dd>{{ project.categories }}</dd>
+      <dt class="h6">Awards</dt>
+      <dd>Governor’s Historic Preservation Award <br /> NCSEA Award of Excellence, Historic Preservation<br /> SEAONC Award of Excellence Historic Preservation<br /> California Preservation Foundation Award Outstanding Achievement in Historic Preservation<br
+        /> ENR Award of Merit for Renovation/Restoration</dd>
+      <dt class="h6">Title</dt>
+      <dd>{{ project.title }}</dd>
+    </dl>
 
-        <section class="container bg-white">
-            <div class="centered_copy_block wysiwyg">
-                <p><span class="drop-cap">W</span>hen it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston Churchill
-                    dialed one of the first transatlantic phone calls within its walls.</p>
-                <p>The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and
-                    bronze fixtures signified a new era of progress and prosperity.</p>
-            </div>
-        </section>
+    <section class="container bg-white">
+      <div class="centered_copy_block wysiwyg">
+        <p><span class="drop-cap">W</span>hen it opened in 1925 as the Pacific Telephone and Telegraph Company, 140 New Montgomery was at the forefront of changing how the world communicated. It ushered in a slew of skilled workers, and Winston Churchill
+          dialed one of the first transatlantic phone calls within its walls.</p>
+        <p>The 26-story Art Deco landmark was once the tallest building in San Francisco and stood poised to reach new technological heights. The detailed terra cotta exterior and ornate lobby with hand-painted plaster ceilings, marble walls and bronze fixtures
+          signified a new era of progress and prosperity.</p>
+      </div>
+    </section>
 
-        <!-- HERO -->
+    <!-- HERO -->
 
-        <section class="container bg-white">
-            <figure class="full-width-image fifty">
-                <img src="{{thumbnailURL(project)}}" alt="image description" />
+    <section class="container bg-white">
+      <figure class="full-width-image fifty">
+        <img src="{{thumbnailURL(project)}}"
+          alt="image description" />
 
-            </figure>
-        </section>
+      </figure>
+    </section>
 
-        <!-- TWO IMAGE COLUMNS -->
+    <!-- TWO IMAGE COLUMNS -->
 
-        <section class="container bg-white wysiwyg ">
-            <figure class="image-with-text left ">
-                <img src="assets/images/projects/5.jpg" alt=" " />
-                <figcaption>
-                    <p>The lobby has been beautifully reworked. Photographs of artificial lightning hang on the old black marble walls. The reddish ceiling is a glorious mélange of eastern iconography: unicorns, phoenixes, clouds, and other miscellaneous
-                        exotica. Three-fingered hands, perhaps <em>mudra</em> inspired, metaphorically hold up the building.</p>
-                    <p>At the same time, this is a modern building designed for millennial appreciation: A smart elevator system, a xeriscaped courtyard, lots of bike storage, and excellent access to public transport. 2.3 million pounds of rebar and 10,000
-                        tons of concrete have made the building more resilient.</p>
-                    <h5><a href="#" target="_blank " rel="noopener ">Some Text Here</a></h5>
-                </figcaption>
-            </figure>
-        </section>
+    <section class="container bg-white wysiwyg ">
+      <figure class="image-with-text left ">
+        <img src="assets/images/projects/5.jpg"
+          alt=" " />
+        <figcaption>
+          <p>The lobby has been beautifully reworked. Photographs of artificial lightning hang on the old black marble walls. The reddish ceiling is a glorious mélange of eastern iconography: unicorns, phoenixes, clouds, and other miscellaneous exotica.
+            Three-fingered hands, perhaps <em>mudra</em> inspired, metaphorically hold up the building.</p>
+          <p>At the same time, this is a modern building designed for millennial appreciation: A smart elevator system, a xeriscaped courtyard, lots of bike storage, and excellent access to public transport. 2.3 million pounds of rebar and 10,000 tons of
+            concrete have made the building more resilient.</p>
+          <h5><a href="#"
+              target="_blank "
+              rel="noopener ">Some Text Here</a></h5>
+        </figcaption>
+      </figure>
+    </section>
 
-        <!-- FULL WIDTH IMAGE -->
-        <section class="container bg-white ">
-            <div class="centered_copy_block wysiwyg ">
-                <p style="text-align: left; ">Over the years, 140 New Montgomery remained largely unchanged while the city advanced and grew around it. When real estate developer Wilson Meany purchased the property in 2007, it wanted to return the building to its rightful stature
-                    as a monument of architectural and technological excellence.</p>
-                <p style="text-align: left; ">The new owners envisioned a premiere office building with advanced systems and flexible floor plans. This was to be accomplished without disturbing the elements that gave the building its character. The interior floor plates had to be
-                    open to take advantage of the views and provide tenants with finishing options, but the historic fabric of the exterior and lobby had to remain unchanged.</p>
-                <p>Holmes Structures was hired to conduct a comprehensive seismic upgrade that would improve the building’s safety and long-term structural resiliency.</p>
-                <p>&nbsp;</p>
-            </div>
-        </section>
+    <!-- FULL WIDTH IMAGE -->
+    <section class="container bg-white ">
+      <div class="centered_copy_block wysiwyg ">
+        <p style="text-align: left; ">Over the years, 140 New Montgomery remained largely unchanged while the city advanced and grew around it. When real estate developer Wilson Meany purchased the property in 2007, it wanted to return the building to its rightful stature as a monument
+          of architectural and technological excellence.</p>
+        <p style="text-align: left; ">The new owners envisioned a premiere office building with advanced systems and flexible floor plans. This was to be accomplished without disturbing the elements that gave the building its character. The interior floor plates had to be open to
+          take advantage of the views and provide tenants with finishing options, but the historic fabric of the exterior and lobby had to remain unchanged.</p>
+        <p>Holmes Structures was hired to conduct a comprehensive seismic upgrade that would improve the building’s safety and long-term structural resiliency.</p>
+        <p>&nbsp;</p>
+      </div>
+    </section>
 
-        <!-- HERO -->
+    <!-- HERO -->
 
-        <section class="container bg-white ">
-            <figure class="full-width-image fifty ">
-                <img src="assets/images/projects/6.jpg" alt=" " />
+    <section class="container bg-white ">
+      <figure class="full-width-image fifty ">
+        <img src="assets/images/projects/6.jpg"
+          alt=" " />
 
-            </figure>
-        </section>
+      </figure>
+    </section>
 
-        <!-- TWO IMAGE COLUMNS -->
-        <section class="container bg-white ">
-            <div class="centered_copy_block wysiwyg ">
-                <p>&nbsp;</p>
-                <blockquote>
-                    <p style="text-align: left; ">We shared our client’s respect for the legacy of the building, and a vision for maximizing its potential in modern times.</p>
-                </blockquote>
-            </div>
-        </section>
+    <!-- TWO IMAGE COLUMNS -->
+    <section class="container bg-white ">
+      <div class="centered_copy_block wysiwyg ">
+        <p>&nbsp;</p>
+        <blockquote>
+          <p style="text-align: left; ">We shared our client’s respect for the legacy of the building, and a vision for maximizing its potential in modern times.</p>
+        </blockquote>
+      </div>
+    </section>
 
-        <!-- HERO -->
+    <!-- HERO -->
 
-        <section class="container two-image-columns bg-white ">
-            <figure class="half ">
-                <img src="assets/images/projects/7.jpg" alt="alt text here" />
+    <section class="container two-image-columns bg-white ">
+      <figure class="half ">
+        <img src="assets/images/projects/7.jpg"
+          alt="alt text here" />
 
-            </figure>
-            <figure class="half ">
-                <img src="assets/images/projects/8.jpg" alt="alt text here" />
+      </figure>
+      <figure class="half ">
+        <img src="assets/images/projects/8.jpg"
+          alt="alt text here" />
 
-            </figure>
-        </section>
+      </figure>
+    </section>
 
-        <!-- PEOPLE CALLOUT -->
-        <section class="container bg-white ">
-            <div class="centered_copy_block wysiwyg ">
-                <p>Finding the best solution for this iconic building began with understanding the existing structure and its interdependent systems. We started by investigating the layers of structure within the concrete-encased steel frame building. After
-                    in-depth research and a complex performance-based assessment, we determined that the structure had appreciable existing capacity but needed more strength and stiffness.</p>
-                <p>We developed several seismic retrofit solutions. Each option was weighed with the owner’s objectives for preserving the building’s historic characteristics, creating flexible work areas and controlling costs.</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </div>
-        </section>
+    <!-- PEOPLE CALLOUT -->
+    <section class="container bg-white ">
+      <div class="centered_copy_block wysiwyg ">
+        <p>Finding the best solution for this iconic building began with understanding the existing structure and its interdependent systems. We started by investigating the layers of structure within the concrete-encased steel frame building. After in-depth
+          research and a complex performance-based assessment, we determined that the structure had appreciable existing capacity but needed more strength and stiffness.</p>
+        <p>We developed several seismic retrofit solutions. Each option was weighed with the owner’s objectives for preserving the building’s historic characteristics, creating flexible work areas and controlling costs.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </section>
 
-        <!-- HERO -->
+    <!-- HERO -->
 
-        <section class="container two-image-columns bg-white ">
-            <figure class="half ">
-                <img src="assets/images/projects/9.jpg" alt="140 New Montgomery Buckling-Restrained Braces " />
+    <section class="container two-image-columns bg-white ">
+      <figure class="half ">
+        <img src="assets/images/projects/9.jpg"
+          alt="140 New Montgomery Buckling-Restrained Braces " />
 
-            </figure>
-            <figure class="half ">
-                <img src="assets/images/projects/4.jpg" alt="140 New Montgomery Existing Structure " />
+      </figure>
+      <figure class="half ">
+        <img src="assets/images/projects/4.jpg"
+          alt="140 New Montgomery Existing Structure " />
 
-            </figure>
-        </section>
+      </figure>
+    </section>
 
-        <!-- PEOPLE CALLOUT -->
-        <section class="container bg-white ">
-            <div class="centered_copy_block wysiwyg ">
-                <p>The solution combined two structural systems : concrete and steel. Concrete shear walls were added all the way up the building, creating a new central core that doubles as enclosure of the elevator shaft, new restrooms and essential services,
-                    leaving the remaining floor space open.</p>
-                <p>Steel outriggers with buckling-restrained braces were placed in two key locations over the height of the building to provide additional stiffness for the L-shaped floor plan. Steel super-columns were hidden to blend seamlessly with the
-                    existing structure and new foundation was limited to the above-grade sub-basement to avoid the expense of breaking the below-grade and below water-table seal.</p>
-            </div>
-        </section>
-        <!-- FIG CAPTION -->
-        <section class="container bg-white wysiwyg last">
-            <figure class="image-with-text left">
-                <img src="assets/images/projects/2.jpg" alt="alt text">
-                <figcaption>
-                    <h3>Description of item goes here. This is a large figure caption.</h3>
-                </figcaption>
-            </figure>
-        </section>
-        <!-- HERO -->
+    <!-- PEOPLE CALLOUT -->
+    <section class="container bg-white ">
+      <div class="centered_copy_block wysiwyg ">
+        <p>The solution combined two structural systems : concrete and steel. Concrete shear walls were added all the way up the building, creating a new central core that doubles as enclosure of the elevator shaft, new restrooms and essential services,
+          leaving the remaining floor space open.</p>
+        <p>Steel outriggers with buckling-restrained braces were placed in two key locations over the height of the building to provide additional stiffness for the L-shaped floor plan. Steel super-columns were hidden to blend seamlessly with the existing
+          structure and new foundation was limited to the above-grade sub-basement to avoid the expense of breaking the below-grade and below water-table seal.</p>
+      </div>
+    </section>
+    <!-- FIG CAPTION -->
+    <section class="container bg-white wysiwyg last">
+      <figure class="image-with-text left">
+        <img src="assets/images/projects/2.jpg"
+          alt="alt text">
+        <figcaption>
+          <h3>Description of item goes here. This is a large figure caption.</h3>
+        </figcaption>
+      </figure>
+    </section>
+    <!-- HERO -->
 
-        <section class="container bg-white ">
-            <figure class="full-width-image full ">
-                <img src="assets/images/projects/6.jpg" alt=" " />
+    <section class="container bg-white ">
+      <figure class="full-width-image full ">
+        <img src="assets/images/projects/6.jpg"
+          alt=" " />
 
-            </figure>
-        </section>
-        <!-- TWO IMAGE COLUMNS -->
-        <section class="projects-callout ">
-            <div class="head ">
-                <h2 class="h5 ">More Projects</h2>
-                <p><span class="arrow-link white "><a href="/portfolio ">View All</a></span></p>
-            </div>
+      </figure>
+    </section>
+    <!-- TWO IMAGE COLUMNS -->
+    <section class="projects-callout ">
+      <div class="head ">
+        <h2 class="h5 ">More Projects</h2>
+        <p><span class="arrow-link white "><a href="/portfolio ">View All</a></span></p>
+      </div>
 
-            <ul class="projects ">
-                <li>
-                    <a href="#">
+      <ul class="projects ">
+        <li>
+          <a href="#">
 
-                        <h4 class="h5 ">
-                            Title — Details, XX </h4>
-                        <img src="assets/images/projects/4-thumbnail.jpg" alt="Pilara Foundation San Francisco Exterior along the Embarcadero under Bridge " />
-                        <h3>This is a caption</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.holmesstructures.com/portfolio-articles/pier-9-autodesk/ ">
+            <h4 class="h5 ">
+              Title — Details, XX </h4>
+            <img src="assets/images/projects/4-thumbnail.jpg"
+              alt="Pilara Foundation San Francisco Exterior along the Embarcadero under Bridge " />
+            <h3>This is a caption</h3>
+          </a>
+        </li>
+        <li>
+          <a href="http://www.holmesstructures.com/portfolio-articles/pier-9-autodesk/ ">
 
-                        <h4 class="h5 ">
-                            Title — Details, XX </h4>
-                        <img src="assets/images/projects/5-thumbnail.jpg" alt="Autodesk Pier 9 San Francisco Interior Under Mezzanine " />
-                        <h3>Building for the Future</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+            <h4 class="h5 ">
+              Title — Details, XX </h4>
+            <img src="assets/images/projects/5-thumbnail.jpg"
+              alt="Autodesk Pier 9 San Francisco Interior Under Mezzanine " />
+            <h3>Building for the Future</h3>
+          </a>
+        </li>
+        <li>
+          <a href="#">
 
-                        <h4 class="h5 ">
-                            Title — Details, XX </h4>
-                        <img src="assets/images/projects/6-thumbnail.jpg" alt="Coral Casino Beach and Cabana Club Santa Barbara dusk " />
-                        <h3>Gem of the Pacific Returns to Glory</h3>
-                    </a>
-                </li>
-            </ul>
-        </section>
-
-
-
-        <!-- TWO COLUMN PATTERN -->
-
-    </div>
-    <!-- /role="main " -->
-    <!-- /END TEST HOLMES DETAILS -->
-    <!-- <div class="hero " [ngStyle]="{ 'background-image': 'url(' + headerURL(project) + ')'} "></div> -->
-    <!-- BEGIN TEST HOLMES DETAILS -->
-    <!-- /END TEST HOLMES DETAILS -->
+            <h4 class="h5 ">
+              Title — Details, XX </h4>
+            <img src="assets/images/projects/6-thumbnail.jpg"
+              alt="Coral Casino Beach and Cabana Club Santa Barbara dusk " />
+            <h3>Gem of the Pacific Returns to Glory</h3>
+          </a>
+        </li>
+      </ul>
+    </section>
 
 
-    <!-- BEGIN OLD DETAILS -->
-    <!-- <div class="content " fxLayout="row " fxLayout.lt-md="column ">
+
+    <!-- TWO COLUMN PATTERN -->
+
+  </div>
+  <!-- /role="main " -->
+  <!-- /END TEST HOLMES DETAILS -->
+  <!-- <div class="hero " [ngStyle]="{ 'background-image': 'url(' + headerURL(project) + ')'} "></div> -->
+  <!-- BEGIN TEST HOLMES DETAILS -->
+  <!-- /END TEST HOLMES DETAILS -->
+
+
+  <!-- BEGIN OLD DETAILS -->
+  <!-- <div class="content " fxLayout="row " fxLayout.lt-md="column ">
         <div fxFlex="25 " class="sec1 " fxFlex.lt-md="100 " fxLayoutAlign="center center " fxLayoutAlign.lt-md="center center " style="padding: 10px; " [ngStyle.xs]="{ 'text-align': 'center'} " [ngStyle.sm]="{ 'text-align': 'center'} ">
             <ul style="padding-top: 4em; ">
                 <li>
@@ -255,10 +271,10 @@
                 ac laoreet odio. Nullam dignissim enim ut turpis facilisis, sed consectetur dui sodales.</h2>
         </div>
     </div> -->
-    <!-- /END OLD DETAILS -->
+  <!-- /END OLD DETAILS -->
 
 
-    <!-- <h1 class="section-title ">{{'projectDetail' | translate}}</h1>
+  <!-- <h1 class="section-title ">{{'projectDetail' | translate}}</h1>
     <mat-progress-spinner *ngIf="!project " class="progress-spinner " [color]=" 'primary' " [mode]=" 'indeterminate' ">
     </mat-progress-spinner>
     <div class="project-detail " *ngIf="project ">
