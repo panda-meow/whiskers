@@ -33,7 +33,7 @@ export class ExperimentComponent {
   }
 
   asset(name: string): string {
-    return 'http://' + window.location.hostname + ':8080/projects/' + this.project.id + '/assets/' + name;
+    return name == null ? null : 'http://' + window.location.hostname + ':8080/projects/' + this.project.id + '/assets/' + name;
   }
 
   headerURL(project: Project): string {

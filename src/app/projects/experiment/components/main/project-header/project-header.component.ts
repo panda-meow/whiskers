@@ -14,6 +14,8 @@ import { Project } from '../../../../shared/project.model';
 export class ProjectHeaderComponent {
     @Input()
     project: Project;
+    @Input()
+    color: string;
     constructor() {}
 
     headerURL(project: Project): string {

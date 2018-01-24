@@ -5,14 +5,15 @@ export class Project {
               public categories: string[],
               public title: string,
               public sections: any[],
-              public attributes: any) {
+              public attributes: any,
+            ) {
   }
 
   public static thumbnailURL(project: Project): string {
-      return "http://" + window.location.hostname + ":8080/projects/" + project.id + "/thumbnail";
+      return 'http://' + window.location.hostname + ':8080/projects/' + project.id + '/thumbnail';
   }
 
   public static headerURL(project: Project): string {
-      return "http://" + window.location.hostname + ":8080/projects/" + project.id + "/header";
+      return 'http://' + window.location.hostname + ':8080/projects/' + project.id + '/header';
   }
 }

@@ -46,6 +46,9 @@
           [right]="asset(section.right)"
           [rightCaption]="section.rightCaption"></project-section-three-images>
 
+        <project-section-image-fifty *ngSwitchCase="'image-fifty'"
+          [image]="asset(section.image)"></project-section-image-fifty>
+
         <project-section-image-full *ngSwitchCase="'image-full'"
           [image]="asset(section.image)"></project-section-image-full>
 

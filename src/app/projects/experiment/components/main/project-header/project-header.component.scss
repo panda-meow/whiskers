@@ -1,0 +1,648 @@
+$em: 16px;
+//default mixins
+@mixin transformT($val...) {
+  -ms-transform: translate($val);
+  -moz-transform: translate($val);
+  -webkit-transform: translate($val);
+  transform: translate($val);
+}
+
+@mixin transformST($val1, $val2...) {
+  -ms-transform: scale($val1) translate($val2);
+  -moz-transform: scale($val1) translate($val2);
+  -webkit-transform: scale($val1) translate($val2);
+  transform: scale($val1) translate($val2);
+}
+
+@mixin media-max($val) {
+  @media screen and (max-width: $val) {
+    @content;
+  }
+}
+
+@mixin transition($val...) {
+  transition: $val;
+  -webkit-transition: $val;
+  -moz-transition: $val;
+}
+
+///* column styles */
+.col-2 {
+  display: inline-block;
+  width: 50%;
+}
+
+.col-4 {
+  display: inline-block;
+  width: 25%;
+}
+
+// THIS FILE DEPENDANT ON THE "_mixins.scss" MODULE
+
+/*///////////////////////// responsive styling /////////////////////////*/
+
+.col-3-2-1 {
+  display: inline-block;
+  width: 33.3333333333%;
+}
+
+@include media-max(800px) {
+  .col-3-2-1 {
+    display: inline-block;
+    width: 50%;
+  }
+}
+
+@include media-max(540px) {
+  .col-3-2-1 {
+    display: block;
+    width: 100%;
+  }
+}
+
+/////main//////
+//defaults
+//pixels
+$pageWrap: 1600px;
+//colors
+$darkFuschia: #4A273F;
+$darkPurple: #2C1D37;
+$black: #000;
+$white: #fff;
+$yellow: #faa209;
+$blue: #3bb1b2;
+$pink: #e6226c;
+// $fadedBlack: rgba(0, 0, 0, .6);
+$fadedBlack: rgb(45, 45, 45);
+$color-list: $yellow,
+$blue,
+$pink;
+$offWhite: rgba(240, 240, 240, 1);
+//prerequisites
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  @include transition(.5s all);
+}
+
+/////////////////////////////////////////////
+// document properties //////////////////////
+/////////////////////////////////////////////
+
+/* body */
+
+body {
+  margin: 0;
+  color: rgba(50, 50, 50, 1);
+  background-color: $offWhite;
+}
+
+.parent {
+  position: relative;
+}
+
+.section-shadow {
+  box-shadow: 0 -3*$em 3*$em -3*$em black;
+}
+
+.section-black {
+  background-color: $fadedBlack;
+}
+
+.section-white {
+  background-color: $white;
+}
+
+.section-purple {
+  background-color: $darkPurple;
+}
+
+.section-fuschia {
+  background-color: $darkFuschia;
+}
+
+.space-exception {
+  position: relative;
+  margin: 0 0 -5*$em;
+}
+
+.page-wrap {
+  max-width: $pageWrap;
+  margin: auto;
+}
+
+.shadow-wrap {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  @include transformT(-50%, 0);
+  width: 100%;
+  height: 100%;
+  max-width: 1600px;
+  box-shadow: 0 0 3*$em 0 black;
+  pointer-events: none;
+}
+
+.left-justify {
+  text-align: left;
+}
+
+.center-justify {
+  text-align: center;
+}
+
+.right-justify {
+  text-align: right;
+}
+
+.hero-image {
+  background-position: center;
+  background-size: cover;
+  height: 37vw;
+  max-height: 37.5*$em;
+}
+
+.big-image {
+  height: 45vw;
+  max-height: 45.5*$em;
+}
+
+.han-solo-bg {
+  background-image: url("https://raw.githubusercontent.com/piecedigital/han-solo-PSD-to-code/master/assets/banner bg.jpg");
+}
+
+.dl-44-bg {
+  background-image: url("https://raw.githubusercontent.com/piecedigital/han-solo-PSD-to-code/master/assets/gun bg.jpg");
+}
+
+.profile-info {
+  z-index: 1;
+  position: relative;
+  max-width: 30*$em;
+  margin: 0 auto 2*$em;
+  text-align: center;
+  & .profile-image {
+    position: relative;
+    top: -1*$em;
+    display: block;
+    width: 8*$em;
+    margin: 0 auto -1*$em;
+    border-radius: 100%;
+    background-color: white;
+    .circular-image-shadow {
+      display: block;
+      position: absolute;
+      bottom: 88%;
+      left: 50%;
+      width: 13*$em;
+      height: 10*$em;
+      overflow-x: visible;
+      overflow-y: hidden;
+      @include transformT(-50%,
+      0);
+      &:before {
+        content: "";
+        display: block;
+        position: relative;
+        top: 84%;
+        width: 8*$em;
+        height: 9*$em;
+        margin: auto;
+        border-radius: 100%;
+        box-shadow: 0 0 2*$em 0*$em $fadedBlack;
+      }
+    }
+    & img {
+      position: relative;
+      width: 100%;
+      border-radius: 100%;
+      box-shadow: 0 0 0 .5*$em white;
+    }
+  }
+  & .name {
+    font-size: 1.5*$em;
+    margin: 0;
+    font-weight: 100;
+    &.varified {
+      &:after {
+        content: "\2714";
+        display: inline-block;
+        width: 1.2*$em;
+        height: 1.2*$em;
+        padding: .1*$em;
+        margin: 0 0 0 1*$em;
+        color: white;
+        background-color: $darkFuschia;
+        border-radius: 100%;
+        font-size: .7*$em;
+        vertical-align: middle;
+      }
+    }
+  }
+  & .title {
+    display: block;
+    margin: .25*$em;
+    color: $darkFuschia;
+    font-weight: bold;
+  }
+  & p {
+    font-size: .8*$em;
+    padding: 0 1*$em;
+  }
+  & .social-links {
+    & div {
+      padding: 0 .5*$em;
+      & img {
+        //width: 1.5*$em;
+        max-height: 1*$em;
+      }
+    }
+  }
+}
+
+.recommended-people {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  & .person {
+    padding: .5*$em;
+    max-width: 14*$em;
+    margin: auto;
+    &>div {
+      box-shadow: 0 1*$em 3*$em 0 rgba(0, 0, 0, .3);
+      & .head {
+        position: relative;
+        height: 6*$em;
+        text-align: right;
+        overflow: hidden;
+        & img {
+          max-height: 100%;
+        }
+        & h1 {
+          z-index: 3;
+          position: absolute;
+          display: block;
+          bottom: -.1*$em;
+          left: .8*$em;
+          font-size: 1.2*$em;
+          color: white;
+          vertical-align: baseline;
+          text-align: left;
+          line-height: 1.1*$em;
+        }
+      }
+      & .body {
+        text-align: left;
+        padding: 1*$em;
+        background-color: white;
+        & h4 {
+          font-size: .8*$em;
+          margin: 0 0 .4*$em;
+        }
+        & p {
+          margin: 0;
+          font-size: .8*$em;
+        }
+        & .btn {
+          display: inline-block;
+          font-size: .6*$em;
+          margin: .8*$em 0 0;
+          padding: .6*$em 1.5*$em;
+          border-radius: .25*$em;
+          color: white;
+          background: red;
+          cursor: pointer;
+        }
+      }
+    }
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        &>div {
+          & .head {
+            &:after {
+              z-index: 2;
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              box-shadow: inset 0 6*$em 0 0 nth($color-list, $i);
+              opacity: .75;
+            }
+            background-color: nth($color-list,
+            $i);
+          }
+          & .body {
+            & h4 {
+              color: nth($color-list, $i);
+            }
+            & .btn {
+              color: white;
+              background-color: nth($color-list, $i);
+              box-shadow: inset 0 0 0 .2*$em nth($color-list, $i);
+              &:hover {
+                color: nth($color-list, $i);
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.gun-inspector {
+  z-index: 2;
+  position: absolute;
+  bottom: -4*$em;
+  left: 50%;
+  @include transformT(-50%,
+  0);
+  width: 52%;
+  &>div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    & img {
+      width: 100%;
+    }
+    & .gun-info-node {
+      position: absolute;
+      top: 31%;
+      left: 74%;
+      width: 1.8*$em;
+      padding: .08*$em 0;
+      text-align: center;
+      background-color: white;
+      border-radius: 100%;
+      box-shadow: inset 0 0 0 .3*$em rgba(220, 220, 220, 1);
+      font-size: 1.4*$em;
+      cursor: pointer;
+      &+.gun-info {
+        height: 0px;
+        opacity: 0;
+        pointer-events: none;
+      }
+      &.open {
+        color: $offWhite;
+        background-color: $darkFuschia;
+        &+.gun-info {
+          height: 12.3*$em;
+          opacity: 1;
+          pointer-events: all;
+        }
+      }
+    }
+    & .gun-info {
+      position: absolute;
+      top: 27%;
+      left: 76.6%;
+      @include transformT(-50%,
+      -100%);
+      width: 20.2*$em;
+      max-width: 90vw;
+      background-color: black;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 96%;
+        left: 50%;
+        @include transformT(-50%,
+        0%);
+        border-style: solid;
+        border-width: 1*$em 1*$em 0 1*$em;
+        border-color: white transparent transparent transparent;
+      }
+      &>div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 1*$em 3*$em 0 black;
+        overflow: hidden;
+        &>div {
+          display: inline-block;
+          background-color: white;
+          vertical-align: top;
+          &.img {
+            width: 8.2*$em;
+            background-color: black;
+            & img {
+              display: block;
+              max-height: 100%;
+            }
+          }
+          &.info {
+            text-align: left;
+            padding: 1*$em;
+            background-color: white;
+            width: 12*$em;
+            & h1 {
+              display: block;
+              margin: 0 0 .4*$em;
+              font-weight: normal;
+              font-size: 1.2*$em;
+              color: $fadedBlack;
+              text-align: left;
+              line-height: 1.1*$em;
+              vertical-align: baseline;
+            }
+            & h6 {
+              color: $darkFuschia;
+              font-size: .6*$em;
+              margin: 0 0 .8*$em;
+            }
+            & p {
+              color: $fadedBlack;
+              margin: 0;
+              font-size: .8*$em;
+            }
+            & .btn {
+              display: inline-block;
+              font-size: .6*$em;
+              margin: .8*$em 0 0;
+              padding: .6*$em 1.5*$em;
+              border-radius: .25*$em;
+              color: white;
+              background: $darkFuschia;
+              box-shadow: inset 0 0 0 .2*$em $darkFuschia;
+              cursor: pointer;
+              &:hover {
+                color: $darkFuschia;
+                background: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#profile-overlay {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  opacity: 0;
+  pointer-events: none;
+  & .profile-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: .5*$em;
+    width: 27*$em;
+    height: 0;
+    min-height: 14*$em;
+    @include transformST(.9,
+    -50%,
+    -50%);
+    &>div {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://raw.githubusercontent.com/piecedigital/han-solo-PSD-to-code/master/assets/mountains.jpg");
+      background-position: 60% center;
+      background-size: 180%;
+      box-shadow: inset 9.5*$em 0 0 0 rgba(255, 160, 0, .8), inset -20*$em 0 0 rgba(255, 255, 255, .8);
+      &>div {
+        display: inline-block;
+        vertical-align: top;
+        &.img {
+          position: relative;
+          width: 9.5*$em;
+          height: 100%;
+          margin: 0 2*$em 0 0;
+          & img {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            display: block;
+            max-width: 11.5*$em;
+          }
+        }
+        &.info {
+          text-align: left;
+          padding: 1*$em;
+          width: 14*$em;
+          & div {
+            vertical-align: middle;
+          }
+          & h1 {
+            display: block;
+            margin: 0 0 .4*$em;
+            font-weight: normal;
+            font-size: 1.2*$em;
+            color: $fadedBlack;
+            text-align: left;
+            line-height: 1.1*$em;
+            vertical-align: baseline;
+          }
+          & h6 {
+            color: $darkFuschia;
+            font-size: .6*$em;
+            margin: 0 0 .8*$em;
+            &.small {
+              font-size: .4*$em;
+              margin: .4*$em 0;
+            }
+          }
+          & p {
+            color: $fadedBlack;
+            padding: 0;
+            margin: 0 0 .8*$em;
+            font-size: .8*$em;
+          }
+          & .btn {
+            display: inline-block;
+            font-size: .6*$em;
+            padding: .6*$em 1.5*$em;
+            border-radius: .25*$em;
+            color: white;
+            background: $yellow;
+            box-shadow: inset 0 0 0 .2*$em $yellow;
+            cursor: pointer;
+            &:hover {
+              color: $yellow;
+              background: white;
+            }
+          }
+          & .followers {
+            font-size: .7*$em;
+            vertical-align: middle;
+            text-align: right;
+            & .img {
+              padding: .2*$em;
+              & img {
+                border-radius: 100%;
+                box-shadow: inset 0 0 0 .2*$em $offWhite;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.open {
+    opacity: 1;
+    pointer-events: all;
+    & .profile-info {
+      @include transformST(1,
+      -50%,
+      -50%);
+    }
+  }
+}
+
+@include media-max(600px) {
+  .space-exception {
+    position: relative;
+    margin: 0 0 -2*$em;
+  }
+  .gun-inspector {
+    &>div {
+      & .gun-info-node {
+        &.open {
+          &+.gun-info {
+            height: 18.5*$em;
+          }
+        }
+      }
+      & .gun-info {
+        left: 50%;
+        &:after {
+          display: none;
+        }
+        &>div {
+          &>div {
+            display: block;
+            &.img {
+              width: 100%;
+              height: 8*$em;
+              overflow: hidden;
+              & img {
+                position: relative;
+                top: 50%;
+                @include transformT(0,
+                -22%);
+                max-width: 100%;
+                max-height: inherit;
+              }
+            }
+            &.info {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

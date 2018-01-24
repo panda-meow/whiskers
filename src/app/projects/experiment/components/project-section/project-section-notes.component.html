@@ -1,27 +1,30 @@
 <dl class="project-notes">
-    <div *ngFor="let point of points; let last = last"> 
-        <dt class="h6">{{point[0]}}</dt>
-        <dd *ngIf="!last">{{point[1]}}</dd>
-        <dd *ngIf="last" style="margin-bottom: 0em">{{point[1]}}</dd>
-    </div>
+  <div *ngFor="let point of points; let last = last">
+    <dt class="h6">{{point[0]}}</dt>
+    <dd *ngIf="!last">{{point[1]}}</dd>
+    <dd *ngIf="last"
+      style="margin-bottom: 0em">{{point[1]}}</dd>
+  </div>
 </dl>
 
 <section class="container bg-white">
-    <div class="centered_copy_block wysiwyg">
-        <p *ngFor="let paragraph of this.paragraphs">
-            <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
-            <ng-template #capParagraph >
-                <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
-            </ng-template>
-            <ng-template #defaultParagraph>
-                {{paragraph}}
-            </ng-template>
-        </p>
-    </div>
+  <div class="centered_copy_block wysiwyg">
+    <p *ngFor="let paragraph of this.paragraphs">
+      <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
+      <ng-template #capParagraph>
+        <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
+      </ng-template>
+      <ng-template #defaultParagraph>
+        {{paragraph}}
+      </ng-template>
+    </p>
+  </div>
 </section>
 
-<section class="container bg-white">
-    <figure class="full-width-image fifty">
-        <img src="{{image}}" alt="image description" />
-    </figure>
+<section *ngIf="image"
+  class="container bg-white">
+  <figure class="full-width-image fifty">
+    <img src="{{image}}"
+      alt="image description" />
+  </figure>
 </section>
