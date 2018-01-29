@@ -220,7 +220,7 @@
       text-align: left;
       left: 50%;
       width: 1182px;
-      padding: 12em 0;
+      padding: 10em 0;
       position: absolute;
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
@@ -305,14 +305,14 @@
   
   @media screen and (min-width: 50em) {
     .full-width-image {
-      margin-top: 12em;
+      margin-top: 10em;
       &.fifty {
-        margin: 12em auto 0;
+        margin: 10em auto 0;
       }
     }
     .image-with-text {
       overflow: hidden;
-      margin-top: 12em;
+      margin-top: 10em;
       img {
         float: left;
         margin-right: -100%;
@@ -345,7 +345,7 @@
       // display: -ms-flexbox;
       display: flex;
       .half {
-        margin-top: 12em;
+        margin-top: 10em;
         width: 50%;
         img {
           width: 100%;
@@ -371,8 +371,8 @@
       // display: -webkit-flex;
       // display: -ms-flexbox;
       display: flex;
-      .figure {
-        margin-top: 12em;
+      .third {
+        margin-top: 10em;
         width: 50%;
         img {
           width: 100%;
@@ -798,10 +798,10 @@
   
   @media screen and (min-width: 50em) {
     .centered_copy_block {
-      padding: 12em 0 0;
+      padding: 10em 0 0;
     }
     .two-column-pattern {
-      padding: 12em 0;
+      padding: 10em 0;
       h2 {
         margin-bottom: 0;
       }
@@ -822,7 +822,7 @@
         margin: 0 auto;
       }
       .projects {
-        margin: 12em auto 0;
+        margin: 10em auto 0;
       }
     }
   }
@@ -982,14 +982,14 @@
   
   @media screen and (min-width: 50em) {
     .our-thinking {
-      margin-bottom: 12em;
-      margin-top: 12em;
+      margin-bottom: 10em;
+      margin-top: 10em;
     }
     .perspective-list li {
       &:nth-child(3n+1),
       &:nth-child(3n+2),
       &:nth-child(3n+3) {
-        margin-top: 12em;
+        margin-top: 10em;
       }
     }
     .alm-btn-wrap .btn {
@@ -1176,7 +1176,7 @@
   
   @media screen and (min-width: 50em) {
     .more-work {
-      margin: 12em auto;
+      margin: 10em auto;
     }
     .portfolio-list {
       margin-top: 12em;

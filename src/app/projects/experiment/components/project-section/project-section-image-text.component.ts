@@ -12,9 +12,11 @@ export class ProjectSectionImageTextComponent {
     image: String;
     @Input()
     content: String;
+    @Input()
+    link: string;
     constructor() {}
-   paragraph: string;
+    paragraph: string;
     get paragraphs(): string[] {
-        return this.content.trim().replace('\r\n','\n').split('\n\n');
+        return this.content.trim().replace('\r\n', '\n').split('\n\n');
     }
 }

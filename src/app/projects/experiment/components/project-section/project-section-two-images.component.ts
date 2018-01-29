@@ -8,11 +8,14 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ProjectSectionTwoImagesComponent {
+  // images: string[];
+  // @Input()
+  // image: string;
     @Input()
-    left: string 
-    
+    left: string;
+
     @Input()
-    right: string 
+    right: string;
 
     constructor() {}
 }

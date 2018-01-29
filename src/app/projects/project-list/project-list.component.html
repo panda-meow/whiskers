@@ -1,18 +1,24 @@
 <div>
   <h2 class="section-title">{{ 'projectsList' | translate }}</h2>
   <div>
-    <mat-progress-spinner *ngIf="!projects" class="progress-spinner"
-      [color]="'primary'" [mode]="'indeterminate'">
+    <mat-progress-spinner *ngIf="!projects"
+      class="progress-spinner"
+      [color]="'primary'"
+      [mode]="'indeterminate'">
     </mat-progress-spinner>
     <mat-list>
       <mat-list-item *ngFor="let project of projects">
 
-        <img class="cp" (click)="seeProjectDetails(project);"
-          mat-list-avatar src="{{thumbnailURL(project)}}">
-        <h3 mat-line [ngClass]="{'cp': true}"
+        <img class="cp"
+          (click)="seeProjectDetails(project);"
+          mat-list-avatar
+          src="{{thumbnailURL(project)}}">
+        <h3 mat-line
+          [ngClass]="{'cp': true}"
           (click)="seeProjectDetails(project);">
           {{project.title}} </h3>
-        <p mat-line [ngClass]="{'cp': true}"
+        <p mat-line
+          [ngClass]="{'cp': true}"
           (click)="seeProjectDetails(project);"></p>
         <!-- <mat-chip-list *ngFor="let category of project.categories">
           <mat-chip style="background: red;">{{category}}</mat-chip>

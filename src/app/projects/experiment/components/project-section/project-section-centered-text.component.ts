@@ -10,11 +10,11 @@ import { Component, Input } from '@angular/core';
 export class ProjectSectionCenteredTextComponent {
 
     @Input()
-    content: string 
+    content: string;
 
     constructor() {}
 
     get paragraphs(): string[] {
-        return this.content.trim().replace('\r\n','\n').split('\n\n');
+        return this.content.trim().replace('\r\n', '\n').split('\n\n');
     }
 }

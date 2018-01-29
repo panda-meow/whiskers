@@ -11,6 +11,7 @@ import { ProjectSectionTwoImagesComponent } from './project-section/project-sect
 import { ProjectSectionThreeImagesComponent } from './project-section/project-section-three-images.component';
 import { ProjectSectionImageFullComponent  } from './project-section/project-section-image-full.component';
 import { ProjectSectionImageFiftyComponent  } from './project-section/project-section-image-fifty.component';
+// import { LoadingComponent  } from '../../../core/loading/loading.component';
 
 export const SHARED_COMPONENTS: any[] = [
   ProjectHeaderComponent,
@@ -24,7 +25,8 @@ export const SHARED_COMPONENTS: any[] = [
   ProjectSectionTwoImagesComponent,
   ProjectSectionThreeImagesComponent,
   ProjectSectionImageFullComponent,
-  ProjectSectionImageFiftyComponent
+  ProjectSectionImageFiftyComponent,
+  // LoadingComponent
 ];
 
 export * from './main/project-header/project-header.component';
@@ -38,3 +40,5 @@ export * from './project-section/project-section-two-images.component';
 export * from './project-section/project-section-three-images.component';
 export * from './project-section/project-section-image-full.component';
 export * from './project-section/project-section-image-fifty.component';
+// export * from '../../../core/loading/loading.component';
+
