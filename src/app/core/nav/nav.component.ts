@@ -38,6 +38,10 @@ export class NavComponent {
     });
   }
 
+  get hide(): Boolean {
+    return window.location.pathname == "/"; // A little hacky :(
+  }
+
   routeHome(): void {
       this._router.navigate(['']);
   }
