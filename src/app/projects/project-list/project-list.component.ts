@@ -46,16 +46,16 @@ export class ProjectListComponent {
     });
   }*/
 
-  createNewProject(newProject: Project) {
-    this.projectService.createProject(newProject).subscribe((newProjectWithId) => {
-      this.projects.push(newProjectWithId);
-      this.myNgForm.resetForm();
-    }, (response: Response) => {
-      if (response.status === 500) {
-        this.error = 'errorHasOcurred';
-      }
-    });
-  }
+  // createNewProject(newProject: Project) {
+  //   this.projectService.createProject(newProject).subscribe((newProjectWithId) => {
+  //     this.projects.push(newProjectWithId);
+  //     this.myNgForm.resetForm();
+  //   }, (response: Response) => {
+  //     if (response.status === 500) {
+  //       this.error = 'errorHasOcurred';
+  //     }
+  //   });
+  // }
 
 
   headerURL(project: Project): string {
@@ -70,29 +70,29 @@ export class ProjectListComponent {
       this.router.navigate([AppConfig.routes.projects + '/' + project.id]);
   }
 
-  remove(projectToRemove: Project): void {
-    let dialogRef = this.dialog.open(RemoveProjectDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.projectService.deleteProjectById(projectToRemove.id).subscribe(() => {
-          this.projectService.showSnackBar('projectRemoved');
-          this.projects = this.projects.filter(project => project.id !== projectToRemove.id);
-        }, (response: Response) => {
-          if (response.status === 500) {
-            this.error = 'projectDefault';
-          }
-        });
-      }
-    });
-  }
+  // remove(projectToRemove: Project): void {
+  //   let dialogRef = this.dialog.open(RemoveProjectDialogComponent);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result) {
+  //       this.projectService.deleteProjectById(projectToRemove.id).subscribe(() => {
+  //         this.projectService.showSnackBar('projectRemoved');
+  //         this.projects = this.projects.filter(project => project.id !== projectToRemove.id);
+  //       }, (response: Response) => {
+  //         if (response.status === 500) {
+  //           this.error = 'projectDefault';
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
 }
 
-@Component({
-  selector: 'app-remove-project-dialog',
-  templateUrl: './remove-project.dialog.html',
-})
+// @Component({
+//   selector: 'app-remove-project-dialog',
+//   templateUrl: './remove-project.dialog.html',
+// })
 
-export class RemoveProjectDialogComponent {
-  constructor() {
-  }
-}
+// export class RemoveProjectDialogComponent {
+//   constructor() {
+//   }
+// }

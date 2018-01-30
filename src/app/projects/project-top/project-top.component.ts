@@ -5,7 +5,6 @@ import {Project} from '../shared/project.model';
 
 import {ProjectService} from '../shared/project.service';
 import {AppConfig} from '../../config/app.config';
-
 @Component({
   selector: 'app-project-top',
   templateUrl: './project-top.component.html',

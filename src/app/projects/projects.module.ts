@@ -8,10 +8,13 @@ import {ProjectRoutingModule} from './projects-routing.module';
 import {SharedModule} from '../shared/modules/shared.module';
 
 // Components
-import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list/project-list.component';
+// import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list/project-list.component';
+import {ProjectListComponent } from './project-list/project-list.component';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component';
+// import {CarouselComponent} from './carousel/carousel.component';
+// import { BannerCtrlDirective } from './carousel/carousel.directive';
 // import {ProjectHeaderComponent} from './experiment/components/main/project-header/project-header.component';
 // import {ProjectCalloutComponent} from './experiment/components/main/project-callout/project-callout.component';
 // import {ProjectSectionImageTextComponent} from './experiment/components/project-section/project-section-image-text.component';
@@ -30,14 +33,17 @@ import {ProjectService} from './shared/project.service';
     FormsModule,
     SharedModule,
     ProjectRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   declarations: [
     ProjectsComponent,
     ProjectListComponent,
     ExperimentComponent,
-    RemoveProjectDialogComponent,
+    // RemoveProjectDialogComponent,
     ProjectDetailComponent,
+    // CarouselComponent,
+    // BannerCtrlDirective
     // ProjectHeaderComponent,
     // ProjectCalloutComponent
     // ProjectSectionNotesComponent,
@@ -50,7 +56,7 @@ import {ProjectService} from './shared/project.service';
 
   ],
   entryComponents: [
-    RemoveProjectDialogComponent
+    // RemoveProjectDialogComponent
   ],
   providers: [
     ProjectService
