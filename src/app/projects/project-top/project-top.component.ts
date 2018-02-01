@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Project} from '../shared/project.model';
@@ -6,19 +6,23 @@ import {Project} from '../shared/project.model';
 import {ProjectService} from '../shared/project.service';
 import {AppConfig} from '../../config/app.config';
 
-
+declare function load_top();
 @Component({
   selector: 'app-project-top',
   templateUrl: './project-top.component.html',
-  styleUrls: ['../../../assets/css/home.css']
+  styleUrls: ['./project-top.component.scss']
 })
-export class ProjectTopComponent {
+export class ProjectTopComponent implements OnInit {
 
   projects: Project[] = null;
-  slides: string[]; 
+  slides: string[];
 
+  /*ngOnInit() {
+  load_top();
+
+  }*/
   get thumbnails(): string[] {
-    return this.projects.map((project) => Project.headerURL(project));
+    return this.projects == null ? [] : this.projects.map((project) => Project.headerURL(project));
   }
 
 
@@ -35,6 +39,7 @@ export class ProjectTopComponent {
 
       let temp = ['slide-1.png', 'slide-2.png'];
       this.slides = this.projects.map((project, i) => temp[i % temp.length]);
+      load_top();
     });
   }
 
@@ -63,6 +68,6 @@ export class ProjectTopComponent {
   }*/
 }
 
-window.onload = () => {
-  load_top();
-};
+// window.onload = () => {
+//   load_top();
+// };
