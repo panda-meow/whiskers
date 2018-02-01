@@ -84,12 +84,8 @@
       </div>
   </div>
   <ul class="slides">
-      <li>
-          <img src="assets/heros/slide-1.png" />
-      </li>
-
-      <li>
-          <img src="assets/heros/slide-2.png" />
+      <li *ngFor="let slide of slides" >
+          <img src="assets/heros/{{slide}}" />
       </li>
   </ul>
 
@@ -135,15 +131,15 @@
 
   <div class="thumbs">
       <div class="images">
-          <div style="background-image:url(assets/heros/thumb-1.jpg)"></div>
-          <div style="background-image:url(assets/heros/thumb-2.jpg)"></div>
+          <div *ngFor="let thumbnail of thumbnails" [ngStyle]="{'background-image': 'url(\'' + thumbnail + '\')'}"></div>
       </div>
       <div class="caption">
           <div>
               <h5>News</h5>
               <div class="titles">
-                  <h4>How people changed through decade</h4>
-                  <h4>Vetements is coming back to runaway</h4>
+                  <h4 *ngFor="let project of projects">{{project.attributes.caption}}</h4>
+                  <!--<h4>How people changed through decade</h4>-->
+                  <!--<h4>Vetements is coming back to runaway</h4>-->
               </div>
               <span>Read More</span>
           </div>

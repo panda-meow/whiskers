@@ -1,4 +1,6 @@
-function abc() {
+
+
+function load_top() {
 
     var $mddShare = $('#mdd-share'),
         $mddShareOpen = $('#mdd-share--open'),
@@ -34,10 +36,7 @@ function abc() {
         
         $mirrorSlider.css('height', $height + 'px');
 
-        //console.log('here1' + $slides.count);
         $slides.find('li').each(function(){
-            console.log('here');
-
             $(this).find('.cut span').each(function(i){
                 var $y = -($mirrorSlider.height() / 10)*i;
                 $(this).css('background-position', '50% '+$y+'px');
@@ -93,7 +92,6 @@ function abc() {
             /* extra */
             $('.thumbs').toggleClass('next');
             $('.titles').toggleClass('next');
-
         }
 
         return false;
