@@ -39,7 +39,7 @@ export class NavComponent {
   }
 
   get hide(): Boolean {
-    return window.location.pathname == "/"; // A little hacky :(
+    return window.location.pathname == '/'; // A little hacky :(
   }
 
   routeHome(): void {

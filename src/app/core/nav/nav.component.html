@@ -1,4 +1,6 @@
-<header *ngIf="!hide">
+<!-- <header *ngIf="!hide"> -->
+
+<header [ngClass]="hide ? 'hideme' : 'visible'">
   <nav>
     <div style="height:10px; background-color:aqua; top:0px"></div>
     <div fxFlex

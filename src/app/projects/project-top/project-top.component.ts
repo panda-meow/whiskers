@@ -17,10 +17,10 @@ export class ProjectTopComponent implements OnInit {
   projects: Project[] = null;
   slides: string[];
 
-  /*ngOnInit() {
-  load_top();
-
-  }*/
+  ngOnInit() {
+  // load_top();
+console.log('OnInit Called');
+  }
   get thumbnails(): string[] {
     return this.projects == null ? [] : this.projects.map((project) => Project.headerURL(project));
   }
