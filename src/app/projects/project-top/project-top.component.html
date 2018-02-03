@@ -1,185 +1,183 @@
-<div id="project-top">
-  <div id="mdd-header">
-    <a href="https://morenodd.com/laboratory" class="back">
-      <svg id="icon-arrow" viewBox="0 0 24 24" width="100%" height="100%">
-        <title>arrow</title>
-        <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
-      </svg>
-    </a>
-    <h1>Cutted Slider</h1>
-  </div>
+<div id="mdd-header">
+  <a href="https://morenodd.com/laboratory" class="back">
+    <svg id="icon-arrow" viewBox="0 0 24 24" width="100%" height="100%">
+      <title>arrow</title>
+      <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
+    </svg>
+  </a>
+  <h1>Cutted Slider</h1>
+</div>
 
-  <div id="mdd-share">
-    <a href="#" id="mdd-share--open">
-      <i class="fa fa-share-alt"></i>
-    </a>
-    <div id="mdd-share--layer">
-      <a href="#" id="mdd-share--close"></a>
-      <div class="wrapper">
-        <div class="inner">
-          <div>
-            <div>
-              <h3>SHARE ON</h3>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https://morenodd.com/lab/cutted-slider" class="md-share">
-                <i class="fa fa-facebook"></i>
-              </a>
-              <a href="https://twitter.com/share?text=Cutted%20Slider%20&url=https://morenodd.com/lab/cutted-slider" class="md-share">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </div>
-
-            <div>
-              <h3>FIND ME</h3>
-              <a href="https://facebook.com/itsmorenodd" target="_blank">
-                <i class="fa fa-facebook"></i>
-              </a>
-              <a href="https://dribbble.com/morenodd" target="_blank">
-                <i class="fa fa-dribbble"></i>
-              </a>
-              <a href="https://github.com/morenodd/" target="_blank">
-                <i class="fa fa-github"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <header>
-    <ul>
-      <li>
-        <span>home</span>
-      </li>
-      <li>
-        <span>stories</span>
-      </li>
-      <li>
-        <span>contact</span>
-      </li>
-      <li>
-        <i class="fa fa-th" aria-hidden="true"></i>
-      </li>
-      <li>
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </li>
-    </ul>
-  </header>
-
-  <div class="social">
-    <ul>
-      <li>
-        <span>Facebook</span>
-      </li>
-      <li>
-        <span>Instagram</span>
-      </li>
-      <li>
-        <span>Twitter</span>
-      </li>
-    </ul>
-  </div>
-
-  <div id="mirror-slider">
-    <div class="caption">
-      <h5>Details</h5>
-      <h3>Serenity</h3>
-      <div class="news">
-        <span>Wire</span>
-        <div class="list">
-          <p>I never tell you to get down - it's all about coming up</p>
-          <p>So you better duck away, run and hide out</p>
-        </div>
-      </div>
-      <div class="icons">
-        <span>
-          <i class="fa fa-play"></i>
-        </span>
-        <span>
-          <i class="fa fa-eye"></i>
-        </span>
-      </div>
-    </div>
-    <ul class="slides">
-      <li #slide *ngFor="let image of slides; let i = index;" class="{{i == 0 ? '' : 'next-next'}}">
-        <div class="cut">
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        </div>
-      </li>
-    </ul>
-
-    <div class="nav">
-      <a href="#" data-dir="prev">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-      </a>
-      <a href="#" (click)="next()" data-dir="next">
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-
-  <div id="bottom">
-    <div class="boxes">
-      <div class="box">
-        <div class="inner">
-          <div>
-            <span class="event">
-              <i class="fa fa-sun-o" aria-hidden="true"></i> Events</span>
-            <h4>029c</h4>
-            <p>26 May, Hall of fame</p>
-            <ul>
-              <li>
-                <span></span>
-              </li>
-              <li>
-                <span></span>
-              </li>
-              <li>
-                <span></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="inner">
-          <div>
-            <h4>Cateline</h4>
-            <p>26 May, Hall of fame</p>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="inner">
-          <div>
-            <h4>Zarya</h4>
-            <p>26 May, Hall of fame</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="thumbs">
-      <div class="images">
-        <div #thumbnail *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}" [ngStyle]="{'background-image': 'url(\'' + headerURL(project) + '\')'}"></div>
-      </div>
-      <div class="caption">
+<div id="mdd-share">
+  <a href="#" id="mdd-share--open">
+    <i class="fa fa-share-alt"></i>
+  </a>
+  <div id="mdd-share--layer">
+    <a href="#" id="mdd-share--close"></a>
+    <div class="wrapper">
+      <div class="inner">
         <div>
-          <h5>News</h5>
-          <div class="titles">
-            <h4 #caption *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}">{{project.attributes.caption}}</h4>
+          <div>
+            <h3>SHARE ON</h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://morenodd.com/lab/cutted-slider" class="md-share">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="https://twitter.com/share?text=Cutted%20Slider%20&url=https://morenodd.com/lab/cutted-slider" class="md-share">
+              <i class="fa fa-twitter"></i>
+            </a>
           </div>
-          <span>Read More</span>
+
+          <div>
+            <h3>FIND ME</h3>
+            <a href="https://facebook.com/itsmorenodd" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="https://dribbble.com/morenodd" target="_blank">
+              <i class="fa fa-dribbble"></i>
+            </a>
+            <a href="https://github.com/morenodd/" target="_blank">
+              <i class="fa fa-github"></i>
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <ul>
+    <li>
+      <span>home</span>
+    </li>
+    <li>
+      <span>stories</span>
+    </li>
+    <li>
+      <span>contact</span>
+    </li>
+    <li>
+      <i class="fa fa-th" aria-hidden="true"></i>
+    </li>
+    <li>
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </li>
+  </ul>
+</header>
+
+<div class="social">
+  <ul>
+    <li>
+      <span>Facebook</span>
+    </li>
+    <li>
+      <span>Instagram</span>
+    </li>
+    <li>
+      <span>Twitter</span>
+    </li>
+  </ul>
+</div>
+
+<div id="mirror-slider">
+  <div class="caption">
+    <h5>Details</h5>
+    <h3>Serenity</h3>
+    <div class="news">
+      <span>Wire</span>
+      <div class="list">
+        <p>I never tell you to get down - it's all about coming up</p>
+        <p>So you better duck away, run and hide out</p>
+      </div>
+    </div>
+    <div class="icons">
+      <span>
+        <i class="fa fa-play"></i>
+      </span>
+      <span>
+        <i class="fa fa-eye"></i>
+      </span>
+    </div>
+  </div>
+  <ul class="slides">
+    <li #slide *ngFor="let image of slides; let i = index;" class="{{i == 0 ? '' : 'next-next'}}">
+      <div class="cut">
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="nav">
+    <a href="#" data-dir="prev">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </a>
+    <a href="#" (click)="next()" data-dir="next">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+
+<div id="bottom">
+  <div class="boxes">
+    <div class="box">
+      <div class="inner">
+        <div>
+          <span class="event">
+            <i class="fa fa-sun-o" aria-hidden="true"></i> Events</span>
+          <h4>029c</h4>
+          <p>26 May, Hall of fame</p>
+          <ul>
+            <li>
+              <span></span>
+            </li>
+            <li>
+              <span></span>
+            </li>
+            <li>
+              <span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="inner">
+        <div>
+          <h4>Cateline</h4>
+          <p>26 May, Hall of fame</p>
+        </div>
+      </div>
+    </div>
+    <div class="box">
+      <div class="inner">
+        <div>
+          <h4>Zarya</h4>
+          <p>26 May, Hall of fame</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thumbs">
+    <div class="images">
+      <div #thumbnail *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}" [ngStyle]="{'background-image': 'url(\'' + headerURL(project) + '\')'}"></div>
+    </div>
+    <div class="caption">
+      <div>
+        <h5>News</h5>
+        <div class="titles">
+          <h4 #caption *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}">{{project.attributes.caption}}</h4>
+        </div>
+        <span>Read More</span>
       </div>
     </div>
   </div>
