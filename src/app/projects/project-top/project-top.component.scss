@@ -602,13 +602,13 @@ img {
   transform: translateX(0);
 }
 
-/*#mirror-slider .slides li.current {
+#mirror-slider .slides li.current {
   z-index: 1;
 }
 
 #mirror-slider .slides li.next-in {
   z-index: 2;
-}*/
+}
 
 #mirror-slider .slides li.next-out .cut span {
   -webkit-transform: translateX(-100%);

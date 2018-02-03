@@ -106,7 +106,7 @@
     </div>
   </div>
   <ul class="slides">
-    <li #slide *ngFor="let image of slides; let i = index;" class="{{i == 0 ? '' : 'next-next'}}">
+    <li #slide *ngFor="let image of slides; let i = index;" class="{{i == 0 ? '' : ''}}">
       <div class="cut">
         <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
         <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
@@ -168,7 +168,7 @@
 
   <div class="thumbs">
     <div class="images">
-      <div #thumbnail *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}" [ngStyle]="{'background-image': 'url(\'' + headerURL(project) + '\')'}"></div>
+      <div #thumbnail *ngFor="let project of projects | async; let i = index;" class="{{i == 0 ? '' : 'hidden-next'}}" [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></div>
     </div>
     <div class="caption">
       <div>

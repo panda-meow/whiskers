@@ -10,6 +10,8 @@ import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
+declare function register();
+
 
 @Component({
   selector: 'app-project-top',
@@ -20,14 +22,15 @@ export class ProjectTopComponent implements AfterViewInit {
 
   projects: Observable<Project[]>; 
   slides: string[] = ['slide-1.png', 'slide-2.png'];
+  isMoving: Boolean = false;
 
   @ViewChildren('caption') captions: QueryList<ElementRef>; 
   @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>; 
   @ViewChildren('slide') _slides: QueryList<ElementRef>; 
 
   ngAfterViewInit() {
-    load_top();
     register();
+    this._slides.toArray()[0].nativeElement.className = "current";
   }
 
   constructor(private projectService: ProjectService,
@@ -44,31 +47,63 @@ export class ProjectTopComponent implements AfterViewInit {
     return temp[index % temp.length];
   }
 
-  transition(parent: QueryList<ElementRef>, _next: string, _current: string, _previous: string, forward: boolean = true) {
+  transitionSlide(parent: QueryList<ElementRef>) {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
-      return element.nativeElement.className == _current;
+      return element.nativeElement.className == "current";
     })); 
 
     let next = (current + 1) % captions.length;
 
     captions.forEach((element, i) => {
       if(i == current) {
-        element.nativeElement.className = _previous;
+        element.nativeElement.classList.add("next-out");
       } else if(i == next) {
-        element.nativeElement.className = _current;
+        element.nativeElement.classList.add("next-in");
+      } 
+    });
+    
+    setTimeout(()=> {
+      let captions = parent.toArray();
+      captions[current].nativeElement.className = "";
+      captions[next].nativeElement.className = "current";
+    }, 1000);
+  }
+
+  transition(parent: QueryList<ElementRef>) {
+    let captions = parent.toArray();
+
+    let current = captions.indexOf(captions.find((element) => {
+      return element.nativeElement.className == "";
+    })); 
+
+    let next = (current + 1) % captions.length;
+
+    captions.forEach((element, i) => {
+      if(i == current) {
+        element.nativeElement.className = "hidden-previous";
+      } else if(i == next) {
+        element.nativeElement.className = "";
       } else {
-        element.nativeElement.style.display = element.nativeElement.className  == _previous ? "none" : "";
-        element.nativeElement.className = _next;
+        element.nativeElement.style.display = element.nativeElement.className  == "hidden-previous" ? "none" : "";
+        element.nativeElement.className = "hidden-next";
       }
     });
   }
 
   next() {
-    this.transition(this.captions, "hidden-next", "", "hidden-previous");
-    this.transition(this.thumbnails, "hidden-next", "", "hidden-previous");
-    this.transition(this._slides, "next-in", "current", "next-out");
+    if(!this.isMoving) {
+      this.isMoving = true;
+
+      this.transition(this.captions);
+      this.transition(this.thumbnails);
+      this.transitionSlide(this._slides);
+
+      setTimeout(()=> {
+        this.isMoving = false;
+      }, 1500);
+    }
   }
 
   seeProjectDetails(project): void {
@@ -83,19 +118,4 @@ export class ProjectTopComponent implements AfterViewInit {
     return Project.thumbnailURL(project);
   }
 
-
-  /*like(project: Project): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.projectService.like(project).subscribe(() => {
-        this.canVote = this.projectService.checkIfUserCanVote();
-        resolve(true);
-      }, (error) => {
-        reject(error);
-      });
-    });
-  }*/
 }
-
-/*window.onload = () => {
-  load_top();
-};*/
