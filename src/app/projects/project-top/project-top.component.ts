@@ -1,46 +1,74 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Project} from '../shared/project.model';
 
 import {ProjectService} from '../shared/project.service';
 import {AppConfig} from '../../config/app.config';
+import { OnInit, OnChanges, AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { ElementRef } from '@angular/core/src/linker/element_ref';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
 
-declare function load_top();
+
 @Component({
   selector: 'app-project-top',
   templateUrl: './project-top.component.html',
   styleUrls: ['./project-top.component.scss']
 })
-export class ProjectTopComponent implements OnInit {
+export class ProjectTopComponent implements AfterViewInit {
 
-  projects: Project[] = null;
-  slides: string[];
+  projects: Observable<Project[]>; 
+  slides: string[] = ['slide-1.png', 'slide-2.png'];
 
-  /*ngOnInit() {
-  load_top();
+  @ViewChildren('caption') captions: QueryList<ElementRef>; 
+  @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>; 
+  @ViewChildren('slide') _slides: QueryList<ElementRef>; 
 
-  }*/
-  get thumbnails(): string[] {
-    return this.projects == null ? [] : this.projects.map((project) => Project.headerURL(project));
+  ngAfterViewInit() {
+    load_top();
+    register();
   }
-
-
-  canVote = false;
 
   constructor(private projectService: ProjectService,
     private router: Router) {
-    this.canVote = this.projectService.checkIfUserCanVote();
+    this.projects = this.projectService.getAllProjects().share();
+  }
 
-    this.projectService.getAllProjects().subscribe((projects) => {
-      this.projects = projects.sort((a, b) => {
-        return a.name.localeCompare(b.name);
-      }).slice(0, 2);
+  imageLoaded() {
+    console.log("Image Loaded");
+  }
 
-      let temp = ['slide-1.png', 'slide-2.png'];
-      this.slides = this.projects.map((project, i) => temp[i % temp.length]);
-      load_top();
+  getSlide(index: number): string {
+    let temp = ['slide-1.png', 'slide-2.png'];
+    return temp[index % temp.length];
+  }
+
+  transition(parent: QueryList<ElementRef>, _next: string, _current: string, _previous: string, forward: boolean = true) {
+    let captions = parent.toArray();
+
+    let current = captions.indexOf(captions.find((element) => {
+      return element.nativeElement.className == _current;
+    })); 
+
+    let next = (current + 1) % captions.length;
+
+    captions.forEach((element, i) => {
+      if(i == current) {
+        element.nativeElement.className = _previous;
+      } else if(i == next) {
+        element.nativeElement.className = _current;
+      } else {
+        element.nativeElement.style.display = element.nativeElement.className  == _previous ? "none" : "";
+        element.nativeElement.className = _next;
+      }
     });
+  }
+
+  next() {
+    this.transition(this.captions, "hidden-next", "", "hidden-previous");
+    this.transition(this.thumbnails, "hidden-next", "", "hidden-previous");
+    this.transition(this._slides, "next-in", "current", "next-out");
   }
 
   seeProjectDetails(project): void {
@@ -68,6 +96,6 @@ export class ProjectTopComponent implements OnInit {
   }*/
 }
 
-// window.onload = () => {
-//   load_top();
-// };
+/*window.onload = () => {
+  load_top();
+};*/
