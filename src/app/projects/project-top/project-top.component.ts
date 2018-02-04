@@ -47,14 +47,14 @@ export class ProjectTopComponent implements AfterViewInit {
     return temp[index % temp.length];
   }
 
-  transitionSlide(parent: QueryList<ElementRef>) {
+  transitionSlide(parent: QueryList<ElementRef>, forward: boolean) {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
       return element.nativeElement.className == "current";
     })); 
 
-    let next = (current + 1) % captions.length;
+    let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
 
     captions.forEach((element, i) => {
       if(i == current) {
@@ -71,14 +71,14 @@ export class ProjectTopComponent implements AfterViewInit {
     }, 1000);
   }
 
-  transition(parent: QueryList<ElementRef>) {
+  transition(parent: QueryList<ElementRef>, forward: boolean) {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
       return element.nativeElement.className == "";
     })); 
 
-    let next = (current + 1) % captions.length;
+    let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
 
     captions.forEach((element, i) => {
       if(i == current) {
@@ -92,13 +92,27 @@ export class ProjectTopComponent implements AfterViewInit {
     });
   }
 
+  previous() {
+    if(!this.isMoving) {
+      this.isMoving = true;
+
+      this.transition(this.captions, false);
+      this.transition(this.thumbnails, false);
+      this.transitionSlide(this._slides, true);
+
+      setTimeout(()=> {
+        this.isMoving = false;
+      }, 1500);
+    }
+  }
+
   next() {
     if(!this.isMoving) {
       this.isMoving = true;
 
-      this.transition(this.captions);
-      this.transition(this.thumbnails);
-      this.transitionSlide(this._slides);
+      this.transition(this.captions, true);
+      this.transition(this.thumbnails, true);
+      this.transitionSlide(this._slides, true);
 
       setTimeout(()=> {
         this.isMoving = false;
