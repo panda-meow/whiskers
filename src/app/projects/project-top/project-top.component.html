@@ -85,26 +85,8 @@
     </ul>
   </div>
 
-  <div id="mirror-slider">
-    <!-- <div class="caption">
-      <h5>Details</h5>
-      <h3>Serenity</h3>
-      <div class="news">
-        <span>Wire</span>
-        <div class="list">
-          <p>I never tell you to get down - it's all about coming up</p>
-          <p>So you better duck away, run and hide out</p>
-        </div>
-      </div>
-      <div class="icons">
-        <span>
-        <mat-icon>play</mat-icon>
-      </span>
-        <span>
-        <mat-icon>flag</mat-icon>
-      </span>
-      </div>
-    </div> -->
+  <div #mirrorSlider
+    id="mirror-slider">
     <div class="caption">
       <h5>Details</h5>
       <h3>Serenity</h3>
@@ -117,11 +99,11 @@
       </div>
       <div class="icons">
         <span>
-          <mat-icon>play</mat-icon>
-        </span>
+        <i class="fa fa-play"></i>
+      </span>
         <span>
-          <mat-icon>flag</mat-icon>
-        </span>
+        <i class="fa fa-eye"></i>
+      </span>
       </div>
     </div>
     <ul class="slides">
@@ -129,48 +111,48 @@
         *ngFor="let image of slides; let i = index;"
         class="{{i == 0 ? '' : ''}}">
         <div class="cut">
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-          <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+          <span #slice
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
         </div>
       </li>
     </ul>
 
     <div class="nav">
-      <button mat-icon-button
+      <a href="#"
         (click)="previous()"
-        data-dir="prev"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon></button>
-      <!-- <a href="#"
-        (click)="previous()"
-        data-dir="prev"> -->
-      <!-- <mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> -->
-      <!-- </a> -->
-      <button mat-icon-button
+        data-dir="prev">
+        <i class="fa fa-angle-left"
+          aria-hidden="true"></i>
+      </a>
+      <a href="#"
         (click)="next()"
-        data-dir="next"><mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon></button>
-      <!-- <a href="#"
-        (click)="next()"
-        data-dir="next"> -->
-      <!-- <mat-icon aria-hidden="true">arrow_next</mat-icon> -->
-      <!-- <mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon> -->
-      <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
-      <!-- </a> -->
+        data-dir="next">
+        <i class="fa fa-angle-right"
+          aria-hidden="true"></i>
+      </a>
     </div>
   </div>
 
-  <div id="bottom"
-    fxLayout="row"
-    fxLayout.lt-sm="column">
-    <div class="boxes"
-      fxLayout="row"
-      fxLayout.xs="column">
+  <div id="bottom">
+    <div class="boxes">
       <div class="box">
         <div class="inner">
           <div>
