@@ -20,17 +20,17 @@ declare function register();
 })
 export class ProjectTopComponent implements AfterViewInit {
 
-  projects: Observable<Project[]>; 
+  projects: Observable<Project[]>;
   slides: string[] = ['slide-1.png', 'slide-2.png'];
   isMoving: Boolean = false;
 
-  @ViewChildren('caption') captions: QueryList<ElementRef>; 
-  @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>; 
-  @ViewChildren('slide') _slides: QueryList<ElementRef>; 
+  @ViewChildren('caption') captions: QueryList<ElementRef>;
+  @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>;
+  @ViewChildren('slide') _slides: QueryList<ElementRef>;
 
   ngAfterViewInit() {
     register();
-    this._slides.toArray()[0].nativeElement.className = "current";
+    this._slides.toArray()[0].nativeElement.className = 'current';
   }
 
   constructor(private projectService: ProjectService,
@@ -39,7 +39,7 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   imageLoaded() {
-    console.log("Image Loaded");
+    console.log('Image Loaded');
   }
 
   getSlide(index: number): string {
@@ -51,23 +51,23 @@ export class ProjectTopComponent implements AfterViewInit {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
-      return element.nativeElement.className == "current";
-    })); 
+      return element.nativeElement.className == 'current';
+    }));
 
     let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
 
     captions.forEach((element, i) => {
-      if(i == current) {
-        element.nativeElement.classList.add("next-out");
-      } else if(i == next) {
-        element.nativeElement.classList.add("next-in");
-      } 
+      if (i == current) {
+        element.nativeElement.classList.add('next-out');
+      } else if (i == next) {
+        element.nativeElement.classList.add('next-in');
+      }
     });
-    
-    setTimeout(()=> {
+
+    setTimeout(() => {
       let captions = parent.toArray();
-      captions[current].nativeElement.className = "";
-      captions[next].nativeElement.className = "current";
+      captions[current].nativeElement.className = '';
+      captions[next].nativeElement.className = 'current';
     }, 1000);
   }
 
@@ -75,46 +75,48 @@ export class ProjectTopComponent implements AfterViewInit {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
-      return element.nativeElement.className == "";
-    })); 
+      return element.nativeElement.className == '';
+    }));
 
     let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
 
     captions.forEach((element, i) => {
-      if(i == current) {
-        element.nativeElement.className = "hidden-previous";
-      } else if(i == next) {
-        element.nativeElement.className = "";
+      if (i == current) {
+        element.nativeElement.className = 'hidden-previous';
+      } else if (i == next) {
+        element.nativeElement.className = '';
       } else {
-        element.nativeElement.style.display = element.nativeElement.className  == "hidden-previous" ? "none" : "";
-        element.nativeElement.className = "hidden-next";
+        element.nativeElement.style.display = element.nativeElement.className  == 'hidden-previous' ? 'none' : '';
+        element.nativeElement.className = 'hidden-next';
       }
     });
   }
 
   previous() {
-    if(!this.isMoving) {
+    console.log('prev clicked');
+    if (!this.isMoving) {
       this.isMoving = true;
 
       this.transition(this.captions, false);
       this.transition(this.thumbnails, false);
       this.transitionSlide(this._slides, true);
 
-      setTimeout(()=> {
+      setTimeout(() => {
         this.isMoving = false;
       }, 1500);
     }
   }
 
   next() {
-    if(!this.isMoving) {
+    console.log('next clicked');
+    if (!this.isMoving) {
       this.isMoving = true;
 
       this.transition(this.captions, true);
       this.transition(this.thumbnails, true);
       this.transitionSlide(this._slides, true);
 
-      setTimeout(()=> {
+      setTimeout(() => {
         this.isMoving = false;
       }, 1500);
     }
