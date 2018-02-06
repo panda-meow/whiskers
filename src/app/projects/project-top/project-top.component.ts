@@ -1,4 +1,4 @@
-import {Component, ViewChild, ViewChildren, QueryList} from '@angular/core';
+import {Component, ViewChild, ViewChildren, QueryList, HostListener } from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Project} from '../shared/project.model';
@@ -9,9 +9,6 @@ import { OnInit, OnChanges, AfterViewChecked, AfterViewInit } from '@angular/cor
 import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
-
-declare function register();
-
 
 @Component({
   selector: 'app-project-top',
@@ -24,13 +21,20 @@ export class ProjectTopComponent implements AfterViewInit {
   slides: string[] = ['slide-1.png', 'slide-2.png'];
   isMoving: Boolean = false;
 
+  @ViewChild('mirrorSlider') slider;
+  @ViewChildren('slice') slices: QueryList<ElementRef>; 
   @ViewChildren('caption') captions: QueryList<ElementRef>; 
   @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>; 
   @ViewChildren('slide') _slides: QueryList<ElementRef>; 
 
   ngAfterViewInit() {
-    register();
+    this.updateWindow();
     this._slides.toArray()[0].nativeElement.className = "current";
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.updateWindow();
   }
 
   constructor(private projectService: ProjectService,
@@ -38,8 +42,17 @@ export class ProjectTopComponent implements AfterViewInit {
     this.projects = this.projectService.getAllProjects().share();
   }
 
-  imageLoaded() {
-    console.log("Image Loaded");
+  updateWindow() {
+    let height = window.innerHeight - 300;
+    if(height%2 === 1) {
+        height++;
+    }
+    this.slider.nativeElement.style.height = height + "px";
+
+    this.slices.forEach((element, i) => {
+        let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
+        element.nativeElement.style.backgroundPosition = "50% " + y + "px";
+    });
   }
 
   getSlide(index: number): string {

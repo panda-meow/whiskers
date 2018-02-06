@@ -85,7 +85,7 @@
   </ul>
 </div>
 
-<div id="mirror-slider">
+<div #mirrorSlider id="mirror-slider">
   <div class="caption">
     <h5>Details</h5>
     <h3>Serenity</h3>
@@ -108,16 +108,16 @@
   <ul class="slides">
     <li #slide *ngFor="let image of slides; let i = index;" class="{{i == 0 ? '' : ''}}">
       <div class="cut">
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
-        <span [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+        <span #slice [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
       </div>
     </li>
   </ul>
