@@ -938,7 +938,7 @@ header {
       bottom: 0;
       left: 0;
       overflow: hidden;
-      div {
+      thumbnail-slide {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -1006,7 +1006,7 @@ header {
     }
   }
 }
-
+    //-webkit-transform: translateX(0);
 
 /*#bottom .thumbs.next .images div:nth-child(1) {
   //-webkit-transform: translateX(-100%);

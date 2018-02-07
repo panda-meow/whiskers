@@ -107,9 +107,10 @@
       </div>
     </div>
     <ul class="slides">
-      <li #slide
-        *ngFor="let image of slides; let i = index;"
-        class="{{i == 0 ? '' : ''}}">
+      <li 
+        *ngFor="let image of _slides; let i = index;" 
+          [index]="i"
+          slide>
         <div class="cut">
           <span #slice
             [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
@@ -136,19 +137,25 @@
     </ul>
 
     <div class="nav">
-      <a href="#"
-        (click)="previous()"
-        data-dir="prev">
-        <i class="fa fa-angle-left"
-          aria-hidden="true"></i>
-      </a>
-      <a href="#"
-        (click)="next()"
-        data-dir="next">
-        <i class="fa fa-angle-right"
-          aria-hidden="true"></i>
-      </a>
-    </div>
+        <button mat-icon-button
+          (click)="previous()"
+          data-dir="prev"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon></button>
+        <!-- <a href="#"
+          (click)="previous()"
+          data-dir="prev"> -->
+        <!-- <mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> -->
+        <!-- </a> -->
+        <button mat-icon-button
+          (click)="next()"
+          data-dir="next"><mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon></button>
+        <!-- <a href="#"
+          (click)="next()"
+          data-dir="next"> -->
+        <!-- <mat-icon aria-hidden="true">arrow_next</mat-icon> -->
+        <!-- <mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon> -->
+        <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
+        <!-- </a> -->
+      </div>
   </div>
 
   <div id="bottom">
@@ -187,18 +194,21 @@
 
     <div class="thumbs">
       <div class="images">
-        <div #thumbnail
+        <thumbnail-slide 
           *ngFor="let project of projects | async; let i = index;"
-          class="{{i == 0 ? '' : 'hidden-next'}}"
-          [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></div>
+          [index]="i"
+          [project]="project"
+          [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></thumbnail-slide>
       </div>
       <div class="caption">
         <div>
           <h5>News</h5>
           <div class="titles">
-            <h4 #caption
+            <h4 
               *ngFor="let project of projects | async; let i = index;"
-              class="{{i == 0 ? '' : 'hidden-next'}}">{{project.attributes.caption}}</h4>
+              [index]="i"
+              [project]="project"
+              class="{{i == 0 ? '' : 'hidden-next'}}" caption>{{project.attributes.caption}}</h4>
           </div>
           <span>Read More</span>
         </div>

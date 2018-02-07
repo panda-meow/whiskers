@@ -1,14 +1,178 @@
-import {Component, ViewChild, ViewChildren, QueryList, HostListener } from '@angular/core';
+import {Component, ViewChild, ViewChildren, QueryList, HostListener, Directive, EventEmitter, Input, HostBinding } from '@angular/core';
 import {Router} from '@angular/router';
 
 import {Project} from '../shared/project.model';
 
 import {ProjectService} from '../shared/project.service';
 import {AppConfig} from '../../config/app.config';
-import { OnInit, OnChanges, AfterViewChecked, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { OnInit, OnChanges, AfterViewChecked, AfterViewInit, AfterContentInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
+import { DomSanitizer } from '@angular/platform-browser';
+import { nextTick } from 'q';
+
+
+interface Slideable {
+  isEnabled: boolean;
+  index: number;
+    
+  moveOut(): void;
+  moveIn(): void;
+  wait(): void;
+  clear(): void;
+}
+
+
+@Component({
+    selector: 'thumbnail-slide',
+    template: ``
+})
+
+export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
+
+  @HostBinding('class.hidden-next') hiddenNext: boolean = true;
+  @HostBinding('class.hidden-previous') hiddenPrevious: boolean = false;
+  @HostBinding('style.display') display: string = "";
+
+  get isEnabled(): boolean {
+    return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
+  }
+
+  moveOut(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = true;
+  }
+
+  moveIn(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = false;
+  }
+
+  wait(): void {
+    this.display = this.hiddenPrevious ? "none" : "";
+    this.hiddenNext = true;
+    this.hiddenPrevious = false;
+  }
+
+  clear(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = false;
+    this.display = "";
+  }
+
+    @Input()
+    index: number
+
+    @Input()
+    project: Project
+
+    ngAfterContentInit(): void {
+      if(this.index == 0) {
+        this.hiddenNext = false;
+      }
+    }
+
+    constructor() {}
+}
+
+@Directive({
+  selector: 'h4[caption]',
+})
+export class CaptionSlideDirective implements AfterContentInit, Slideable {
+
+  @HostBinding('class.hidden-next') hiddenNext: boolean = true;
+  @HostBinding('class.hidden-previous') hiddenPrevious: boolean = false;
+  @HostBinding('style.display') display: string = "";
+
+  get isEnabled(): boolean {
+    return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
+  }
+
+  moveOut(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = true;
+  }
+
+  moveIn(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = false;
+  }
+
+  wait(): void {
+    this.display = this.hiddenPrevious ? "none" : "";
+    this.hiddenNext = true;
+    this.hiddenPrevious = false;
+  }
+
+  clear(): void {
+    this.hiddenNext = false;
+    this.hiddenPrevious = false;
+    this.display = "";
+  }
+
+  @Input()
+  index: number
+
+  @Input()
+  project: Project
+
+  ngAfterContentInit(): void {
+    if(this.index == 0) {
+      this.hiddenNext = false;
+    }
+  }
+
+  constructor() {}
+}
+
+
+@Directive({
+  selector: 'li[slide]',
+})
+export class HeroSlideDirective implements AfterContentInit, Slideable {
+
+  @HostBinding('class.next-in') nextIn: boolean = false;
+  @HostBinding('class.next-out') nextOut: boolean = false;
+  @HostBinding('class.current') current: boolean = false;
+
+  get isEnabled(): boolean {
+    return this.current;
+  }
+
+  moveOut(): void {
+    this.nextIn = false;
+    this.nextOut = true;
+  }
+
+  moveIn(): void {
+    this.nextIn = true;
+    this.nextOut = false;
+  }
+
+  wait(): void {
+  }
+
+  clear(): void {
+    this.nextIn = false
+    this.nextOut = false
+    this.current = false
+  }
+
+  @Input()
+  index: number
+
+  ngAfterContentInit(): void {
+    if(this.index == 0) {
+      this.current = true;
+    }
+  }
+
+  constructor() {
+    console.log('slides');
+  }
+}
+
 
 @Component({
   selector: 'app-project-top',
@@ -18,18 +182,18 @@ import 'rxjs/add/operator/share';
 export class ProjectTopComponent implements AfterViewInit {
 
   projects: Observable<Project[]>;
-  slides: string[] = ['slide-1.png', 'slide-2.png'];
   isMoving: Boolean = false;
+  _slides = ['slide-1.png', 'slide-2.png'];
 
   @ViewChild('mirrorSlider') slider;
   @ViewChildren('slice') slices: QueryList<ElementRef>;
-  @ViewChildren('caption') captions: QueryList<ElementRef>;
-  @ViewChildren('thumbnail') thumbnails: QueryList<ElementRef>;
-  @ViewChildren('slide') _slides: QueryList<ElementRef>;
+  @ViewChildren(CaptionSlideDirective) captions;
+  @ViewChildren(ThumbnailSlideComponent) thumbnails;
+  @ViewChildren(HeroSlideDirective) slides;
 
   ngAfterViewInit() {
     this.updateWindow();
-    this._slides.toArray()[0].nativeElement.className = "current";
+    console.log(this.slides.length);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -55,12 +219,7 @@ export class ProjectTopComponent implements AfterViewInit {
     });
   }
 
-  getSlide(index: number): string {
-    let temp = ['slide-1.png', 'slide-2.png'];
-    return temp[index % temp.length];
-  }
-
-  transitionSlide(parent: QueryList<ElementRef>, forward: boolean) {
+  /*private transitionSlide(parent: QueryList<ElementRef>, forward: boolean) {
     let captions = parent.toArray();
 
     let current = captions.indexOf(captions.find((element) => {
@@ -82,57 +241,88 @@ export class ProjectTopComponent implements AfterViewInit {
       captions[current].nativeElement.className = '';
       captions[next].nativeElement.className = 'current';
     }, 1000);
+  }*/
+
+  private _transition2(list: QueryList<HeroSlideDirective>, forward: boolean) {
+    let elements = list.toArray();
+
+    let current = elements.find((element) => {
+      return element.isEnabled;
+    });
+
+    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ? 
+      (elements.length - 1) : (current.index - 1));
+
+    let next = elements[nextIndex];
+
+    elements.forEach((element) => {
+      if(element == current) {
+        element.moveOut();
+      } else if(element == next) {
+        element.moveIn();
+      } else if(element != current) {
+        element.wait();
+      } 
+    });
+
+    setTimeout(() => {
+      current.clear();
+      next.current = true;
+    }, 1000);
   }
 
-  transition(parent: QueryList<ElementRef>, forward: boolean) {
-    let captions = parent.toArray();
+  private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void) {
+    let elements = list.toArray();
 
-    let current = captions.indexOf(captions.find((element) => {
-      return element.nativeElement.className == '';
-    }));
-
-    let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
-
-    captions.forEach((element, i) => {
-      if (i == current) {
-        element.nativeElement.className = 'hidden-previous';
-      } else if (i == next) {
-        element.nativeElement.className = '';
-      } else {
-        element.nativeElement.style.display = element.nativeElement.className  == 'hidden-previous' ? 'none' : '';
-        element.nativeElement.className = 'hidden-next';
-      }
+    let current = elements.find((element) => {
+      return element.isEnabled;
     });
+
+    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ? 
+      (elements.length - 1) : (current.index - 1));
+
+    let next = elements[nextIndex];
+
+    elements.forEach((element) => {
+      if(element == current) {
+        element.moveOut();
+      } else if(element == next) {
+        element.moveIn();
+      } else if(element != current) {
+        element.wait();
+      } 
+    });
+
+    if(post != null) {
+      post(current, next);
+    }
+  }
+
+  private transition(forward: boolean) {
+    if (!this.isMoving) {
+      this.isMoving = true;
+
+      this._transition(this.thumbnails, forward, null);
+      this._transition(this.captions, forward, null);
+      this._transition(this.slides, forward, (current, next) => {
+        setTimeout(() => {
+          current.clear();
+          next.current = true;
+        }, 1000);
+      });
+    }
+
+    setTimeout(() => {
+      this.isMoving = false;
+    }, 1500);
   }
 
   previous() {
-    console.log('prev clicked');
-    if (!this.isMoving) {
-      this.isMoving = true;
-
-      this.transition(this.captions, false);
-      this.transition(this.thumbnails, false);
-      this.transitionSlide(this._slides, true);
-
-      setTimeout(() => {
-        this.isMoving = false;
-      }, 1500);
-    }
+    this.transition(false);
   }
 
   next() {
-    console.log('next clicked');
-    if (!this.isMoving) {
-      this.isMoving = true;
-
-      this.transition(this.captions, true);
-      this.transition(this.thumbnails, true);
-      this.transitionSlide(this._slides, true);
-
-      setTimeout(() => {
-        this.isMoving = false;
-      }, 1500);
-    }
+    this.transition(true);
   }
 
   seeProjectDetails(project): void {
