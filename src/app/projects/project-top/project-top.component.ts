@@ -181,6 +181,9 @@ export class HeroSlideDirective implements AfterContentInit, Slideable {
 })
 export class ProjectTopComponent implements AfterViewInit {
 
+
+  CAROUSEL_AUTOPLAY_INTERVAL_MS = 5000;
+
   projects: Observable<Project[]>;
   isMoving: Boolean = false;
   _slides = ['slide-1.png', 'slide-2.png'];
@@ -191,9 +194,11 @@ export class ProjectTopComponent implements AfterViewInit {
   @ViewChildren(ThumbnailSlideComponent) thumbnails;
   @ViewChildren(HeroSlideDirective) slides;
 
+  private lastTransition: number;
+
   ngAfterViewInit() {
     this.updateWindow();
-    console.log(this.slides.length);
+    setInterval(() => this.checkTimer(), 1000);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -204,9 +209,16 @@ export class ProjectTopComponent implements AfterViewInit {
   constructor(private projectService: ProjectService,
     private router: Router) {
     this.projects = this.projectService.getAllProjects().share();
+    this.lastTransition = Date.now();
   }
 
-  updateWindow() {
+  private checkTimer() {
+    if((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
+      this.transition(true);
+    }
+  }
+
+  private updateWindow() {
     let height = window.innerHeight - 300;
     if(height%2 === 1) {
         height++;
@@ -217,58 +229,6 @@ export class ProjectTopComponent implements AfterViewInit {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
         element.nativeElement.style.backgroundPosition = "50% " + y + "px";
     });
-  }
-
-  /*private transitionSlide(parent: QueryList<ElementRef>, forward: boolean) {
-    let captions = parent.toArray();
-
-    let current = captions.indexOf(captions.find((element) => {
-      return element.nativeElement.className == 'current';
-    }));
-
-    let next = forward ? ((current + 1) % captions.length) : ((current - 1) < 0 ? (captions.length - 1) : (current - 1));
-
-    captions.forEach((element, i) => {
-      if (i == current) {
-        element.nativeElement.classList.add('next-out');
-      } else if (i == next) {
-        element.nativeElement.classList.add('next-in');
-      }
-    });
-
-    setTimeout(() => {
-      let captions = parent.toArray();
-      captions[current].nativeElement.className = '';
-      captions[next].nativeElement.className = 'current';
-    }, 1000);
-  }*/
-
-  private _transition2(list: QueryList<HeroSlideDirective>, forward: boolean) {
-    let elements = list.toArray();
-
-    let current = elements.find((element) => {
-      return element.isEnabled;
-    });
-
-    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ? 
-      (elements.length - 1) : (current.index - 1));
-
-    let next = elements[nextIndex];
-
-    elements.forEach((element) => {
-      if(element == current) {
-        element.moveOut();
-      } else if(element == next) {
-        element.moveIn();
-      } else if(element != current) {
-        element.wait();
-      } 
-    });
-
-    setTimeout(() => {
-      current.clear();
-      next.current = true;
-    }, 1000);
   }
 
   private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void) {
@@ -300,6 +260,7 @@ export class ProjectTopComponent implements AfterViewInit {
 
   private transition(forward: boolean) {
     if (!this.isMoving) {
+      this.lastTransition = Date.now();
       this.isMoving = true;
 
       this._transition(this.thumbnails, forward, null);
@@ -310,11 +271,11 @@ export class ProjectTopComponent implements AfterViewInit {
           next.current = true;
         }, 1000);
       });
-    }
 
-    setTimeout(() => {
-      this.isMoving = false;
-    }, 1500);
+      setTimeout(() => {
+        this.isMoving = false;
+      }, 1500);
+    }
   }
 
   previous() {
