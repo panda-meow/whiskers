@@ -1,8 +1,9 @@
 <!-- TWO IMAGE COLUMNS -->
 
 <section class="container bg-white wysiwyg ">
-  <h3 *ngIf="header">{{header}}</h3>
   <figure class="image-with-text right">
+    <h3 *ngIf="header"
+      class="project-section--header">{{header}}</h3>
     <figcaption>
       <p *ngFor="let paragraph of this.paragraphs">
         <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>

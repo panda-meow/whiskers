@@ -23,7 +23,7 @@
   //     .container {
   //         padding: 0 5%;
   //         margin-left: 0 auto;
-  //         max-width: 1182px;
+  //         max-width: 1080px;
   //         width: 100%;
   //     }
   //     div[role=main] {
@@ -43,7 +43,7 @@
   // @media screen and (min-width: 46.8em) {
   //     .container {
   //         margin: 0 auto;
-  //         max-width: 1182px;
+  //         max-width: 1080px;
   //     }
   // }
   // @media screen and (min-width: 1240px) {
@@ -57,7 +57,7 @@
   //         padding: 4em 5%;
   //         .container {
   //             margin: 0 auto;
-  //             max-width: 1182px;
+  //             max-width: 1080px;
   //         }
   //         .logo {
   //             float: left;
@@ -169,6 +169,14 @@
   //     ul {
   //         font-size: 1.4em;
   //     }
+  // }
+  // .project-section--header {
+  //   padding-bottom: 20px;
+  //   font-weight: 600;
+  //   color: #e9e9e9;
+  //   font-size: 36px;
+  //   text-transform: uppercase;
+  //   font-weight: bold
   // }
   dl {
     overflow: hidden;
@@ -550,7 +558,7 @@
   // @media screen and (min-width: 46.8em) {
   //     .container {
   //         margin: 0 auto;
-  //         max-width: 1182px;
+  //         max-width: 1080px;
   //     }
   // }
   // @media screen and (min-width: 783px) {
@@ -563,7 +571,7 @@
   //     .container {
   //         padding: 0 5%;
   //         margin-left: 0 auto;
-  //         max-width: 1182px;
+  //         max-width: 1080px;
   //         width: 100%;
   //     }
   //     div[role=main] {
@@ -773,7 +781,7 @@
       padding: 4em 5%;
       .container {
         margin: 0 auto;
-        max-width: 1182px;
+        max-width: 1080px;
       }
       .logo {
         float: left;
@@ -797,8 +805,8 @@
     margin: 0 auto;
     max-width: 575px;
     padding: 4em 0 0;
-    p {
-      margin-bottom: 1em;
+    p:last-of-type {
+      // margin-bottom: 1em;
     }
   }
   
@@ -814,10 +822,12 @@
   
   @media screen and (min-width: 50em) {
     .centered_copy_block {
-      padding: 10em 0 0;
+      // padding: 10em 0 0;
+      padding: 50px 0 0;
     }
     .two-column-pattern {
-      padding: 10em 0;
+      // padding: 10em 0;
+      padding: 50px 0;
       h2 {
         margin-bottom: 0;
       }
@@ -1232,11 +1242,11 @@
       // padding: 12em 0;
       .head {
         margin: 0 auto;
-        max-width: 1182px;
+        max-width: 1080px;
       }
       .projects {
         margin: 12em auto 0;
-        max-width: 1182px;
+        max-width: 1080px;
         li {
           float: left;
           margin-right: -100%;
@@ -1288,7 +1298,7 @@
       .head {
         padding: 0;
         margin: 0 5%;
-        max-width: 1182px;
+        max-width: 1080px;
       }
       .perspectives {
         padding: 12em 0;

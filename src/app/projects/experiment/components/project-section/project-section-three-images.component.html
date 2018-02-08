@@ -14,6 +14,8 @@
   fxLayoutAlign="center center"
   fxLayoutGap="20px"
   class="container three-image-columns bg-white ">
+  <h3 *ngIf="header"
+    class="project-section--header">{{header}}</h3>
   <figure fxFlex="33"
     fxFlex.md="50"
     fxFlex.lt-md="100"

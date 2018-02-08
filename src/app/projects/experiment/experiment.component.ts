@@ -7,7 +7,7 @@ import {NgsRevealConfig} from 'ng-scrollreveal';
 
 @Component({
     selector: 'experiment',
-    styleUrls: ['../project-detail/project-detail.component.scss'],
+    styleUrls: ['../project-detail/project-detail.component.scss', './experiment.component.scss'],
     templateUrl: './experiment.component.html',
 })
 

@@ -2,6 +2,8 @@
 
 <section class="container bg-white ">
   <figure class="full-width-image fifty ">
+    <h3 *ngIf="header"
+      class="project-section--header">{{header}}</h3>
     <img src="{{image}}"
       alt=" " />
   </figure>

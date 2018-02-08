@@ -3,6 +3,8 @@
 <section class="container bg-white ">
   <figure fxFlex="80"
     fxFlex.xs="100">
+    <h3 *ngIf="header"
+      class="project-section--header">{{header}}</h3>
     <!-- <figure class="full-width-image fifty "> -->
     <img src="{{image}}"
       alt=" " />

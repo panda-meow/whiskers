@@ -1,8 +1,10 @@
 <section class="container bg-white ">
-    <div class="centered_copy_block wysiwyg ">
-        <p>&nbsp;</p>
-        <blockquote>
-            <p style="text-align: left; ">{{content}}</p>
-        </blockquote>
-    </div>
+  <div class="centered_copy_block wysiwyg ">
+    <h3 *ngIf="header"
+      class="project-section--header">{{header}}</h3>
+    <p>&nbsp;</p>
+    <blockquote>
+      <p style="text-align: left; ">{{content}}</p>
+    </blockquote>
+  </div>
 </section>
