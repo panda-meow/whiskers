@@ -26,5 +26,8 @@ export class ProjectSectionThreeImagesComponent {
     @Input()
     rightCaption: string;
 
+    @Input()
+    header: string;
+
     constructor() {}
 }

@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectSectionCenteredImageComponent {
     @Input()
-    image: String 
+    image: String;
+    @Input()
+    header: string;
     constructor() {}
 }

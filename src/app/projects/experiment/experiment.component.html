@@ -5,31 +5,41 @@
     <project-header [project]="project"></project-header>
 
     <div *ngFor="let section of project.sections; let last = last;">
-      <div [ngSwitch]="section.type">
+      <div [ngSwitch]="section.type"
+        class="item"
+        ngsReveal>
 
         <project-section-image-text *ngSwitchCase="'image-text'"
+          [header]="section.header"
           [image]="asset(section.image)"
-          [content]="section.content"></project-section-image-text>
+          [content]="section.content">
+        </project-section-image-text>
 
         <project-section-image-text-right *ngSwitchCase="'image-text-right'"
+          [header]="section.header"
           [content]="section.content"
           [image]="asset(section.image)"></project-section-image-text-right>
 
         <project-section-notes *ngSwitchCase="'notes'"
+          [header]="section.header"
           [image]="asset(section.image)"
           [content]="section.content"
           [overview]="section.overview"></project-section-notes>
 
         <project-section-centered-text *ngSwitchCase="'centered-text'"
+          [header]="section.header"
           [content]="section.content"></project-section-centered-text>
 
         <project-section-centered-quote *ngSwitchCase="'centered-quote'"
+          [header]="section.header"
           [content]="section.content"></project-section-centered-quote>
 
         <project-section-centered-image *ngSwitchCase="'centered-image'"
+          [header]="section.header"
           [image]="asset(section.image)"></project-section-centered-image>
 
         <project-section-two-images *ngSwitchCase="'two-images'"
+          [header]="section.header"
           [left]="asset(section.left)"
           [right]="asset(section.right)"></project-section-two-images>
         <!--
@@ -37,6 +47,7 @@
           [image]="asset(section.image)"></project-section-two-images> -->
 
         <project-section-three-images *ngSwitchCase="'three-images'"
+          [header]="section.header"
           [left]="asset(section.left)"
           [leftCaption]="section.leftCaption"
           [center]="asset(section.center)"
@@ -45,9 +56,11 @@
           [rightCaption]="section.rightCaption"></project-section-three-images>
 
         <project-section-image-fifty *ngSwitchCase="'image-fifty'"
+          [header]="section.header"
           [image]="asset(section.image)"></project-section-image-fifty>
 
         <project-section-image-full *ngSwitchCase="'image-full'"
+          [header]="section.header"
           [image]="asset(section.image)"></project-section-image-full>
 
       </div>

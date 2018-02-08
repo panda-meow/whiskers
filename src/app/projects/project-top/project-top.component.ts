@@ -16,7 +16,7 @@ import { nextTick } from 'q';
 interface Slideable {
   isEnabled: boolean;
   index: number;
-    
+
   moveOut(): void;
   moveIn(): void;
   wait(): void;
@@ -31,9 +31,9 @@ interface Slideable {
 
 export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
 
-  @HostBinding('class.hidden-next') hiddenNext: boolean = true;
-  @HostBinding('class.hidden-previous') hiddenPrevious: boolean = false;
-  @HostBinding('style.display') display: string = "";
+  @HostBinding('class.hidden-next') hiddenNext = true;
+  @HostBinding('class.hidden-previous') hiddenPrevious = false;
+  @HostBinding('style.display') display = '';
 
   get isEnabled(): boolean {
     return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
@@ -50,7 +50,7 @@ export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
   }
 
   wait(): void {
-    this.display = this.hiddenPrevious ? "none" : "";
+    this.display = this.hiddenPrevious ? 'none' : '';
     this.hiddenNext = true;
     this.hiddenPrevious = false;
   }
@@ -58,17 +58,17 @@ export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
   clear(): void {
     this.hiddenNext = false;
     this.hiddenPrevious = false;
-    this.display = "";
+    this.display = '';
   }
 
     @Input()
-    index: number
+    index: number;
 
     @Input()
-    project: Project
+    project: Project;
 
     ngAfterContentInit(): void {
-      if(this.index == 0) {
+      if (this.index == 0) {
         this.hiddenNext = false;
       }
     }
@@ -81,9 +81,9 @@ export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
 })
 export class CaptionSlideDirective implements AfterContentInit, Slideable {
 
-  @HostBinding('class.hidden-next') hiddenNext: boolean = true;
-  @HostBinding('class.hidden-previous') hiddenPrevious: boolean = false;
-  @HostBinding('style.display') display: string = "";
+  @HostBinding('class.hidden-next') hiddenNext = true;
+  @HostBinding('class.hidden-previous') hiddenPrevious = false;
+  @HostBinding('style.display') display = '';
 
   get isEnabled(): boolean {
     return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
@@ -100,7 +100,7 @@ export class CaptionSlideDirective implements AfterContentInit, Slideable {
   }
 
   wait(): void {
-    this.display = this.hiddenPrevious ? "none" : "";
+    this.display = this.hiddenPrevious ? 'none' : '';
     this.hiddenNext = true;
     this.hiddenPrevious = false;
   }
@@ -108,17 +108,17 @@ export class CaptionSlideDirective implements AfterContentInit, Slideable {
   clear(): void {
     this.hiddenNext = false;
     this.hiddenPrevious = false;
-    this.display = "";
+    this.display = '';
   }
 
   @Input()
-  index: number
+  index: number;
 
   @Input()
-  project: Project
+  project: Project;
 
   ngAfterContentInit(): void {
-    if(this.index == 0) {
+    if (this.index == 0) {
       this.hiddenNext = false;
     }
   }
@@ -132,9 +132,9 @@ export class CaptionSlideDirective implements AfterContentInit, Slideable {
 })
 export class HeroSlideDirective implements AfterContentInit, Slideable {
 
-  @HostBinding('class.next-in') nextIn: boolean = false;
-  @HostBinding('class.next-out') nextOut: boolean = false;
-  @HostBinding('class.current') current: boolean = false;
+  @HostBinding('class.next-in') nextIn = false;
+  @HostBinding('class.next-out') nextOut = false;
+  @HostBinding('class.current') current = false;
 
   get isEnabled(): boolean {
     return this.current;
@@ -154,16 +154,16 @@ export class HeroSlideDirective implements AfterContentInit, Slideable {
   }
 
   clear(): void {
-    this.nextIn = false
-    this.nextOut = false
-    this.current = false
+    this.nextIn = false;
+    this.nextOut = false;
+    this.current = false;
   }
 
   @Input()
-  index: number
+  index: number;
 
   ngAfterContentInit(): void {
-    if(this.index == 0) {
+    if (this.index == 0) {
       this.current = true;
     }
   }
@@ -213,21 +213,21 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   private checkTimer() {
-    if((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
+    if ((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
       this.transition(true);
     }
   }
 
   private updateWindow() {
     let height = window.innerHeight - 300;
-    if(height%2 === 1) {
+    if (height % 2 === 1) {
         height++;
     }
-    this.slider.nativeElement.style.height = height + "px";
+    this.slider.nativeElement.style.height = height + 'px';
 
     this.slices.forEach((element, i) => {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
-        element.nativeElement.style.backgroundPosition = "50% " + y + "px";
+        element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
     });
   }
 
@@ -238,22 +238,22 @@ export class ProjectTopComponent implements AfterViewInit {
       return element.isEnabled;
     });
 
-    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ? 
+    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ?
       (elements.length - 1) : (current.index - 1));
 
     let next = elements[nextIndex];
 
     elements.forEach((element) => {
-      if(element == current) {
+      if (element == current) {
         element.moveOut();
-      } else if(element == next) {
+      } else if (element == next) {
         element.moveIn();
       } else {
         element.wait();
-      } 
+      }
     });
 
-    if(post != null) {
+    if (post != null) {
       post(current, next);
     }
   }

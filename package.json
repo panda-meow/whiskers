@@ -36,7 +36,9 @@
     "angular2-markdown": "^2.2.3",
     "classlist.js": "1.1.20150312",
     "core-js": "2.5.1",
+    "ng-scrollreveal": "^2.2.0",
     "rxjs": "5.5.5",
+    "scrollreveal": "^3.3.6",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
@@ -50,6 +52,7 @@
     "@types/jasmine": "2.8.2",
     "@types/jasminewd2": "2.0.3",
     "@types/node": "8.0.56",
+    "@types/scrollreveal": "0.0.3",
     "angular-cli-ghpages": "0.5.2",
     "codelyzer": "4.0.1",
     "coveralls": "3.0.0",

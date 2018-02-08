@@ -1,35 +1,45 @@
-<div fxLayout="row">
-  <div fxFlex="10"
-    fxFlex.gt-sm="20"></div>
-  <div fxFlex="90"
-    fxFlex.gt-sm="50">
+<div fxLayout="row"
+  style="background: #4a6ff2; padding-top: 80px; padding-bottom:80px">
+  <!-- <div fxFlex="10"
+    fxFlex.gt-sm="20"></div> -->
+  <!-- <div fxFlex="90"
+    fxFlex.gt-sm="50"> -->
+  <div fxLayout="row">
     <!-- <h1 class="section-title">{{'topProjects' | translate}}</h1> -->
+
     <mat-progress-spinner *ngIf="!projects"
       class="progress-spinner"
       [color]="'primary'"
       [mode]="'indeterminate'">
     </mat-progress-spinner>
     <div id="projects-list"
-      *ngIf="projects">
+      *ngIf="projects"
+      fxLayout="row"
+      fxLayoutWrap
+      fxLayoutAlign="space-evenly center">
       <ng-container *ngFor="let project of projects">
         <mat-card class="project-card"
-          (click)="seeProjectDetails(project);">
-          <mat-card-header>
+          style="max-width: 250px;"
+          (click)="seeProjectDetails(project);"
+          fxFlex="55"
+          fxFlex.xs="90"
+          fxLayout="column">
+          <!-- <mat-card-header>
             <div mat-card-avatar
               class="project-header-image"
               [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
             <mat-card-title>{{project.title}}</mat-card-title>
             <mat-card-subtitle>{{project.attributes?.company || "Personal Project"}}</mat-card-subtitle>
             <div class="flex-spacer"></div>
-          </mat-card-header>
+          </mat-card-header> -->
           <img mat-card-image
             src="{{headerURL(project)}}">
         </mat-card>
       </ng-container>
     </div>
   </div>
-  <div fxFlex="10"
-    fxFlex.gt-sm="20"></div>
+  <!-- <div fxFlex="10"
+    fxFlex.gt-sm="20"></div> -->
 </div>
 
 

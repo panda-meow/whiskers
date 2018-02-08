@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 
 export class ProjectSectionCenteredQuoteComponent {
     @Input()
-    content: string
+    content: string;
+    @Input()
+    header: string;
     constructor() {}
 }

@@ -11,7 +11,8 @@ export class ProjectSectionCenteredTextComponent {
 
     @Input()
     content: string;
-
+    @Input()
+    header: string;
     constructor() {}
 
     get paragraphs(): string[] {

@@ -10,5 +10,7 @@ import { Component, Input } from '@angular/core';
 export class ProjectSectionImageFullComponent {
     @Input()
     image: String;
+    @Input()
+    header: string;
     constructor() {}
 }
