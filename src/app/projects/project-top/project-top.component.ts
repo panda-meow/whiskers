@@ -248,7 +248,7 @@ export class ProjectTopComponent implements AfterViewInit {
         element.moveOut();
       } else if (element == next) {
         element.moveIn();
-      } else if (element != current) {
+      } else {
         element.wait();
       }
     });
