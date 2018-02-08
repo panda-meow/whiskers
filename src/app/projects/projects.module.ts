@@ -33,8 +33,7 @@ import {ProjectService} from './shared/project.service';
     FormsModule,
     SharedModule,
     ProjectRoutingModule,
-    ReactiveFormsModule,
-
+    ReactiveFormsModule
   ],
   declarations: [
     ProjectsComponent,

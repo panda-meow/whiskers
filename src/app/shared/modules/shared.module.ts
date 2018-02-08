@@ -5,6 +5,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ProjectService} from '../../projects/shared/project.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { SHARED_COMPONENTS } from '../../projects/experiment/components/index';
+import { MarkdownModule } from 'angular2-markdown';
+import { MarkdownComponent } from 'angular2-markdown/markdown/markdown.component';
 
 const SHARED_MODULES: any[] = [
   CommonModule,
@@ -15,6 +17,7 @@ const SHARED_MODULES: any[] = [
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,
+    MarkdownModule.forRoot(),
     SHARED_MODULES
   ],
   declarations: [
@@ -24,6 +27,7 @@ const SHARED_MODULES: any[] = [
     MaterialModule,
     FlexLayoutModule,
     TranslateModule,
+    MarkdownComponent,
     SHARED_COMPONENTS
   ]
 })
