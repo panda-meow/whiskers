@@ -6,6 +6,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 // Modules
 import {ProjectRoutingModule} from './projects-routing.module';
 import {SharedModule} from '../shared/modules/shared.module';
+import {NgsRevealModule} from 'ng-scrollreveal';
+
 
 // Components
 // import {ProjectListComponent, RemoveProjectDialogComponent} from './project-list/project-list.component';
@@ -34,7 +36,7 @@ import {ProjectService} from './shared/project.service';
     SharedModule,
     ProjectRoutingModule,
     ReactiveFormsModule,
-
+    NgsRevealModule
   ],
   declarations: [
     ProjectsComponent,

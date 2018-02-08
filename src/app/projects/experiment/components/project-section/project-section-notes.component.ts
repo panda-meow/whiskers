@@ -14,7 +14,8 @@ export class ProjectSectionNotesComponent {
     content: string;
     @Input()
     overview: string;
-
+    @Input()
+    header: string;
     constructor() {}
 
     get paragraphs(): string[] {

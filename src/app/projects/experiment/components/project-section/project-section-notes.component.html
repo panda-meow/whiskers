@@ -22,8 +22,11 @@
 </section>
 
 <section *ngIf="image"
+  fxLayout="row"
+  fxLayoutAlign="center center"
   class="container bg-white">
-  <figure class="full-width-image fifty">
+  <figure fxFlex="60"
+    fxFlex.xs="100">
     <img src="{{image}}"
       alt="image description" />
   </figure>

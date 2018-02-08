@@ -1,6 +1,7 @@
 <!-- TWO IMAGE COLUMNS -->
 
 <section class="container bg-white wysiwyg ">
+  <h3 *ngIf="header">{{header}}</h3>
   <figure class="image-with-text right">
     <figcaption>
       <p *ngFor="let paragraph of this.paragraphs">

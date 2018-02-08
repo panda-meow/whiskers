@@ -7,6 +7,7 @@ import {APP_CONFIG, AppConfig} from './config/app.config';
 import {AppRoutingModule} from './app-routing.module';
 import {SharedModule} from './shared/modules/shared.module';
 import {CoreModule} from './core/core.module';
+import {NgsRevealModule} from 'ng-scrollreveal';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -31,6 +32,7 @@ import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
         deps: [HttpClient]
       }
     }),
+    NgsRevealModule.forRoot(),
     SharedModule.forRoot(),
     CoreModule,
     AppRoutingModule

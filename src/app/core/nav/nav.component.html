@@ -2,18 +2,34 @@
 
 <header [ngClass]="hide ? 'hideme' : 'visible'">
   <nav>
-    <div style="height:10px; background-color:aqua; top:0px"></div>
+    <div style="height:10px;  top:0px"></div>
     <div fxFlex
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutAlign.lt-sm="space-between center">
+      <!-- <div fxFlex
       fxLayout="row"
       fxLayout.xs="column"
       fxLayoutAlign="center center"
-      fxLayoutAlign.lt-sm="space-between center">
+      fxLayoutAlign.lt-sm="space-between center"> -->
       <!-- <div fxFlex fxLayout="row" fxLayoutAlign="center center" fxLayoutAlign.lt-sm="space-between center"> -->
       <div fxFlex
+        fxShow
+        fxHide.xs
+        class="home-link"
         (click)="routeHome()"
         class="text-left">
         <h1 id="glow"
-          class="navbar-brand">CHELSEA</h1>
+          class="navbar-brand"><img src="assets/images/logo-white.svg">CHELSEA PATTEE</h1>
+      </div>
+      <div fxFlex
+        fxShow.xs
+        fxHide.gt-xs
+        class="home-link"
+        (click)="routeHome()"
+        class="text-left">
+        <h1 id="glow"
+          class="navbar-brand"><img src="assets/images/logo-white.svg"></h1>
       </div>
       <!-- <div fxFlex="50"> -->
       <!-- <div fxFlex="50">
@@ -24,7 +40,7 @@
       <div fxFlex
         class="text-right">
         <!-- <app-search-bar></app-search-bar> -->
-        <a mat-raised-button
+        <a mat-button
           *ngFor="let item of menuItems"
           routerLink="{{item.link}}">
                     {{item.name | uppercase}}

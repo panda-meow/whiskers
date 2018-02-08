@@ -14,6 +14,8 @@ export class ProjectSectionImageTextComponent {
     content: String;
     @Input()
     link: string;
+    @Input()
+    header: string;
     constructor() {}
     paragraph: string;
     get paragraphs(): string[] {
