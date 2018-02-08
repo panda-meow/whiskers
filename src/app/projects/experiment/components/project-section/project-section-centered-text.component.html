@@ -2,18 +2,17 @@
 
 <section class="container bg-white ">
   <div class="centered_copy_block wysiwyg ">
-    <h3 *ngIf="header"
-      class="project-section--header">{{header}}</h3>
-    <p style="text-align: left"
-      *ngFor="let paragraph of this.paragraphs">
-      <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
-      <ng-template #capParagraph>
-        <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
-      </ng-template>
-      <ng-template #defaultParagraph>
-        {{paragraph}}
-      </ng-template>
-    </p>
+    <!--<p style="text-align: left" *ngFor="let paragraph of this.paragraphs">
+            <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
+            <ng-template #capParagraph >
+                <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
+            </ng-template>
+            <ng-template #defaultParagraph>
+                {{paragraph}}
+            </ng-template>
+        </p>
+        <p>&nbsp;</p>-->
+    <markdown>{{content}}</markdown>
     <p>&nbsp;</p>
   </div>
 </section>
