@@ -5,6 +5,7 @@
     <h3 *ngIf="header"
       class="project-section--header">{{header}}</h3>
     <figcaption>
+
       <p *ngFor="let paragraph of this.paragraphs">
         <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
         <ng-template #capParagraph>

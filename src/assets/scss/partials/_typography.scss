@@ -8,59 +8,59 @@
 \* * * * * * * * * * * * * * * * * * * * */
     
     @font-face {
-        font-family: "basis-grotesque";
-        font-style: normal;
-        // font-weight: 400;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-regular-pro.woff2') format("woff2");
+      font-family: "basis-grotesque";
+      font-style: normal;
+      // font-weight: 400;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-regular-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "basis-grotesque-medium";
-        font-style: normal;
-        // font-weight: 400;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-medium-pro.woff2') format("woff2");
+      font-family: "basis-grotesque-medium";
+      font-style: normal;
+      // font-weight: 400;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-medium-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "basis-grotesque-light";
-        font-style: normal;
-        // font-weight: 400;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-light-pro.woff2') format("woff2");
+      font-family: "basis-grotesque-light";
+      font-style: normal;
+      // font-weight: 400;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-light-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "basis-grotesque-mono";
-        font-style: normal;
-        // font-weight: 500;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-mono-pro.woff2') format("woff2");
+      font-family: "basis-grotesque-mono";
+      font-style: normal;
+      // font-weight: 500;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-mono-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "basis-grotesque-monobold";
-        font-style: normal;
-        // font-weight: 700;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-monobold-pro.woff2') format("woff2");
+      font-family: "basis-grotesque-monobold";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-monobold-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "basis-grotesque-bold";
-        font-style: normal;
-        // font-weight: 400;
-        src: url('/assets/font/basis-grotesque/basis-grotesque-bold-pro.woff2') format("woff2");
+      font-family: "basis-grotesque-bold";
+      font-style: normal;
+      // font-weight: 400;
+      src: url('/assets/font/basis-grotesque/basis-grotesque-bold-pro.woff2') format("woff2");
     }
     
     @font-face {
-        font-family: "GT-Haptik-Regular";
-        font-style: normal;
-        // font-weight: 700;
-        src: url('/assets/font/GT_Haptik/GT-Haptik-Regular.woff') format("woff");
+      font-family: "GT-Haptik-Regular";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Regular.woff') format("woff");
     }
     
     @font-face {
-        font-family: "gear-proportion";
-        font-style: normal;
-        // font-weight: 700;
-        src: url('/assets/font/gear-proportion/gear_proportion-webfont.woff') format("woff");
+      font-family: "gear-proportion";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/gear-proportion/gear_proportion-webfont.woff') format("woff");
     }
     
     $font-family-body: basis-grotesque,
@@ -100,38 +100,38 @@
     $navigationFoldedWidth: 64px;
     $table-header-font-weight: 600;
     html {
-        font-size: $font-size-root;
-        font-family: $font-family-body;
-        // line-height: 1.4;
-        // line-height: 1.5;
-        // line-height: 20px;
-        // letter-spacing: -0.1px;
+      font-size: $font-size-root;
+      font-family: $font-family-body;
+      // line-height: 1.4;
+      // line-height: 1.5;
+      // line-height: 20px;
+      // letter-spacing: -0.1px;
     }
     
     body {
-        font-family: $font-family-body;
-        // font-size: $font-size-base;
-        font-size: 62.5%;
-        color: #5a5a5a;
+      font-family: $font-family-body;
+      // font-size: $font-size-base;
+      font-size: 62.5%;
+      color: #5a5a5a;
     }
     
     html,
     body {
-        // color: transparentize($text-color, 0.13);
-        overflow-wrap: break-word;
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        // min-height: 100%;
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+      // color: transparentize($text-color, 0.13);
+      overflow-wrap: break-word;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      // min-height: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     @charset "UTF-8";
     * {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
     }
     
     // body {
@@ -141,141 +141,141 @@
     // }
     .h1,
     h1 {
-        font-size: 3.2em;
-        font-weight: 500;
-        line-height: 1em;
+      font-size: 3.2em;
+      font-weight: 500;
+      line-height: 1em;
     }
     
     .h2,
     h2 {
-        font-size: 2.4em;
-        font-weight: 400;
-        line-height: 1.16667em;
+      font-size: 2.4em;
+      font-weight: 400;
+      line-height: 1.16667em;
     }
     
     .h3,
     h3 {
-        font-size: 1.8em;
-        font-weight: 300;
-        line-height: 1.16667em;
+      font-size: 1.8em;
+      font-weight: 300;
+      line-height: 1.16667em;
     }
     
     .h4,
     h4 {
-        font-size: 1.6em;
-        font-weight: 300;
-        line-height: 1.3125em;
+      font-size: 1.6em;
+      font-weight: 300;
+      line-height: 1.3125em;
     }
     
     .h5,
     h5 {
-        font-size: 1.2em;
-        font-weight: 500;
-        letter-spacing: 1px;
-        line-height: 1.166666em;
-        text-transform: uppercase;
+      font-size: 1.2em;
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 1.166666em;
+      text-transform: uppercase;
     }
     
     .h6,
     h6 {
-        font-size: 1.2em;
-        font-weight: 400;
-        letter-spacing: 1px;
-        line-height: 1.166666em;
-        text-transform: uppercase;
+      font-size: 1.2em;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 1.166666em;
+      text-transform: uppercase;
     }
     
     .orange {
-        color: #f89a21;
+      color: #f89a21;
     }
     
     p {
-        font-size: 1.4em;
-        font-weight: 300;
-        margin-bottom: 1em;
+      font-size: 1.4em;
+      font-weight: 300;
+      margin-bottom: 1em;
+      line-height: 1.5em;
+      .large {
+        font-size: 1.14286em;
         line-height: 1.5em;
-        .large {
-            font-size: 1.14286em;
-            line-height: 1.5em;
-            padding-bottom: 1em;
-            &::after {
-                border-bottom: 1px solid #999;
-                content: '';
-                display: block;
-                height: 1px;
-                margin: 1.5em 0 2em;
-                width: 70px;
-            }
+        padding-bottom: 1em;
+        &::after {
+          border-bottom: 1px solid #999;
+          content: '';
+          display: block;
+          height: 1px;
+          margin: 1.5em 0 2em;
+          width: 70px;
         }
-        .drop-cap {
-            float: left;
-            font-size: 2.85714em;
-            font-weight: 500;
-            line-height: 1em;
-            padding-top: 1px;
-            padding-right: 6px;
-        }
+      }
+      .drop-cap {
+        float: left;
+        font-size: 2.85714em;
+        font-weight: 500;
+        line-height: 1em;
+        padding-top: 1px;
+        padding-right: 6px;
+      }
     }
     
     blockquote p {
-        font-size: 3.2em;
-        font-weight: 400;
-        color: #f89a21;
-        line-height: 1em;
+      font-size: 3.2em;
+      font-weight: 400;
+      color: #f89a21;
+      line-height: 1em;
     }
     
     abbr {
-        border-bottom: 0;
-        cursor: default;
-        text-decoration: none;
+      border-bottom: 0;
+      cursor: default;
+      text-decoration: none;
     }
     
     @media screen and (min-width: 50em) {
-        .h1,
-        h1 {
-            font-size: 4.8em;
-            line-height: 1em;
+      .h1,
+      h1 {
+        font-size: 4.8em;
+        line-height: 1em;
+      }
+      .h2,
+      h2 {
+        font-size: 3.6em;
+        line-height: 1.33333em;
+      }
+      .h3,
+      h3 {
+        font-size: 2.8em;
+        line-height: 1.14286em;
+      }
+      .h4,
+      h4 {
+        font-size: 2.1em;
+        line-height: 1.1429em;
+      }
+      .h5,
+      h5,
+      .h6,
+      h6 {
+        font-size: 1.4em;
+        line-height: 1.1425em;
+      }
+      p {
+        font-size: 1.4em;
+        .large {
+          font-size: 1.3125em;
+          line-height: 1.524em;
         }
-        .h2,
-        h2 {
-            font-size: 3.6em;
-            line-height: 1.33333em;
+        .drop-cap {
+          font-size: 3.125em;
+          line-height: 0.91em;
         }
-        .h3,
-        h3 {
-            font-size: 2.8em;
-            line-height: 1.14286em;
-        }
-        .h4,
-        h4 {
-            font-size: 2.1em;
-            line-height: 1.1429em;
-        }
-        .h5,
-        h5,
-        .h6,
-        h6 {
-            font-size: 1.4em;
-            line-height: 1.1425em;
-        }
+      }
+      blockquote {
+        margin: 0 -10%;
+        width: 120%;
         p {
-            font-size: 1.6em;
-            .large {
-                font-size: 1.3125em;
-                line-height: 1.524em;
-            }
-            .drop-cap {
-                font-size: 3.125em;
-                line-height: 0.91em;
-            }
+          font-size: 4.8em;
         }
-        blockquote {
-            margin: 0 -10%;
-            width: 120%;
-            p {
-                font-size: 4.8em;
-            }
-        }
+      }
     }
     
     blockquote,
@@ -302,8 +302,8 @@
     section,
     table,
     ul {
-        margin: 0;
-        padding: 0;
+      margin: 0;
+      padding: 0;
     }
     
     article,
@@ -312,42 +312,42 @@
     header,
     hgroup, // nav,
     section {
-        display: block;
+      display: block;
     }
     
     ol {
-        margin-left: 1.5em;
+      margin-left: 1.5em;
     }
     
     ul {
-        list-style: none;
+      list-style: none;
     }
     
     .wysiwyg {
-        ol,
-        ul {
-            font-size: 1.4em;
-        }
+      ol,
+      ul {
+        font-size: 1.4em;
+      }
     }
     
     dl {
-        overflow: hidden;
-        margin: 0 0 1em;
+      overflow: hidden;
+      margin: 0 0 1em;
     }
     
     dt {
-        font-weight: 700;
+      font-weight: 700;
     }
     
     dd {
-        margin-left: 0;
+      margin-left: 0;
     }
     
     @media only all and (min-width: 50em) {
-        .wysiwyg {
-            ol,
-            ul {
-                font-size: 1.6em;
-            }
+      .wysiwyg {
+        ol,
+        ul {
+          font-size: 1.6em;
         }
+      }
     }

@@ -107,10 +107,9 @@
       </div>
     </div>
     <ul class="slides">
-      <li 
-        *ngFor="let image of _slides; let i = index;" 
-          [index]="i"
-          slide>
+      <li *ngFor="let image of _slides; let i = index;"
+        [index]="i"
+        slide>
         <div class="cut">
           <span #slice
             [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
@@ -137,25 +136,25 @@
     </ul>
 
     <div class="nav">
-        <button mat-icon-button
-          (click)="previous()"
-          data-dir="prev"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon></button>
-        <!-- <a href="#"
+      <button mat-icon-button
+        (click)="previous()"
+        data-dir="prev"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon></button>
+      <!-- <a href="#"
           (click)="previous()"
           data-dir="prev"> -->
-        <!-- <mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> -->
-        <!-- </a> -->
-        <button mat-icon-button
-          (click)="next()"
-          data-dir="next"><mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon></button>
-        <!-- <a href="#"
+      <!-- <mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> -->
+      <!-- </a> -->
+      <button mat-icon-button
+        (click)="next()"
+        data-dir="next"><mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon></button>
+      <!-- <a href="#"
           (click)="next()"
           data-dir="next"> -->
-        <!-- <mat-icon aria-hidden="true">arrow_next</mat-icon> -->
-        <!-- <mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon> -->
-        <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
-        <!-- </a> -->
-      </div>
+      <!-- <mat-icon aria-hidden="true">arrow_next</mat-icon> -->
+      <!-- <mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon> -->
+      <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
+      <!-- </a> -->
+    </div>
   </div>
 
   <div id="bottom">
@@ -164,6 +163,11 @@
         <div class="inner">
           <div>
             <span class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Events</span>
+            <div class="img-round"><img style="height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;"></div>
             <h4>029c</h4>
             <p>26 May, Hall of fame</p>
             <ul>
@@ -194,8 +198,7 @@
 
     <div class="thumbs">
       <div class="images">
-        <thumbnail-slide 
-          *ngFor="let project of projects | async; let i = index;"
+        <thumbnail-slide *ngFor="let project of projects | async; let i = index;"
           [index]="i"
           [project]="project"
           [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></thumbnail-slide>
@@ -204,11 +207,11 @@
         <div>
           <h5>News</h5>
           <div class="titles">
-            <h4 
-              *ngFor="let project of projects | async; let i = index;"
+            <h4 *ngFor="let project of projects | async; let i = index;"
               [index]="i"
               [project]="project"
-              class="{{i == 0 ? '' : 'hidden-next'}}" caption>{{project.attributes.caption}}</h4>
+              class="{{i == 0 ? '' : 'hidden-next'}}"
+              caption>{{project.attributes.caption}}</h4>
           </div>
           <span>Read More</span>
         </div>

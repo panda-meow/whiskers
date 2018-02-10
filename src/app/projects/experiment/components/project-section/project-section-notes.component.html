@@ -9,7 +9,7 @@
 
 <section class="container bg-white">
   <div class="centered_copy_block wysiwyg">
-    <p *ngFor="let paragraph of this.paragraphs">
+    <!-- <p *ngFor="let paragraph of this.paragraphs">
       <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
       <ng-template #capParagraph>
         <span class="drop-cap">{{paragraph.charAt(1)}}</span>{{paragraph.substring(2)}}
@@ -17,7 +17,8 @@
       <ng-template #defaultParagraph>
         {{paragraph}}
       </ng-template>
-    </p>
+    </p> -->
+    <markdown>{{content}}</markdown>
   </div>
 </section>
 
