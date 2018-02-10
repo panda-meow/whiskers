@@ -87,50 +87,33 @@
 
   <div #mirrorSlider
     id="mirror-slider">
-    <div class="caption">
-      <h5>Details</h5>
-      <h3>Serenity</h3>
-      <div class="news">
-        <span>Wire</span>
-        <div class="list">
-          <p>I never tell you to get down - it's all about coming up</p>
-          <p>So you better duck away, run and hide out</p>
-        </div>
-      </div>
-      <div class="icons">
-        <span>
-        <i class="fa fa-play"></i>
-      </span>
-        <span>
-        <i class="fa fa-eye"></i>
-      </span>
-      </div>
-    </div>
+    <hero-caption 
+    [slide]="_slides[0]"></hero-caption>
     <ul class="slides">
-      <li *ngFor="let image of _slides; let i = index;"
+      <li *ngFor="let _slide of _slides; let i = index;"
         [index]="i"
         slide>
         <div class="cut">
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
           <span #slice
-            [ngStyle]="{'background-image': 'url(\'assets/heros/' + image + '\')'}"></span>
+            [ngStyle]="{'background-image': 'url(\'assets/heros/' + _slide.image + '\')'}"></span>
         </div>
       </li>
     </ul>
@@ -159,18 +142,21 @@
 
   <div id="bottom">
     <div class="boxes">
-      <div class="box">
+      <div *ngFor="let project of projects | async | slice:0:3; let i = index;" class="box">
         <div class="inner">
           <div>
-            <span class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Events</span>
-            <div class="img-round"><img style="height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  flex-shrink: 0;  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;"></div>
-            <h4>029c</h4>
-            <p>26 May, Hall of fame</p>
-            <ul>
+            <span *ngIf="i == 0" class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Projects</span>
+            <div class="img-round"><img style="height: 80px;
+              width: 80px;
+              border-radius: 50%;
+              flex-shrink: 0; 
+              background-size: cover;"
+              [ngStyle]="{
+                'background-image': 'url(\'' + thumbnailURL(project) + '\')'
+              }"></div>
+            <h4>{{project.title}}</h4>
+            <p>{{project.attributes.caption}}</p>
+            <ul *ngIf="i == 0">
               <li><span></span></li>
               <li><span></span></li>
               <li><span></span></li>
@@ -178,7 +164,7 @@
           </div>
         </div>
       </div>
-      <div class="box">
+      <!--<div class="box">
         <div class="inner">
           <div>
             <h4>Cateline</h4>
@@ -193,7 +179,7 @@
             <p>26 May, Hall of fame</p>
           </div>
         </div>
-      </div>
+      </div>-->
     </div>
 
     <div class="thumbs">
@@ -205,13 +191,13 @@
       </div>
       <div class="caption">
         <div>
-          <h5>News</h5>
+          <h5>Featured</h5>
           <div class="titles">
             <h4 *ngFor="let project of projects | async; let i = index;"
               [index]="i"
               [project]="project"
               class="{{i == 0 ? '' : 'hidden-next'}}"
-              caption>{{project.attributes.caption}}</h4>
+              caption>{{project.title}}</h4>
           </div>
           <span>Read More</span>
         </div>

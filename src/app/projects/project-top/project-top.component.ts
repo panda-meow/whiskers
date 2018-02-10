@@ -9,6 +9,7 @@ import { OnInit, OnChanges, AfterViewChecked, AfterViewInit, AfterContentInit } 
 import { ElementRef } from '@angular/core/src/linker/element_ref';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/take';
 import { DomSanitizer } from '@angular/platform-browser';
 import { nextTick } from 'q';
 
@@ -21,6 +22,20 @@ interface Slideable {
   moveIn(): void;
   wait(): void;
   clear(): void;
+}
+
+class Slide {
+  image: String
+  title: String
+  caption: String
+  footers: String[]
+  
+  constructor(image: String, title: String, caption: String, footers: String[]) {
+    this.image = image;
+    this.title = title;
+    this.caption = caption;
+    this.footers = footers;
+  }
 }
 
 
@@ -169,8 +184,38 @@ export class HeroSlideDirective implements AfterContentInit, Slideable {
   }
 
   constructor() {
-    console.log('slides');
   }
+}
+
+@Component({
+    selector: 'hero-caption',
+    styleUrls: ['project-top-hero-caption.scss'],
+    template: `
+      <h5>{{slide.caption}}</h5>
+      <h3>{{slide.title}}</h3>
+      <div class="news">
+        <span>Wire</span>
+        <div class="list">
+          <p *ngFor="let footer of slide.footers">{{footer}}</p>
+        </div>
+      </div>
+      <div class="icons">
+        <span>
+        <i class="fa fa-play"></i>
+      </span>
+        <span>
+        <i class="fa fa-eye"></i>
+      </span>
+      </div>
+    `
+})
+
+export class HeroCaptionComponent {
+
+  @Input()
+  slide: Slide
+
+  constructor() {}
 }
 
 
@@ -185,10 +230,22 @@ export class ProjectTopComponent implements AfterViewInit {
   CAROUSEL_AUTOPLAY_INTERVAL_MS = 5000;
 
   projects: Observable<Project[]>;
+  featured: Observable<Project[]>;
+
   isMoving: Boolean = false;
-  _slides = ['slide-1.png', 'slide-2.png'];
+  _slides: Slide[] = [
+    new Slide('slide-1.png', 'Hello', 'Caption 1', [
+      'This is a footer and it needs to be long so I can test line wrapping', 
+      'and this is the other message']),
+    new Slide('slide-2.png', 'Goodbye', 'Caption 2', [
+      "I can't think of anything else to write", 
+      "hmmmm....."
+    ])
+  ]
+  
 
   @ViewChild('mirrorSlider') slider;
+  @ViewChild(HeroCaptionComponent) heroCaption;
   @ViewChildren('slice') slices: QueryList<ElementRef>;
   @ViewChildren(CaptionSlideDirective) captions;
   @ViewChildren(ThumbnailSlideComponent) thumbnails;
@@ -209,6 +266,7 @@ export class ProjectTopComponent implements AfterViewInit {
   constructor(private projectService: ProjectService,
     private router: Router) {
     this.projects = this.projectService.getAllProjects().share();
+    this.featured = this.projects.take(3);
     this.lastTransition = Date.now();
   }
 
@@ -231,7 +289,7 @@ export class ProjectTopComponent implements AfterViewInit {
     });
   }
 
-  private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void) {
+  private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void): number {
     let elements = list.toArray();
 
     let current = elements.find((element) => {
@@ -256,6 +314,8 @@ export class ProjectTopComponent implements AfterViewInit {
     if (post != null) {
       post(current, next);
     }
+
+    return nextIndex;
   }
 
   private transition(forward: boolean) {
@@ -265,12 +325,14 @@ export class ProjectTopComponent implements AfterViewInit {
 
       this._transition(this.thumbnails, forward, null);
       this._transition(this.captions, forward, null);
-      this._transition(this.slides, forward, (current, next) => {
+      let index = this._transition(this.slides, forward, (current, next) => {
         setTimeout(() => {
           current.clear();
           next.current = true;
         }, 1000);
       });
+
+      this.heroCaption.slide = this._slides[index];
 
       setTimeout(() => {
         this.isMoving = false;
