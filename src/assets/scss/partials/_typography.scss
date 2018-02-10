@@ -57,6 +57,41 @@
     }
     
     @font-face {
+      font-family: "GT-Haptik-Medium";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Medium-Webfont.woff') format("woff");
+    }
+    
+    @font-face {
+      font-family: "GT-Haptik-Regular-Rotalic";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Regular-Rotalic.woff') format("woff");
+    }
+    
+    @font-face {
+      font-family: "GT-Haptik-Bold";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Bold-Webfont.woff') format("woff");
+    }
+    
+    @font-face {
+      font-family: "GT-Haptik-Black-Rotalic";
+      font-style: normal;
+      // font-weight: 700;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Black-Rotalic.woff') format("woff");
+    }
+    
+    @font-face {
+      font-family: "GT-Haptik-Light-Rotalic";
+      font-style: normal;
+      font-weight: 300;
+      src: url('/assets/font/GT_Haptik/GT-Haptik-Regular-Rotalic-Webfont.woff') format("woff");
+    }
+    
+    @font-face {
       font-family: "gear-proportion";
       font-style: normal;
       // font-weight: 700;

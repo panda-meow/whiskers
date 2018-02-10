@@ -25,11 +25,11 @@ interface Slideable {
 }
 
 class Slide {
-  image: String
-  title: String
-  caption: String
-  footers: String[]
-  
+  image: String;
+  title: String;
+  caption: String;
+  footers: String[];
+
   constructor(image: String, title: String, caption: String, footers: String[]) {
     this.image = image;
     this.title = title;
@@ -191,14 +191,25 @@ export class HeroSlideDirective implements AfterContentInit, Slideable {
     selector: 'hero-caption',
     styleUrls: ['project-top-hero-caption.scss'],
     template: `
-      <h5>{{slide.caption}}</h5>
+      <!--h5>{{slide.caption}}</h5-->
       <h3>{{slide.title}}</h3>
       <div class="news">
-        <span>Wire</span>
-        <div class="list">
+      <h5>{{slide.caption}}</h5>
+        <!--span>Wire</span>
+        <!--div class="list">
           <p *ngFor="let footer of slide.footers">{{footer}}</p>
-        </div>
+        </div-->
       </div>
+      <!-- START OLD >
+            <h5>{{slide.caption}}</h5>
+            <h3>{{slide.title}}</h3>
+            <div class="news">
+              <span>Wire</span>
+              <div class="list">
+                <p *ngFor="let footer of slide.footers">{{footer}}</p>
+              </div>
+            </div>
+               < END OLD -->
       <div class="icons">
         <span>
         <i class="fa fa-play"></i>
@@ -213,7 +224,7 @@ export class HeroSlideDirective implements AfterContentInit, Slideable {
 export class HeroCaptionComponent {
 
   @Input()
-  slide: Slide
+  slide: Slide;
 
   constructor() {}
 }
@@ -234,15 +245,15 @@ export class ProjectTopComponent implements AfterViewInit {
 
   isMoving: Boolean = false;
   _slides: Slide[] = [
-    new Slide('slide-1.png', 'Hello', 'Caption 1', [
-      'This is a footer and it needs to be long so I can test line wrapping', 
+    new Slide('slide-1.png', 'Welcome', 'to my work portfolio', [
+      'This is a footer and it needs to be long so I can test line wrapping',
       'and this is the other message']),
-    new Slide('slide-2.png', 'Goodbye', 'Caption 2', [
-      "I can't think of anything else to write", 
-      "hmmmm....."
+    new Slide('slide-2.png', 'It\'\s Time', 'to put on your party hat', [
+      "I can't think of anything else to write",
+      'hmmmm.....'
     ])
-  ]
-  
+  ];
+
 
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;

@@ -1,6 +1,7 @@
 <div id="project-top">
+  <!-- <div id="mdd-header"> -->
   <div id="mdd-header">
-    <a href="https://morenodd.com/laboratory"
+    <!-- <a href="https://morenodd.com/laboratory"
       class="back">
       <svg id="icon-arrow"
         viewBox="0 0 24 24"
@@ -11,6 +12,28 @@
       </svg>
     </a>
     <h1>Cutted Slider</h1>
+  </div-->
+
+    <div fxFlex
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxFlexAlign="center"
+      fxShow
+      fxHide.xs
+      class="home-link">
+      <h1 fxLayoutAlign="center center"
+        id="glow"
+        class="navbar-brand"><img src="assets/images/logo-white.svg">CHELSEA PATTEE</h1>
+    </div>
+    <div fxFlex
+      fxShow.xs
+      fxHide.gt-xs
+      class="home-link"
+      class="text-left">
+      <h1 id="glow"
+        class="navbar-brand"><img src="assets/images/logo-white.svg"></h1>
+    </div>
+
   </div>
 
   <div id="mdd-share">
@@ -52,13 +75,13 @@
     </li> -->
       <li>
         <!-- <span><a href="/projects" target="_blank">projects</a></span> -->
-        <span><a href="/projects">projects</a></span>
+        <span><a href="/projects" mat-button>projects</a></span>
       </li>
       <li>
-        <span>about</span>
+        <span> <a href="#" mat-button>about</a></span>
       </li>
       <li>
-        <span>contact</span>
+        <span> <a href="#" mat-button>contact</a></span>
       </li>
       <li>
         <i class="fa fa-th"
@@ -87,8 +110,7 @@
 
   <div #mirrorSlider
     id="mirror-slider">
-    <hero-caption 
-    [slide]="_slides[0]"></hero-caption>
+    <hero-caption [slide]="_slides[0]"></hero-caption>
     <ul class="slides">
       <li *ngFor="let _slide of _slides; let i = index;"
         [index]="i"
@@ -118,40 +140,34 @@
       </li>
     </ul>
 
-    <div class="nav">
+    <div class="nav"
+      fxHide.lt-sm>
       <button mat-icon-button
         (click)="previous()"
         data-dir="prev"><mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon></button>
-      <!-- <a href="#"
-          (click)="previous()"
-          data-dir="prev"> -->
-      <!-- <mat-icon aria-hidden="true">keyboard_arrow_left</mat-icon> -->
-      <!-- </a> -->
       <button mat-icon-button
         (click)="next()"
         data-dir="next"><mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon></button>
-      <!-- <a href="#"
-          (click)="next()"
-          data-dir="next"> -->
-      <!-- <mat-icon aria-hidden="true">arrow_next</mat-icon> -->
-      <!-- <mat-icon aria-hidden="true">keyboard_arrow_right</mat-icon> -->
-      <!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
-      <!-- </a> -->
     </div>
   </div>
 
-  <div id="bottom">
-    <div class="boxes">
-      <div *ngFor="let project of projects | async | slice:0:3; let i = index;" class="box">
+  <div id="bottom"
+    fxFlex.lt-sm="100">
+    <div class="boxes"
+      fxHide.lt-sm
+      fxLayout.sm="column">
+      <div *ngFor="let project of projects | async | slice:0:3; let i = index;"
+        class="box">
         <div class="inner">
           <div>
-            <span *ngIf="i == 0" class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Projects</span>
+            <span *ngIf="i == 0"
+              class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Projects</span>
             <div class="img-round"><img style="height: 80px;
               width: 80px;
               border-radius: 50%;
-              flex-shrink: 0; 
+              flex-shrink: 0;
               background-size: cover;"
-              [ngStyle]="{
+                [ngStyle]="{
                 'background-image': 'url(\'' + thumbnailURL(project) + '\')'
               }"></div>
             <h4>{{project.title}}</h4>
@@ -187,7 +203,7 @@
         <thumbnail-slide *ngFor="let project of projects | async; let i = index;"
           [index]="i"
           [project]="project"
-          [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></thumbnail-slide>
+          [ngStyle]="{'background-image': 'url(\'' + headerURL(project) + '\')'}"></thumbnail-slide>
       </div>
       <div class="caption">
         <div>

@@ -252,23 +252,51 @@ template,
   z-index: 998;
   line-height: 1;
   h1 {
-    // font-family: sans-serif;
-    font-size: 16px;
-    font-weight: normal;
+    // NEW
+    cursor: pointer;
+    // display: block;
+    float: left;
+    // font-size: 4rem !important;
+    // font-size: 14px !important;
+    // font-family: 'gear-proportion';
+    // font-weight: 700;
+    // letter-spacing: 4px;
+    color: #E9E9E9;
+    font-size: 11px;
     letter-spacing: 1px;
+    font-weight: 600;
     margin: 0;
-    padding: 0 0 0 15px;
-    display: inline-block;
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 1px;
-      height: 16px;
-      background: #111;
+    margin-bottom: 0px;
+    line-height: 25px;
+    color: #E9E9E9;
+    // @include transition(.25s ease-in-out);
+    // @include textShadow((0 0 0 transparent, 0 0 0 transparent));
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+    padding: 15px 20px 10px;
+    img {
+      margin-right: 15px;
+      width: calc(50px / 2);
+      height: auto;
+      // display: inline-block;
     }
+    // OLD
+    // font-family: sans-serif;
+    // font-size: 16px;
+    // font-weight: normal;
+    // letter-spacing: 1px;
+    // margin: 0;
+    // padding: 0 0 0 15px;
+    // display: inline-block;
+    // position: relative;
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 1px;
+    //   height: 16px;
+    //   background: #111;
+    // }
   }
   .back {
     display: inline-block;
@@ -825,7 +853,7 @@ header {
         }
       }
       h4 {
-        font-size: 32px;
+        // font-size: 32px;
         font-weight: 400;
         margin: 0;
         padding: 0;
@@ -867,7 +895,14 @@ header {
     left: 50%;
     bottom: 0;
     background: #252525;
+    @media screen and (max-width: 599px) {
+      left: 0;
+      width: 100%;
+    }
     .images {
+      @media screen and (max-width: 599px) {
+        width: 100%;
+      }
       position: absolute;
       width: 50%;
       height: 360px;
