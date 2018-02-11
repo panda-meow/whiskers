@@ -287,6 +287,14 @@ export class ProjectTopComponent implements AfterViewInit {
     }
   }
 
+  private navigateTo(project: Project)  {
+    if(project == null) {
+      this.router.navigate(['/projects']);
+    } else {
+      this.router.navigate(['/projects/' + project.id]);
+    }
+  }
+
   private updateWindow() {
     let height = window.innerHeight - 300;
     if (height % 2 === 1) {

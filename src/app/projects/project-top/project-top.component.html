@@ -75,7 +75,7 @@
     </li> -->
       <li>
         <!-- <span><a href="/projects" target="_blank">projects</a></span> -->
-        <span><a href="/projects" mat-button>projects</a></span>
+        <span><a (click)="navigateTo(null)" mat-button>projects</a></span>
       </li>
       <li>
         <span> <a href="#" mat-button>about</a></span>
@@ -158,7 +158,7 @@
       fxLayout.sm="column">
       <div *ngFor="let project of projects | async | slice:0:3; let i = index;"
         class="box">
-        <div class="inner">
+        <div class="inner" (click)="navigateTo(project)">
           <div>
             <span *ngIf="i == 0"
               class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Projects</span>
@@ -201,9 +201,10 @@
     <div class="thumbs">
       <div class="images">
         <thumbnail-slide *ngFor="let project of projects | async; let i = index;"
+          (click)="navigateTo(project)"
           [index]="i"
           [project]="project"
-          [ngStyle]="{'background-image': 'url(\'' + headerURL(project) + '\')'}"></thumbnail-slide>
+          [ngStyle]="{'background-image': 'url(\'' + thumbnailURL(project) + '\')'}"></thumbnail-slide>
       </div>
       <div class="caption">
         <div>
