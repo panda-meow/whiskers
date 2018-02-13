@@ -13,6 +13,10 @@ export class Project {
       return 'http://' + window.location.hostname + ':8080/projects/' + project.id + '/thumbnail';
   }
 
+  public static previewURL(project: Project): string {
+      return 'http://' + window.location.hostname + ':8080/projects/' + project.id + '/preview';
+  }
+
   public static headerURL(project: Project): string {
       return 'http://' + window.location.hostname + ':8080/projects/' + project.id + '/header';
   }

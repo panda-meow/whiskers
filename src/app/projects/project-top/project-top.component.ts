@@ -379,4 +379,8 @@ export class ProjectTopComponent implements AfterViewInit {
     return Project.thumbnailURL(project);
   }
 
+  previewURL(project: Project): string {
+    return Project.previewURL(project);
+  }
+
 }
