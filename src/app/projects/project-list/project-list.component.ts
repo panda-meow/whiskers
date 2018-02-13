@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, ViewChild, Directive, AfterContentInit} from '@angular/core';
 import {Project} from '../shared/project.model';
 import {ProjectService} from '../shared/project.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -13,12 +13,17 @@ import {LoggerService} from '../../core/logger.service';
   styleUrls: ['./project-list.component.scss']
 })
 
-export class ProjectListComponent {
+export class ProjectListComponent implements AfterContentInit {
   projects: Project[];
   newProjectForm: FormGroup;
+  
   canVote = false;
   error: string;
   @ViewChild('form') myNgForm; // just to call resetForm method
+
+  ngAfterContentInit(): void {
+    document.body.style.backgroundColor = "#4a6ff2"
+  }
 
   constructor(private projectService: ProjectService,
               private dialog: MatDialog,
@@ -37,26 +42,6 @@ export class ProjectListComponent {
       });
     });
   }
-
-  /*like(project: Project) {
-    this.projectService.like(project).subscribe(() => {
-      this.canVote = this.projectService.checkIfUserCanVote();
-    }, (error: Response) => {
-      LoggerService.error('maximum votes limit reached', error);
-    });
-  }*/
-
-  // createNewProject(newProject: Project) {
-  //   this.projectService.createProject(newProject).subscribe((newProjectWithId) => {
-  //     this.projects.push(newProjectWithId);
-  //     this.myNgForm.resetForm();
-  //   }, (response: Response) => {
-  //     if (response.status === 500) {
-  //       this.error = 'errorHasOcurred';
-  //     }
-  //   });
-  // }
-
 
   headerURL(project: Project): string {
     return Project.headerURL(project);
