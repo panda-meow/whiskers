@@ -2,11 +2,11 @@
 
 <section class="container bg-white wysiwyg ">
   <figure class="image-with-text left ">
-    <h3 *ngIf="header"
-      class="project-section--header">{{header}}</h3>
     <img src="{{image}}"
       alt=" " />
     <figcaption>
+      <h3 *ngIf="header"
+        class="project-section--header">{{header}}</h3>
       <p *ngFor="let paragraph of this.paragraphs">
         <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
         <ng-template #capParagraph>

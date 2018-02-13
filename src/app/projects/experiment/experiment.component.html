@@ -9,6 +9,12 @@
         class="item"
         ngsReveal>
 
+        <project-section-notes *ngSwitchCase="'notes'"
+          [header]="section.header"
+          [image]="asset(section.image)"
+          [content]="section.content"
+          [overview]="section.overview"></project-section-notes>
+
         <project-section-image-text *ngSwitchCase="'image-text'"
           [header]="section.header"
           [image]="asset(section.image)"
@@ -20,11 +26,7 @@
           [content]="section.content"
           [image]="asset(section.image)"></project-section-image-text-right>
 
-        <project-section-notes *ngSwitchCase="'notes'"
-          [header]="section.header"
-          [image]="asset(section.image)"
-          [content]="section.content"
-          [overview]="section.overview"></project-section-notes>
+
 
         <project-section-centered-text *ngSwitchCase="'centered-text'"
           [header]="section.header"
@@ -41,7 +43,14 @@
         <project-section-two-images *ngSwitchCase="'two-images'"
           [header]="section.header"
           [left]="asset(section.left)"
-          [right]="asset(section.right)"></project-section-two-images>
+          [captionLT]="section.captionLT"
+          [right]="asset(section.right)"
+          [captionRT]="section.captionRT"
+          [leftB]="asset(section.leftB)"
+          [captionLB]="section.captionLB"
+          [rightB]="asset(section.rightB)"
+          [captionRB]="section.captionRB">
+        </project-section-two-images>
         <!--
         <project-section-two-images *ngSwitchCase="'two-images'"
           [image]="asset(section.image)"></project-section-two-images> -->
