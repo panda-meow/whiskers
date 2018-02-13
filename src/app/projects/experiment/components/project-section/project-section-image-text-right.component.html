@@ -5,7 +5,8 @@
     <figcaption>
       <h3 *ngIf="header"
         class="project-section--header">{{header}}</h3>
-      <p *ngFor="let paragraph of this.paragraphs">
+      <markdown>{{content}}</markdown>
+      <!-- <p *ngFor="let paragraph of this.paragraphs">
         <span *ngIf="paragraph.startsWith('~'); then capParagraph else defaultParagraph"></span>
 
         <ng-template #capParagraph>
@@ -17,7 +18,7 @@
       </p>
       <h5><a href="#"
           target="_blank "
-          rel="noopener ">{{link}}</a></h5>
+          rel="noopener ">{{link}}</a></h5> -->
     </figcaption>
     <img src="{{image}}"
       alt=" " />
