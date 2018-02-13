@@ -15,7 +15,25 @@ export class ProjectSectionTwoImagesComponent {
     left: string;
 
     @Input()
+    captionLT: string;
+
+    @Input()
     right: string;
+
+    @Input()
+    captionRT: string;
+
+    @Input()
+    leftB: string;
+
+    @Input()
+    captionLB: string;
+
+    @Input()
+    rightB: string;
+
+    @Input()
+    captionRB: string;
 
     @Input()
     header: string;

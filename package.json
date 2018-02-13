@@ -22,6 +22,10 @@
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "dependencies": {
     "@angular-devkit/core": "^0.2.0",
     "@angular/animations": "5.1.0",
