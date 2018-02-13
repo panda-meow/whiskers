@@ -13,17 +13,13 @@ import {LoggerService} from '../../core/logger.service';
   styleUrls: ['./project-list.component.scss']
 })
 
-export class ProjectListComponent implements AfterContentInit {
+export class ProjectListComponent {
   projects: Project[];
   newProjectForm: FormGroup;
   
   canVote = false;
   error: string;
   @ViewChild('form') myNgForm; // just to call resetForm method
-
-  ngAfterContentInit(): void {
-    document.body.style.backgroundColor = "#4a6ff2"
-  }
 
   constructor(private projectService: ProjectService,
               private dialog: MatDialog,

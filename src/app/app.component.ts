@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, AfterContentInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {Meta, Title} from '@angular/platform-browser';
 
@@ -19,6 +19,7 @@ export class AppComponent {
   constructor(private translateService: TranslateService,
               private title: Title,
               private meta: Meta,
+              private elementRef: ElementRef,
               private snackBar: MatSnackBar,
               private router: Router) {
 
@@ -29,6 +30,14 @@ export class AppComponent {
     this.title.setTitle('Angular Example App');
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
+
+        switch (event.urlAfterRedirects) {
+          case '/projects':
+            document.body.style.backgroundColor = "#4a6ff2"
+          default:
+            document.body.style.backgroundColor = "#ffffff"
+        }
+
         switch (event.urlAfterRedirects) {
           case '/':
             this.meta.updateTag({
