@@ -47,10 +47,11 @@ export class NavComponent {
   }
 
   private loadMenus(): void {
-    this.translateService.get(['home', 'projectsList'], {}).subscribe((texts: any) => {
+    this.translateService.get(['home', 'projectsList', 'about'], {}).subscribe((texts: any) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
-        {link: '/' + AppConfig.routes.projects, name: texts['projectsList']}
+        {link: '/' + AppConfig.routes.projects, name: texts['projectsList']},
+        {link: 'about', name: texts['about']}
       ];
     });
   }

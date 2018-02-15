@@ -774,6 +774,9 @@ header {
       margin: 0 0 0 30px;
       padding: 0;
       display: inline-block;
+      @media screen and (max-width: 480px) {
+        margin: 0 0 0 20px;
+      }
     }
   }
 }
@@ -891,8 +894,10 @@ header {
   .thumbs {
     position: absolute;
     height: 100%;
-    width: 50%;
-    left: 50%;
+    // width: 50%;
+    width: 60%;
+    // left: 50%;
+    left: 40%;
     bottom: 0;
     background: #252525;
     @media screen and (max-width: 599px) {
@@ -904,7 +909,8 @@ header {
         width: 100%;
       }
       position: absolute;
-      width: 50%;
+      // width: 50%;
+      width: 60%;
       height: 360px;
       bottom: 0;
       left: 0;
@@ -920,8 +926,10 @@ header {
     .caption {
       position: absolute;
       top: 0;
-      left: 50%;
-      width: 50%;
+      // left: 50%;
+      left: 60%;
+      // width: 50%;
+      width: 40%;
       height: 100%;
       display: table;
       color: #fff;

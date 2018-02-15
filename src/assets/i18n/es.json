@@ -1,6 +1,8 @@
 {
   "home": "Inicio",
-  "projectsList": "Lista de projects",
+  "projectsList": "Projects",
+  "about": "Acerca de",
+  "contact": "Contactar",
   "angularExampleApp": "Angular aplicación de ejemplo",
   "language": "Idioma",
   "orange": "Naranja",
