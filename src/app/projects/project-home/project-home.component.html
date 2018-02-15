@@ -1,0 +1,13 @@
+<p><input type="submit" (click)="previous()" value="Previous"></p>
+<p><input type="submit" (click)="next()" value="Next"></p>
+
+<div class="container">
+  <div class="slide"
+    style="background-color: red"
+    (@slideState.done)="doneA()" 
+    [@slideState]="stateA"></div>
+  <div class="slide"
+    style="background-color: blue"
+    (@slideState.done)="doneB()" 
+    [@slideState]="stateB"></div>
+</div>
