@@ -16,7 +16,7 @@ import {LoggerService} from '../../core/logger.service';
 export class ProjectListComponent {
   projects: Project[];
   newProjectForm: FormGroup;
-  
+
   canVote = false;
   error: string;
   @ViewChild('form') myNgForm; // just to call resetForm method
@@ -45,6 +45,10 @@ export class ProjectListComponent {
 
   thumbnailURL(project: Project): string {
     return Project.thumbnailURL(project);
+  }
+
+  previewURL(project: Project): string {
+    return Project.previewURL(project);
   }
 
   seeProjectDetails(project): void {
