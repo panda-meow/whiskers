@@ -287,7 +287,7 @@ export class ProjectTopComponent implements AfterViewInit {
     }
   }
 
-  private navigateTo(project: Project)  {
+  public navigateTo(project: Project)  {
     if(project == null) {
       this.router.navigate(['/projects']);
     } else {
