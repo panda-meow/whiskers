@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, OnChanges, SimpleChanges, Input } from "@angular/core";
+import { Component, AfterViewInit, ViewChild, OnChanges, SimpleChanges, Input, ViewChildren, AfterContentInit, ContentChildren } from "@angular/core";
 import {
   trigger,
   state,
@@ -14,29 +14,87 @@ import { Router } from "@angular/router";
   selector: 'carousel',
   template: `
     <div class="slide"
-      style="background-color: red"
       (@slideState.done)="done(0)" 
-      [@slideState]="stateA">
-      <ng-content></ng-content>
+      [@slideState]="states[0]" #slidea>
       </div>
     <div class="slide"
-      style="background-color: blue"
       (@slideState.done)="done(1)" 
-      [@slideState]="stateB"></div>
+      [@slideState]="states[1]" #slideb></div>
   `,
   styles: [`
     :host {
       display: block;
       overflow: hidden;
+      font-size: 18px;
     }
     .slide {
-      background-color: lightblue;
       position: absolute;
       height: 100%;
       width: 100%;
       top: 0;
       left: 0;
     }
+    .cut {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 10%;
+        overflow: hidden;
+        // -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        // transition: -webkit-transform 1s cubic-bezier(0.23, 0.23, 0, 0.99);
+        transition: transform 1s cubic-bezier(0.23, 0.23, 0, 0.99);
+        // transition: transform 1s cubic-bezier(0.23, 0.23, 0, 0.99), -webkit-transform 1s cubic-bezier(0.23, 0.23, 0, 0.99);
+        background-size: cover;
+        background-repeat: no-repeat;
+        &:nth-child(1) {
+          top: 0;
+          transition-delay: .02s;
+        }
+        &:nth-child(2) {
+          top: 10%;
+          transition-delay: .04s;
+        }
+        &:nth-child(3) {
+          top: 20%;
+          transition-delay: .06s;
+        }
+        &:nth-child(4) {
+          top: 30%;
+          transition-delay: .08s;
+        }
+        &:nth-child(5) {
+          top: 40%;
+          transition-delay: .02s;
+        }
+        &:nth-child(6) {
+          top: 50%;
+          transition-delay: .04s;
+        }
+        &:nth-child(7) {
+          top: 60%;
+          transition-delay: .06s;
+        }
+        &:nth-child(8) {
+          top: 70%;
+          transition-delay: .04s;
+        }
+        &:nth-child(9) {
+          top: 80%;
+          transition-delay: .02s;
+        }
+        &:nth-child(10) {
+          top: 90%;
+          transition-delay: .0s;
+        }
+      }
   `],
   animations: [
     trigger('slideState', [
@@ -60,26 +118,27 @@ import { Router } from "@angular/router";
   ]
 })
 
-export class CarouselComponent implements OnChanges {
+export class CarouselComponent implements AfterContentInit {
 
-  public stateA: String = "current"
-  public stateB: String = "next"
+  @ContentChildren("slide") slides; 
+  @ViewChild("slidea") slideA;
+  @ViewChild("slideb") slideB;
 
   public states: String[] = ["current", "next"];
 
   private animationLevel: number = 0; 
 
-  @Input()
-  current: any
+  private index: number = 0 
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Changes: ' + this.current);
+  ngAfterContentInit(): void {
+    this.slideA.nativeElement.appendChild(this.slides.toArray()[0].nativeElement);
+    this.slideB.nativeElement.appendChild(this.slides.toArray()[1].nativeElement);
   }
 
-  constructor() {}
+  constructor() {
+  }
 
   public done(index: number) {
-    console.log('test: ' + index);
     if(index == 0) {
       this.doneA();
     } else {
@@ -120,26 +179,39 @@ export class CarouselComponent implements OnChanges {
   }
 
   private run() {
-    if(this.stateA == 'current') {
-      this.stateA = this.stateB == 'previous' ? 'next' : 'previous';
-      this.stateB = 'current';
+    if(this.states[0] == 'current') {
+      this.states[0] = this.states[1] == 'previous' ? 'next' : 'previous';
+      this.states[1] = 'current';
     } else {
-      this.stateB = this.stateA == 'previous' ? 'next' : 'previous';
-      this.stateA = 'current';
+      this.states[1] = this.states[0] == 'previous' ? 'next' : 'previous';
+      this.states[0] = 'current';
     }
   }
 
   private setup(forward: boolean) {
-    if(this.stateA == 'current') {
-      let last = this.stateB
-      this.stateB = forward ? 'previous' : 'next';
-      if(last == this.stateB) {
+
+    let slides = this.slides.toArray();
+    this.index = forward ? ((this.index + 1) % slides.length) : ((this.index - 1) < 0 ?
+      (slides.length - 1) : (this.index - 1));
+
+    if(this.states[0] == 'current') {
+      let last = this.states[1];
+      this.states[1] = forward ? 'previous' : 'next';
+
+      this.slideB.nativeElement.innerHTML = '';
+      this.slideB.nativeElement.appendChild(slides[this.index].nativeElement);
+
+      if(last == this.states[1]) {
         this.doneB();
       }
     } else {
-      let last = this.stateA
-      this.stateA = forward ? 'previous' : 'next';
-      if(last == this.stateA) {
+      let last = this.states[0];
+      this.states[0] = forward ? 'previous' : 'next';
+
+      this.slideA.nativeElement.innerHTML = '';
+      this.slideA.nativeElement.appendChild(slides[this.index].nativeElement);
+
+      if(last == this.states[0]) {
         this.doneA();
       }
     }
@@ -156,6 +228,14 @@ export class CarouselComponent implements OnChanges {
 export class ProjectHomeComponent implements AfterViewInit, OnChanges {
 
   @ViewChild(CarouselComponent) carousel;
+
+  /*public images: String[] = [
+    "http://i0.kym-cdn.com/entries/icons/facebook/000/011/365/GRUMPYCAT.jpg",
+    "https://yt3.ggpht.com/wm5LCci89chQvQ0oeDl-QxDMwCFTu6v0YiSEytYinTbG-hU_iLP9Jqc6cC57SbNLGxIlOfAhsrfE7BG_HO8=s900-mo-c-c0xffffffff-rj-k-no",
+    "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg",
+    "http://www.catbreedslist.com/cat-wallpapers/Persian-kitten-grass-white-2560x1600.jpg",
+    "https://www.factslides.com/imgs/black-cat.jpg"
+  ]*/
 
   ngAfterViewInit(): void {
   }
