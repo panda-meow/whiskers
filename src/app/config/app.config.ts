@@ -8,11 +8,13 @@ export const AppConfig: IAppConfig = {
   routes: {
     projects: 'projects',
     about: 'about',
+    contact: 'contact',
     error404: '404'
   },
   endpoints: {
     projects: 'http://' + window.location.hostname + ':8080/projects',
-    about: 'http://' + window.location.hostname + ':8080/about'
+    about: 'http://' + window.location.hostname + ':8080/about',
+    contact: 'http://' + window.location.hostname + ':8080/contact'
   },
   votesLimit: 3,
   topProjectsLimit: 4,

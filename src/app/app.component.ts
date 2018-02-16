@@ -33,10 +33,10 @@ export class AppComponent {
 
         switch (event.urlAfterRedirects) {
           case '/projects':
-            document.body.style.backgroundColor = "#4a6ff2"
+            document.body.style.backgroundColor = '#4a6ff2';
             break;
           default:
-            document.body.style.backgroundColor = "#ffffff"
+            document.body.style.backgroundColor = '#ffffff';
             break;
         }
 
@@ -51,7 +51,7 @@ export class AppComponent {
             this.title.setTitle('Projects list');
             this.meta.updateTag({
               name: 'description',
-              content: 'List of super-projects'
+              content: 'List  of super-projects'
             });
             break;
         }

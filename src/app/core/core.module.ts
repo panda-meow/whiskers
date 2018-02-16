@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {Error404Component} from './error404/error-404.component';
 import {AboutComponent} from './about/about.component';
+import {ContactComponent} from './contact/contact.component';
 import {ProgressBarService} from './progress-bar.service';
 
 
@@ -32,6 +33,7 @@ import {ProgressBarService} from './progress-bar.service';
     FooterComponent,
     SearchBarComponent,
     AboutComponent,
+    ContactComponent,
     Error404Component
   ],
   providers: [
