@@ -1,6 +1,4 @@
-
-
-div.container {
+carousel {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -15,12 +13,4 @@ div.slide {
   width: 100%;
   top: 0;
   left: 0;
-}
-
-.ng-hide {
-  height: 0;
-  width: 0;
-  background-color: transparent;
-  top:-200px;
-  left: 200px;
 }

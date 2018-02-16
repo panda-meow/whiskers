@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from "@angular/core";
+import { Component, AfterViewInit, ViewChild, OnChanges, SimpleChanges, Input } from "@angular/core";
 import {
   trigger,
   state,
@@ -10,40 +10,34 @@ import {
 import { ProjectService } from "../shared/project.service";
 import { Router } from "@angular/router";
 
-/*@Component({
-  selector: 'home',
-  templateUrl: './project-home.component.html',
-  styleUrls: ['./project-home.component.scss'],
-  animations: [
-    trigger('slideState', [
-      state('current',   style({
-        zIndex: '2',
-        transform: 'translateX(0)'
-      })),
-      state('next', style({
-        zIndex: '1',
-        transform: 'translateX(100%)'
-      })),
-      state('previous', style({
-        zIndex: '1',
-        transform: 'translateX(-100%)'
-      })),
-      transition('previous => current', animate('400ms ease-in')),
-      transition('current => next', animate('400ms ease-in')),
-      transition('current => previous', animate('400ms ease-in')),
-      transition('next => current', animate('400ms ease-in')),
-    ])
-  ]
-})
-
-export class CarouselComponent {
-
-}*/
-
 @Component({
-  selector: 'app-project-home',
-  templateUrl: './project-home.component.html',
-  styleUrls: ['./project-home.component.scss'],
+  selector: 'carousel',
+  template: `
+    <div class="slide"
+      style="background-color: red"
+      (@slideState.done)="done(0)" 
+      [@slideState]="stateA">
+      <ng-content></ng-content>
+      </div>
+    <div class="slide"
+      style="background-color: blue"
+      (@slideState.done)="done(1)" 
+      [@slideState]="stateB"></div>
+  `,
+  styles: [`
+    :host {
+      display: block;
+      overflow: hidden;
+    }
+    .slide {
+      background-color: lightblue;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+  `],
   animations: [
     trigger('slideState', [
       state('current',   style({
@@ -66,20 +60,31 @@ export class CarouselComponent {
   ]
 })
 
-export class ProjectHomeComponent implements AfterViewInit {
-
-
-  ngAfterViewInit(): void {
-  }
+export class CarouselComponent implements OnChanges {
 
   public stateA: String = "current"
   public stateB: String = "next"
 
+  public states: String[] = ["current", "next"];
+
   private animationLevel: number = 0; 
 
-  constructor(private projectService: ProjectService,
-    private router: Router) {
+  @Input()
+  current: any
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Changes: ' + this.current);
+  }
+
+  constructor() {}
+
+  public done(index: number) {
+    console.log('test: ' + index);
+    if(index == 0) {
+      this.doneA();
+    } else {
+      this.doneB();
+    }
   }
 
   public doneA() {
@@ -138,5 +143,40 @@ export class ProjectHomeComponent implements AfterViewInit {
         this.doneA();
       }
     }
+  }
+
+}
+
+@Component({
+  selector: 'app-project-home',
+  templateUrl: './project-home.component.html',
+  styleUrls: ['./project-home.component.scss']
+})
+
+export class ProjectHomeComponent implements AfterViewInit, OnChanges {
+
+  @ViewChild(CarouselComponent) carousel;
+
+  ngAfterViewInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Ok');
+  }
+
+  public index: number = 0
+
+  constructor(private projectService: ProjectService,
+    private router: Router) {
+  }
+
+  public previous() {
+    this.carousel.previous();
+    this.index -= 1;
+  }
+
+  public next() {
+    this.carousel.next();
+    this.index += 1;
   }
 }
