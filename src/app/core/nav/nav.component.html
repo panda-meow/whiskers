@@ -43,14 +43,22 @@
         <button mat-button
           [matMenuTriggerFor]="menu">PROJECTS</button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>Item 1</button>
-          <button mat-menu-item>Item 2</button>
+          <button (click)="seeProjects();"
+            mat-menu-item>All Projects</button>
+          <button *ngFor="let project of projects"
+            mat-menu-item
+            (click)="seeProjectDetails(project);">{{project.name}}</button>
         </mat-menu>
         <a mat-button
           *ngFor="let item of menuItems"
           routerLink="{{item.link}}">
                     {{item.name | uppercase}}
                 </a>
+        <!-- <a mat-button
+          *ngFor="let item of menuItems"
+          routerLink="{{item.link}}">
+                    {{item.name | uppercase}}
+                </a> -->
 
         <!-- <button mat-icon-button [matMenuTriggerFor]="matmenu">
                     <mat-icon>public</mat-icon>
