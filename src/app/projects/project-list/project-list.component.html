@@ -58,6 +58,32 @@
     fxLayoutWrap
     style="padding-top: 80px; padding-bottom:80px;">
     <figure class="effect-milo"
+      *ngFor="let project of projects"
+      fxFlex="30"
+      fxFlex.lt-med="50"
+      fxFlex.xs="100">
+
+      <img src="{{headerURL(project)}}"
+        alt=""
+        (click)="seeProjectDetails(project);" />
+      <figcaption>
+        <!-- <h2>Faithful <span>Milo</span></h2> -->
+        <!-- <h2><span>{{project.title}}</span></h2> -->
+        <p>{{project.categories}}</p>
+        <a (click)="seeProjectDetails(project);">View more</a>
+      </figcaption>
+    </figure>
+  </div>
+
+
+  <hr>
+
+  <div class="grid"
+    fxLayout="row"
+    fxLayoutAlign="center stretch"
+    fxLayoutWrap
+    style="padding-top: 80px; padding-bottom:80px;">
+    <figure class="effect-milo"
       *ngFor="let project of projects">
 
       <img src="{{headerURL(project)}}"
