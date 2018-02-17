@@ -5,10 +5,11 @@
     <project-header [project]="project"></project-header>
 
     <div *ngFor="let section of project.sections; let last = last;">
-      <div [ngSwitch]="section.type"
+      <!-- <div [ngSwitch]="section.type"
         class="item"
-        ngsReveal>
-
+        ngsReveal> -->
+      <div [ngSwitch]="section.type"
+        class="item">
         <project-section-notes *ngSwitchCase="'notes'"
           [header]="section.header"
           [image]="asset(section.image)"
