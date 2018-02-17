@@ -14,7 +14,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from './app.translate.factory';
-import {ProjectTopComponent, CaptionSlideDirective, ThumbnailSlideComponent, HeroSlideDirective, HeroCaptionComponent} from './projects/project-top/project-top.component';
+import {ProjectTopComponent, HeroCaptionComponent} from './projects/project-top/project-top.component';
 import {ProgressBarService} from './core/progress-bar.service';
 import {ProgressInterceptor} from './shared/interceptors/progress.interceptor';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
@@ -49,9 +49,6 @@ import { TextCarouselComponent } from './projects/project-home/text-carousel.com
     ImageCarouselComponent,
     ImageMirrorCarouselComponent,
     TextCarouselComponent,
-    CaptionSlideDirective,
-    ThumbnailSlideComponent,
-    HeroSlideDirective,
     HeroCaptionComponent
   ],
   providers: [

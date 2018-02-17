@@ -17,16 +17,6 @@ import { ImageMirrorCarouselComponent } from '../project-home/image-mirror-carou
 import { TextCarouselComponent } from '../project-home/text-carousel.component';
 
 
-interface Slideable {
-  isEnabled: boolean;
-  index: number;
-
-  moveOut(): void;
-  moveIn(): void;
-  wait(): void;
-  clear(): void;
-}
-
 class Slide {
   image: String;
   title: String;
@@ -43,176 +33,13 @@ class Slide {
 
 
 @Component({
-    selector: 'thumbnail-slide',
-    template: ``
-})
-
-export class ThumbnailSlideComponent implements AfterContentInit, Slideable {
-
-  @HostBinding('class.hidden-next') hiddenNext = true;
-  @HostBinding('class.hidden-previous') hiddenPrevious = false;
-  @HostBinding('style.display') display = '';
-
-  get isEnabled(): boolean {
-    return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
-  }
-
-  moveOut(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = true;
-  }
-
-  moveIn(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = false;
-  }
-
-  wait(): void {
-    this.display = this.hiddenPrevious ? 'none' : '';
-    this.hiddenNext = true;
-    this.hiddenPrevious = false;
-  }
-
-  clear(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = false;
-    this.display = '';
-  }
-
-    @Input()
-    index: number;
-
-    @Input()
-    project: Project;
-
-    ngAfterContentInit(): void {
-      if (this.index == 0) {
-        this.hiddenNext = false;
-      }
-    }
-
-    constructor() {}
-}
-
-@Directive({
-  selector: 'h4[caption]',
-})
-export class CaptionSlideDirective implements AfterContentInit, Slideable {
-
-  @HostBinding('class.hidden-next') hiddenNext = true;
-  @HostBinding('class.hidden-previous') hiddenPrevious = false;
-  @HostBinding('style.display') display = '';
-
-  get isEnabled(): boolean {
-    return this.hiddenNext == false && this.hiddenPrevious == false; // A little hacky :(
-  }
-
-  moveOut(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = true;
-  }
-
-  moveIn(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = false;
-  }
-
-  wait(): void {
-    this.display = this.hiddenPrevious ? 'none' : '';
-    this.hiddenNext = true;
-    this.hiddenPrevious = false;
-  }
-
-  clear(): void {
-    this.hiddenNext = false;
-    this.hiddenPrevious = false;
-    this.display = '';
-  }
-
-  @Input()
-  index: number;
-
-  @Input()
-  project: Project;
-
-  ngAfterContentInit(): void {
-    if (this.index == 0) {
-      this.hiddenNext = false;
-    }
-  }
-
-  constructor() {}
-}
-
-
-@Directive({
-  selector: 'li[slide]',
-})
-export class HeroSlideDirective implements AfterContentInit, Slideable {
-
-  @HostBinding('class.next-in') nextIn = false;
-  @HostBinding('class.next-out') nextOut = false;
-  @HostBinding('class.current') current = false;
-
-  get isEnabled(): boolean {
-    return this.current;
-  }
-
-  moveOut(): void {
-    this.nextIn = false;
-    this.nextOut = true;
-  }
-
-  moveIn(): void {
-    this.nextIn = true;
-    this.nextOut = false;
-  }
-
-  wait(): void {
-  }
-
-  clear(): void {
-    this.nextIn = false;
-    this.nextOut = false;
-    this.current = false;
-  }
-
-  @Input()
-  index: number;
-
-  ngAfterContentInit(): void {
-    if (this.index == 0) {
-      this.current = true;
-    }
-  }
-
-  constructor() {
-  }
-}
-
-@Component({
     selector: 'hero-caption',
     styleUrls: ['project-top-hero-caption.scss'],
     template: `
-      <!--h5>{{slide.caption}}</h5-->
       <h3>{{slide.title}}</h3>
       <div class="news">
       <h5>{{slide.caption}}</h5>
-        <!--span>Wire</span>
-        <!--div class="list">
-          <p *ngFor="let footer of slide.footers">{{footer}}</p>
-        </div-->
       </div>
-      <!-- START OLD >
-            <h5>{{slide.caption}}</h5>
-            <h3>{{slide.title}}</h3>
-            <div class="news">
-              <span>Wire</span>
-              <div class="list">
-                <p *ngFor="let footer of slide.footers">{{footer}}</p>
-              </div>
-            </div>
-               < END OLD -->
       <div class="icons">
         <span>
         <i class="fa fa-play"></i>
@@ -269,20 +96,8 @@ export class ProjectTopComponent implements AfterViewInit {
     return this._slides.map(slide => { return 'assets/heros/' + slide.image; });
   }
 
-  public images: String[] = [
-    "http://i0.kym-cdn.com/entries/icons/facebook/000/011/365/GRUMPYCAT.jpg",
-    "https://yt3.ggpht.com/wm5LCci89chQvQ0oeDl-QxDMwCFTu6v0YiSEytYinTbG-hU_iLP9Jqc6cC57SbNLGxIlOfAhsrfE7BG_HO8=s900-mo-c-c0xffffffff-rj-k-no",
-    "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg",
-    "http://www.catbreedslist.com/cat-wallpapers/Persian-kitten-grass-white-2560x1600.jpg",
-    "https://www.factslides.com/imgs/black-cat.jpg"
-  ]
-
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;
-  @ViewChildren('slice') slices: QueryList<ElementRef>;
-  //@ViewChildren(CaptionSlideDirective) captions;
-  //@ViewChildren(ThumbnailSlideComponent) thumbnails;
-  @ViewChildren(HeroSlideDirective) slides;
   @ViewChild(ImageCarouselComponent) carousel;
   @ViewChild(ImageMirrorCarouselComponent) mirror;
   @ViewChild(TextCarouselComponent) captions;
@@ -335,40 +150,6 @@ export class ProjectTopComponent implements AfterViewInit {
     this.slider.nativeElement.style.height = height + 'px';
 
     this.mirror.updateWindow();
-
-    /*this.slices.forEach((element, i) => {
-        let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
-        element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
-    });*/
-  }
-
-  private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void): number {
-    let elements = list.toArray();
-
-    let current = elements.find((element) => {
-      return element.isEnabled;
-    });
-
-    let nextIndex = forward ? ((current.index + 1) % elements.length) : ((current.index - 1) < 0 ?
-      (elements.length - 1) : (current.index - 1));
-
-    let next = elements[nextIndex];
-
-    elements.forEach((element) => {
-      if (element == current) {
-        element.moveOut();
-      } else if (element == next) {
-        element.moveIn();
-      } else {
-        element.wait();
-      }
-    });
-
-    if (post != null) {
-      post(current, next);
-    }
-
-    return nextIndex;
   }
 
   private transition(forward: boolean) {
@@ -386,17 +167,6 @@ export class ProjectTopComponent implements AfterViewInit {
         this.mirror.previous();
         this.captions.previous();
       }
-
-      //this._transition(this.thumbnails, forward, null);
-      //this._transition(this.captions, forward, null);
-      /*let index = this._transition(this.slides, forward, (current, next) => {
-        setTimeout(() => {
-          current.clear();
-          next.current = true;
-        }, 1000);
-      });
-
-      this.heroCaption.slide = this._slides[index];*/
     }
   }
 

@@ -41,7 +41,6 @@ export class NavComponent {
       //   return a.name.localeCompare(b.name);
       // });
       this.projects = projects;
-      console.log('projects: ' + projects);
     });
   }
 

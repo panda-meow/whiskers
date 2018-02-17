@@ -11,7 +11,7 @@ import { ProjectHomeComponent } from './projects/project-home/project-home.compo
 const routes: Routes = [
   // {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: ProjectTopComponent},
-  {path: 'home', component: ProjectHomeComponent},
+  {path: 'carousel-test', component: ProjectHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: AppConfig.routes.projects, loadChildren: 'app/projects/projects.module#ProjectsModule'},
