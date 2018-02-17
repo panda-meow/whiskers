@@ -21,8 +21,9 @@
   // ** 098 081 Mountain Rock **
   // background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
   // ** 045 Loon Crest **
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
-  background-blend-mode: multiply, multiply;
+  // background: linear-gradient(to top, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at bottom center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+  // background-blend-mode: multiply, multiply;
+  // height: calc(100% - 44px);
 }
 
 .grid {
@@ -47,7 +48,9 @@
     text-align: center;
     transition: all 0.45s ease-out;
     &:hover {
-      border-radius: 20px;
+      border-radius: 6px;
+      box-shadow: 0 35px 77px -17px rgba(0, 0, 0, .64);
+      z-index: 999;
       // transition: background 0.35s ease-in-out;
       img {
         filter: blur(0px);
