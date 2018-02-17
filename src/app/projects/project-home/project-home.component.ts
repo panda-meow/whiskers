@@ -10,6 +10,7 @@ import {
 import { ProjectService } from "../shared/project.service";
 import { Router } from "@angular/router";
 import { Project } from "../shared/project.model";
+import { element } from "protractor";
 
 @Component({
   selector: 'image-carousel',
@@ -20,6 +21,9 @@ import { Project } from "../shared/project.model";
     <img class="slide"
       (@slideState.done)="done(1)" 
       [@slideState]="states[1]" [src]="imageB" #slideb>
+    <img class="slide"
+      (@slideState.done)="done(2)" 
+      [@slideState]="states[2]" [src]="imageC" #slidec>
   `,
   styles: [`
     :host {
@@ -64,99 +68,121 @@ export class ImageCarouselComponent implements AfterContentInit {
 
   @ViewChild("slidea") slideA;
   @ViewChild("slideb") slideB;
+  @ViewChild("slidec") slideC;
 
   public imageA: String
   public imageB: String
+  public imageC: String
 
   @Input()
   projects: Project[]
 
-  public states: String[] = ["current", "next"];
+  public states: String[] = ["previous", "current", "next"];
 
   private animationLevel: number = 0; 
 
   private index: number = 0 
 
+  public get isReady(): boolean {
+    return this.animationLevel == 0;
+  }
+
   ngAfterContentInit(): void {
     this.imageA = Project.thumbnailURL(this.projects[0]);
     this.imageB = Project.thumbnailURL(this.projects[1]);
+    this.imageC = Project.thumbnailURL(this.projects[2]);
   }
 
-  constructor() {
+  ngAfterViewInit(): void {
+  }
+
+  constructor(private slider:ElementRef) {
   }
 
   public done(index: number) {
-    if(index == 0) {
-      this.doneA();
-    } else {
-      this.doneB();
-    }
-  }
-
-  public doneA() {
     if(this.animationLevel > 0) {
       this.animationLevel -= 1;
-      if(this.animationLevel == 1) {
-        this.run();
-      }
-    }
-  }
-
-  public doneB() {
-    if(this.animationLevel > 0) {
-      this.animationLevel -= 1;
-      if(this.animationLevel == 1) {
-        this.run();
-      }
     }
   }
 
   public previous() {
     if(this.animationLevel == 0) {
-      this.animationLevel = 2;
+      this.animationLevel = 3;
       this.setup(false);
     } 
   }
 
   public next() {
     if(this.animationLevel == 0) {
-      this.animationLevel = 2;
+      this.animationLevel = 3;
       this.setup(true);
     } 
   }
 
-  private run() {
-    if(this.states[0] == 'current') {
-      this.states[0] = this.states[1] == 'previous' ? 'next' : 'previous';
-      this.states[1] = 'current';
-    } else {
-      this.states[1] = this.states[0] == 'previous' ? 'next' : 'previous';
-      this.states[0] = 'current';
-    }
+  private previousIndex(): number {
+    return this.states.indexOf("previous")
+  }
+
+  private nextIndex(): number {
+    return this.states.indexOf("next")
+  }
+
+  private set(index: number, image: string) {
+      switch(index) {
+        case 0:
+          this.imageA = image;
+          break;
+        case 1:
+          this.imageB = image;
+          break;
+        case 2:
+          this.imageC = image;
+          break;
+      }
+  }
+
+  private hidden(index: number, hidden: boolean) {
+      switch(index) {
+        case 0:
+          this.slideA.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          break;
+        case 1:
+          this.slideB.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          break;
+        case 2:
+          this.slideC.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          break;
+      }
   }
 
   private setup(forward: boolean) {
 
-    this.index = forward ? ((this.index + 1) % this.projects.length) : ((this.index - 1) < 0 ?
-      (this.projects.length - 1) : (this.index - 1));
+    if(forward) {
 
-    if(this.states[0] == 'current') {
-      let last = this.states[1];
-      this.states[1] = forward ? 'previous' : 'next';
-      this.imageB = Project.thumbnailURL(this.projects[this.index]);
+      this.index = (this.index + 1) % this.projects.length;
 
-      if(last == this.states[1]) {
-        this.doneB();
+      this.hidden(this.nextIndex(), false);
+      this.set(this.nextIndex(), Project.thumbnailURL(this.projects[this.index]));
+      this.hidden(this.previousIndex(), true);
+
+      let last = this.states[this.states.length - 1];
+      for(let i = this.states.length - 1; i > 0; i-=1) {
+        this.states[i] = this.states[i - 1];
       }
+      this.states[0] = last;
+
     } else {
-      let last = this.states[0];
-      this.states[0] = forward ? 'previous' : 'next';
+      this.index = (this.index - 1) < 0 ? (this.projects.length - 1) : (this.index - 1);
 
-      this.imageA = Project.thumbnailURL(this.projects[this.index]);
+      this.hidden(this.previousIndex(), false);
+      this.set(this.previousIndex(), Project.thumbnailURL(this.projects[this.index]));
+      this.hidden(this.nextIndex(), true);
 
-      if(last == this.states[0]) {
-        this.doneA();
+      let first = this.states[0];
+      for(let i = 1; i < this.states.length; i++) {
+        this.states[i - 1] = this.states[i];
       }
+      this.states[this.states.length - 1] = first;
     }
   }
 }
@@ -466,6 +492,10 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
 
   private index: number = 0 
 
+  public get isReady(): boolean {
+    return this.animationLevel == 0;
+  }
+
   ngAfterContentInit(): void {
     this.imageA = this.images[0];
     this.imageB = this.images[1];
@@ -502,37 +532,14 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   }
 
   public done(index: number) {
-    if(index == 0) {
-      this.doneA();
-    } else {
-      this.doneB();
-    }
-  }
-
-  public doneA() {
-    console.log("doneA" + this.animationLevel + this.states);
     if(this.animationLevel > 0) {
       this.animationLevel -= 1;
-      /*if(this.animationLevel == 0) {
-        this.run();
-      }*/
-    }
-  }
-
-  public doneB() {
-    console.log("doneB" + this.animationLevel + this.states);
-    if(this.animationLevel > 0) {
-      this.animationLevel -= 1;
-      /*if(this.animationLevel == 1) {
-        this.run();
-      }*/
     }
   }
 
   public previous() {
     if(this.animationLevel == 0) {
       this.animationLevel = 30;
-      console.log("previous" + this.animationLevel + this.states);
       this.setup(false);
     } 
   }
@@ -540,23 +547,8 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   public next() {
     if(this.animationLevel == 0) {
       this.animationLevel = 30;
-      console.log("next" + this.animationLevel + this.states);
       this.setup(true);
     } 
-  }
-
-  private run() {
-    if(this.states[0] == 'current') {
-      console.log("Run 1A: " + this.states);
-      this.states[0] = this.states[1] == 'previous' ? 'next' : 'previous';
-      this.states[1] = 'current';
-      console.log("Run 1B: " + this.states);
-    } else {
-      console.log("Run 2A: " + this.states);
-      this.states[1] = this.states[0] == 'previous' ? 'next' : 'previous';
-      this.states[0] = 'current';
-      console.log("Run 2B: " + this.states);
-    }
   }
 
   private previousIndex(): number {
@@ -599,15 +591,11 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
 
     if(forward) {
 
-      console.log("a");
-
       this.index = (this.index + 1) % this.images.length;
 
       this.hidden(this.nextIndex(), false);
       this.set(this.nextIndex(), this.images[this.index]);
       this.hidden(this.previousIndex(), true);
-
-      console.log("b");
 
       let last = this.states[this.states.length - 1];
       for(let i = this.states.length - 1; i > 0; i-=1) {
@@ -615,22 +603,12 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
       }
       this.states[0] = last;
 
-      console.log("c");
-
     } else {
       this.index = (this.index - 1) < 0 ? (this.images.length - 1) : (this.index - 1);
 
-      switch(this.previousIndex()) {
-        case 0:
-          this.imageA = this.images[this.index];
-          break;
-        case 1:
-          this.imageB = this.images[this.index];
-          break;
-        case 2:
-          this.imageC = this.images[this.index];
-          break;
-      }
+      this.hidden(this.previousIndex(), false);
+      this.set(this.previousIndex(), this.images[this.index]);
+      this.hidden(this.nextIndex(), true);
 
       let first = this.states[0];
       for(let i = 1; i < this.states.length; i++) {
@@ -638,28 +616,6 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
       }
       this.states[this.states.length - 1] = first;
     }
-
-
-    /*if(this.states[0] == 'current') {
-      let last = this.states[1];
-      this.states[1] = forward ? 'previous' : 'next';
-      this.imageB = this.images[this.index];
-
-      if(last == this.states[1]) {
-        this.animationLevel = 2;
-        this.doneB();
-      }
-    } else {
-      let last = this.states[0];
-      this.states[0] = forward ? 'previous' : 'next';
-
-      this.imageA = this.images[this.index];
-
-      if(last == this.states[0]) {
-        this.animationLevel = 2;
-        this.doneA();
-      }
-    }*/
   }
 }
 @Component({
@@ -819,14 +775,14 @@ export class CarouselComponent implements AfterContentInit {
 
   public previous() {
     if(this.animationLevel == 0) {
-      this.animationLevel = 2;
+      this.animationLevel = 1;
       this.setup(false);
     } 
   }
 
   public next() {
     if(this.animationLevel == 0) {
-      this.animationLevel = 2;
+      this.animationLevel = 1;
       this.setup(true);
     } 
   }

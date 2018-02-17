@@ -366,15 +366,16 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   private transition(forward: boolean) {
-    if (!this.isMoving) {
+
+    if (this.mirror.isReady && this.carousel.isReady) {
+
       this.lastTransition = Date.now();
-      this.isMoving = true;
 
       if(forward) {
-        this.carousel.previous();
+        this.carousel.next();
         this.mirror.next();
       } else {
-        this.carousel.next();
+        this.carousel.previous();
         this.mirror.previous();
       }
 
@@ -388,10 +389,6 @@ export class ProjectTopComponent implements AfterViewInit {
       });
 
       this.heroCaption.slide = this._slides[index];*/
-
-      setTimeout(() => {
-        this.isMoving = false;
-      }, 1500);
     }
   }
 
