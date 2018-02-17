@@ -12,6 +12,7 @@ import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/take';
 import { DomSanitizer } from '@angular/platform-browser';
 import { nextTick } from 'q';
+import { ImageCarouselComponent, ImageMirrorCarouselComponent } from '../project-home/project-home.component';
 
 
 interface Slideable {
@@ -241,6 +242,7 @@ export class ProjectTopComponent implements AfterViewInit {
   CAROUSEL_AUTOPLAY_INTERVAL_MS = 5000;
 
   projects: Observable<Project[]>;
+  _projects: Project[];
   featured: Observable<Project[]>;
 
   isMoving: Boolean = false;
@@ -251,21 +253,42 @@ export class ProjectTopComponent implements AfterViewInit {
     new Slide('slide-2.png', 'It\'\s Time', 'to put on your party hat', [
       "I can't think of anything else to write",
       'hmmmm.....'
-    ])
+    ]),
+    new Slide('slide-1.png', 'Welcome', 'to my work portfolio', [
+      'This is a footer and it needs to be long so I can test line wrapping',
+      'and this is the other message']),
+    new Slide('slide-2.png', 'It\'\s Time', 'to put on your party hat', [
+      "I can't think of anything else to write",
+      'hmmmm.....'
+    ]),
   ];
 
+  get heros(): string[] { 
+    return this._slides.map(slide => { return 'assets/heros/' + slide.image; });
+  }
+
+  public images: String[] = [
+    "http://i0.kym-cdn.com/entries/icons/facebook/000/011/365/GRUMPYCAT.jpg",
+    "https://yt3.ggpht.com/wm5LCci89chQvQ0oeDl-QxDMwCFTu6v0YiSEytYinTbG-hU_iLP9Jqc6cC57SbNLGxIlOfAhsrfE7BG_HO8=s900-mo-c-c0xffffffff-rj-k-no",
+    "http://r.ddmcdn.com/s_f/o_1/cx_462/cy_245/cw_1349/ch_1349/w_720/APL/uploads/2015/06/caturday-shutterstock_149320799.jpg",
+    "http://www.catbreedslist.com/cat-wallpapers/Persian-kitten-grass-white-2560x1600.jpg",
+    "https://www.factslides.com/imgs/black-cat.jpg"
+  ]
 
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;
   @ViewChildren('slice') slices: QueryList<ElementRef>;
   @ViewChildren(CaptionSlideDirective) captions;
-  @ViewChildren(ThumbnailSlideComponent) thumbnails;
+  //@ViewChildren(ThumbnailSlideComponent) thumbnails;
   @ViewChildren(HeroSlideDirective) slides;
+  @ViewChild(ImageCarouselComponent) carousel;
+  @ViewChild(ImageMirrorCarouselComponent) mirror;
 
   private lastTransition: number;
 
   ngAfterViewInit() {
     this.updateWindow();
+    console.log(this.heros);
     setInterval(() => this.checkTimer(), 1000);
   }
 
@@ -277,6 +300,9 @@ export class ProjectTopComponent implements AfterViewInit {
   constructor(private projectService: ProjectService,
     private router: Router) {
     this.projects = this.projectService.getAllProjects().share();
+    this.projects.subscribe(projects => {
+      this._projects = projects;
+    })
     this.featured = this.projects.take(3);
     this.lastTransition = Date.now();
   }
@@ -287,7 +313,7 @@ export class ProjectTopComponent implements AfterViewInit {
     }
   }
 
-  private navigateTo(project: Project)  {
+  public navigateTo(project: Project)  {
     if(project == null) {
       this.router.navigate(['/projects']);
     } else {
@@ -302,10 +328,12 @@ export class ProjectTopComponent implements AfterViewInit {
     }
     this.slider.nativeElement.style.height = height + 'px';
 
-    this.slices.forEach((element, i) => {
+    this.mirror.updateWindow();
+
+    /*this.slices.forEach((element, i) => {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
         element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
-    });
+    });*/
   }
 
   private _transition(list: QueryList<Slideable>, forward: boolean, post: (current, next) => void): number {
@@ -338,24 +366,29 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   private transition(forward: boolean) {
-    if (!this.isMoving) {
-      this.lastTransition = Date.now();
-      this.isMoving = true;
 
-      this._transition(this.thumbnails, forward, null);
+    if (this.mirror.isReady && this.carousel.isReady) {
+
+      this.lastTransition = Date.now();
+
+      if(forward) {
+        this.carousel.next();
+        this.mirror.next();
+      } else {
+        this.carousel.previous();
+        this.mirror.previous();
+      }
+
+      //this._transition(this.thumbnails, forward, null);
       this._transition(this.captions, forward, null);
-      let index = this._transition(this.slides, forward, (current, next) => {
+      /*let index = this._transition(this.slides, forward, (current, next) => {
         setTimeout(() => {
           current.clear();
           next.current = true;
         }, 1000);
       });
 
-      this.heroCaption.slide = this._slides[index];
-
-      setTimeout(() => {
-        this.isMoving = false;
-      }, 1500);
+      this.heroCaption.slide = this._slides[index];*/
     }
   }
 

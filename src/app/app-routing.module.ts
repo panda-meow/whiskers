@@ -6,10 +6,12 @@ import {AboutComponent} from './core/about/about.component';
 import {ContactComponent} from './core/contact/contact.component';
 import {AppConfig} from './config/app.config';
 import {Error404Component} from './core/error404/error-404.component';
+import { ProjectHomeComponent } from './projects/project-home/project-home.component';
 
 const routes: Routes = [
   // {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: ProjectTopComponent},
+  {path: 'home', component: ProjectHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: AppConfig.routes.projects, loadChildren: 'app/projects/projects.module#ProjectsModule'},
