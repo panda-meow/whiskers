@@ -14,6 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { nextTick } from 'q';
 import { ImageCarouselComponent } from '../project-home/image-carousel.component';
 import { ImageMirrorCarouselComponent } from '../project-home/image-mirror-carousel.component';
+import { TextCarouselComponent } from '../project-home/text-carousel.component';
 
 
 interface Slideable {
@@ -279,17 +280,17 @@ export class ProjectTopComponent implements AfterViewInit {
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;
   @ViewChildren('slice') slices: QueryList<ElementRef>;
-  @ViewChildren(CaptionSlideDirective) captions;
+  //@ViewChildren(CaptionSlideDirective) captions;
   //@ViewChildren(ThumbnailSlideComponent) thumbnails;
   @ViewChildren(HeroSlideDirective) slides;
   @ViewChild(ImageCarouselComponent) carousel;
   @ViewChild(ImageMirrorCarouselComponent) mirror;
+  @ViewChild(TextCarouselComponent) captions;
 
   private lastTransition: number;
 
   ngAfterViewInit() {
     this.updateWindow();
-    console.log(this.heros);
     setInterval(() => this.checkTimer(), 1000);
   }
 
@@ -312,6 +313,10 @@ export class ProjectTopComponent implements AfterViewInit {
     if ((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
       this.transition(true);
     }
+  }
+
+  public navigateCurrent() {
+    this.navigateTo(this.captions.current);
   }
 
   public navigateTo(project: Project)  {
@@ -368,20 +373,22 @@ export class ProjectTopComponent implements AfterViewInit {
 
   private transition(forward: boolean) {
 
-    if (this.mirror.isReady && this.carousel.isReady) {
+    if (this.mirror.isReady && this.carousel.isReady && this.captions.isReady) {
 
       this.lastTransition = Date.now();
 
       if(forward) {
         this.carousel.next();
         this.mirror.next();
+        this.captions.next();
       } else {
         this.carousel.previous();
         this.mirror.previous();
+        this.captions.previous();
       }
 
       //this._transition(this.thumbnails, forward, null);
-      this._transition(this.captions, forward, null);
+      //this._transition(this.captions, forward, null);
       /*let index = this._transition(this.slides, forward, (current, next) => {
         setTimeout(() => {
           current.clear();

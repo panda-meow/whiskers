@@ -173,9 +173,18 @@
 
     <div class="thumbs">
       <div class="images">
-        <image-carousel *ngIf="_projects" style="width: 100%; height: 100%;" [projects]="_projects"></image-carousel>
+        <image-carousel *ngIf="_projects" (click)="navigateCurrent()" style="width: 100%; height: 100%;" [projects]="_projects"></image-carousel>
       </div>
       <div class="caption">
+          <div>
+            <h5>Featured</h5>
+            <div class="titles">
+              <text-carousel *ngIf="_projects" (click)="navigateCurrent()" style="width: 100%; height: 100%;" [projects]="_projects"></text-carousel>
+            </div>
+            <span>Read More</span>
+          </div>
+      </div>
+      <!--<div class="caption">
         <div>
           <h5>Featured</h5>
           <div class="titles">
@@ -187,7 +196,7 @@
           </div>
           <span>Read More</span>
         </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

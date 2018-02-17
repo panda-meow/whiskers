@@ -67,7 +67,7 @@ export class ImageCarouselComponent implements AfterContentInit {
   @Input()
   projects: Project[]
 
-  public states: String[] = ["previous", "current", "next"];
+  public states: String[] = ["current", "next", "previous"];
 
   private animationLevel: number = 0; 
 
@@ -75,6 +75,10 @@ export class ImageCarouselComponent implements AfterContentInit {
 
   public get isReady(): boolean {
     return this.animationLevel == 0;
+  }
+
+  public get current(): Project {
+    return this.projects[this.index];
   }
 
   ngAfterContentInit(): void {

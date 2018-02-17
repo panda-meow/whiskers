@@ -5,31 +5,35 @@ import { Project } from "../shared/project.model";
 @Component({
   selector: 'text-carousel',
   template: `
-    <img class="slide"
+    <h4 
       (@slideState.done)="done(0)" 
-      [@slideState]="states[0]" [src]="imageA" #slidea>
-    <img class="slide"
+      [@slideState]="states[0]" #slidea>{{imageA}}</h4>
+    <h4 
       (@slideState.done)="done(1)" 
-      [@slideState]="states[1]" [src]="imageB" #slideb>
-    <img class="slide"
+      [@slideState]="states[1]" #slideb>{{imageB}}</h4>
+    <h4 
       (@slideState.done)="done(2)" 
-      [@slideState]="states[2]" [src]="imageC" #slidec>
+      [@slideState]="states[2]" #slidec>{{imageC}}</h4>
   `,
   styles: [`
     :host {
       position: relative;
       display: block;
       overflow: hidden;
-      font-size: 18px;
     }
-    .slide {
+    h4 {
       position: absolute;
-      /*max-width: 100%;*/
-      /*max-height: 100%;*/
-      height: 100%;
-      width: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      font-size: 18px;
+      font-weight: normal;
+      transition: all .4s ease-out;
+      transition-delay: .2s;
     }
   `],
   animations: [
@@ -46,10 +50,10 @@ import { Project } from "../shared/project.model";
         zIndex: '1',
         transform: 'translateX(-100%)'
       })),
-      transition('previous => current', animate('400ms ease-in')),
+      /*transition('previous => current', animate('400ms ease-in')),
       transition('current => next', animate('400ms ease-in')),
       transition('current => previous', animate('400ms ease-in')),
-      transition('next => current', animate('400ms ease-in')),
+      transition('next => current', animate('400ms ease-in')),*/
     ])
   ]
 })
@@ -67,7 +71,7 @@ export class TextCarouselComponent implements AfterContentInit {
   @Input()
   projects: Project[]
 
-  public states: String[] = ["previous", "current", "next"];
+  public states: String[] = ["current", "next", "previous"];
 
   private animationLevel: number = 0; 
 
@@ -77,10 +81,14 @@ export class TextCarouselComponent implements AfterContentInit {
     return this.animationLevel == 0;
   }
 
+  public get current(): Project {
+    return this.projects[this.index];
+  }
+
   ngAfterContentInit(): void {
-    this.imageA = Project.thumbnailURL(this.projects[0]);
-    this.imageB = Project.thumbnailURL(this.projects[1]);
-    this.imageC = Project.thumbnailURL(this.projects[2]);
+    this.imageA = this.projects[0].title;
+    this.imageB = this.projects[1].title;
+    this.imageC = this.projects[2].title;
   }
 
   ngAfterViewInit(): void {
@@ -134,13 +142,13 @@ export class TextCarouselComponent implements AfterContentInit {
   private hidden(index: number, hidden: boolean) {
       switch(index) {
         case 0:
-          this.slideA.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.imageA = hidden ? "" : this.imageA;
           break;
         case 1:
-          this.slideB.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.imageB = hidden ? "" : this.imageB;
           break;
         case 2:
-          this.slideC.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.imageC = hidden ? "" : this.imageC;
           break;
       }
   }
@@ -152,7 +160,7 @@ export class TextCarouselComponent implements AfterContentInit {
       this.index = (this.index + 1) % this.projects.length;
 
       this.hidden(this.nextIndex(), false);
-      this.set(this.nextIndex(), Project.thumbnailURL(this.projects[this.index]));
+      this.set(this.nextIndex(), this.projects[this.index].title);
       this.hidden(this.previousIndex(), true);
 
       let last = this.states[this.states.length - 1];
@@ -165,7 +173,7 @@ export class TextCarouselComponent implements AfterContentInit {
       this.index = (this.index - 1) < 0 ? (this.projects.length - 1) : (this.index - 1);
 
       this.hidden(this.previousIndex(), false);
-      this.set(this.previousIndex(), Project.thumbnailURL(this.projects[this.index]));
+      this.set(this.previousIndex(), this.projects[this.index].title);
       this.hidden(this.nextIndex(), true);
 
       let first = this.states[0];

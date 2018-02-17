@@ -229,40 +229,36 @@ import { Project } from "../shared/project.model";
       background-size: cover;
       background-repeat: no-repeat;
     }
-
-    .noAnimate {
-      transition-delay: .02s;
+    .slide1 {
+      top: 0; transition-delay: .02s;
     }
-      .slide1 {
-        top: 0; transition-delay: .02s;
-      }
-      .slide2 {
-        top: 10%; transition-delay: .04s;
-      }
-      .slide3 {
-        top: 20%; transition-delay: .06s;
-      }
-      .slide4 {
-        top: 30%; transition-delay: .08s;
-      }
-      .slide5 {
-        top: 40%; transition-delay: .02s;
-      }
-      .slide6 {
-        top: 50%; transition-delay: .04s;
-      }
-      .slide7 {
-        top: 60%; transition-delay: .06s;
-      }
-      .slide8 {
-        top: 70%; transition-delay: .04s;
-      }
-      .slide9 {
-        top: 80%; transition-delay: .02s;
-      }
-      .slide10 {
-        top: 90%; transition-delay: .0s;
-      }
+    .slide2 {
+      top: 10%; transition-delay: .04s;
+    }
+    .slide3 {
+      top: 20%; transition-delay: .06s;
+    }
+    .slide4 {
+      top: 30%; transition-delay: .08s;
+    }
+    .slide5 {
+      top: 40%; transition-delay: .02s;
+    }
+    .slide6 {
+      top: 50%; transition-delay: .04s;
+    }
+    .slide7 {
+      top: 60%; transition-delay: .06s;
+    }
+    .slide8 {
+      top: 70%; transition-delay: .04s;
+    }
+    .slide9 {
+      top: 80%; transition-delay: .02s;
+    }
+    .slide10 {
+      top: 90%; transition-delay: .0s;
+    }
   `],
   animations: [
     trigger('slideState', [
@@ -299,7 +295,7 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   @Input()
   images: string[]
 
-  public states: String[] = ["previous", "current", "next"];
+  public states: String[] = ["current", "next", "previous"];
 
   private animationLevel: number = 0; 
 
@@ -317,6 +313,10 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
 
   ngAfterViewInit(): void {
     this.updateWindow();
+
+    this.hidden(1, false);
+    this.hidden(1, true);
+    this.hidden(2, true);
   }
 
   constructor(private slider:ElementRef) {
