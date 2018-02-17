@@ -18,7 +18,10 @@ import {ProjectTopComponent, CaptionSlideDirective, ThumbnailSlideComponent, Her
 import {ProgressBarService} from './core/progress-bar.service';
 import {ProgressInterceptor} from './shared/interceptors/progress.interceptor';
 import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
-import { ProjectHomeComponent, CarouselComponent, ImageCarouselComponent, ImageMirrorCarouselComponent } from './projects/project-home/project-home.component';
+import { ProjectHomeComponent, CarouselComponent } from './projects/project-home/project-home.component';
+import { ImageCarouselComponent } from './projects/project-home/image-carousel.component';
+import { ImageMirrorCarouselComponent } from './projects/project-home/image-mirror-carousel.component';
+import { TextCarouselComponent } from './projects/project-home/text-carousel.component';
 
 @NgModule({
   imports: [
@@ -45,6 +48,7 @@ import { ProjectHomeComponent, CarouselComponent, ImageCarouselComponent, ImageM
     CarouselComponent,
     ImageCarouselComponent,
     ImageMirrorCarouselComponent,
+    TextCarouselComponent,
     CaptionSlideDirective,
     ThumbnailSlideComponent,
     HeroSlideDirective,

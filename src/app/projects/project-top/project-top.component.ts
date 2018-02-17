@@ -12,7 +12,8 @@ import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/take';
 import { DomSanitizer } from '@angular/platform-browser';
 import { nextTick } from 'q';
-import { ImageCarouselComponent, ImageMirrorCarouselComponent } from '../project-home/project-home.component';
+import { ImageCarouselComponent } from '../project-home/image-carousel.component';
+import { ImageMirrorCarouselComponent } from '../project-home/image-mirror-carousel.component';
 
 
 interface Slideable {
