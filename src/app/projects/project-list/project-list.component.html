@@ -59,8 +59,8 @@
     style="padding-top: 80px; padding-bottom:80px;">
     <figure class="effect-milo"
       *ngFor="let project of projects"
-      fxFlex="30"
-      fxFlex.lt-med="50"
+      fxFlex="50"
+      fxFlex.gt-sm="30"
       fxFlex.xs="100">
 
       <img src="{{headerURL(project)}}"
@@ -76,27 +76,7 @@
   </div>
 
 
-  <hr>
 
-  <div class="grid"
-    fxLayout="row"
-    fxLayoutAlign="center stretch"
-    fxLayoutWrap
-    style="padding-top: 80px; padding-bottom:80px;">
-    <figure class="effect-milo"
-      *ngFor="let project of projects">
-
-      <img src="{{headerURL(project)}}"
-        alt=""
-        (click)="seeProjectDetails(project);" />
-      <figcaption>
-        <!-- <h2>Faithful <span>Milo</span></h2> -->
-        <h2><span>{{project.title}}</span></h2>
-        <p>{{project.categories}}</p>
-        <a (click)="seeProjectDetails(project);">View more</a>
-      </figcaption>
-    </figure>
-  </div>
   <!-- <div class="grid">
     <figure class="effect-milo">
       <img src="assets/images/projects/2-thumbnail.jpg"
@@ -142,9 +122,9 @@
 <!-- /END NEW TEST -->
 
 <!-- < START OLD -->
-<div fxLayout="row"
-  style="background: #4a6ff2; padding-top: 80px; padding-bottom:80px;">
-  <div class="container">
+<!-- <div fxLayout="row" -->
+<!-- style="background: #4a6ff2; padding-top: 80px; padding-bottom:80px;"> -->
+<!-- <div class="container">
     <div class="gallery">
       <img *ngFor="let project of projects"
         src="{{headerURL(project)}}"
@@ -154,21 +134,21 @@
         height="auto"
         class="gallery-img">
     </div>
-  </div>
+  </div> -->
 
-  <!-- <div fxFlex="10"
+<!-- <div fxFlex="10"
     fxFlex.gt-sm="20"></div> -->
-  <!-- <div fxFlex="90"
+<!-- <div fxFlex="90"
     fxFlex.gt-sm="50"> -->
-  <!-- <div fxLayout="row"> -->
-  <!-- <h1 class="section-title">{{'topProjects' | translate}}</h1> -->
+<!-- <div fxLayout="row"> -->
+<!-- <h1 class="section-title">{{'topProjects' | translate}}</h1> -->
 
-  <!-- <mat-progress-spinner *ngIf="projects"
+<!-- <mat-progress-spinner *ngIf="projects"
     class="progress-spinner"
     [color]="'primary'"
     [mode]="'indeterminate'">
   </mat-progress-spinner> -->
-  <!-- <div id="projects-list"
+<!-- <div id="projects-list"
       *ngIf="projects"
       fxLayout="row"
       fxLayoutWrap
@@ -180,7 +160,7 @@
           fxFlex="55"
           fxFlex.xs="90"
           fxLayout="column"> -->
-  <!-- <mat-card-header>
+<!-- <mat-card-header>
             <div mat-card-avatar
               class="project-header-image"
               [ngStyle]="{'background-image': 'url(' + thumbnailURL(project) + ')'}"></div>
@@ -188,15 +168,15 @@
             <mat-card-subtitle>{{project.attributes?.company || "Personal Project"}}</mat-card-subtitle>
             <div class="flex-spacer"></div>
           </mat-card-header> -->
-  <!-- <img mat-card-image
+<!-- <img mat-card-image
             src="{{headerURL(project)}}">
         </mat-card>
       </ng-container>
     </div> -->
-  <!-- </div> -->
-  <!-- <div fxFlex="10"
+<!-- </div> -->
+<!-- <div fxFlex="10"
     fxFlex.gt-sm="20"></div> -->
-</div>
+<!-- </div> -->
 
 
 <!-- <div>

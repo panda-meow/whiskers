@@ -33,7 +33,7 @@ export class AppComponent {
 
         switch (event.urlAfterRedirects) {
           case '/projects':
-            // document.body.style.backgroundColor = '#4a6ff2';
+            document.body.style.backgroundColor = '#5f5f5f';
             break;
           default:
             document.body.style.backgroundColor = '#ffffff';
