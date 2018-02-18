@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 import { Project } from "../shared/project.model";
 import { element } from "protractor";
 import { ImageMirrorCarouselComponent } from "./image-mirror-carousel.component";
+import { ImageCarouselComponent } from "./image-carousel.component";
 
 @Component({
   selector: 'carousel',
@@ -231,7 +232,7 @@ export class CarouselComponent implements AfterContentInit {
 
 export class ProjectHomeComponent implements AfterViewInit, OnChanges {
 
-  @ViewChild(ImageMirrorCarouselComponent) carousel;
+  @ViewChild(ImageCarouselComponent) carousel;
 
   public images: String[] = [
     "http://5dimensions.se/wp-content/uploads/2016/04/red-number-0.jpg",

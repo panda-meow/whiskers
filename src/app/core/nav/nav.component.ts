@@ -51,7 +51,7 @@ export class NavComponent {
   }
 
   get hide(): Boolean {
-    return window.location.pathname == '/' || window.location.pathname == '/home'; // A little hacky :(
+    return window.location.pathname == '/' || window.location.pathname == '/carousel-test'; // A little hacky :(
   }
 
   routeHome(): void {

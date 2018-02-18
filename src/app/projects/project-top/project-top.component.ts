@@ -96,6 +96,10 @@ export class ProjectTopComponent implements AfterViewInit {
     return this._slides.map(slide => { return 'assets/heros/' + slide.image; });
   }
 
+  get _thumbnails(): string[] {
+    return this._projects.map(project => { return this.thumbnailURL(project); });
+  }
+
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;
   @ViewChild(ImageCarouselComponent) carousel;
