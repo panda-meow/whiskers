@@ -12,7 +12,7 @@ import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/take';
 import { DomSanitizer } from '@angular/platform-browser';
 import { nextTick } from 'q';
-import { ImageCarouselComponent } from '../project-home/image-carousel.component';
+import { ImageCarouselComponent, ImageSlide } from '../project-home/image-carousel.component';
 import { ImageMirrorCarouselComponent } from '../project-home/image-mirror-carousel.component';
 import { TextCarouselComponent } from '../project-home/text-carousel.component';
 
@@ -96,13 +96,22 @@ export class ProjectTopComponent implements AfterViewInit {
     return this._slides.map(slide => { return 'assets/heros/' + slide.image; });
   }
 
-  get _thumbnails(): string[] {
-    return this._projects.map(project => { return this.thumbnailURL(project); });
+  get _thumbnails(): ImageSlide[] {
+    return this._projects.map(project => { return new ImageSlide(this.thumbnailURL(project), "clear"); });
+  }
+
+  get _tiles(): ImageSlide[] {
+    return [ 
+      new ImageSlide("//:0", "rgb(75,160,75)"), 
+      new ImageSlide("//:0", "rgb(16,121,232)"), 
+      new ImageSlide("//:0", "red"), 
+      new ImageSlide("//:0", "rgb(254,177,2)") 
+    ];
   }
 
   @ViewChild('mirrorSlider') slider;
   @ViewChild(HeroCaptionComponent) heroCaption;
-  @ViewChild(ImageCarouselComponent) carousel;
+  @ViewChildren(ImageCarouselComponent) imageCarousels;
   @ViewChild(ImageMirrorCarouselComponent) mirror;
   @ViewChild(TextCarouselComponent) captions;
 
@@ -158,16 +167,25 @@ export class ProjectTopComponent implements AfterViewInit {
 
   private transition(forward: boolean) {
 
-    if (this.mirror.isReady && this.carousel.isReady && this.captions.isReady) {
+    var carouselReady = true;
+
+    this.imageCarousels.forEach(carousel => { 
+      if(!carousel.isReady) {
+        carouselReady = false
+      }
+    });
+
+
+    if (this.mirror.isReady && carouselReady && this.captions.isReady) {
 
       this.lastTransition = Date.now();
 
       if(forward) {
-        this.carousel.next();
+        this.imageCarousels.forEach(carousel => { carousel.next(); });
         this.mirror.next();
         this.captions.next();
       } else {
-        this.carousel.previous();
+        this.imageCarousels.forEach(carousel => { carousel.previous(); });
         this.mirror.previous();
         this.captions.previous();
       }

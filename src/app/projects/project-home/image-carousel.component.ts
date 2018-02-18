@@ -2,6 +2,11 @@ import { Component, ViewChild, Input, AfterContentInit, ElementRef } from "@angu
 import { transition, state, animate, style, trigger } from "@angular/animations";
 import { Project } from "../shared/project.model";
 
+
+export class ImageSlide {
+  public constructor(public image: string, public color: string) {}
+}
+
 @Component({
   selector: 'image-carousel',
   template: `
@@ -77,7 +82,7 @@ export class ImageCarouselComponent implements AfterContentInit {
   public imageC: String
 
   @Input()
-  images: string[]
+  images: ImageSlide[];
 
   @Input()
   vertical: boolean
@@ -100,16 +105,22 @@ export class ImageCarouselComponent implements AfterContentInit {
   }
 
   public get current(): String {
-    return this.images[this.index];
+    return this.images[this.index].image;
   }
 
   ngAfterContentInit(): void {
     if(this.vertical) {
       this.states = ["current", this.nextState, this.previousState];
     }
-    this.imageA = this.images[0];
-    this.imageB = this.images[1];
-    this.imageC = this.images[2];
+
+    this.imageA = this.images[0].image;
+    this.slideA.nativeElement.style.backgroundColor = this.images[0].color;
+
+    this.imageB = this.images[1].image;
+    this.slideB.nativeElement.style.backgroundColor = this.images[1].color;
+
+    this.imageC = this.images[2].image;
+    this.slideC.nativeElement.style.backgroundColor = this.images[2].color;
   }
 
   ngAfterViewInit(): void {
@@ -146,16 +157,19 @@ export class ImageCarouselComponent implements AfterContentInit {
     return this.states.indexOf(this.nextState);
   }
 
-  private set(index: number, image: string) {
+  private set(index: number, image: string, color: string) {
       switch(index) {
         case 0:
           this.imageA = image;
+          this.slideA.nativeElement.style.backgroundColor = color;
           break;
         case 1:
           this.imageB = image;
+          this.slideB.nativeElement.style.backgroundColor = color;
           break;
         case 2:
           this.imageC = image;
+          this.slideC.nativeElement.style.backgroundColor = color;
           break;
       }
   }
@@ -181,7 +195,7 @@ export class ImageCarouselComponent implements AfterContentInit {
       this.index = (this.index + 1) % this.images.length;
 
       this.hidden(this.nextIndex(), false);
-      this.set(this.nextIndex(), this.images[this.index]);
+      this.set(this.nextIndex(), this.images[this.index].image, this.images[this.index].color);
       this.hidden(this.previousIndex(), true);
 
       let last = this.states[this.states.length - 1];
@@ -194,7 +208,7 @@ export class ImageCarouselComponent implements AfterContentInit {
       this.index = (this.index - 1) < 0 ? (this.images.length - 1) : (this.index - 1);
 
       this.hidden(this.previousIndex(), false);
-      this.set(this.previousIndex(), this.images[this.index]);
+      this.set(this.previousIndex(), this.images[this.index].image, this.images[this.index].color);
       this.hidden(this.nextIndex(), true);
 
       let first = this.states[0];
