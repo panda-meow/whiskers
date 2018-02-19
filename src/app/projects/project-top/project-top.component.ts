@@ -41,12 +41,12 @@ class Slide {
       <h5>{{slide.caption}}</h5>
       </div>
       <div class="icons">
-        <span>
+        <span class="enabled" #circle>
         <i class="fa fa-play"></i>
-      </span>
-        <span>
+        </span>
+        <span #circle>
         <i class="fa fa-eye"></i>
-      </span>
+        </span>
       </div>
     `
 })
@@ -56,7 +56,26 @@ export class HeroCaptionComponent {
   @Input()
   slide: Slide;
 
+  @ViewChildren("circle") circles: QueryList<ElementRef>;
+
+  private index: number = 0;
+
   constructor() {}
+
+  public next() {
+    console.log(this.circles.length);
+    this.circles.toArray()[this.index].nativeElement.className = ""
+    let index = this.index + 1;
+    this.index = index % this.circles.length;
+    this.circles.toArray()[this.index].nativeElement.className = "enabled"
+  }
+
+  public previous() {
+    this.circles.toArray()[this.index].nativeElement.className = ""
+    let index = this.index - 1;
+    this.index = index < 0 ? this.circles.length - 1 : index;
+    this.circles.toArray()[this.index].nativeElement.className = "enabled"
+  }
 }
 
 
@@ -73,6 +92,9 @@ export class ProjectTopComponent implements AfterViewInit {
   projects: Observable<Project[]>;
   _projects: Project[];
   featured: Observable<Project[]>;
+
+  message: String = "Foo";
+  private index: number = 0;
 
   isMoving: Boolean = false;
   _slides: Slide[] = [
@@ -97,15 +119,15 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   get _thumbnails(): ImageSlide[] {
-    return this._projects.map(project => { return new ImageSlide(this.thumbnailURL(project), "clear"); });
+    return this._projects.map(project => { return new ImageSlide(this.thumbnailURL(project), "rgb(37, 37, 37)", null); });
   }
 
   get _tiles(): ImageSlide[] {
     return [ 
-      new ImageSlide("//:0", "rgb(75,160,75)"), 
-      new ImageSlide("//:0", "rgb(16,121,232)"), 
-      new ImageSlide("//:0", "red"), 
-      new ImageSlide("//:0", "rgb(254,177,2)") 
+      new ImageSlide("//:0", "rgb(75,160,75)", "Hello"),
+      new ImageSlide("//:0", "rgb(16,121,232)", "Goodbye"), 
+      new ImageSlide("//:0", "red", "Test"), 
+      new ImageSlide("//:0", "rgb(254,177,2)", "Foo") 
     ];
   }
 
@@ -165,6 +187,7 @@ export class ProjectTopComponent implements AfterViewInit {
     this.mirror.updateWindow();
   }
 
+
   private transition(forward: boolean) {
 
     var carouselReady = true;
@@ -184,10 +207,20 @@ export class ProjectTopComponent implements AfterViewInit {
         this.imageCarousels.forEach(carousel => { carousel.next(); });
         this.mirror.next();
         this.captions.next();
+        this.heroCaption.next();
+
+        this.index += 1;
+        this.index = (this.index + 1) % this._tiles.length;
+        this.message = this._tiles[this.index].message; 
       } else {
         this.imageCarousels.forEach(carousel => { carousel.previous(); });
         this.mirror.previous();
         this.captions.previous();
+        this.heroCaption.previous();
+
+        let index = this.index - 1;
+        this.index = index < 0 ? this._tiles.length - 1 : index;
+        this.message = this._tiles[this.index].message; 
       }
     }
   }

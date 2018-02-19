@@ -47,24 +47,25 @@ h3 {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.25);
   display: inline-block;
   position: relative;
   margin-right: 5px;
-  &:last-of-type {
-    background: rgba(255, 255, 255, 0.25);
+  &.enabled {
+    background: #fff;
     mat-icon {
-      color: #fff;
-      font-size: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      // -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      font-size: 8px;
+      color: #333;
     }
   }
   mat-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    // -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 8px;
-    color: #333;
+    color: #fff;
+    font-size: 10px;
   }
 }
+

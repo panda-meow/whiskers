@@ -805,6 +805,22 @@ header {
   }
 }
 
+#color-slider-container {
+  height: 100%; 
+  text-align:center; 
+  display:table;
+  width:100%;
+}
+
+#color-slider-container h1 {
+  display:table-cell; 
+  vertical-align:middle;
+  color: white;
+  -webkit-animation: animateWord 18s linear infinite 0s;
+  -ms-animation: animateWord 18s linear infinite 0s;
+  animation: animateWord 18s linear infinite 0s;
+}
+
 #bottom {
   position: absolute;
   bottom: 0;
@@ -818,7 +834,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: table;
     table-layout: fixed;

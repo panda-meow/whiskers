@@ -4,7 +4,7 @@ import { Project } from "../shared/project.model";
 
 
 export class ImageSlide {
-  public constructor(public image: string, public color: string) {}
+  public constructor(public image: string = "//:0", public color: string = "clear", public message: string) {}
 }
 
 @Component({
@@ -22,7 +22,7 @@ export class ImageSlide {
   `,
   styles: [`
     :host {
-      position: relative;
+      position: absolute;
       display: block;
       overflow: hidden;
       font-size: 18px;
