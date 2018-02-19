@@ -131,7 +131,12 @@
       fxLayout.sm="column">
       <!--<div *ngFor="let project of projects | async | slice:0:3; let i = index;"-->
       <!-- <div class="box inner" style="background-color: green;"> -->
-      <image-carousel *ngIf="_projects" [vertical]="true" (click)="navigateCurrent()" style="width: 100%; height: 100%; z-index: -1;" [images]="_tiles"></image-carousel>
+      <div id="color-slider-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        <h1>{{message}}</h1>
+      </div>
+      <image-carousel *ngIf="_projects" [vertical]="true" (click)="navigateCurrent()"  style="width: 100%; height: 100%; z-index: -1;" [images]="_tiles">
+        <h4 style="width: 100%; height: 100%;">Testing</h4>
+      </image-carousel>
 
         <!--<div class="inner" (click)="navigateTo(project)">
           <div>
@@ -175,7 +180,8 @@
 
     <div class="thumbs">
       <div class="images">
-        <image-carousel *ngIf="_projects" [vertical]="false" (click)="navigateCurrent()" style="width: 100%; height: 100%;" [images]="_thumbnails"></image-carousel>
+        <image-carousel *ngIf="_projects" [vertical]="false" (click)="navigateCurrent()" 
+          style="width: 100%; height: 100%;" [images]="_thumbnails"></image-carousel>
       </div>
       <div class="caption">
           <div>
