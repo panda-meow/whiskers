@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, HostListener, ElementRef, Inject} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -8,10 +8,33 @@ import {ProgressBarService} from '../progress-bar.service';
 import {Project} from '../../projects/shared/project';
 import {ProjectService} from '../../projects/shared/project.service';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
+  animations: [
+    trigger('scrollAnimation', [
+      state('show', style({
+        opacity: 1,
+        transform: 'translateX(0)',
+      })),
+      state('hide',   style({
+        // opacity: 0,
+        transform: 'translateY(-150%)'
+      })),
+      transition('show => hide', animate('700ms ease-out')),
+      transition('hide => show', animate('800ms ease-out'))
+      // transition('hide => show', animate('2000ms linear 1000ms'))
+    ])
+  ]
 })
 
 export class NavComponent {
@@ -20,7 +43,9 @@ export class NavComponent {
   progressBarMode: string;
   projects: Project[];
   Project: Project = <Project>{};
-
+  state = 'show';
+  lastScrollTop = 0;
+   dir = '';
   private translateService: TranslateService;
 
   constructor(
@@ -28,6 +53,7 @@ export class NavComponent {
     private projectService: ProjectService,
     @Inject(APP_CONFIG) appConfig: IAppConfig,
       private progressBarService: ProgressBarService,
+      public el: ElementRef,
       translateService: TranslateService) {
     this.appConfig = appConfig;
     this.translateService = translateService;
@@ -42,6 +68,42 @@ export class NavComponent {
       // });
       this.projects = projects;
     });
+
+
+  }
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const componentPosition = this.el.nativeElement.offsetTop;
+    const scrollPosition = window.pageYOffset;
+    // const blah = window.
+
+    // scrollDirection = number;
+  console.log('component position ' + componentPosition);
+  console.log('scroll position' + scrollPosition);
+  console.log('scrollY ' + window.scrollY);
+    // if (scrollPosition >= componentPosition) {
+    //   this.state = 'hide';
+    // } else {
+    //   this.state = 'show';
+    // }
+
+    if (pageYOffset  > this.lastScrollTop) {
+
+        this.dir = 'down';
+        this.state = 'hide';
+    } else {
+             this.dir = 'up';
+          this.state = 'show';
+
+
+        // this.state = 'show';
+    }
+    this.lastScrollTop = scrollPosition;
+    console.log('direction' + this.dir);
+  //  let  lastScrollTop = 0;
+    // direction: string = "";
+
+
   }
 
   changeLanguage(language: string): void {

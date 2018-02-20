@@ -1,8 +1,9 @@
 <!-- <header *ngIf="!hide"> -->
 
-<header [ngClass]="hide ? 'hideme' : 'visible'">
+<header [ngClass]="hide ? 'hideme' : 'visible'"
+  [@scrollAnimation]="state">
   <nav>
-    <div style="height:10px;  top:0px"></div>
+    <!-- <div style="height:10px;  top:0px"></div> -->
     <div fxFlex
       fxLayout="row"
       fxLayoutAlign="center center"
