@@ -37,55 +37,31 @@
                     {{item.name | uppercase}}
                 </a>
             </div> -->
-      <div fxFlex
-        class="text-right">
-        <!-- <app-search-bar></app-search-bar> -->
-        <button mat-button
-          [matMenuTriggerFor]="menu">PROJECTS</button>
-        <mat-menu #menu="matMenu">
-          <button (click)="seeProjects();"
-            mat-menu-item>All Projects</button>
-          <button *ngFor="let project of projects"
-            mat-menu-item
-            (click)="seeProjectDetails(project);">{{project.name}}</button>
-        </mat-menu>
+      <div *ngIf="!showDropDown" fxFlex class="text-right">
+        <button mat-button (click)="seeProjects();">PROJECTS</button>
         <a mat-button
           *ngFor="let item of menuItems"
           routerLink="{{item.link}}">
                     {{item.name | uppercase}}
                 </a>
-        <!-- <a mat-button
-          *ngFor="let item of menuItems"
-          routerLink="{{item.link}}">
-                    {{item.name | uppercase}}
-                </a> -->
-
-        <!-- <button mat-icon-button [matMenuTriggerFor]="matmenu">
-                    <mat-icon>public</mat-icon>
-                </button> -->
-        <!-- <mat-menu #matmenu="matMenu">
-                    <button mat-menu-item (click)="changeLanguage('en')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                English
-            </span>
-                    </button>
-                    <button mat-menu-item (click)="changeLanguage('es')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                Español
-            </span>
-                    </button>
-                    <button mat-menu-item (click)="changeLanguage('pt-br')">
-                        <mat-icon>flag</mat-icon>
-                        <span>
-                Português
-            </span>
-                    </button>
-                </mat-menu> -->
-        <!-- <a class="image-icon" href="{{appConfig.repositoryURL}}" target="_blank">
-                    <img src="assets/images/github-circle-white-transparent.svg">
-                </a> -->
+      </div>
+      <div *ngIf="showDropDown" fxFlex
+        class="text-right">
+        <!-- <app-search-bar></app-search-bar> -->
+        <button  mat-button
+          [matMenuTriggerFor]="menu">PROJECTS</button>
+          <mat-menu #menu="matMenu">
+            <button (click)="seeProjects();"
+              mat-menu-item>All Projects</button>
+            <button *ngFor="let project of projects"
+              mat-menu-item
+              (click)="seeProjectDetails(project);">{{project.title}}</button>
+          </mat-menu>
+          <a mat-button
+            *ngFor="let item of menuItems"
+            routerLink="{{item.link}}">
+                      {{item.name | uppercase}}
+                  </a>
       </div>
     </div>
   </nav>

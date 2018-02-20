@@ -96,6 +96,8 @@ export class ProjectTopComponent implements AfterViewInit {
   message: String = "Foo";
   private index: number = 0;
 
+  slide: Slide 
+
   isMoving: Boolean = false;
   _slides: Slide[] = [
     new Slide('slide-1.png', 'Welcome', 'to my work portfolio', [
@@ -157,6 +159,7 @@ export class ProjectTopComponent implements AfterViewInit {
     })
     this.featured = this.projects.take(3);
     this.lastTransition = Date.now();
+    this.slide = this._slides[0];
   }
 
   private checkTimer() {
@@ -205,22 +208,24 @@ export class ProjectTopComponent implements AfterViewInit {
 
       if(forward) {
         this.imageCarousels.forEach(carousel => { carousel.next(); });
-        this.mirror.next();
+        this.slide = this._slides[this.mirror.next()];
         this.captions.next();
         this.heroCaption.next();
 
         this.index += 1;
         this.index = (this.index + 1) % this._tiles.length;
         this.message = this._tiles[this.index].message; 
+        //this.slide = this._slides[this.index % 2];
       } else {
         this.imageCarousels.forEach(carousel => { carousel.previous(); });
-        this.mirror.previous();
+        this.slide = this._slides[this.mirror.previous()];
         this.captions.previous();
         this.heroCaption.previous();
 
         let index = this.index - 1;
         this.index = index < 0 ? this._tiles.length - 1 : index;
         this.message = this._tiles[this.index].message; 
+        //this.slide = this._slides[this.index % 2];
       }
     }
   }
