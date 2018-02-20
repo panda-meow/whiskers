@@ -350,18 +350,20 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
     }
   }
 
-  public previous() {
+  public previous(): number {
     if(this.animationLevel == 0) {
       this.animationLevel = 30;
       this.setup(false);
     } 
+    return this.index;
   }
 
-  public next() {
+  public next(): number {
     if(this.animationLevel == 0) {
       this.animationLevel = 30;
       this.setup(true);
     } 
+    return this.index;
   }
 
   private previousIndex(): number {
