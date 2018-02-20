@@ -37,7 +37,7 @@
                     {{item.name | uppercase}}
                 </a>
             </div> -->
-      <div *ngIf="!showDropDown" fxFlex class="text-right">
+      <div *ngIf="!isProjectDetail" fxFlex class="text-right">
         <button mat-button (click)="seeProjects();">PROJECTS</button>
         <a mat-button
           *ngFor="let item of menuItems"
@@ -45,7 +45,7 @@
                     {{item.name | uppercase}}
                 </a>
       </div>
-      <div *ngIf="showDropDown" fxFlex
+      <div *ngIf="isProjectDetail" fxFlex
         class="text-right">
         <!-- <app-search-bar></app-search-bar> -->
         <button  mat-button
@@ -57,11 +57,6 @@
               mat-menu-item
               (click)="seeProjectDetails(project);">{{project.title}}</button>
           </mat-menu>
-          <a mat-button
-            *ngFor="let item of menuItems"
-            routerLink="{{item.link}}">
-                      {{item.name | uppercase}}
-                  </a>
       </div>
     </div>
   </nav>

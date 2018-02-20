@@ -54,7 +54,7 @@ export class NavComponent {
     return window.location.pathname == '/carousel-test'; // A little hacky :(
   }
 
-  get showDropDown(): Boolean {
+  get isProjectDetail(): Boolean {
     return window.location.pathname.startsWith('/projects/'); // A little hacky :(
   }
 
