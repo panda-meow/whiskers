@@ -96,27 +96,27 @@ export class ProjectTopComponent implements AfterViewInit {
   message: String = "Foo";
   private index: number = 0;
 
-  slide: Slide 
+  slide: Slide
 
   isMoving: Boolean = false;
   _slides: Slide[] = [
-    new Slide('slide-1.png', 'Welcome', 'to my work portfolio', [
+    new Slide('slide-1.svg', 'Welcome', 'to my work portfolio', [
       'This is a footer and it needs to be long so I can test line wrapping',
       'and this is the other message']),
-    new Slide('slide-2.png', 'It\'\s Time', 'to put on your party hat', [
+    new Slide('slide-2.svg', 'It\'\s Time', 'to put on your party hat', [
       "I can't think of anything else to write",
       'hmmmm.....'
     ]),
-    new Slide('slide-1.png', 'Welcome', 'to my work portfolio', [
+    new Slide('slide-1.svg', 'Welcome', 'to my work portfolio', [
       'This is a footer and it needs to be long so I can test line wrapping',
       'and this is the other message']),
-    new Slide('slide-2.png', 'It\'\s Time', 'to put on your party hat', [
+    new Slide('slide-2.svg', 'It\'\s Time', 'to put on your party hat', [
       "I can't think of anything else to write",
       'hmmmm.....'
     ]),
   ];
 
-  get heros(): string[] { 
+  get heros(): string[] {
     return this._slides.map(slide => { return 'assets/heros/' + slide.image; });
   }
 
@@ -125,11 +125,11 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   get _tiles(): ImageSlide[] {
-    return [ 
+    return [
       new ImageSlide("//:0", "rgb(75,160,75)", "Hello"),
-      new ImageSlide("//:0", "rgb(16,121,232)", "Goodbye"), 
-      new ImageSlide("//:0", "red", "Test"), 
-      new ImageSlide("//:0", "rgb(254,177,2)", "Foo") 
+      new ImageSlide("//:0", "rgb(16,121,232)", 'Goodbye'),
+      new ImageSlide('//:0', "red", "Test"),
+      new ImageSlide("//:0", "rgb(254,177,2)", "Foo")
     ];
   }
 
@@ -193,11 +193,11 @@ export class ProjectTopComponent implements AfterViewInit {
 
   private transition(forward: boolean) {
 
-    var carouselReady = true;
+    let carouselReady = true;
 
-    this.imageCarousels.forEach(carousel => { 
+    this.imageCarousels.forEach(carousel => {
       if(!carousel.isReady) {
-        carouselReady = false
+        carouselReady = false;
       }
     });
 
@@ -206,7 +206,7 @@ export class ProjectTopComponent implements AfterViewInit {
 
       this.lastTransition = Date.now();
 
-      if(forward) {
+      if (forward) {
         this.imageCarousels.forEach(carousel => { carousel.next(); });
         this.slide = this._slides[this.mirror.next()];
         this.captions.next();
@@ -214,8 +214,8 @@ export class ProjectTopComponent implements AfterViewInit {
 
         this.index += 1;
         this.index = (this.index + 1) % this._tiles.length;
-        this.message = this._tiles[this.index].message; 
-        //this.slide = this._slides[this.index % 2];
+        this.message = this._tiles[this.index].message;
+        // this.slide = this._slides[this.index % 2];
       } else {
         this.imageCarousels.forEach(carousel => { carousel.previous(); });
         this.slide = this._slides[this.mirror.previous()];
@@ -224,8 +224,8 @@ export class ProjectTopComponent implements AfterViewInit {
 
         let index = this.index - 1;
         this.index = index < 0 ? this._tiles.length - 1 : index;
-        this.message = this._tiles[this.index].message; 
-        //this.slide = this._slides[this.index % 2];
+        this.message = this._tiles[this.index].message;
+        // this.slide = this._slides[this.index % 2];
       }
     }
   }

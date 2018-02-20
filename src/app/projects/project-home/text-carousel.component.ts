@@ -1,18 +1,18 @@
-import { Component, ViewChild, Input, AfterContentInit, ElementRef, ViewChildren, QueryList, AfterViewInit } from "@angular/core";
-import { transition, state, animate, style, trigger } from "@angular/animations";
-import { Project } from "../shared/project.model";
+import { Component, ViewChild, Input, AfterContentInit, ElementRef, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
+import { transition, state, animate, style, trigger } from '@angular/animations';
+import { Project } from '../shared/project.model';
 
 @Component({
   selector: 'text-carousel',
   template: `
-    <h4 
-      (@slideState.done)="done(0)" 
+    <h4
+      (@slideState.done)="done(0)"
       [@slideState]="states[0]" #slidea>{{imageA}}</h4>
-    <h4 
-      (@slideState.done)="done(1)" 
+    <h4
+      (@slideState.done)="done(1)"
       [@slideState]="states[1]" #slideb>{{imageB}}</h4>
-    <h4 
-      (@slideState.done)="done(2)" 
+    <h4
+      (@slideState.done)="done(2)"
       [@slideState]="states[2]" #slidec>{{imageC}}</h4>
   `,
   styles: [`
@@ -60,22 +60,22 @@ import { Project } from "../shared/project.model";
 
 export class TextCarouselComponent implements AfterContentInit {
 
-  @ViewChild("slidea") slideA;
-  @ViewChild("slideb") slideB;
-  @ViewChild("slidec") slideC;
+  @ViewChild('slidea') slideA;
+  @ViewChild('slideb') slideB;
+  @ViewChild('slidec') slideC;
 
-  public imageA: String
-  public imageB: String
-  public imageC: String
+  public imageA: String;
+  public imageB: String;
+  public imageC: String;
 
   @Input()
-  projects: Project[]
+  projects: Project[];
 
-  public states: String[] = ["current", "next", "previous"];
+  public states: String[] = ['current', 'next', 'previous'];
 
-  private animationLevel: number = 0; 
+  private animationLevel = 0;
 
-  private index: number = 0 
+  private index = 0;
 
   public get isReady(): boolean {
     return this.animationLevel == 0;
@@ -94,39 +94,39 @@ export class TextCarouselComponent implements AfterContentInit {
   ngAfterViewInit(): void {
   }
 
-  constructor(private slider:ElementRef) {
+  constructor(private slider: ElementRef) {
   }
 
   public done(index: number) {
-    if(this.animationLevel > 0) {
+    if (this.animationLevel > 0) {
       this.animationLevel -= 1;
     }
   }
 
   public previous() {
-    if(this.animationLevel == 0) {
+    if (this.animationLevel == 0) {
       this.animationLevel = 3;
       this.setup(false);
-    } 
+    }
   }
 
   public next() {
-    if(this.animationLevel == 0) {
+    if (this.animationLevel == 0) {
       this.animationLevel = 3;
       this.setup(true);
-    } 
+    }
   }
 
   private previousIndex(): number {
-    return this.states.indexOf("previous")
+    return this.states.indexOf('previous');
   }
 
   private nextIndex(): number {
-    return this.states.indexOf("next")
+    return this.states.indexOf('next');
   }
 
   private set(index: number, image: string) {
-      switch(index) {
+      switch (index) {
         case 0:
           this.imageA = image;
           break;
@@ -140,22 +140,22 @@ export class TextCarouselComponent implements AfterContentInit {
   }
 
   private hidden(index: number, hidden: boolean) {
-      switch(index) {
+      switch (index) {
         case 0:
-          this.imageA = hidden ? "" : this.imageA;
+          this.imageA = hidden ? '' : this.imageA;
           break;
         case 1:
-          this.imageB = hidden ? "" : this.imageB;
+          this.imageB = hidden ? '' : this.imageB;
           break;
         case 2:
-          this.imageC = hidden ? "" : this.imageC;
+          this.imageC = hidden ? '' : this.imageC;
           break;
       }
   }
 
   private setup(forward: boolean) {
 
-    if(forward) {
+    if (forward) {
 
       this.index = (this.index + 1) % this.projects.length;
 
@@ -164,7 +164,7 @@ export class TextCarouselComponent implements AfterContentInit {
       this.hidden(this.previousIndex(), true);
 
       let last = this.states[this.states.length - 1];
-      for(let i = this.states.length - 1; i > 0; i-=1) {
+      for (let i = this.states.length - 1; i > 0; i -= 1) {
         this.states[i] = this.states[i - 1];
       }
       this.states[0] = last;
@@ -177,7 +177,7 @@ export class TextCarouselComponent implements AfterContentInit {
       this.hidden(this.nextIndex(), true);
 
       let first = this.states[0];
-      for(let i = 1; i < this.states.length; i++) {
+      for (let i = 1; i < this.states.length; i++) {
         this.states[i - 1] = this.states[i];
       }
       this.states[this.states.length - 1] = first;

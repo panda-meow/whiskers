@@ -274,6 +274,7 @@ template,
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
     padding: 15px 20px 10px;
     img {
+      // border: 10px solid black;
       margin-right: 15px;
       width: calc(50px / 2);
       height: auto;
@@ -556,6 +557,8 @@ img {
   width: 100%;
   .slides {
     position: absolute;
+    // min-height: 400px;
+    // max-height: 1000px;
     top: 0;
     left: 0;
     width: 100%;
@@ -806,15 +809,15 @@ header {
 }
 
 #color-slider-container {
-  height: 100%; 
-  text-align:center; 
-  display:table;
-  width:100%;
+  height: 100%;
+  text-align: center;
+  display: table;
+  width: 100%;
 }
 
 #color-slider-container h1 {
-  display:table-cell; 
-  vertical-align:middle;
+  display: table-cell;
+  vertical-align: middle;
   color: white;
   -webkit-animation: animateWord 18s linear infinite 0s;
   -ms-animation: animateWord 18s linear infinite 0s;
