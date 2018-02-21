@@ -1,8 +1,9 @@
 <!-- <header *ngIf="!hide"> -->
 
-<header [ngClass]="hide ? 'hideme' : 'visible'">
+<header [ngClass]="hide ? 'hideme' : 'visible'"
+  [@scrollAnimation]="state">
   <nav>
-    <div style="height:10px;  top:0px"></div>
+    <!-- <div style="height:10px;  top:0px"></div> -->
     <div fxFlex
       fxLayout="row"
       fxLayoutAlign="center center"
@@ -37,28 +38,51 @@
                     {{item.name | uppercase}}
                 </a>
             </div> -->
-      <div *ngIf="!isProjectDetail" fxFlex class="text-right">
-        <button mat-button (click)="seeProjects();">PROJECTS</button>
+      <div *ngIf="!isProjectDetail"
+        fxFlex
+        class="text-right">
+        <button mat-button
+          (click)="seeProjects();">PROJECTS</button>
         <a mat-button
           *ngFor="let item of menuItems"
           routerLink="{{item.link}}">
                     {{item.name | uppercase}}
                 </a>
       </div>
-      <div *ngIf="isProjectDetail" fxFlex
+      <div *ngIf="isProjectDetail"
+        fxFlex
         class="text-right">
         <!-- <app-search-bar></app-search-bar> -->
-        <button  mat-button
+        <button mat-button
           [matMenuTriggerFor]="menu">PROJECTS</button>
-          <mat-menu #menu="matMenu">
-            <button (click)="seeProjects();"
-              mat-menu-item>All Projects</button>
-            <button *ngFor="let project of projects"
-              mat-menu-item
-              (click)="seeProjectDetails(project);">{{project.title}}</button>
-          </mat-menu>
+        <mat-menu #menu="matMenu">
+          <button (click)="seeProjects();"
+            mat-menu-item>All Projects</button>
+          <button *ngFor="let project of projects"
+            mat-menu-item
+            (click)="seeProjectDetails(project);">{{project.title}}</button>
+        </mat-menu>
       </div>
+      <!-- <button mat-icon-button -->
+      <!-- (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->
     </div>
+    <!-- <mat-sidenav-container>
+      <mat-sidenav #snav
+        [mode]="'over'"
+        fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item>item</a>
+          <a mat-list-item>item</a>
+          <a mat-list-item>item</a>
+          <a mat-list-item>item</a>
+        </mat-nav-list>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <h1>SIDENAV CONTENT!!!!</h1>
+        <p>blaaaaahhhh</p>
+      </mat-sidenav-content>
+    </mat-sidenav-container> -->
   </nav>
   <!-- <section class="progress-bar"> -->
   <!-- <mat-progress-bar [color]="'primary'" [mode]="progressBarMode"> -->

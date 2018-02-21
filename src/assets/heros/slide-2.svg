@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1286.21 959.37">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="1.02" y="-11.52" width="1291" height="977" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>shapes2</title>
+  <g style="isolation: isolate">
+    <g id="Layer_3" data-name="Layer 3">
+      <g style="clip-path: url(#clip-path)">
+        <g>
+          <rect x="-26.98" y="-15.52" width="1322" height="982" style="fill: #52c4ce"/>
+          <rect x="-26.98" y="707.48" width="1326" height="257" transform="translate(1272.04 1671.96) rotate(180)" style="fill: #24dec4"/>
+          <rect x="-26.98" y="493.48" width="1321" height="323" transform="translate(1267.04 1309.96) rotate(180)" style="fill: #28e8db"/>
+          <rect x="-26.98" y="329.48" width="1321" height="224" transform="translate(1267.04 882.96) rotate(180)" style="fill: #7ce8e5"/>
+          <rect x="-26.98" y="118.48" width="1320" height="220" transform="translate(1266.04 456.96) rotate(180)" style="fill: #87dee8"/>
+        </g>
+        <polygon points="131.02 -15.52 628.02 -15.52 131.02 75.48 131.02 -15.52" style="fill: #4b85b8"/>
+        <polygon points="6.02 817.48 601.02 817.48 6.02 900.48 6.02 817.48" style="fill: #37c0c6"/>
+        <polygon points="1311.02 339.48 34.02 339.48 1311.02 282.48 1311.02 339.48" style="fill: #5fb2d3"/>
+        <polygon points="-26.98 -21.52 0.23 556.48 383.02 -21.52 -26.98 -21.52" style="fill: #3d4c70"/>
+        <polygon points="-8.98 553.48 -8.98 979.48 385.02 553.48 -8.98 553.48" style="fill: #3d4c70"/>
+        <polygon points="1309.02 998.48 1309.02 542.48 1083.02 998.48 1309.02 998.48" style="fill: #4b85b8"/>
+        <rect x="-9.98" y="-11.52" width="1305" height="982" style="fill: #633aa0;opacity: 0.65;mix-blend-mode: luminosity"/>
+      </g>
+    </g>
+  </g>
+</svg>

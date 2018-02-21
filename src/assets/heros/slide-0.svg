@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1295 991">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="633" width="364" height="358" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>shapes2</title>
+  <g id="Layer_4" data-name="Layer 4">
+    <g>
+      <rect width="1295" height="991" style="fill: #999"/>
+      <g style="clip-path: url(#clip-path)">
+        <rect x="-0.5" y="633" width="364" height="358" style="fill: #c9c9c9"/>
+        <ellipse cx="272.5" cy="928.55" rx="151.5" ry="149" style="fill: #aaa"/>
+      </g>
+      <g>
+        <g>
+          <path d="M1063,632.21C1044,355.1,813.41,136.16,531.5,136.16S19,355.1,0,632.21Z" style="fill: #727272"/>
+          <path d="M864.13,325.65C852.26,152.23,707.93,15.21,531.5,15.21s-320.76,137-332.63,310.44Z" style="fill: #dcaa52"/>
+          <path d="M764.34,632.21C756,510.81,655,414.9,531.5,414.9S307,510.81,298.66,632.21Z" style="fill: #78a7ee"/>
+        </g>
+        <circle cx="75.67" cy="195.65" r="75.67" style="fill: #727272"/>
+      </g>
+      <g>
+        <g>
+          <path d="M1295,781.14a215.75,215.75,0,0,0-58.79-8.12c-112.84,0-205.16,86.58-212.75,196.15H1295Z" style="fill: #fd8f54"/>
+          <path d="M1295,802.58a215.75,215.75,0,0,0-58.79-8.12c-112.84,0-205.16,86.58-212.75,196.15H1295Z" style="fill: #727272"/>
+          <circle cx="1068.25" cy="816.63" r="10.72" style="fill: #dcaa52"/>
+        </g>
+        <circle cx="1194.4" cy="904.85" r="54.42" style="fill: #9b9b9b"/>
+      </g>
+    </g>
+  </g>
+</svg>

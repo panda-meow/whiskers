@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1295 991">
+  <defs>
+    <clipPath id="clip-path">
+      <rect y="535" width="463.64" height="456" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>shapes</title>
+  <g id="Layer_4" data-name="Layer 4">
+    <g>
+      <rect width="1295" height="991" style="fill: #999"/>
+      <g style="clip-path: url(#clip-path)">
+        <rect x="-0.64" y="535" width="463.64" height="456" style="fill: #c9c9c9"/>
+        <ellipse cx="347.09" cy="911.45" rx="192.97" ry="189.79" style="fill: #aaa"/>
+      </g>
+      <g>
+        <g>
+          <path d="M900,537.6c-16-234.61-211.32-420-450-420S16.05,303,0,537.6Z" style="fill: #727272"/>
+          <path d="M731.62,278.05C721.58,131.22,599.37,15.21,450,15.21s-271.58,116-281.62,262.84Z" style="fill: #dcaa52"/>
+          <path d="M647.13,537.6c-7-102.78-92.57-184-197.13-184s-190.1,81.21-197.13,184Z" style="fill: #78a7ee"/>
+        </g>
+        <circle cx="64.07" cy="167.99" r="64.07" style="fill: #727272"/>
+      </g>
+      <g>
+        <g>
+          <path d="M1295,612.65A389.61,389.61,0,0,0,1188.93,598C985.31,598,818.73,754.22,805,951.93h490Z" style="fill: #fd8f54"/>
+          <path d="M1295,651.34a389.23,389.23,0,0,0-106.07-14.66c-203.62,0-370.2,156.22-383.89,353.93h490Z" style="fill: #727272"/>
+          <circle cx="885.85" cy="676.68" r="19.34" style="fill: #dcaa52"/>
+        </g>
+        <circle cx="1113.49" cy="835.88" r="98.2" style="fill: #9b9b9b"/>
+      </g>
+    </g>
+  </g>
+</svg>
