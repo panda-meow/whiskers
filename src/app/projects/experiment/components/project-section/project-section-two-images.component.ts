@@ -37,5 +37,6 @@ export class ProjectSectionTwoImagesComponent {
 
     @Input()
     header: string;
+
     constructor() {}
 }

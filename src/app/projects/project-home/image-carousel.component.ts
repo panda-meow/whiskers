@@ -11,13 +11,13 @@ export class ImageSlide {
   selector: 'image-carousel',
   template: `
     <img class="slide"
-      (@slideState.done)="done(0)" 
+      (@slideState.done)="done(0)"
       [@slideState]="states[0]" [src]="imageA" #slidea>
     <img class="slide"
-      (@slideState.done)="done(1)" 
+      (@slideState.done)="done(1)"
       [@slideState]="states[1]" [src]="imageB" #slideb>
     <img class="slide"
-      (@slideState.done)="done(2)" 
+      (@slideState.done)="done(2)"
       [@slideState]="states[2]" [src]="imageC" #slidec>
   `,
   styles: [`
@@ -74,8 +74,8 @@ export class ImageSlide {
 export class ImageCarouselComponent implements AfterContentInit {
 
   @ViewChild("slidea") slideA;
-  @ViewChild("slideb") slideB;
-  @ViewChild("slidec") slideC;
+  @ViewChild('slideb') slideB;
+  @ViewChild('slidec') slideC;
 
   public imageA: String
   public imageB: String
@@ -87,17 +87,17 @@ export class ImageCarouselComponent implements AfterContentInit {
   @Input()
   vertical: boolean
 
-  public states: String[] = ["current", "next", "previous"];
-  private animationLevel: number = 0; 
+  public states: String[] = ['current', 'next', 'previous'];
+  private animationLevel = 0;
 
-  private index: number = 0 
+  private index = 0;
 
   public get nextState(): String {
-    return this.vertical ? "bottom" : "next";
+    return this.vertical ? 'bottom' : 'next';
   }
 
   public get previousState(): String {
-    return this.vertical ? "top" : "previous";
+    return this.vertical ? 'top' : 'previous';
   }
 
   public get isReady(): boolean {
@@ -109,12 +109,14 @@ export class ImageCarouselComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    if(this.vertical) {
-      this.states = ["current", this.nextState, this.previousState];
+    if (this.vertical) {
+      this.states = ['current', this.nextState, this.previousState];
     }
 
     this.imageA = this.images[0].image;
-    this.slideA.nativeElement.style.backgroundColor = this.images[0].color;
+    this.slideA.nativeElement.style.backgroundImage = this.images[0].image;
+    // this.slideA.nativeElement.style.backgroundColor = this.images[0].color;
+    this.slideA.nativeElement.style.backgroundSize = 'cover';
 
     this.imageB = this.images[1].image;
     this.slideB.nativeElement.style.backgroundColor = this.images[1].color;
@@ -126,27 +128,27 @@ export class ImageCarouselComponent implements AfterContentInit {
   ngAfterViewInit(): void {
   }
 
-  constructor(private slider:ElementRef) {
+  constructor(private slider: ElementRef) {
   }
 
   public done(index: number) {
-    if(this.animationLevel > 0) {
+    if (this.animationLevel > 0) {
       this.animationLevel -= 1;
     }
   }
 
   public previous() {
-    if(this.animationLevel == 0) {
+    if (this.animationLevel == 0) {
       this.animationLevel = 3;
       this.setup(false);
-    } 
+    }
   }
 
   public next() {
-    if(this.animationLevel == 0) {
+    if (this.animationLevel == 0) {
       this.animationLevel = 3;
       this.setup(true);
-    } 
+    }
   }
 
   private previousIndex(): number {
@@ -158,7 +160,7 @@ export class ImageCarouselComponent implements AfterContentInit {
   }
 
   private set(index: number, image: string, color: string) {
-      switch(index) {
+      switch (index) {
         case 0:
           this.imageA = image;
           this.slideA.nativeElement.style.backgroundColor = color;
@@ -175,22 +177,22 @@ export class ImageCarouselComponent implements AfterContentInit {
   }
 
   private hidden(index: number, hidden: boolean) {
-      switch(index) {
+      switch (index) {
         case 0:
-          this.slideA.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.slideA.nativeElement.style.visibility = hidden ? 'hidden' : 'visible';
           break;
         case 1:
-          this.slideB.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.slideB.nativeElement.style.visibility = hidden ? 'hidden' : 'visible';
           break;
         case 2:
-          this.slideC.nativeElement.style.visibility = hidden ? "hidden" : "visible";
+          this.slideC.nativeElement.style.visibility = hidden ? 'hidden' : 'visible';
           break;
       }
   }
 
   private setup(forward: boolean) {
 
-    if(forward) {
+    if (forward) {
 
       this.index = (this.index + 1) % this.images.length;
 
@@ -199,7 +201,7 @@ export class ImageCarouselComponent implements AfterContentInit {
       this.hidden(this.previousIndex(), true);
 
       let last = this.states[this.states.length - 1];
-      for(let i = this.states.length - 1; i > 0; i-=1) {
+      for (let i = this.states.length - 1; i > 0; i -= 1) {
         this.states[i] = this.states[i - 1];
       }
       this.states[0] = last;
@@ -212,7 +214,7 @@ export class ImageCarouselComponent implements AfterContentInit {
       this.hidden(this.nextIndex(), true);
 
       let first = this.states[0];
-      for(let i = 1; i < this.states.length; i++) {
+      for (let i = 1; i < this.states.length; i++) {
         this.states[i - 1] = this.states[i];
       }
       this.states[this.states.length - 1] = first;

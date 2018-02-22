@@ -1,4 +1,39 @@
-<section class="container two-image-columns bg-white">
+<section class="container">
+  <div class="container two-image-columns bg-white">
+    <h3 *ngIf="header"
+      class="project-section--header">{{header}}</h3>
+    <figure class="half">
+      <p *ngIf="captionLT">{{captionLT}}</p>
+      <img src="{{left}}"
+        alt="left image" />
+
+    </figure>
+
+    <figure class="half">
+      <p *ngIf="captionRT">{{captionRT}}</p>
+      <img src="{{right}}"
+        alt="right image" />
+    </figure>
+  </div>
+</section>
+
+<section *ngIf="leftB"
+  class="container two-image-columns bg-white ">
+  <figure class="half">
+    <p *ngIf="captionLB">{{captionLB}}</p>
+    <img src="{{leftB}}"
+      alt="left image" />
+
+  </figure>
+
+  <figure class="half">
+    <p *ngIf="captionRT">{{captionRB}}</p>
+    <img src="{{rightB}}"
+      alt="right image" />
+  </figure>
+</section>
+
+<!-- <section class="container two-image-columns bg-white">
   <h3 *ngIf="header"
     class="project-section--header">{{header}}</h3>
   <figure class="half">
@@ -30,7 +65,7 @@
     <img src="{{rightB}}"
       alt="right image" />
   </figure>
-</section>
+</section> -->
 <!-- <div *ngFor="let image of this.images">
 {{image}}
 </div> -->

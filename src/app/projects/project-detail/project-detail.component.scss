@@ -1,3 +1,31 @@
+:host(project-section-image-full) {
+  /deep/ markdown {
+    p {
+      color: orange;
+      max-width: 500px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+:host(project-section-two-images) {
+  /deep/ markdown {
+    p {
+      color: red;
+      max-width: 500px;
+      // margin-bottom: 25px;
+    }
+  }
+}
+
+markdown {
+  p {
+    max-width: 200px;
+    margin-bottom: 25px;
+    border: 5px solid orange;
+  }
+}
+
 dl {
   overflow: hidden;
   margin: 0 0 1em;
@@ -461,6 +489,18 @@ footer {
   }
 }
 
+// .full-width-image.full markdown {
+//   margin: 0 auto;
+//   max-width: 575px;
+//   padding: 4em 0 0;
+//   border: 3px solid purple;
+//   p {
+//     border: 4px solid red;
+//   }
+//   p:last-of-type {
+//     // margin-bottom: 1em;
+//   }
+// }
 .two-column-pattern {
   background-image: url(/wp-content/themes/holmesstructures/_ui/img/global/bg-pattern.jpg);
   background-size: cover;
