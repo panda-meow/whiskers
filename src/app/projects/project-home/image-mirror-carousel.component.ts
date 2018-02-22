@@ -288,9 +288,15 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   @ViewChildren("slideb") slideB: QueryList<ElementRef>;
   @ViewChildren("slidec") slideC: QueryList<ElementRef>;
 
-  public imageA: String
-  public imageB: String
-  public imageC: String
+  @Input()
+  imageWidth: number;
+
+  @Input()
+  imageHeight: number;
+
+  public imageA: String;
+  public imageB: String;
+  public imageC: String;
 
   @Input()
   images: string[]
@@ -312,6 +318,16 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   }
 
   ngAfterViewInit(): void {
+
+    /*var image = new Image();
+    image.src = "http://localhost:4200/assets/heros/slide-2.svg";
+
+    var width = image.width,
+    201 150
+        height = image.height;
+
+    console.log("width: " + width + " " + height);*/
+
     this.updateWindow();
 
     this.hidden(1, false);
@@ -323,8 +339,28 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
   }
 
   public updateWindow() {
+
+    let w = this.slider.nativeElement.offsetWidth;
+    let h = this.slider.nativeElement.offsetHeight;
+
+    console.log("w: " + w + " h: " + h);
+
+    let height;
+    let width;
+
+    if (h > w) {
+      height = h;
+      width = this.imageWidth/this.imageHeight * h;
+    } else {
+      width = w;
+      height = this.imageHeight/this.imageWidth * w;
+    }
+
+    let size = width + 'px ' + height + 'px';
+
     this.slideA.toArray().forEach((element, i) => {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
+        element.nativeElement.style.backgroundSize = size;
         element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
         element.nativeElement.style.display = "block";
         element.nativeElement.style.height = "10%";
@@ -332,16 +368,20 @@ export class ImageMirrorCarouselComponent implements AfterContentInit, AfterView
 
     this.slideB.toArray().forEach((element, i) => {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
+        element.nativeElement.style.backgroundSize = size;
         element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
         element.nativeElement.style.display = "block";
         element.nativeElement.style.height = "10%";
     });
     this.slideC.toArray().forEach((element, i) => {
         let y = -(this.slider.nativeElement.offsetHeight / 10) * (i % 10);
+        element.nativeElement.style.backgroundSize = size;
         element.nativeElement.style.backgroundPosition = '50% ' + y + 'px';
         element.nativeElement.style.display = "block";
         element.nativeElement.style.height = "10%";
     });
+    //console.log(this.slideA.toArray()[0].nativeElement.style.backgroundSize.width);
+    //console.log(this.slider.nativeElement.offsetWidth + " " + this.slider.nativeElement.offsetHeight);
   }
 
   public done(index: number) {
