@@ -1,3 +1,31 @@
+:host(project-section-image-full) {
+  /deep/ markdown {
+    p {
+      color: orange;
+      max-width: 500px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+:host(project-section-two-images) {
+  /deep/ markdown {
+    p {
+      color: red;
+      max-width: 500px;
+      // margin-bottom: 25px;
+    }
+  }
+}
+
+markdown {
+  p {
+    max-width: 200px;
+    margin-bottom: 25px;
+    border: 5px solid orange;
+  }
+}
+
 dl {
   overflow: hidden;
   margin: 0 0 1em;
@@ -331,7 +359,7 @@ section {
 }
 
 .btn {
-  background-color: #f89a21;
+  background-color: #435273;
   border: 0;
   color: #fff;
   cursor: pointer;
@@ -371,7 +399,7 @@ section {
 }
 
 footer {
-  background-color: #f89a21;
+  background-color: #435273;
   color: #fff;
   padding-bottom: 2em;
   padding-top: 2em;
@@ -384,7 +412,7 @@ footer {
     }
   }
   .logo {
-    background-color: #f89a21;
+    background-color: #435273;
     display: block;
     height: 48px;
     margin: 0 auto;
@@ -456,11 +484,23 @@ footer {
   margin: 0 auto;
   max-width: 575px;
   padding: 4em 0 0;
-  p:last-of-type {
-    // margin-bottom: 1em;
-  }
+  // p:last-of-type {
+  // margin-bottom: 1em;
+  // }
 }
 
+// .full-width-image.full markdown {
+//   margin: 0 auto;
+//   max-width: 575px;
+//   padding: 4em 0 0;
+//   border: 3px solid purple;
+//   p {
+//     border: 4px solid red;
+//   }
+//   p:last-of-type {
+//     // margin-bottom: 1em;
+//   }
+// }
 .two-column-pattern {
   background-image: url(/wp-content/themes/holmesstructures/_ui/img/global/bg-pattern.jpg);
   background-size: cover;
@@ -513,7 +553,7 @@ footer {
   .copy {
     padding: 4em 5% 2em;
     .h5 {
-      color: #f89a21;
+      color: #435273;
       margin-bottom: 3em;
     }
     .subtext {
@@ -711,7 +751,7 @@ footer {
     a {
       &:focus,
       &:hover {
-        color: #f89a21;
+        color: #435273;
       }
       &:focus img,
       &:hover img {
@@ -761,7 +801,7 @@ footer {
       }
       &:focus h3,
       &:hover h3 {
-        color: #f89a21;
+        color: #435273;
       }
     }
   }
@@ -774,7 +814,7 @@ footer {
     overflow: hidden;
     .h5 {
       float: left;
-      color: #f89a21;
+      color: #809bd6;
     }
     p {
       float: right;
@@ -811,7 +851,7 @@ footer {
         }
         &:focus h3,
         &:hover h3 {
-          color: #f89a21;
+          color: #435273;
         }
       }
     }

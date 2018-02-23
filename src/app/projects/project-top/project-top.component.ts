@@ -56,25 +56,25 @@ export class HeroCaptionComponent {
   @Input()
   slide: Slide;
 
-  @ViewChildren("circle") circles: QueryList<ElementRef>;
+  @ViewChildren('circle') circles: QueryList<ElementRef>;
 
-  private index: number = 0;
+  private index = 0;
 
   constructor() {}
 
   public next() {
     console.log(this.circles.length);
-    this.circles.toArray()[this.index].nativeElement.className = ""
+    this.circles.toArray()[this.index].nativeElement.className = '';
     let index = this.index + 1;
     this.index = index % this.circles.length;
-    this.circles.toArray()[this.index].nativeElement.className = "enabled"
+    this.circles.toArray()[this.index].nativeElement.className = 'enabled';
   }
 
   public previous() {
-    this.circles.toArray()[this.index].nativeElement.className = ""
+    this.circles.toArray()[this.index].nativeElement.className = '';
     let index = this.index - 1;
     this.index = index < 0 ? this.circles.length - 1 : index;
-    this.circles.toArray()[this.index].nativeElement.className = "enabled"
+    this.circles.toArray()[this.index].nativeElement.className = 'enabled';
   }
 }
 
@@ -93,10 +93,10 @@ export class ProjectTopComponent implements AfterViewInit {
   _projects: Project[];
   featured: Observable<Project[]>;
 
-  message: String = "Foo";
-  private index: number = 0;
+  message: String = 'Foo';
+  private index = 0;
 
-  slide: Slide
+  slide: Slide;
 
   isMoving: Boolean = false;
   _slides: Slide[] = [
@@ -121,15 +121,15 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   get _thumbnails(): ImageSlide[] {
-    return this._projects.map(project => { return new ImageSlide(this.thumbnailURL(project), "rgb(37, 37, 37)", null); });
+    return this._projects.map(project => { return new ImageSlide(this.thumbnailURL(project), 'rgb(37, 37, 37)', null); });
   }
 
   get _tiles(): ImageSlide[] {
     return [
-      new ImageSlide("//:0", "rgb(75,160,75)", "Hello"),
-      new ImageSlide("//:0", "rgb(16,121,232)", 'Goodbye'),
-      new ImageSlide('//:0', "red", "Test"),
-      new ImageSlide("//:0", "rgb(254,177,2)", "Foo")
+      new ImageSlide('assets/heros/corner-01.svg', 'rgb(75,160,75)', 'Hello'),
+      new ImageSlide('assets/heros/corner-02.svg', 'rgb(16,121,232)', 'Goodbye'),
+      new ImageSlide('//:0', 'red', 'Test'),
+      new ImageSlide('//:0', 'rgb(254,177,2)', 'Foo')
     ];
   }
 
@@ -156,7 +156,7 @@ export class ProjectTopComponent implements AfterViewInit {
     this.projects = this.projectService.getAllProjects().share();
     this.projects.subscribe(projects => {
       this._projects = projects;
-    })
+    });
     this.featured = this.projects.take(3);
     this.lastTransition = Date.now();
     this.slide = this._slides[0];
@@ -173,7 +173,7 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   public navigateTo(project: Project)  {
-    if(project == null) {
+    if (project == null) {
       this.router.navigate(['/projects']);
     } else {
       this.router.navigate(['/projects/' + project.id]);
@@ -196,7 +196,7 @@ export class ProjectTopComponent implements AfterViewInit {
     let carouselReady = true;
 
     this.imageCarousels.forEach(carousel => {
-      if(!carousel.isReady) {
+      if (!carousel.isReady) {
         carouselReady = false;
       }
     });

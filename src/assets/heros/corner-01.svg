@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 961 961">
+  <title>corner-shape</title>
+  <g id="Layer_4" data-name="Layer 4">
+    <g>
+      <rect y="3" width="961" height="961" style="fill: #727272"/>
+      <g>
+        <polyline points="186.67 874 186.67 189.67 871 189.67" style="fill: #fd8f54"/>
+        <polyline points="961 279.67 961 964 276.67 964" style="fill: #fd8f54"/>
+      </g>
+    </g>
+  </g>
+</svg>

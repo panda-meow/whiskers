@@ -34,7 +34,7 @@ export class ProjectListComponent {
 
     this.projectService.getAllProjects().subscribe((projects: Array<Project>) => {
       this.projects = projects.sort((a, b) => {
-        return a.name.localeCompare(b.name);
+        return b.name.localeCompare(a.name);
       });
     });
   }

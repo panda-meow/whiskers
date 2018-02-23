@@ -41,27 +41,58 @@
       <div *ngIf="!isProjectDetail"
         fxFlex
         class="text-right">
-        <button mat-button
+        <button fxShow
+          fxHide.xs
+          mat-button
           (click)="seeProjects();">PROJECTS</button>
         <a mat-button
+          fxShow
+          fxHide.xs
           *ngFor="let item of menuItems"
           routerLink="{{item.link}}">
                     {{item.name | uppercase}}
                 </a>
+        <button fxShow.xs
+          fxHide.gt-xs
+          mat-icon-button
+          [matMenuTriggerFor]="mainMenu"><mat-icon>menu</mat-icon></button>
+        <mat-menu #mainMenu="matMenu">
+          <button (click)="seeProjects();"
+            mat-menu-item>PROJECTS</button>
+          <button *ngFor="let item of menuItems"
+            mat-menu-item
+            routerLink="{{item.link}}">  {{item.name | uppercase}}</button>
+        </mat-menu>
+
       </div>
       <div *ngIf="isProjectDetail"
         fxFlex
         class="text-right">
         <!-- <app-search-bar></app-search-bar> -->
-        <button mat-button
-          [matMenuTriggerFor]="menu">PROJECTS</button>
-        <mat-menu #menu="matMenu">
+        <button fxShow
+          fxHide.xs
+          mat-button
+          [matMenuTriggerFor]="projectMenu">PROJECTS</button>
+        <mat-menu #projectMenu="matMenu">
           <button (click)="seeProjects();"
             mat-menu-item>All Projects</button>
           <button *ngFor="let project of projects"
             mat-menu-item
             (click)="seeProjectDetails(project);">{{project.title}}</button>
         </mat-menu>
+
+        <button fxShow.xs
+          fxHide.gt-xs
+          mat-icon-button
+          [matMenuTriggerFor]="mainMenu"><mat-icon>menu</mat-icon></button>
+        <mat-menu #mainMenu="matMenu">
+          <button (click)="seeProjects();"
+            mat-menu-item>PROJECTS</button>
+          <button *ngFor="let item of menuItems"
+            mat-menu-item
+            routerLink="{{item.link}}">  {{item.name | uppercase}}</button>
+        </mat-menu>
+
       </div>
       <!-- <button mat-icon-button -->
       <!-- (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->

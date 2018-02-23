@@ -11,6 +11,8 @@ export class ProjectSectionImageFullComponent {
     @Input()
     image: String;
     @Input()
+    content: String;
+    @Input()
     header: string;
     constructor() {}
 
