@@ -4,7 +4,10 @@
   <figure class="full-width-image full ">
     <h3 *ngIf="header"
       class="project-section--header">{{header}}</h3>
-    <img src="{{image}}"
-      alt=" " />
+    <img *ngIf="!isVideo" src="{{image}}">
+    <video *ngIf="isVideo" muted autoplay>
+      <source src="{{image}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </figure>
 </section>

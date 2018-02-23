@@ -13,4 +13,8 @@ export class ProjectSectionImageFullComponent {
     @Input()
     header: string;
     constructor() {}
+
+    public get isVideo(): boolean {
+      return this.image.endsWith('.mp4');
+    }
 }
