@@ -1,10 +1,10 @@
-import { Component, ViewChild, Input, AfterContentInit, ElementRef } from "@angular/core";
-import { transition, state, animate, style, trigger } from "@angular/animations";
-import { Project } from "../shared/project.model";
+import { Component, ViewChild, Input, AfterContentInit, ElementRef } from '@angular/core';
+import { transition, state, animate, style, trigger } from '@angular/animations';
+import { Project } from '../shared/project.model';
 
 
 export class ImageSlide {
-  public constructor(public image: string = "//:0", public color: string = "clear", public message: string) {}
+  public constructor(public image = '//:0', public color = 'clear', public message: string) {}
 }
 
 @Component({
@@ -73,19 +73,19 @@ export class ImageSlide {
 
 export class ImageCarouselComponent implements AfterContentInit {
 
-  @ViewChild("slidea") slideA;
+  @ViewChild('slidea') slideA;
   @ViewChild('slideb') slideB;
   @ViewChild('slidec') slideC;
 
-  public imageA: String
-  public imageB: String
-  public imageC: String
+  public imageA: String;
+  public imageB: String;
+  public imageC: String;
 
   @Input()
   images: ImageSlide[];
 
   @Input()
-  vertical: boolean
+  vertical: boolean;
 
   public states: String[] = ['current', 'next', 'previous'];
   private animationLevel = 0;
