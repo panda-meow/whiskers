@@ -27,7 +27,7 @@ export class AppComponent {
     this.translateService.setDefaultLang('en');
     this.translateService.use('en');
 
-    this.title.setTitle('Angular Example App');
+    this.title.setTitle('Chelsea Pattee | Professional Portfolio');
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
 
@@ -53,7 +53,7 @@ export class AppComponent {
           case '/':
             this.meta.updateTag({
               name: 'description',
-              content: 'Angular Example app with Angular CLI, Angular Material and more'
+              content: 'Chelsea Pattee | Professional Portfolio. Built with Angular CLI, Angular Material and more'
             });
             break;
           case '/' + AppConfig.routes.projects:
