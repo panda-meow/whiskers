@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2253 1233">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="-8.64" y="5" width="463.64" height="456" transform="translate(446.36 466) rotate(180)" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>corner-03</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <g>
+        <path d="M2247.81,463.67A788.42,788.42,0,0,0,2033,434c-412.31,0-749.61,316.32-777.34,716.67h992.13Z" style="fill: #fd8f54"/>
+        <path d="M2247.81,542A788.42,788.42,0,0,0,2033,512.33c-412.31,0-749.61,316.32-777.34,716.67h992.13Z" style="fill: #727272"/>
+        <circle cx="1419.32" cy="593.32" r="39.16" style="fill: #dcaa52"/>
+      </g>
+      <circle cx="1880.26" cy="915.68" r="198.84" style="fill: #9b9b9b"/>
+    </g>
+  </g>
+  <g id="Layer_4" data-name="Layer 4">
+    <g style="clip-path: url(#clip-path)">
+      <rect x="-8.01" y="5" width="463.64" height="456" transform="translate(447.63 466) rotate(180)" style="fill: #c9c9c9"/>
+      <ellipse cx="107.91" cy="84.55" rx="192.97" ry="189.79" style="fill: #aaa"/>
+    </g>
+    <polyline points="-20.9 1232.9 137 1075 294.9 1232.9" style="fill: #fd8f54"/>
+    <polyline points="424.21 1233 554.1 1103.1 684 1233" style="fill: #fd8f54"/>
+    <polyline points="85.6 1236.4 297 921 527.4 1249.4" style="fill: #fd8f54"/>
+  </g>
+</svg>

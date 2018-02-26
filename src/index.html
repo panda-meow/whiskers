@@ -32,6 +32,15 @@
     <!-- <link rel="canonical" -->
     <!-- href="http://angularexampleapp.com/"> -->
     <link rel="icon"
+      type="image/png"
+      href="http://http(s)://www.ChelseaPattee.com/favicon-32x32.png"
+      sizes="32x32" />
+    <link rel="icon"
+      type="image/png"
+      href="http://http(s)://www.ChelseaPattee.com/favicon-16x16.png"
+      sizes="16x16" />
+
+    <link rel="icon"
       type="image/x-icon"
       href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
@@ -49,11 +58,21 @@
 
     <app-root>
       <div class="loading-page">
-        <div class="spinner">
+        <!-- <div class="spinner">
           <div class="sk-cube1 sk-cube"></div>
           <div class="sk-cube2 sk-cube"></div>
           <div class="sk-cube4 sk-cube"></div>
           <div class="sk-cube3 sk-cube"></div>
+        </div> -->
+        <div class="spinner">
+          <svg class="cube"
+            width="350"
+            height="200"
+            viewBox="0 0 350 200">
+            <path class="lt" d="M 100 50 L 50 100 L 100 150"></path>
+            <path class="slash" d="M 150 175 L 200 25"></path>
+            <path class="gt" d="M 250 50 L 300 100 L 250 150"></path>
+          </svg>
         </div>
       </div>
 

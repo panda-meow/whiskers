@@ -1,87 +1,23 @@
-<div id="project-top">
-  <!-- <div id="mdd-header"> -->
-  <!-- <div id="mdd-header"> -->
-  <!-- <a href="https://morenodd.com/laboratory"
-      class="back">
-      <svg id="icon-arrow"
-        viewBox="0 0 24 24"
-        width="100%"
-        height="100%">
-          <title>arrow</title>
-          <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "></polygon>
-      </svg>
-    </a>
-    <h1>Cutted Slider</h1>
-  </div-->
+<div class="div-mark">
+  <img src="assets/images/logo-white.svg">
+</div>
+<div class="div-info">
+  <h1 fxShow.gt-sm
+    fxHide.sm
+    fxHide.xs>Hello! I am Chelsea.<br>Interaction &amp; Product Designer.<br>Occasional programmer. Always creative.</h1>
+  <h1 fxShow.lt-sm
+    fxHide.gt-sm>Hello! I am Chelsea.<br>Interaction &amp; Product Designer.<br>Occasional programmer. Always creative.</h1>
+  <p fxShow.gt-sm
+    fxHide.sm
+    fxHide.xs>I specialize in simplifying the complex, seen in my work <a routerLink="/projects">Projects</a>.
+    <br>Feel free to <a routerLink="/contact">contact me</a> or connect with me on <a href="http://www.linkedin.com/in/chelseapattee">LinkedIn</a>.</p>
+  <p fxShow.lt-sm
+    fxHide.gt-sm>I specialize in simplifying the complex, seen in my work <a routerLink="/projects">Projects</a>.
+    <br>Feel free to <a routerLink="/contact">contact me</a> or connect with me on <a href="http://www.linkedin.com/in/chelseapattee">LinkedIn</a>.</p>
+</div>
 
-  <!--<div fxFlex
-      fxLayout="row"
-      fxLayoutAlign="center center"
-      fxFlexAlign="center"
-      fxShow
-      fxHide.xs
-      class="home-link">
-      <h1 fxLayoutAlign="center center"
-        id="glow"
-        class="navbar-brand"><img src="assets/images/logo-white.svg">CHELSEA PATTEE</h1>
-    </div>
-    <div fxFlex
-      fxShow.xs
-      fxHide.gt-xs
-      class="home-link"
-      class="text-left">
-      <h1 id="glow"
-        class="navbar-brand"><img src="assets/images/logo-white.svg"></h1>
-    </div>-->
 
-  <!-- </div> -->
-
-  <!-- <div id="mdd-share">
-    <a href="#"
-      id="mdd-share--open"><i class="fa fa-share-alt"></i></a>
-    <div id="mdd-share--layer">
-      <a href="#"
-        id="mdd-share--close"></a>
-      <div class="wrapper">
-        <div class="inner">
-          <div>
-            <div>
-              <h3>SHARE ON</h3>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=https://morenodd.com/lab/cutted-slider"
-                class="md-share"><i class="fa fa-facebook"></i></a>
-              <a href="https://twitter.com/share?text=Cutted%20Slider%20&url=https://morenodd.com/lab/cutted-slider"
-                class="md-share"><i class="fa fa-twitter"></i></a>
-            </div>
-
-            <div>
-              <h3>FIND ME</h3>
-              <a href="https://facebook.com/itsmorenodd"
-                target="_blank"><i class="fa fa-facebook"></i></a>
-              <a href="https://dribbble.com/morenodd"
-                target="_blank"><i class="fa fa-dribbble"></i></a>
-              <a href="https://github.com/morenodd/"
-                target="_blank"><i class="fa fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!--<div class="social">
-    <ul>
-      <li>
-        <span>Facebook</span>
-      </li>
-      <li>
-        <span>Instagram</span>
-      </li>
-      <li>
-        <span>Twitter</span>
-      </li>
-    </ul>
-  </div>-->
-
+<!-- <div id="project-top">
   <div #mirrorSlider
     id="mirror-slider">
     <hero-caption [slide]="slide"></hero-caption>
@@ -107,8 +43,6 @@
     <div class="boxes"
       fxHide.lt-sm
       fxLayout.sm="column">
-      <!--<div *ngFor="let project of projects | async | slice:0:3; let i = index;"-->
-      <!-- <div class="box inner" style="background-color: green;"> -->
       <div id="color-slider-container"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
         <h1>{{message}}</h1>
@@ -117,47 +51,10 @@
         [vertical]="true"
         (click)="navigateCurrent()"
         style="width: 100%; height: 100%; z-index: -1;"
+
         [images]="_tiles">
       </image-carousel>
 
-      <!--<div class="inner" (click)="navigateTo(project)">
-          <div>
-            <span *ngIf="i == 0"
-              class="event"><i class="fa fa-sun-o" aria-hidden="true"></i> Projects</span>
-            <div class="img-round"><img style="height: 80px;
-              width: 80px;
-              border-radius: 50%;
-              flex-shrink: 0;
-              background-size: cover;"
-                [ngStyle]="{
-                'background-image': 'url(\'' + thumbnailURL(project) + '\')'
-              }"></div>
-            <h4>{{project.title}}</h4>
-            <p>{{project.attributes.caption}}</p>
-            <ul *ngIf="i == 0">
-              <li><span></span></li>
-              <li><span></span></li>
-              <li><span></span></li>
-            </ul>
-          </div>
-        </div>-->
-      <!-- </div> -->
-      <!--<div class="box">
-        <div class="inner">
-          <div>
-            <h4>Cateline</h4>
-            <p>26 May, Hall of fame</p>
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="inner">
-          <div>
-            <h4>Zarya</h4>
-            <p>26 May, Hall of fame</p>
-          </div>
-        </div>
-      </div>-->
     </div>
 
     <div class="thumbs">
@@ -183,21 +80,4 @@
     </div>
   </div>
 </div>
-
-
-
-<!--<script>
-  (function(i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
-          (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-          m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-8408392-25', 'auto');
-  ga('send', 'pageview');
-</script>-->
+ -->

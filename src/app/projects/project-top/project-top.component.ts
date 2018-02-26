@@ -63,18 +63,18 @@ export class HeroCaptionComponent {
   constructor() {}
 
   public next() {
-    console.log(this.circles.length);
-    this.circles.toArray()[this.index].nativeElement.className = '';
-    let index = this.index + 1;
-    this.index = index % this.circles.length;
-    this.circles.toArray()[this.index].nativeElement.className = 'enabled';
+    // console.log(this.circles.length);
+    // this.circles.toArray()[this.index].nativeElement.className = '';
+    // let index = this.index + 1;
+    // this.index = index % this.circles.length;
+    // this.circles.toArray()[this.index].nativeElement.className = 'enabled';
   }
 
   public previous() {
-    this.circles.toArray()[this.index].nativeElement.className = '';
-    let index = this.index - 1;
-    this.index = index < 0 ? this.circles.length - 1 : index;
-    this.circles.toArray()[this.index].nativeElement.className = 'enabled';
+    // this.circles.toArray()[this.index].nativeElement.className = '';
+    // let index = this.index - 1;
+    // this.index = index < 0 ? this.circles.length - 1 : index;
+    // this.circles.toArray()[this.index].nativeElement.className = 'enabled';
   }
 }
 
@@ -128,8 +128,8 @@ export class ProjectTopComponent implements AfterViewInit {
     return [
       new ImageSlide('assets/heros/corner-01.svg', 'rgb(75,160,75)', 'Hello'),
       new ImageSlide('assets/heros/corner-02.svg', 'rgb(16,121,232)', 'Goodbye'),
-      new ImageSlide('//:0', 'red', 'Test'),
-      new ImageSlide('//:0', 'rgb(254,177,2)', 'Foo')
+      new ImageSlide('assets/heros/thumb-1.jpg', 'red', 'Test'),
+      new ImageSlide('assets/heros/corner-04.svg', 'rgb(254,177,2)', 'Foo')
     ];
   }
 
@@ -163,9 +163,9 @@ export class ProjectTopComponent implements AfterViewInit {
   }
 
   private checkTimer() {
-    if ((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
-      this.transition(true);
-    }
+    // if ((Date.now() - this.lastTransition) > this.CAROUSEL_AUTOPLAY_INTERVAL_MS) {
+    //   this.transition(true);
+    // }
   }
 
   public navigateCurrent() {
@@ -180,14 +180,18 @@ export class ProjectTopComponent implements AfterViewInit {
     }
   }
 
+  public navigateToProjects()  {
+      this.router.navigate(['/projects']);
+    }
+
   private updateWindow() {
     let height = window.innerHeight - 300;
     if (height % 2 === 1) {
         height++;
     }
-    this.slider.nativeElement.style.height = height + 'px';
+    // this.slider.nativeElement.style.height = height + 'px';
 
-    this.mirror.updateWindow();
+    // this.mirror.updateWindow();
   }
 
 
@@ -195,11 +199,11 @@ export class ProjectTopComponent implements AfterViewInit {
 
     let carouselReady = true;
 
-    this.imageCarousels.forEach(carousel => {
-      if (!carousel.isReady) {
-        carouselReady = false;
-      }
-    });
+    // this.imageCarousels.forEach(carousel => {
+    //   if (!carousel.isReady) {
+    //     carouselReady = false;
+    //   }
+    // });
 
 
     if (this.mirror.isReady && carouselReady && this.captions.isReady) {

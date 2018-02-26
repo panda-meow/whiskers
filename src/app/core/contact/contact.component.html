@@ -1,14 +1,28 @@
-<div class="container">
-  <div class="container-inner">
+<div class="container"
+  fxLayout="col"
+  fxLayoutAlign="center center">
+  <!-- <div fxFlex="100%"
+    fxFlexAlign="center">
+    <h2>test center</h2>
+  </div> -->
+  <div class="container-inner"
+    fxLayout="row"
+    fxLayoutWrap
+    fxFlex="100%"
+    fxFlexAlign="center"
+    fxLayoutAlign="center center">
     <h1>{{'{contact}'}} <span>me</span>.</h1>
-    <nav>
-      <ul>
-        <li><a href="#">T</a></li>
-        <li><a href="#">s</a></li>
-        <li><a href="#">g</a></li>
-        <li><a href="#">+</a></li>
-        <li><a href="#">R</a></li>
-      </ul>
-    </nav>
+    <div fxLayout="row"
+      fxFlex="100"
+      fxLayoutAlign="center center">
+      <nav>
+        <ul>
+          <li><a href="mailto:chelseapattee@gmail.com"><i class="icon-mail"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/chelseapattee/"><i class="icon-linkedin"></i></a></li>
+          <li><a href="https://www.instagram.com/electricalbananas/"><i class="icon-instagrem"></i></a></li>
+          <li><a href="https://www.behance.net/chelseapattee"><i class="icon-behance"></i></a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>

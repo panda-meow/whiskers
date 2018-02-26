@@ -1,12 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 961 961">
-  <title>corner-shape</title>
-  <g id="Layer_4" data-name="Layer 4">
-    <g>
-      <rect y="3" width="961" height="961" style="fill: #727272"/>
-      <g>
-        <polyline points="186.67 874 186.67 189.67 871 189.67" style="fill: #fd8f54"/>
-        <polyline points="961 279.67 961 964 276.67 964" style="fill: #fd8f54"/>
-      </g>
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 961 1058.6" style="enable-background:new 0 0 961 1058.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#727272;}
+	.st1{fill:#FD8F54;}
+</style>
+<title>corner-shape</title>
+<g id="Layer_4">
+	<g>
+		<rect y="-2.1" class="st0" width="961" height="1063.7"/>
+		<g>
+			<polyline class="st1" points="186.7,971.6 186.7,287.3 871,287.3 			"/>
+			<polyline class="st1" points="961,377.3 961,1061.6 276.7,1061.6 			"/>
+		</g>
+	</g>
+</g>
 </svg>

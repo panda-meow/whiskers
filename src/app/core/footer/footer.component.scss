@@ -1,14 +1,14 @@
 footer {
   padding: 8px 16px;
   color: #ccc;
-  background: #222;
+  background: #191616;
   // margin-top: 2em;
   font-family: 'basis-grotesque-monobold';
   // font-family: 'Gear Proportion';
   position: sticky;
   top: 100%;
   img {
-    width: 25%;
+    // width: 25%;
     max-height: 25px;
   }
   span {
@@ -17,6 +17,6 @@ footer {
 }
 
 .footer-xs {
-  text-align: center;
+  // text-align: center;
   padding-top: 1em;
 }

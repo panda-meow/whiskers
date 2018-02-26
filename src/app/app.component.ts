@@ -32,10 +32,19 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
 
         switch (event.urlAfterRedirects) {
+          case '/':
+          // document.body.style.backgroundColor = '#F89A21';
+          document.body.style.backgroundImage = 'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)';
+
+          break;
           case '/projects':
             document.body.style.backgroundColor = '#5f5f5f';
+            document.body.style.backgroundImage = 'none';
             break;
+
           default:
+            // document.body.style.backgroundColor = '#ffffff';
+            document.body.style.backgroundImage = 'none';
             document.body.style.backgroundColor = '#ffffff';
             break;
         }

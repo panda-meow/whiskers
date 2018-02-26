@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1925.71 1506.04">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="-6.13" y="0.08" width="554.13" height="545" transform="translate(541.87 545.15) rotate(180)" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect x="258.36" y="296.08" width="463.64" height="456" transform="translate(980.44 1048.08) rotate(179.99)" style="fill: none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <rect x="449.36" y="481.08" width="352.64" height="346.83" transform="translate(1251.36 1308.98) rotate(180)" style="fill: none"/>
+    </clipPath>
+  </defs>
+  <title>corner-04</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g>
+      <g>
+        <path d="M1925.81,741.75A788.42,788.42,0,0,0,1711,712.08c-412.31,0-749.61,316.32-777.34,716.67h992.13Z" style="fill: #fd8f54"/>
+        <path d="M1925.81,820.08A788.42,788.42,0,0,0,1711,790.41c-412.31,0-749.61,316.32-777.34,716.67h992.13Z" style="fill: #727272"/>
+        <circle cx="1097.32" cy="871.4" r="39.16" style="fill: #dcaa52"/>
+      </g>
+      <circle cx="1558.26" cy="1193.76" r="198.84" style="fill: #9b9b9b"/>
+    </g>
+  </g>
+  <g id="Layer_4" data-name="Layer 4">
+    <g style="clip-path: url(#clip-path)">
+      <rect x="-5.37" y="0.08" width="554.13" height="545" transform="translate(543.39 545.15) rotate(180)" style="fill: #c9c9c9"/>
+      <ellipse cx="133.16" cy="95.15" rx="230.64" ry="226.83" style="fill: #aaa"/>
+    </g>
+    <g style="clip-path: url(#clip-path-2)">
+      <rect x="258.99" y="296.08" width="463.64" height="456" transform="translate(981.71 1048.08) rotate(179.99)" style="fill: #c9c9c9"/>
+      <ellipse cx="374.88" cy="375.64" rx="192.97" ry="189.79" style="fill: #aaa"/>
+    </g>
+    <g style="clip-path: url(#clip-path-3)">
+      <rect x="449.84" y="481.08" width="352.64" height="346.83" transform="translate(1252.33 1308.98) rotate(180)" style="fill: #c9c9c9"/>
+      <ellipse cx="538" cy="541.58" rx="146.77" ry="144.35" style="fill: #aaa"/>
+    </g>
+    <polyline points="2.1 1517.97 160 1360.08 317.9 1517.97" style="fill: #fd8f54"/>
+    <polyline points="447.21 1518.08 577.1 1388.18 707 1518.08" style="fill: #fd8f54"/>
+    <polyline points="108.6 1521.47 320 1206.08 550.4 1534.47" style="fill: #fd8f54"/>
+  </g>
+</svg>

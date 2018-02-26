@@ -81,13 +81,14 @@ export class ExperimentComponent {
 
      // Change when an element is considered in the viewport. The default value
      // of 0.20 means 20% of an element must be visible for its reveal to occur.
-     config.viewFactor = 0.1;
+     config.viewFactor = 0.03;
 
      // Pixel values that alter the container boundaries.
      // e.g. Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
      // --
      // Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
-     config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
+    //  config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
+     config.viewOffset = { top: 65, right: 0, bottom: 200, left: 0 };
 
      // other options here
   }

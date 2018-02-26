@@ -2,7 +2,7 @@
 
 <header [ngClass]="hide ? 'hideme' : 'visible'"
   [@scrollAnimation]="state">
-  <nav>
+  <nav *ngIf="!isHome">
     <!-- <div style="height:10px;  top:0px"></div> -->
     <div fxFlex
       fxLayout="row"
@@ -70,21 +70,20 @@
         class="text-right">
         <!-- <app-search-bar></app-search-bar> -->
         <button fxShow
-          fxHide.xs
           mat-button
-          [matMenuTriggerFor]="projectMenu">PROJECTS</button>
+          (click)="seeProjects();">PROJECTS</button>
+        <button mat-icon-button
+          [matMenuTriggerFor]="projectMenu"><mat-icon style="color: #e9e9e9">keyboard_arrow_down</mat-icon></button>
         <mat-menu #projectMenu="matMenu">
-          <button (click)="seeProjects();"
-            mat-menu-item>All Projects</button>
           <button *ngFor="let project of projects"
             mat-menu-item
             (click)="seeProjectDetails(project);">{{project.title}}</button>
         </mat-menu>
 
-        <button fxShow.xs
+        <!-- <button fxShow.xs
           fxHide.gt-xs
           mat-icon-button
-          [matMenuTriggerFor]="mainMenu"><mat-icon>menu</mat-icon></button>
+          [matMenuTriggerFor]="mainMenu"><mat-icon>menu</mat-icon></button> -->
         <mat-menu #mainMenu="matMenu">
           <button (click)="seeProjects();"
             mat-menu-item>PROJECTS</button>

@@ -1,7 +1,7 @@
 :host(project-section-image-full) {
   /deep/ markdown {
     p {
-      color: orange;
+      // color: orange;
       max-width: 500px;
       margin-bottom: 25px;
     }
@@ -52,7 +52,8 @@ dd {
   }
   dd {
     color: #fff;
-    font-size: 1.4em;
+    // font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 300;
     margin-bottom: 2em;
     /*&:last-child {

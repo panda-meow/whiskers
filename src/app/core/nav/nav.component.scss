@@ -14,7 +14,7 @@
       // padding-bottom: 50px;
       display: grid;
       header {
-        background: black;
+        background: #191616;
         position: fixed;
         z-index: 999;
         width: 100%;
@@ -139,6 +139,10 @@
       height: 32px;
     }
     
+    .mat-menu-panel {
+      background: #fff;
+    }
+    
     // @media (max-width: 680px) {
     @media screen and (min-width: 600px) and (max-width: 959px) {
        :host(app-nav) {
@@ -146,7 +150,7 @@
         // padding-top: 0;
         padding-bottom: 0px;
         header {
-          background: blue !important;
+          // background: blue !important;
           // position: relative;
           // nav {
           //   display: flex;
@@ -171,7 +175,7 @@
        :host(app-nav) {
         padding-bottom: 0;
         header {
-          background: red !important;
+          // background: red !important;
           nav {
             padding: 1em 2em 0;
             h1.navbar-brand {

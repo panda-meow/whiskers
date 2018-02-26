@@ -52,12 +52,40 @@
     fxLayout="row"
     fxLayoutAlign="space-around stretch"
     fxLayoutWrap> -->
-  <div class="grid"
+  <mat-grid-list cols="2"
+    rowHeight="250px"
+    gutterSize="3px"
+    fxShow.gt-xs
+    fxHide.xs>
+    <mat-grid-tile *ngFor="let project of projects; index as i;">
+      <!-- <mat-grid-tile-header>HEADER</mat-grid-tile-header> -->
+      <img src="{{headerURL(project)}}"
+        alt=""
+        (click)="seeProjectDetails(project);" />
+      <mat-grid-tile-footer fxHide.xs>{{project.title}}</mat-grid-tile-footer>
+      <!-- <p>{{project.title}}</p> -->
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list fxShow.xs
+    fxHide.gt-xs
+    cols="1"
+    rowHeight="250px"
+    gutterSize="3px">
+    <mat-grid-tile *ngFor="let project of projects; index as i;">
+      <!-- <mat-grid-tile-header>HEADER</mat-grid-tile-header> -->
+      <img src="{{headerURL(project)}}"
+        alt=""
+        (click)="seeProjectDetails(project);" />
+      <mat-grid-tile-footer>{{project.title}}</mat-grid-tile-footer>
+      <!-- <p>{{project.title}}</p> -->
+    </mat-grid-tile>
+  </mat-grid-list>
+  <!-- <div class="grid"
     fxLayout="row"
     fxLayoutAlign="center stretch"
     fxLayoutWrap
     style="padding-top: 80px; padding-bottom:80px;">
-    <figure class="effect-milo"
+    <figure class="effect-milo "
       *ngFor="let project of projects; index as i;"
       fxFlex="50"
       fxFlex.gt-sm="30"
@@ -67,13 +95,11 @@
         alt=""
         (click)="seeProjectDetails(project);" />
       <figcaption>
-        <!-- <h2>Faithful <span>Milo</span></h2> -->
-        <!-- <h2><span>{{project.title}}</span></h2> -->
         <p>{{project.title}}</p>
         <a (click)="seeProjectDetails(project);">View more</a>
       </figcaption>
     </figure>
-  </div>
+  </div> -->
 
 
 

@@ -1,5 +1,9 @@
 // $em: 16px;
 //default mixins
+.wrapper {
+  padding-top: 51px;
+}
+
 @mixin transformT($val...) {
   -ms-transform: translate($val);
   -moz-transform: translate($val);

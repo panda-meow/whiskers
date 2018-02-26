@@ -1,4 +1,10 @@
-::selection {
+// @font-face {
+//   font-family: "zocial";
+//   font-style: normal;
+//   // font-weight: 400;
+//   src: url('/assets/font/zocial/zocial.woff') format("woff");
+// }
+ ::selection {
   background-color: #b3d4fc;
 }
 
@@ -16,17 +22,16 @@ body {
 }
 
 .container {
-  position: fixed;
+  // position: fixed;
   width: 100%;
-  height: 100%;
-  display: table;
+  height: 100vh;
+  // display: table;
 }
 
-.container-inner {
-  display: table-cell;
-  vertical-align: middle;
-}
-
+// .container-inner {
+//   display: table-cell;
+//   vertical-align: middle;
+// }
 h1 {
   text: {
     align: center;
@@ -70,8 +75,8 @@ a {
   text-decoration: none;
   color: #111;
   font: {
-    // family: "zocial", sans-serif;
-    size: 24px;
+    family: 'entypo', sans-serif;
+    size: 24px !important;
   }
   transition: background-color 0.15s ease-in-out;
   &:hover {

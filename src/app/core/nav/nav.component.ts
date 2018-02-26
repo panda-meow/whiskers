@@ -24,11 +24,11 @@ import {
     trigger('scrollAnimation', [
       state('show', style({
         opacity: 1,
-        transform: 'translateX(0)',
+        // transform: 'translateX(0)',
       })),
       state('hide',   style({
-        // opacity: 0,
-        transform: 'translateY(-150%)'
+        opacity: 0.65,
+        // transform: 'translateY(-150%)'
       })),
       transition('show => hide', animate('700ms ease-out')),
       transition('hide => show', animate('800ms ease-out'))
@@ -45,7 +45,8 @@ export class NavComponent {
   Project: Project = <Project>{};
   state = 'show';
   lastScrollTop = 0;
-   dir = '';
+  dir = '';
+  showNav = true;
   private translateService: TranslateService;
 
   constructor(
@@ -78,9 +79,9 @@ export class NavComponent {
     // const blah = window.
 
     // scrollDirection = number;
-  console.log('component position ' + componentPosition);
-  console.log('scroll position' + scrollPosition);
-  console.log('scrollY ' + window.scrollY);
+  // console.log('component position ' + componentPosition);
+  // console.log('scroll position' + scrollPosition);
+  // console.log('scrollY ' + window.scrollY);
     // if (scrollPosition >= componentPosition) {
     //   this.state = 'hide';
     // } else {
@@ -91,19 +92,16 @@ export class NavComponent {
 
         this.dir = 'down';
         this.state = 'hide';
+        // this.showNav = false;
     } else {
              this.dir = 'up';
           this.state = 'show';
+          // this.showNav = true;
 
 
-        // this.state = 'show';
     }
     this.lastScrollTop = scrollPosition;
-    console.log('direction' + this.dir);
-  //  let  lastScrollTop = 0;
-    // direction: string = "";
-
-
+    // console.log('direction' + this.dir);
   }
 
   changeLanguage(language: string): void {
@@ -120,18 +118,24 @@ export class NavComponent {
     return window.location.pathname.startsWith('/projects/'); // A little hacky :(
   }
 
+  get isHome(): Boolean {
+//  console.log('isHome; ' + window.location.pathname == ('/') );
+
+    return window.location.pathname == ('/'); // A little hacky :(
+  }
+
   routeHome(): void {
       this._router.navigate(['']);
   }
 
   private loadMenus(): void {
-    this.translateService.get(['about', 'contact'], {}).subscribe((texts: any) => {
+    this.translateService.get(['contact'], {}).subscribe((texts: any) => {
       this.menuItems = [
     // this.translateService.get(['home', 'projectsList', 'about', 'contact'], {}).subscribe((texts: any) => {
     //   this.menuItems = [
         // {link: '/', name: texts['home']},
         // {link: '/' + AppConfig.routes.projects, name: texts['projectsList']},
-        {link: 'about', name: texts['about']},
+        // {link: 'about', name: texts['about']},
         {link: 'contact', name: texts['contact']}
       ];
     });

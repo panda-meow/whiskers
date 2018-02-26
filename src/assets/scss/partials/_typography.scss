@@ -7,6 +7,7 @@
  Licensed under  MIT
 \* * * * * * * * * * * * * * * * * * * * */
     
+    @import './_entypo';
     @font-face {
       font-family: "basis-grotesque";
       font-style: normal;
@@ -195,7 +196,8 @@
       // line-height: 1.16667em;
       padding-bottom: 20px;
       font-weight: 600;
-      color: #e9e9e9;
+      // color: #e9e9e9;
+      color: #d6d6d6;
       // font-size: 36px;
       text-transform: uppercase;
       font-weight: bold;
@@ -232,10 +234,18 @@
     }
     
     p {
-      font-size: 1.4em;
+      font-size: 1.3em;
       font-weight: 300;
       margin-bottom: 1em;
       line-height: 1.5em;
+      strong {
+        // color: red;
+        font-weight: 700;
+      }
+      em {
+        font-weight: 700;
+        font-style: italic;
+      }
       .large {
         font-size: 1.14286em;
         line-height: 1.5em;
@@ -285,7 +295,8 @@
       }
       .h3,
       h3 {
-        font-size: 2.8em;
+        // font-size: 2.8em;
+        font-size: 1.8em;
         line-height: 1.14286em;
       }
       .h4,
@@ -301,7 +312,7 @@
         line-height: 1.1425em;
       }
       p {
-        font-size: 1.4em;
+        font-size: 1.3em;
         .large {
           font-size: 1.3125em;
           line-height: 1.524em;

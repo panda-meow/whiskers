@@ -10,7 +10,7 @@ import { ProjectHomeComponent } from './projects/project-home/project-home.compo
 
 const routes: Routes = [
   // {path: '', redirectTo: '/', pathMatch: 'full'},
-  {path: '', component: ProjectTopComponent},
+  {path: '', component: ProjectTopComponent, pathMatch: 'full'},
   {path: 'carousel-test', component: ProjectHomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
@@ -23,7 +23,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {enableTracing: true})
   ],
   exports: [
     RouterModule

@@ -113,13 +113,16 @@ export class ImageCarouselComponent implements AfterContentInit {
       this.states = ['current', this.nextState, this.previousState];
     }
 
-    this.imageA = this.images[0].image;
+    // this.imageA = this.images[0].image;
     this.slideA.nativeElement.style.backgroundImage = this.images[0].image;
     // this.slideA.nativeElement.style.backgroundColor = this.images[0].color;
     this.slideA.nativeElement.style.backgroundSize = 'cover';
 
     this.imageB = this.images[1].image;
-    this.slideB.nativeElement.style.backgroundColor = this.images[1].color;
+    this.slideB.nativeElement.style.backgroundImage = this.images[1].image;
+    this.slideB.nativeElement.style.backgroundSize = 'cover';
+    // this.slideB.nativeElement.style.backgroundColor = this.images[1].color;
+
 
     this.imageC = this.images[2].image;
     this.slideC.nativeElement.style.backgroundColor = this.images[2].color;
