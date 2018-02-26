@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>protractor.conf.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" media="all" href="doc-style.css" />
+  <script src="doc-filelist.js"></script>
+  <script>
+    var relativeDir = "";
+    var thisFile = "protractor.conf.js";
+    var defaultSidebar = true;
+  </script>
+  <script src="doc-script.js"></script>
+
+</head>
+<body>
+  <div id="sidebar_wrapper">
+    <div id="sidebar_switch">
+      <span class="tree">Files</span>
+      <span class="headings">Headings</span>
+    </div>
+    <div id="tree"></div>
+    <div id="headings">
+
+    </div>
+  </div>
+  <div id="sidebar-toggle"></div>
+  <div id="container">
+    <div class="background highlight"></div>
+<table cellpadding="0" cellspacing="0">
+  <tbody>
+    
+      <tr>
+        <td class="docs">
+          <h1>protractor.conf.js</h1>
+        </td>
+        <td class="code highlight"></td>
+      </tr>
+    
+    
+      <tr>
+        <td class="docs">
+          <div class="pilwrap">
+  <a class="pilcrow" href="#section-1" id="section-1"></a>
+</div>
+
+        </td>
+        <td class="code highlight">
+          <pre class="javascript"><span class="hljs-keyword">const</span> {SpecReporter} = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jasmine-spec-reporter'</span>);
+
+exports.config = {
+  <span class="hljs-attr">allScriptsTimeout</span>: <span class="hljs-number">11000</span>,
+  <span class="hljs-attr">specs</span>: [
+    <span class="hljs-string">'./e2e/**/*.e2e-spec.ts'</span>
+  ],
+  <span class="hljs-attr">capabilities</span>: {
+    <span class="hljs-string">'browserName'</span>: <span class="hljs-string">'chrome'</span>
+  },
+  <span class="hljs-attr">directConnect</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">baseUrl</span>: <span class="hljs-string">'http://localhost:4200/'</span>,
+  <span class="hljs-attr">framework</span>: <span class="hljs-string">'jasmine'</span>,
+  <span class="hljs-attr">jasmineNodeOpts</span>: {
+    <span class="hljs-attr">showColors</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-attr">defaultTimeoutInterval</span>: <span class="hljs-number">30000</span>,
+    <span class="hljs-attr">print</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    }
+  },
+  <span class="hljs-attr">beforeLaunch</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">require</span>(<span class="hljs-string">'ts-node'</span>).register({
+      <span class="hljs-attr">project</span>: <span class="hljs-string">'e2e/tsconfig.e2e.json'</span>
+    });
+  },
+  onPrepare() {
+    jasmine.getEnv().addReporter(<span class="hljs-keyword">new</span> SpecReporter({<span class="hljs-attr">spec</span>: {<span class="hljs-attr">displayStacktrace</span>: <span class="hljs-literal">true</span>}}));
+  }
+};
+
+</pre>
+        </td>
+      </tr>
+    
+  </tbody>
+</table>
+
+  </div>
+</body>
+</html>

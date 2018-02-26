@@ -14,6 +14,7 @@ import {Error404Component} from './error404/error-404.component';
 import {AboutComponent} from './about/about.component';
 import {ContactComponent} from './contact/contact.component';
 import {ProgressBarService} from './progress-bar.service';
+import {ScrollTopService} from './scroll-top.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {ProgressBarService} from './progress-bar.service';
   ],
   providers: [
     LoggerService,
-    ProgressBarService
+    ProgressBarService,
+    ScrollTopService
   ]
 })
 

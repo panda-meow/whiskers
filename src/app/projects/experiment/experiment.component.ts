@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import {Project} from '../shared/project.model';
 import {ProjectSection} from '../shared/project-section.model';
 import {ProjectService} from '../shared/project.service';
+import {ScrollTopService} from '../../core/scroll-top.service';
 import {ActivatedRoute} from '@angular/router';
 import {NgsRevealConfig} from 'ng-scrollreveal';
 
@@ -11,7 +13,7 @@ import {NgsRevealConfig} from 'ng-scrollreveal';
     templateUrl: './experiment.component.html',
 })
 
-export class ExperimentComponent {
+export class ExperimentComponent implements OnInit, AfterViewInit {
     project: Project;
     related: Project[];
     sections: any[] = [
@@ -19,6 +21,7 @@ export class ExperimentComponent {
 
   constructor(private projectService: ProjectService,
               private activatedRoute: ActivatedRoute,
+              private ScrollTopService: ScrollTopService,
               config: NgsRevealConfig) {
     this.activatedRoute.params.subscribe((params: any) => {
       if (params['id']) {
@@ -46,7 +49,7 @@ export class ExperimentComponent {
 
      // Time in milliseconds.
      config.duration = 1e3;
-     config.delay =  0.2;
+     config.delay =  100;
 
      // Starting angles in degrees, will transition from these values to 0 in all axes.
      config.rotate = { x: 0, y: 0, z: 0 };
@@ -62,13 +65,15 @@ export class ExperimentComponent {
           // config.easing = 'cubic-bezier(0.645, 0.045, 0.355, 1)';
           config.easing = 'ease-in-out';
 
-     // `<html>` is the default reveal container. You can pass either:
-     // DOM Node, e.g. document.querySelector('.fooContainer')
-     // Selector, e.g. '.fooContainer'
-    //  config.container = window.document.documentElement;
+
+
+    // `<html>` is the default reveal container. You can pass either:
+// DOM Node, e.g. document.querySelector('.fooContainer')
+// Selector, e.g. '.fooContainer'
+// config.container = window.document.querySelector('experiment');
 
      // true/false to control reveal animations on mobile.
-     config.mobile = true;
+     config.mobile = false;
 
      // true:  reveals occur every time elements become visible
      // false: reveals occur once as elements become visible
@@ -81,7 +86,7 @@ export class ExperimentComponent {
 
      // Change when an element is considered in the viewport. The default value
      // of 0.20 means 20% of an element must be visible for its reveal to occur.
-     config.viewFactor = 0.03;
+     config.viewFactor = 0.1;
 
      // Pixel values that alter the container boundaries.
      // e.g. Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
@@ -104,4 +109,27 @@ export class ExperimentComponent {
   thumbnailURL(project: Project): string {
     return Project.thumbnailURL(project);
   }
+
+  ngOnInit() {
+    console.log('ngOnInit called.');
+    // setTimeout(function() {
+      console.log('In ngAfterViewInit before setinterval called.');
+      // call service
+      this.ScrollTopService.setScrollTop();
+    //  }, 1000);
+    // this.ScrollTopService.setScrollTop();
+  }
+
+  ngAfterViewInit() {
+    // setTimeout(function() {
+      // console.log('In ngAfterViewInit before setinterval called.');
+      // call service
+      // this.ScrollTopService.setScrollTop();
+    //  }, 1000);
+    // this.updateWindow();
+
+    // setInterval(() => this.ScrollTopService.setScrollTop(), 1000);
+    // console.log('In ngAfterViewInit after setinterval called.');
+  }
+
 }
