@@ -1,9 +1,11 @@
-@mixin progress-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
-    /* PROGRESS THEME */
-    /* END PROGRESS THEME */
-}
+/* PROGRESS THEME */
+
+// @mixin progress-theme($theme) {
+//   $primary: map-get($theme, primary);
+//   $accent: map-get($theme, accent);
+//   $warn: map-get($theme, warn);
+//   $background: map-get($theme, background);
+//   $foreground: map-get($theme, foreground);
+// }
+
+/* END PROGRESS THEME */

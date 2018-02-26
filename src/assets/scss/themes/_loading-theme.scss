@@ -1,10 +1,9 @@
-@mixin loading-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
     //// APP LOADING THEME //
-}
-
-// END APP LOADING THEME //
+    // @mixin loading-theme($theme) {
+    //     $primary: map-get($theme, primary);
+    //     $accent: map-get($theme, accent);
+    //     $warn: map-get($theme, warn);
+    //     $background: map-get($theme, background);
+    //     $foreground: map-get($theme, foreground);
+    // }
+    // END APP LOADING THEME //

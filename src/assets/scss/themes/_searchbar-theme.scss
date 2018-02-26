@@ -1,11 +1,9 @@
-@mixin searchbar-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    // $success: map-get($theme, success);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
     // SEARCHBAR THEME //
-}
-
-// END SEARCHBAR THEME //
+    // @mixin searchbar-theme($theme) {
+    //     $primary: map-get($theme, primary);
+    //     $accent: map-get($theme, accent);
+    //     $warn: map-get($theme, warn);
+    //     $background: map-get($theme, background);
+    //     $foreground: map-get($theme, foreground);
+    // }
+    // END SEARCHBAR THEME //

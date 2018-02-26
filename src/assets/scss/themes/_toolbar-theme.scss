@@ -1,22 +1,21 @@
-@mixin toolbar-theme($theme) {
-    $primary: map-get($theme, primary);
-    $accent: map-get($theme, accent);
-    $warn: map-get($theme, warn);
-    $background: map-get($theme, background);
-    $foreground: map-get($theme, foreground);
     // TOOLBAR THEME //
-    mat-toolbar {
-        // &.footer {
-        // background: mat-color($primary);
-        // mat-card-title-group,
-        // mat-card-title,
-        // mat-card-subtitle,
-        // mat-icon,
-        // // span {
-        // //   color: mat-color($primary, default-contrast);
-        // // }
-        // }
-    }
-}
-
-// END TOOLBAR THEME //
+    // @mixin toolbar-theme($theme) {
+    //     $primary: map-get($theme, primary);
+    //     $accent: map-get($theme, accent);
+    //     $warn: map-get($theme, warn);
+    //     $background: map-get($theme, background);
+    //     $foreground: map-get($theme, foreground);
+    //     mat-toolbar {
+    //         // &.footer {
+    //         // background: mat-color($primary);
+    //         // mat-card-title-group,
+    //         // mat-card-title,
+    //         // mat-card-subtitle,
+    //         // mat-icon,
+    //         // // span {
+    //         // //   color: mat-color($primary, default-contrast);
+    //         // // }
+    //         // }
+    //     }
+    // }
+    // END TOOLBAR THEME //
