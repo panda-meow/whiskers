@@ -85,7 +85,7 @@ $offWhite: rgba(240, 240, 240, 1);
 *:before,
 *:after {
   box-sizing: border-box;
-  @include transition(.7s all ease-in-out);
+  @include transition(.6s all ease-in-out);
 }
 
 /////////////////////////////////////////////

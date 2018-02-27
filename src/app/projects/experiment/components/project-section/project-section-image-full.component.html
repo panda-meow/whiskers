@@ -29,8 +29,9 @@
     <img *ngIf="!isVideo"
       src="{{image}}">
     <video *ngIf="isVideo"
-      muted="true"
+      autoplay
       loop
+      muted="true"
       controls>
       <source src="{{image}}" type="video/mp4">
       Your browser does not support the video tag.

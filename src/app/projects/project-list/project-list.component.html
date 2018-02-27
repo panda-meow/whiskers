@@ -59,7 +59,7 @@
     fxHide.xs>
     <mat-grid-tile *ngFor="let project of projects; index as i;">
       <!-- <mat-grid-tile-header>HEADER</mat-grid-tile-header> -->
-      <img src="{{headerURL(project)}}"
+      <img src="{{previewURL(project)}}"
         alt=""
         (click)="seeProjectDetails(project);" />
       <mat-grid-tile-footer fxHide.xs>{{project.title}}</mat-grid-tile-footer>

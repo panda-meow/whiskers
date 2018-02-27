@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import {Project} from '../shared/project.model';
 import {ProjectSection} from '../shared/project-section.model';
 import {ProjectService} from '../shared/project.service';
@@ -13,7 +13,7 @@ import {NgsRevealConfig} from 'ng-scrollreveal';
     templateUrl: './experiment.component.html',
 })
 
-export class ExperimentComponent implements OnInit, AfterViewInit {
+export class ExperimentComponent implements OnInit {
     project: Project;
     related: Project[];
     sections: any[] = [
@@ -93,7 +93,8 @@ export class ExperimentComponent implements OnInit, AfterViewInit {
      // --
      // Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
     //  config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
-     config.viewOffset = { top: 65, right: 0, bottom: 200, left: 0 };
+     config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
+    //  config.viewOffset = { top: 65, right: 0, bottom: 200, left: 0 };
 
      // other options here
   }
@@ -120,16 +121,5 @@ export class ExperimentComponent implements OnInit, AfterViewInit {
     // this.ScrollTopService.setScrollTop();
   }
 
-  ngAfterViewInit() {
-    // setTimeout(function() {
-      // console.log('In ngAfterViewInit before setinterval called.');
-      // call service
-      // this.ScrollTopService.setScrollTop();
-    //  }, 1000);
-    // this.updateWindow();
-
-    // setInterval(() => this.ScrollTopService.setScrollTop(), 1000);
-    // console.log('In ngAfterViewInit after setinterval called.');
-  }
 
 }
