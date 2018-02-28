@@ -7,6 +7,15 @@ section {
   }
 }
 
+// [element^=project-section-] {
+//   background: pink;
+// }
+// *[class*="item"] {
+//   border: 5px solid purple;
+//   section {
+//     background: pink !important;
+//   }
+// }
 :host /deep/ .project-section--header {
   // padding-bottom: 20px;
   font-weight: 600;

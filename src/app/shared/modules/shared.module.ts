@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {MaterialModule} from './material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {ProjectService} from '../../projects/shared/project.service';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {FlexLayoutModule, MediaChange, ObservableMedia} from '@angular/flex-layout';
 import { SHARED_COMPONENTS } from '../../projects/experiment/components/index';
 import { MarkdownModule } from 'angular2-markdown';
 import { MarkdownComponent } from 'angular2-markdown/markdown/markdown.component';

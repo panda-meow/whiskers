@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {ProjectListComponent} from './project-list/project-list.component';
+import {LoadingComponent} from '../core/loading/loading.component';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component';

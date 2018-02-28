@@ -1,6 +1,11 @@
 import {Component, ViewChild, Directive, AfterContentInit} from '@angular/core';
+import {BreakpointObserver, BreakpointState, Breakpoints} from '@angular/cdk/layout';
+import {Observable} from 'rxjs/Observable';
+import { MediaChange, ObservableMedia} from '@angular/flex-layout';
+
 import {Project} from '../shared/project.model';
 import {ProjectService} from '../shared/project.service';
+import {LoadingComponent} from '../../core/loading/loading.component';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {AppConfig} from '../../config/app.config';
@@ -14,9 +19,12 @@ import {LoggerService} from '../../core/logger.service';
 })
 
 export class ProjectListComponent {
+
   projects: Project[];
   newProjectForm: FormGroup;
-
+  showFirst: boolean;
+  showLast: boolean;
+  columnNum = 2;
   canVote = false;
   error: string;
   @ViewChild('form') myNgForm; // just to call resetForm method
@@ -24,7 +32,10 @@ export class ProjectListComponent {
   constructor(private projectService: ProjectService,
               private dialog: MatDialog,
               private router: Router,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private  mq: BreakpointObserver,
+              private media: ObservableMedia
+            ) {
     this.canVote = this.projectService.checkIfUserCanVote();
 
     this.newProjectForm = this.formBuilder.group({
@@ -37,7 +48,31 @@ export class ProjectListComponent {
         return b.name.localeCompare(a.name);
       });
     });
+
+
+
+    media.asObservable()
+    .subscribe((change: MediaChange) => {
+      // alert(change.mqAlias);
+      console.log(change.mqAlias);
+      if (change.mqAlias == 'xs') {
+        this.columnNum = 1;
+        this.showFirst = false;
+        this.showLast = false;
+      } else if (change.mqAlias == 'sm'  ) {
+        this.columnNum = 2;
+        this.showFirst = false;
+        this.showLast = true;
+      } else {
+        this.columnNum = 3;
+        this.showFirst = true;
+        this.showLast = true;
+      }
+    });
+
   }
+
+
 
   headerURL(project: Project): string {
     return Project.headerURL(project);

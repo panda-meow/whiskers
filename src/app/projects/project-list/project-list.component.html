@@ -25,7 +25,10 @@
       class="gallery-img">
   </div>
 </div> -->
-<div *ngIf="!projects"
+<div *ngIf="!projects">
+  <loading-page></loading-page>
+</div>
+<!-- <div *ngIf="!projects"
   fxLayout="row"
   fxLayoutAlign="center center"
   class="loading-page">
@@ -35,7 +38,7 @@
       [mode]="'indeterminate'">
     </mat-progress-spinner>
   </div>
-</div>
+</div> -->
 
 <!--
 <div fxLayout="row"
@@ -45,41 +48,58 @@
     rel='stylesheet'
     type='text/css'> -->
 <!-- <h1>Awesome Image Hover in Pure CSS Part I</h1> -->
-<div class="content">
+
+<div class="content"
+  fxLayout="row"
+  fxLayoutAlign="center center">
   <!--   <h2>Milo</h2> -->
 
   <!-- <div class="grid"
     fxLayout="row"
     fxLayoutAlign="space-around stretch"
     fxLayoutWrap> -->
-  <mat-grid-list cols="2"
-    rowHeight="250px"
-    gutterSize="3px"
-    fxShow.gt-xs
-    fxHide.xs>
+
+  <mat-grid-list [cols]="columnNum"
+    rowHeight="fit"
+    gutterSize="3px">
+
     <mat-grid-tile *ngFor="let project of projects; index as i;">
-      <!-- <mat-grid-tile-header>HEADER</mat-grid-tile-header> -->
       <img src="{{previewURL(project)}}"
         alt=""
         (click)="seeProjectDetails(project);" />
       <mat-grid-tile-footer fxHide.xs>{{project.title}}</mat-grid-tile-footer>
-      <!-- <p>{{project.title}}</p> -->
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="showLast"
+      class="fun-filler">
+      <!-- <img class="hover"
+        src="assets/images/gifs/robot-2.gif"
+        alt="" /> -->
+      <img class="hover"
+        src="assets/images/gifs/noise.gif"
+        alt="" />
+      <!-- <mat-grid-tile-footer fxHide.xs>{{project.title}}</mat-grid-tile-footer> -->
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="showFirst"
+      class="fun-filler">
+      <img class="hover"
+        src="assets/images/gifs/robot-2.gif"
+        alt="" />
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list fxShow.xs
+  <!-- <mat-grid-list fxShow.xs
     fxHide.gt-xs
     cols="1"
-    rowHeight="250px"
+    rowHeight="fit"
     gutterSize="3px">
     <mat-grid-tile *ngFor="let project of projects; index as i;">
-      <!-- <mat-grid-tile-header>HEADER</mat-grid-tile-header> -->
       <img src="{{headerURL(project)}}"
         alt=""
         (click)="seeProjectDetails(project);" />
       <mat-grid-tile-footer>{{project.title}}</mat-grid-tile-footer>
-      <!-- <p>{{project.title}}</p> -->
     </mat-grid-tile>
-  </mat-grid-list>
+  </mat-grid-list> -->
+
+
   <!-- <div class="grid"
     fxLayout="row"
     fxLayoutAlign="center stretch"
@@ -143,6 +163,7 @@
     </figure>
   </div> -->
 </div>
+
 <!-- </div> -->
 <!-- </div> -->
 <!-- /END NEW TEST -->

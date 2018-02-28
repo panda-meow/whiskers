@@ -39,7 +39,7 @@ import { TextCarouselComponent } from './projects/project-home/text-carousel.com
     NgsRevealModule.forRoot(),
     SharedModule.forRoot(),
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,

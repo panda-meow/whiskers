@@ -7,6 +7,7 @@ import {LoggerService} from './logger.service';
 
 import {NavComponent} from './nav/nav.component';
 import {FooterComponent} from './footer/footer.component';
+// import {LoadingComponent} from './loading/loading.component';
 import {SharedModule} from '../shared/modules/shared.module';
 import {RouterModule} from '@angular/router';
 import {SearchBarComponent} from './search-bar/search-bar.component';
@@ -27,12 +28,14 @@ import {ScrollTopService} from './scroll-top.service';
   ],
   exports: [
     NavComponent,
-    FooterComponent
+    FooterComponent,
+    // LoadingComponent
   ],
   declarations: [
     NavComponent,
     FooterComponent,
     SearchBarComponent,
+    // LoadingComponent,
     AboutComponent,
     ContactComponent,
     Error404Component

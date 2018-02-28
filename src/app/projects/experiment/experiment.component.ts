@@ -18,6 +18,7 @@ export class ExperimentComponent implements OnInit {
     related: Project[];
     sections: any[] = [
     ];
+    type: any;
 
   constructor(private projectService: ProjectService,
               private activatedRoute: ActivatedRoute,
@@ -73,7 +74,7 @@ export class ExperimentComponent implements OnInit {
 // config.container = window.document.querySelector('experiment');
 
      // true/false to control reveal animations on mobile.
-     config.mobile = false;
+     config.mobile = true;
 
      // true:  reveals occur every time elements become visible
      // false: reveals occur once as elements become visible
@@ -86,14 +87,16 @@ export class ExperimentComponent implements OnInit {
 
      // Change when an element is considered in the viewport. The default value
      // of 0.20 means 20% of an element must be visible for its reveal to occur.
-     config.viewFactor = 0.1;
+    //  config.viewFactor = 0.99;
+     config.viewFactor = 0.20;
 
      // Pixel values that alter the container boundaries.
      // e.g. Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
      // --
      // Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
     //  config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
-     config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
+    //  config.viewOffset = { top: -200, right: 0, bottom: 200, left: 0 };
+     config.viewOffset = { top: -58, right: 0, bottom: 58, left: 0 };
     //  config.viewOffset = { top: 65, right: 0, bottom: 200, left: 0 };
 
      // other options here
@@ -112,9 +115,9 @@ export class ExperimentComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('ngOnInit called.');
+    // console.log('ngOnInit called.');
     // setTimeout(function() {
-      console.log('In ngAfterViewInit before setinterval called.');
+      // console.log('In ngAfterViewInit before setinterval called.');
       // call service
       this.ScrollTopService.setScrollTop();
     //  }, 1000);

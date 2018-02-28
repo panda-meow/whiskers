@@ -1,5 +1,5 @@
 {
-  "name": "angular-example-app",
+  "name": "chelsea-pattee-professional-portfolio",
   "version": "5.0.0",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
     "ci": "npm run lint && npm run test && npm run e2e",
     "sme": "ng build && source-map-explorer dist/main.bundle.js",
     "release": "standard-version && git push --follow-tags origin master",
-    "docker": "docker build -t angularexampleapp . && docker run -d -p 4200:80 angularexampleapp"
+    "docker": "docker build -t chelseapatteeprofessionalportfolio . && docker run -d -p 4200:80 chelseapatteeprofessionalportfolio"
   },
   "private": true,
   "engines": {
@@ -23,8 +23,7 @@
     "npm": ">= 3.0.0"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions"
+    "defaults"
   ],
   "dependencies": {
     "@angular-devkit/core": "^0.2.0",
@@ -38,12 +37,15 @@
     "@angular/platform-browser": "5.1.0",
     "@angular/platform-browser-dynamic": "5.1.0",
     "@angular/router": "5.1.0",
+    "@cloudinary/angular-5.x": "^1.0.1",
     "angular2-markdown": "^2.2.3",
     "classlist.js": "1.1.20150312",
+    "cloudinary-core": "^2.5.0",
     "core-js": "2.5.1",
     "ng-scrollreveal": "^2.2.0",
     "rxjs": "5.5.5",
     "scrollreveal": "^3.3.6",
+    "web-animations-js": "^2.3.1",
     "zone.js": "0.8.18"
   },
   "devDependencies": {

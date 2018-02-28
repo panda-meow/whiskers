@@ -15,6 +15,7 @@ import {ProjectListComponent } from './project-list/project-list.component';
 import {ProjectDetailComponent} from './project-detail/project-detail.component';
 import {ProjectsComponent} from './projects.component';
 import {ExperimentComponent} from './experiment/experiment.component';
+import {LoadingComponent} from '../core/loading/loading.component';
 // import {CarouselComponent} from './carousel/carousel.component';
 // import { BannerCtrlDirective } from './carousel/carousel.directive';
 // import {ProjectHeaderComponent} from './experiment/components/main/project-header/project-header.component';
@@ -44,6 +45,7 @@ import {ProjectService} from './shared/project.service';
     ExperimentComponent,
     // RemoveProjectDialogComponent,
     ProjectDetailComponent,
+    LoadingComponent
     // CarouselComponent,
     // BannerCtrlDirective
     // ProjectHeaderComponent,
